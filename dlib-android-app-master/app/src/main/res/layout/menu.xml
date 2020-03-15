@@ -11,7 +11,14 @@
         android:layout_width="208dp"
         android:layout_height="60dp"
         android:layout_marginTop="20dp"
+        android:background="#B2DFDB"
+        android:drawableStart="@drawable/baseline_insert_chart_outlined_black_18dp"
+        android:drawableLeft="@drawable/baseline_insert_chart_outlined_black_18dp"
         android:text="기록 확인"
+        android:textAllCaps="false"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="@+id/button3"
         app:layout_constraintStart_toStartOf="@+id/button3"
         app:layout_constraintTop_toBottomOf="@+id/button3" />
@@ -21,9 +28,15 @@
         android:layout_width="208dp"
         android:layout_height="60dp"
         android:layout_marginTop="120dp"
-        android:layout_marginEnd="60dp"
-        android:layout_marginRight="60dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginRight="100dp"
+        android:background="#B2DFDB"
+        android:drawableStart="@drawable/baseline_directions_car_black_18dp"
+        android:drawableLeft="@drawable/baseline_directions_car_black_18dp"
         android:text="졸음 인식 서비스"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -32,7 +45,13 @@
         android:layout_width="208dp"
         android:layout_height="60dp"
         android:layout_marginTop="20dp"
+        android:background="#B2DFDB"
+        android:drawableStart="@drawable/baseline_settings_black_18dp"
+        android:drawableLeft="@drawable/baseline_settings_black_18dp"
         android:text="사용 방법"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="@+id/button5"
         app:layout_constraintStart_toStartOf="@+id/button5"
         app:layout_constraintTop_toBottomOf="@+id/button5" />
@@ -42,7 +61,13 @@
         android:layout_width="208dp"
         android:layout_height="60dp"
         android:layout_marginTop="20dp"
+        android:background="#B2DFDB"
+        android:drawableStart="@drawable/baseline_thumb_up_alt_black_18dp"
+        android:drawableLeft="@drawable/baseline_thumb_up_alt_black_18dp"
         android:text="FAQ"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="@+id/button7"
         app:layout_constraintStart_toStartOf="@+id/button7"
         app:layout_constraintTop_toBottomOf="@+id/button7" />
@@ -52,44 +77,25 @@
         android:layout_width="208dp"
         android:layout_height="60dp"
         android:layout_marginTop="20dp"
-        android:text="환경 설정"
+        android:background="#B2DFDB"
+        android:drawableStart="@drawable/baseline_alarm_black_18dp"
+        android:drawableLeft="@drawable/baseline_alarm_black_18dp"
+        android:text="알람 설정"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="@+id/button4"
         app:layout_constraintStart_toStartOf="@+id/button4"
         app:layout_constraintTop_toBottomOf="@+id/button4" />
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="62dp"
-        android:layout_height="52dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="125dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/car" />
-
-    <ImageView
-        android:id="@+id/imageView15"
-        android:layout_width="56dp"
-        android:layout_height="49dp"
-        app:srcCompat="@drawable/clock_s"
-        tools:layout_editor_absoluteX="56dp"
-        tools:layout_editor_absoluteY="281dp" />
-
-    <ImageView
-        android:id="@+id/imageView17"
-        android:layout_width="58dp"
-        android:layout_height="62dp"
-        app:srcCompat="@drawable/good"
-        tools:layout_editor_absoluteX="60dp"
-        tools:layout_editor_absoluteY="439dp" />
-
     <ImageButton
         android:id="@+id/imageButton4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="53dp"
+        android:layout_height="53dp"
+        android:background="#00F7F0F0"
+        android:tint="@color/colorPrimary"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/list" />
+        app:srcCompat="@drawable/baseline_reorder_black_18dp" />
 
 </android.support.constraint.ConstraintLayout>

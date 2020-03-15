@@ -12,8 +12,11 @@
         android:layout_width="224dp"
         android:layout_height="70dp"
         android:layout_marginTop="320dp"
-        android:layout_marginEnd="80dp"
-        android:layout_marginRight="80dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginRight="100dp"
+        android:background="@color/colorAccent"
+        android:drawableStart="@drawable/baseline_perm_identity_black_18dp"
+        android:drawableLeft="@drawable/baseline_perm_identity_black_18dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="아이디"
@@ -24,6 +27,9 @@
         android:id="@+id/pw_text"
         android:layout_width="224dp"
         android:layout_height="59dp"
+        android:background="@color/colorAccent"
+        android:drawableStart="@drawable/baseline_lock_black_18dp"
+        android:drawableLeft="@drawable/baseline_lock_black_18dp"
         android:ems="10"
         android:inputType="textPassword"
         android:text="비밀번호"
@@ -36,10 +42,14 @@
         android:id="@+id/butten1"
         android:layout_width="108dp"
         android:layout_height="62dp"
-        android:layout_marginEnd="150dp"
-        android:layout_marginRight="150dp"
-        android:layout_marginBottom="70dp"
+        android:layout_marginEnd="148dp"
+        android:layout_marginRight="148dp"
+        android:layout_marginBottom="85dp"
+        android:background="@color/colorAccent"
+        android:shadowColor="#ffffff"
         android:text="로그인"
+        android:textSize="18sp"
+        android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -48,48 +58,43 @@
         android:layout_width="109dp"
         android:layout_height="65dp"
         android:layout_marginTop="10dp"
+        android:background="@color/colorAccent"
         android:text="회원가입"
+        android:textSize="18sp"
+        android:textStyle="italic"
+        android:tint="@color/colorAccent"
         app:layout_constraintEnd_toEndOf="@+id/butten1"
         app:layout_constraintStart_toStartOf="@+id/butten1"
         app:layout_constraintTop_toBottomOf="@+id/butten1" />
 
     <ImageView
-        android:id="@+id/imageView13"
-        android:layout_width="217dp"
-        android:layout_height="202dp"
-        android:layout_marginTop="70dp"
+        android:id="@+id/imageView9"
+        android:layout_width="425dp"
+        android:layout_height="249dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@color/colorAccent" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="126dp"
+        android:layout_height="121dp"
+        android:layout_marginTop="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/clock_b" />
+        app:srcCompat="@drawable/baseline_alarm_black_18dp" />
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="71dp"
-        android:layout_height="69dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="320dp"
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="졸음 방지 시스템"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/person" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView10" />
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="69dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="5dp"
-        app:layout_constraintEnd_toEndOf="@+id/imageView2"
-        app:layout_constraintStart_toStartOf="@+id/imageView2"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        app:srcCompat="@drawable/key" />
-
-    <ImageButton
-        android:id="@+id/imageButton2"
-        android:layout_width="62dp"
-        android:layout_height="66dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/list" />
-
-</android.support.constraint.ConstraintLayout>
+</>
