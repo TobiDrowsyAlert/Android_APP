@@ -7,7 +7,7 @@
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/go"
         android:layout_width="235dp"
         android:layout_height="55dp"
         android:layout_marginTop="400dp"
@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/text_ID"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:layout_marginTop="130dp"
@@ -34,7 +34,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/text_PW"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:layout_marginTop="10dp"
@@ -43,13 +43,13 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text="비밀번호"
-        app:layout_constraintEnd_toEndOf="@+id/editText"
+        app:layout_constraintEnd_toEndOf="@+id/text_ID"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/editText"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
+        app:layout_constraintStart_toStartOf="@+id/text_ID"
+        app:layout_constraintTop_toBottomOf="@+id/text_ID" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/text_PW2"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:layout_marginTop="10dp"
@@ -59,13 +59,13 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text="비밀번호 재확인"
-        app:layout_constraintEnd_toEndOf="@+id/editText2"
+        app:layout_constraintEnd_toEndOf="@+id/text_PW"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/editText2"
-        app:layout_constraintTop_toBottomOf="@+id/editText2" />
+        app:layout_constraintStart_toStartOf="@+id/text_PW"
+        app:layout_constraintTop_toBottomOf="@+id/text_PW" />
 
     <EditText
-        android:id="@+id/editText4"
+        android:id="@+id/text_N"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:layout_marginTop="10dp"
@@ -75,12 +75,12 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text="이름"
-        app:layout_constraintEnd_toEndOf="@+id/editText3"
-        app:layout_constraintStart_toStartOf="@+id/editText3"
-        app:layout_constraintTop_toBottomOf="@+id/editText3" />
+        app:layout_constraintEnd_toEndOf="@+id/text_PW2"
+        app:layout_constraintStart_toStartOf="@+id/text_PW2"
+        app:layout_constraintTop_toBottomOf="@+id/text_PW2" />
 
     <EditText
-        android:id="@+id/editText5"
+        android:id="@+id/text_M"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:layout_marginTop="10dp"
@@ -90,13 +90,13 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text="이메일"
-        app:layout_constraintEnd_toEndOf="@+id/editText4"
+        app:layout_constraintEnd_toEndOf="@+id/text_N"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/editText4"
-        app:layout_constraintTop_toBottomOf="@+id/editText4" />
+        app:layout_constraintStart_toStartOf="@+id/text_N"
+        app:layout_constraintTop_toBottomOf="@+id/text_N" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/back"
         android:layout_width="53dp"
         android:layout_height="53dp"
         android:background="#00F7F0F0"

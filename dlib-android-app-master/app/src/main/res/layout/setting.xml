@@ -75,7 +75,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <SeekBar
-        android:id="@+id/seekBar_1"
+        android:id="@+id/step_1_seek"
         android:layout_width="216dp"
         android:layout_height="22dp"
         android:layout_marginTop="150dp"
@@ -87,27 +87,27 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <SeekBar
-        android:id="@+id/seekBar_2"
+        android:id="@+id/step_2_seek"
         android:layout_width="216dp"
         android:layout_height="22dp"
         android:layout_marginTop="25dp"
         android:background="@color/colorAccent"
-        app:layout_constraintEnd_toEndOf="@+id/seekBar_1"
-        app:layout_constraintStart_toStartOf="@+id/seekBar_1"
-        app:layout_constraintTop_toBottomOf="@+id/seekBar_1" />
+        app:layout_constraintEnd_toEndOf="@+id/step_1_seek"
+        app:layout_constraintStart_toStartOf="@+id/step_1_seek"
+        app:layout_constraintTop_toBottomOf="@+id/step_1_seek" />
 
     <SeekBar
-        android:id="@+id/seekBar_3"
+        android:id="@+id/step_3_seek"
         android:layout_width="216dp"
         android:layout_height="22dp"
         android:layout_marginTop="25dp"
         android:background="@color/colorAccent"
-        app:layout_constraintEnd_toEndOf="@+id/seekBar_2"
-        app:layout_constraintStart_toStartOf="@+id/seekBar_2"
-        app:layout_constraintTop_toBottomOf="@+id/seekBar_2" />
+        app:layout_constraintEnd_toEndOf="@+id/step_2_seek"
+        app:layout_constraintStart_toStartOf="@+id/step_2_seek"
+        app:layout_constraintTop_toBottomOf="@+id/step_2_seek" />
 
     <SeekBar
-        android:id="@+id/seekBar_4"
+        android:id="@+id/sound_seek"
         android:layout_width="216dp"
         android:layout_height="22dp"
         android:layout_marginStart="30dp"
@@ -119,66 +119,66 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/step_1_sec"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="1dp"
         android:text="1.2/sec"
         android:textColor="@color/colorPrimary"
-        app:layout_constraintEnd_toEndOf="@+id/seekBar_1"
-        app:layout_constraintStart_toStartOf="@+id/seekBar_1"
-        app:layout_constraintTop_toBottomOf="@+id/seekBar_1" />
+        app:layout_constraintEnd_toEndOf="@+id/step_1_seek"
+        app:layout_constraintStart_toStartOf="@+id/step_1_seek"
+        app:layout_constraintTop_toBottomOf="@+id/step_1_seek" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/step_2_sec"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="1dp"
         android:text="5/sec"
         android:textColor="@color/colorPrimary"
-        app:layout_constraintEnd_toEndOf="@+id/seekBar_2"
-        app:layout_constraintStart_toStartOf="@+id/seekBar_2"
-        app:layout_constraintTop_toBottomOf="@+id/seekBar_2" />
+        app:layout_constraintEnd_toEndOf="@+id/step_2_seek"
+        app:layout_constraintStart_toStartOf="@+id/step_2_seek"
+        app:layout_constraintTop_toBottomOf="@+id/step_2_seek" />
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/step_3_sec"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="1dp"
         android:text="30/sec"
         android:textColor="@color/colorPrimary"
-        app:layout_constraintEnd_toEndOf="@+id/seekBar_3"
-        app:layout_constraintStart_toStartOf="@+id/seekBar_3"
-        app:layout_constraintTop_toBottomOf="@+id/seekBar_3" />
+        app:layout_constraintEnd_toEndOf="@+id/step_3_seek"
+        app:layout_constraintStart_toStartOf="@+id/step_3_seek"
+        app:layout_constraintTop_toBottomOf="@+id/step_3_seek" />
 
     <CheckBox
-        android:id="@+id/checkBox_2"
+        android:id="@+id/step_2_CB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="15dp"
-        app:layout_constraintStart_toEndOf="@+id/seekBar_2"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox_1" />
+        app:layout_constraintStart_toEndOf="@+id/step_2_seek"
+        app:layout_constraintTop_toBottomOf="@+id/step_1_CB" />
 
     <CheckBox
-        android:id="@+id/checkBox_3"
+        android:id="@+id/step_3_CB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="15dp"
-        app:layout_constraintStart_toEndOf="@+id/seekBar_3"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox_2" />
+        app:layout_constraintStart_toEndOf="@+id/step_3_seek"
+        app:layout_constraintTop_toBottomOf="@+id/step_2_CB" />
 
     <CheckBox
-        android:id="@+id/checkBox_1"
+        android:id="@+id/step_1_CB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="150dp"
-        app:layout_constraintStart_toEndOf="@+id/seekBar_1"
+        app:layout_constraintStart_toEndOf="@+id/step_1_seek"
         app:layout_constraintTop_toTopOf="parent" />
 
     <CheckBox
@@ -219,17 +219,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="40dp"
-        android:layout_marginRight="40dp"
-        android:layout_marginBottom="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/checkBox_1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/vibration" />
-
     <ImageButton
         android:id="@+id/imageButton5"
         android:layout_width="53dp"
@@ -245,9 +234,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/checkBox_1"
-        app:layout_constraintEnd_toEndOf="@+id/checkBox_1"
-        app:layout_constraintStart_toStartOf="@+id/checkBox_1"
+        app:layout_constraintBottom_toTopOf="@+id/step_1_CB"
+        app:layout_constraintEnd_toEndOf="@+id/step_1_CB"
+        app:layout_constraintStart_toStartOf="@+id/step_1_CB"
         app:srcCompat="@drawable/baseline_settings_black_18dp" />
 
 </android.support.constraint.ConstraintLayout>

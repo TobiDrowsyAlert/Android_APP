@@ -39,7 +39,7 @@
         app:layout_constraintTop_toBottomOf="@+id/id_text" />
 
     <Button
-        android:id="@+id/butten1"
+        android:id="@+id/login_b"
         android:layout_width="108dp"
         android:layout_height="62dp"
         android:layout_marginEnd="148dp"
@@ -54,7 +54,7 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/signup_b"
         android:layout_width="109dp"
         android:layout_height="65dp"
         android:layout_marginTop="10dp"
@@ -63,9 +63,9 @@
         android:textSize="18sp"
         android:textStyle="italic"
         android:tint="@color/colorAccent"
-        app:layout_constraintEnd_toEndOf="@+id/butten1"
-        app:layout_constraintStart_toStartOf="@+id/butten1"
-        app:layout_constraintTop_toBottomOf="@+id/butten1" />
+        app:layout_constraintEnd_toEndOf="@+id/login_b"
+        app:layout_constraintStart_toStartOf="@+id/login_b"
+        app:layout_constraintTop_toBottomOf="@+id/login_b" />
 
     <ImageView
         android:id="@+id/imageView9"
@@ -77,13 +77,13 @@
 
     <ImageView
         android:id="@+id/imageView10"
-        android:layout_width="126dp"
-        android:layout_height="121dp"
+        android:layout_width="139dp"
+        android:layout_height="127dp"
         android:layout_marginTop="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/baseline_alarm_black_18dp" />
+        app:srcCompat="@drawable/ic_access_alarm_black_24dp" />
 
     <TextView
         android:id="@+id/textView"
