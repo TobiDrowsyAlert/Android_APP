@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <EditText
+        android:id="@+id/id_text"
+        android:layout_width="224dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="320dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginRight="100dp"
+        android:background="@color/colorAccent"
+        android:drawableStart="@drawable/baseline_perm_identity_black_18dp"
+        android:drawableLeft="@drawable/baseline_perm_identity_black_18dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="아이디"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/pw_text"
+        android:layout_width="224dp"
+        android:layout_height="59dp"
+        android:background="@color/colorAccent"
+        android:drawableStart="@drawable/baseline_lock_black_18dp"
+        android:drawableLeft="@drawable/baseline_lock_black_18dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:text="비밀번호"
+        app:layout_constraintEnd_toEndOf="@+id/id_text"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/id_text"
+        app:layout_constraintTop_toBottomOf="@+id/id_text" />
+
+    <Button
+        android:id="@+id/login_b"
+        android:layout_width="108dp"
+        android:layout_height="62dp"
+        android:layout_marginEnd="148dp"
+        android:layout_marginRight="148dp"
+        android:layout_marginBottom="85dp"
+        android:background="@color/colorAccent"
+        android:shadowColor="#ffffff"
+        android:text="로그인"
+        android:textSize="18sp"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/signup_b"
+        android:layout_width="109dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/colorAccent"
+        android:text="회원가입"
+        android:textSize="18sp"
+        android:textStyle="italic"
+        android:tint="@color/colorAccent"
+        app:layout_constraintEnd_toEndOf="@+id/login_b"
+        app:layout_constraintStart_toStartOf="@+id/login_b"
+        app:layout_constraintTop_toBottomOf="@+id/login_b" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="425dp"
+        android:layout_height="249dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@color/colorAccent" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="139dp"
+        android:layout_height="127dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_access_alarm_black_24dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="졸음 방지 시스템"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView10" />
+
+</>

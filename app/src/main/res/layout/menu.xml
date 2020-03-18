@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/menu_2"
+        android:layout_width="208dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:background="#B2DFDB"
+        android:drawableStart="@drawable/baseline_insert_chart_outlined_black_18dp"
+        android:drawableLeft="@drawable/baseline_insert_chart_outlined_black_18dp"
+        android:text="기록 확인"
+        android:textAllCaps="false"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="@+id/menu_1"
+        app:layout_constraintStart_toStartOf="@+id/menu_1"
+        app:layout_constraintTop_toBottomOf="@+id/menu_1" />
+
+    <Button
+        android:id="@+id/menu_1"
+        android:layout_width="208dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginRight="100dp"
+        android:background="#B2DFDB"
+        android:drawableStart="@drawable/baseline_directions_car_black_18dp"
+        android:drawableLeft="@drawable/baseline_directions_car_black_18dp"
+        android:text="졸음 인식 서비스"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/menu_4"
+        android:layout_width="208dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:background="#B2DFDB"
+        android:drawableStart="@drawable/baseline_settings_black_18dp"
+        android:drawableLeft="@drawable/baseline_settings_black_18dp"
+        android:text="사용 방법"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="@+id/menu_3"
+        app:layout_constraintStart_toStartOf="@+id/menu_3"
+        app:layout_constraintTop_toBottomOf="@+id/menu_3" />
+
+    <Button
+        android:id="@+id/menu_5"
+        android:layout_width="208dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:background="#B2DFDB"
+        android:drawableStart="@drawable/baseline_thumb_up_alt_black_18dp"
+        android:drawableLeft="@drawable/baseline_thumb_up_alt_black_18dp"
+        android:text="FAQ"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="@+id/menu_4"
+        app:layout_constraintStart_toStartOf="@+id/menu_4"
+        app:layout_constraintTop_toBottomOf="@+id/menu_4" />
+
+    <Button
+        android:id="@+id/menu_3"
+        android:layout_width="208dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:background="#B2DFDB"
+        android:drawableStart="@drawable/baseline_alarm_black_18dp"
+        android:drawableLeft="@drawable/baseline_alarm_black_18dp"
+        android:text="알람 설정"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="@+id/menu_2"
+        app:layout_constraintStart_toStartOf="@+id/menu_2"
+        app:layout_constraintTop_toBottomOf="@+id/menu_2" />
+
+    <ImageButton
+        android:id="@+id/back_b_main"
+        android:layout_width="53dp"
+        android:layout_height="53dp"
+        android:background="#00F7F0F0"
+        android:tint="@color/colorPrimary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/baseline_reorder_black_18dp" />
+
+</android.support.constraint.ConstraintLayout>

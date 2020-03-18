@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/1_step"
+        android:layout_width="62dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="145dp"
+        android:background="@color/colorAccent"
+        android:text="1단계"
+        android:textColor="@color/colorPrimary"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/2_step"
+        android:layout_width="62dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="15dp"
+        android:background="@color/colorAccent"
+        android:text="2단계"
+        android:textColor="@color/colorPrimary"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/1_step"
+        app:layout_constraintStart_toStartOf="@+id/1_step"
+        app:layout_constraintTop_toBottomOf="@+id/1_step" />
+
+    <TextView
+        android:id="@+id/3_step"
+        android:layout_width="62dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="15dp"
+        android:background="@color/colorAccent"
+        android:text="3단계"
+        android:textColor="@color/colorPrimary"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/2_step"
+        app:layout_constraintStart_toStartOf="@+id/2_step"
+        app:layout_constraintTop_toBottomOf="@+id/2_step" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="104dp"
+        android:layout_height="31dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="40dp"
+        android:background="@color/colorAccent"
+        android:text="소리 크기"
+        android:textColor="@color/colorPrimary"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/3_step" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="251dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginBottom="170dp"
+        android:background="@color/colorAccent"
+        android:text="졸음 체크 문구 사용 체크"
+        android:textColor="@color/colorPrimary"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <SeekBar
+        android:id="@+id/step_1_seek"
+        android:layout_width="216dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginEnd="90dp"
+        android:layout_marginRight="90dp"
+        android:background="@color/cardview_light_background"
+        android:colorControlHightlight="#26A69A"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <SeekBar
+        android:id="@+id/step_2_seek"
+        android:layout_width="216dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="25dp"
+        android:background="@color/colorAccent"
+        app:layout_constraintEnd_toEndOf="@+id/step_1_seek"
+        app:layout_constraintStart_toStartOf="@+id/step_1_seek"
+        app:layout_constraintTop_toBottomOf="@+id/step_1_seek" />
+
+    <SeekBar
+        android:id="@+id/step_3_seek"
+        android:layout_width="216dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="25dp"
+        android:background="@color/colorAccent"
+        app:layout_constraintEnd_toEndOf="@+id/step_2_seek"
+        app:layout_constraintStart_toStartOf="@+id/step_2_seek"
+        app:layout_constraintTop_toBottomOf="@+id/step_2_seek" />
+
+    <SeekBar
+        android:id="@+id/sound_seek"
+        android:layout_width="216dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="320dp"
+        android:background="@color/colorAccent"
+        android:colorControlHightlight="#26A69A"
+        app:layout_constraintStart_toEndOf="@+id/textView4"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/step_1_sec"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:text="1.2/sec"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="@+id/step_1_seek"
+        app:layout_constraintStart_toStartOf="@+id/step_1_seek"
+        app:layout_constraintTop_toBottomOf="@+id/step_1_seek" />
+
+    <TextView
+        android:id="@+id/step_2_sec"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:text="5/sec"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="@+id/step_2_seek"
+        app:layout_constraintStart_toStartOf="@+id/step_2_seek"
+        app:layout_constraintTop_toBottomOf="@+id/step_2_seek" />
+
+    <TextView
+        android:id="@+id/step_3_sec"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:text="30/sec"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="@+id/step_3_seek"
+        app:layout_constraintStart_toStartOf="@+id/step_3_seek"
+        app:layout_constraintTop_toBottomOf="@+id/step_3_seek" />
+
+    <CheckBox
+        android:id="@+id/step_2_CB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintStart_toEndOf="@+id/step_2_seek"
+        app:layout_constraintTop_toBottomOf="@+id/step_1_CB" />
+
+    <CheckBox
+        android:id="@+id/step_3_CB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintStart_toEndOf="@+id/step_3_seek"
+        app:layout_constraintTop_toBottomOf="@+id/step_2_CB" />
+
+    <CheckBox
+        android:id="@+id/step_1_CB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="150dp"
+        app:layout_constraintStart_toEndOf="@+id/step_1_seek"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <CheckBox
+        android:id="@+id/checkBox4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginBottom="170dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView9" />
+
+    <Button
+        android:id="@+id/button9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginBottom="50dp"
+        android:background="@color/colorAccent"
+        android:text="초기화"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/button10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="100dp"
+        android:layout_marginRight="100dp"
+        android:layout_marginBottom="50dp"
+        android:background="@color/colorAccent"
+        android:text="변경 확인"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageButton
+        android:id="@+id/imageButton5"
+        android:layout_width="53dp"
+        android:layout_height="53dp"
+        android:background="#00F7F0F0"
+        android:tint="@color/colorPrimary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/baseline_reorder_black_18dp" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/step_1_CB"
+        app:layout_constraintEnd_toEndOf="@+id/step_1_CB"
+        app:layout_constraintStart_toStartOf="@+id/step_1_CB"
+        app:srcCompat="@drawable/baseline_settings_black_18dp" />
+
+</android.support.constraint.ConstraintLayout>
