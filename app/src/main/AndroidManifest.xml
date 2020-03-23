@@ -29,12 +29,17 @@
             </intent-filter>
 
         </activity>
+        <activity android:name=".mainEvent"/>
+        <activity android:name=".signupEvnet"/>
+        <activity android:name=".cameraEvent"/>
+        <activity android:name=".signupEvnet"/>
 
         <activity
             android:name=".CameraActivity"
             android:configChanges="orientation|screenSize"
             android:label="@string/app_name">
         </activity>
+
     </application>
 
 </manifest>
