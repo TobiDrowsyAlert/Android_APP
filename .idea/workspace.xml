@@ -1,10 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+  </component>
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="31cab281-b875-4e5c-a1b5-b2632b85b167" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="31cab281-b875-4e5c-a1b5-b2632b85b167" name="Default Changelist" comment="UI">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/dlib-android-app-master/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dlib-android-app-master/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/dlib-android-app-master/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/dlib-android-app-master/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/app/src/main/res/layout/sign_up.xml" beforeDir="false" afterPath="$PROJECT_DIR$/dlib-android-app-master/app/src/main/res/layout/sign_up.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,27 +27,75 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/dlib-android-app-master/app/src/main/res/layout/setting.xml">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dlib-android-app-master/app/src/main/java/com/tzutalin/dlibtest/CameraConnectionFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="22" column="4" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="4" />
+            <state>
+              <folding>
+                <element signature="e#0#27330#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dlib-android-app-master/app/src/main/res/menu/menu_main.xml">
+        <entry file="file://$PROJECT_DIR$/dlib-android-app-master/app/src/main/res/layout/main.xml">
+          <provider selected="true" editor-type-id="android-designer2" />
+          <provider editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dlib-android-app-master/app/src/main/java/com/tzutalin/dlibtest/FileUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+            <state>
+              <folding>
+                <element signature="e#0#1788#0" expanded="true" />
+              </folding>
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dlib-android-app-master/app/src/androidTest/java/DLibFunctionsTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dlib-android-app-master/app/src/main/res/layout/activity_camera.xml">
+          <provider selected="true" editor-type-id="android-designer2" />
+          <provider editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dlib-android-app-master/app/src/main/res/layout/sign_up.xml">
+          <provider selected="true" editor-type-id="android-designer2" />
+          <provider editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dlib-android-app-master/app/src/main/res/layout/menu.xml">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider editor-type-id="android-designer2" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="456">
+              <caret line="24" selection-start-line="24" selection-end-line="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/dlib-android-app-master/app/src/main/res/layout/setting.xml">
+          <provider selected="true" editor-type-id="android-designer2" />
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="152">
+              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -46,8 +104,8 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="338" />
-    <option name="y" value="10" />
+    <option name="x" value="251" />
+    <option name="y" value="19" />
     <option name="width" value="1349" />
     <option name="height" value="1047" />
   </component>
@@ -57,6 +115,22 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="dlib-android-app-master" type="58d84e3e:PackageViewProjectNode" />
+              <item name="dlib-android-app-master" type="616d4139:PackageViewModuleNode" />
+            </path>
+            <path>
+              <item name="dlib-android-app-master" type="58d84e3e:PackageViewProjectNode" />
+              <item name="dlib-android-app-master" type="616d4139:PackageViewModuleNode" />
+              <item name="Libraries" type="5c3f07af:PackageViewLibrariesNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -68,6 +142,105 @@
               <item name="dlib-android-app-master" type="b2602c69:ProjectViewProjectNode" />
               <item name="dlib-android-app-master" type="462c0819:PsiDirectoryNode" />
               <item name="dlib-android-app-master" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dlib-android-app-master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dlib-android-app-master" type="462c0819:PsiDirectoryNode" />
+              <item name="dlib-android-app-master" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dlib-android-app-master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dlib-android-app-master" type="462c0819:PsiDirectoryNode" />
+              <item name="dlib-android-app-master" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dlib-android-app-master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dlib-android-app-master" type="462c0819:PsiDirectoryNode" />
+              <item name="dlib-android-app-master" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="androidTest" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dlib-android-app-master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dlib-android-app-master" type="462c0819:PsiDirectoryNode" />
+              <item name="dlib-android-app-master" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="androidTest" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dlib-android-app-master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dlib-android-app-master" type="462c0819:PsiDirectoryNode" />
+              <item name="dlib-android-app-master" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dlib-android-app-master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dlib-android-app-master" type="462c0819:PsiDirectoryNode" />
+              <item name="dlib-android-app-master" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dlib-android-app-master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dlib-android-app-master" type="462c0819:PsiDirectoryNode" />
+              <item name="dlib-android-app-master" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dlib-android-app-master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dlib-android-app-master" type="462c0819:PsiDirectoryNode" />
+              <item name="dlib-android-app-master" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="tzutalin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dlib-android-app-master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dlib-android-app-master" type="462c0819:PsiDirectoryNode" />
+              <item name="dlib-android-app-master" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="tzutalin" type="462c0819:PsiDirectoryNode" />
+              <item name="dlibtest" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dlib-android-app-master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dlib-android-app-master" type="462c0819:PsiDirectoryNode" />
+              <item name="dlib-android-app-master" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="res" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dlib-android-app-master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dlib-android-app-master" type="462c0819:PsiDirectoryNode" />
+              <item name="dlib-android-app-master" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="res" type="462c0819:PsiDirectoryNode" />
+              <item name="layout" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -89,7 +262,17 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="AndroidView">
+        <subPane>
+          <expand>
+            <path>
+              <item name="dlib-android-app-master" type="1abcf292:AndroidViewProjectNode" />
+              <item name="dlib-android-app-master" type="e9137016:NonAndroidModuleNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -97,6 +280,9 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RunDashboard">
@@ -136,7 +322,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584523767996</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="UI">
+      <created>1584524709637</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1584524709638</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TodoView">
@@ -149,26 +342,31 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="97" y="17" width="1349" height="1047" extended-state="0" />
-    <editor active="true" />
+    <frame x="578" y="6" width="1349" height="1047" extended-state="0" />
     <layout>
-      <window_info id="Captures" order="0" weight="0.25" />
-      <window_info content_ui="combo" id="Project" order="1" weight="0.20636152" />
+      <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.3064391" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Designer" order="4" />
-      <window_info id="Resources Explorer" order="5" />
+      <window_info id="Resources Explorer" order="5" weight="0.32995737" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Favorites" order="7" side_tool="true" />
+      <window_info id="Build Variants" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="0" sideWeight="0.49806052" visible="true" weight="0.33077765" />
-      <window_info anchor="bottom" id="TODO" order="1" weight="0.32968238" />
+      <window_info anchor="bottom" id="TODO" order="1" weight="0.3286334" />
       <window_info anchor="bottom" id="Find" order="2" />
-      <window_info anchor="bottom" id="Terminal" order="3" weight="0.32968238" />
+      <window_info anchor="bottom" id="Terminal" order="3" weight="0.3286334" />
       <window_info anchor="bottom" id="Event Log" order="4" sideWeight="0.5019395" side_tool="true" weight="0.33077765" />
+      <window_info anchor="bottom" id="Logcat" order="5" weight="0.329718" />
+      <window_info anchor="bottom" id="Android Profiler" order="6" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="7" />
+      <window_info anchor="bottom" id="Debug" order="8" />
       <window_info anchor="right" id="Capture Analysis" order="0" />
       <window_info anchor="right" id="Theme Preview" order="1" />
       <window_info anchor="right" id="Preview" order="2" weight="0.32971296" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
+      <window_info anchor="right" id="Device File Explorer" order="4" side_tool="true" />
     </layout>
     <layout-to-restore>
       <window_info id="Captures" order="0" weight="0.25" />
@@ -238,29 +436,167 @@
     <option name="LAST_COMMIT_MESSAGE" value="UI" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/dlib-android-app-master/app/src/main/res/layout/menu.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/dlib-android-app-master/app/src/main/res/menu/menu_main.xml">
+      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dlib-android-app-master/app/src/main/java/com/tzutalin/dlibtest/CameraActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-342">
+          <folding>
+            <element signature="e#0#2536#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dlib-android-app-master/app/src/main/java/com/tzutalin/dlibtest/AutoFitTextureView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-877">
+          <folding>
+            <element signature="e#0#2537#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dlib-android-app-master/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-307" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dlib-android-app-master/app/src/main/java/com/tzutalin/dlibtest/CameraConnectionFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#27330#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dlib-android-app-master/app/src/main/res/layout/main.xml">
+      <provider selected="true" editor-type-id="android-designer2" />
+      <provider editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dlib-android-app-master/app/src/main/java/com/tzutalin/dlibtest/FileUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#1788#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dlib-android-app-master/app/src/androidTest/java/DLibFunctionsTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dlib-android-app-master/app/src/main/res/layout/activity_camera.xml">
+      <provider selected="true" editor-type-id="android-designer2" />
+      <provider editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dlib-android-app-master/app/src/main/res/layout/sign_up.xml">
+      <provider selected="true" editor-type-id="android-designer2" />
+      <provider editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dlib-android-app-master/app/src/main/res/layout/menu.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dlib-android-app-master/app/src/main/res/layout/setting.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="22" column="4" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="4" />
+      <provider selected="true" editor-type-id="android-designer2" />
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
         </state>
       </provider>
     </entry>
   </component>
   <component name="masterDetails">
     <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>dlib-android-app-master</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
       <state key="ProjectJDKs.UI">
         <settings>
           <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
           <splitter-proportions>
             <option name="proportions">
               <list>
