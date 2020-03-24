@@ -7,7 +7,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/1_step"
+        android:id="@+id/step1"
         android:layout_width="62dp"
         android:layout_height="33dp"
         android:layout_marginStart="20dp"
@@ -21,7 +21,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/2_step"
+        android:id="@+id/step2"
         android:layout_width="62dp"
         android:layout_height="33dp"
         android:layout_marginTop="15dp"
@@ -29,12 +29,12 @@
         android:text="2단계"
         android:textColor="@color/colorPrimary"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@+id/1_step"
-        app:layout_constraintStart_toStartOf="@+id/1_step"
-        app:layout_constraintTop_toBottomOf="@+id/1_step" />
+        app:layout_constraintEnd_toEndOf="@+id/step1"
+        app:layout_constraintStart_toStartOf="@+id/step1"
+        app:layout_constraintTop_toBottomOf="@+id/step1" />
 
     <TextView
-        android:id="@+id/3_step"
+        android:id="@+id/step3"
         android:layout_width="62dp"
         android:layout_height="33dp"
         android:layout_marginTop="15dp"
@@ -42,9 +42,9 @@
         android:text="3단계"
         android:textColor="@color/colorPrimary"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@+id/2_step"
-        app:layout_constraintStart_toStartOf="@+id/2_step"
-        app:layout_constraintTop_toBottomOf="@+id/2_step" />
+        app:layout_constraintEnd_toEndOf="@+id/step2"
+        app:layout_constraintStart_toStartOf="@+id/step2"
+        app:layout_constraintTop_toBottomOf="@+id/step2" />
 
     <TextView
         android:id="@+id/textView4"
@@ -58,7 +58,7 @@
         android:textColor="@color/colorPrimary"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/3_step" />
+        app:layout_constraintTop_toBottomOf="@+id/step3" />
 
     <TextView
         android:id="@+id/textView9"
@@ -82,7 +82,7 @@
         android:layout_marginEnd="90dp"
         android:layout_marginRight="90dp"
         android:background="@color/cardview_light_background"
-        android:colorControlHightlight="#26A69A"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -114,7 +114,7 @@
         android:layout_marginLeft="30dp"
         android:layout_marginTop="320dp"
         android:background="@color/colorAccent"
-        android:colorControlHightlight="#26A69A"
+
         app:layout_constraintStart_toEndOf="@+id/textView4"
         app:layout_constraintTop_toTopOf="parent" />
 
