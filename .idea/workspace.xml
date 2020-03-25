@@ -9,126 +9,13 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="31cab281-b875-4e5c-a1b5-b2632b85b167" name="Default Changelist" comment="UI">
-      <change afterPath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/cameraEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/mainEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/menuEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/signupEvnet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+    <list default="true" id="31cab281-b875-4e5c-a1b5-b2632b85b167" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/.gitmodules" beforeDir="false" afterPath="$PROJECT_DIR$/.gitmodules" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/.idea/assetWizardSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/.idea/caches/gradle_models.ser" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/.idea/codeStyles/Project.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/.idea/copyright/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/.idea/render.experimental.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/render.experimental.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/.idea/runConfigurations.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.travis.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/LICENSE.md" beforeDir="false" afterPath="$PROJECT_DIR$/LICENSE.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/app/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/app/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/app/proguard-rules.pro" beforeDir="false" afterPath="$PROJECT_DIR$/app/proguard-rules.pro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/app/src/androidTest/java/DLibFunctionsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/androidTest/java/DLibFunctionsTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/app/src/androidTest/java/FaceDetTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/androidTest/java/FaceDetTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/app/src/main/java/com/tzutalin/dlibtest/AutoFitTextureView.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/AutoFitTextureView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/app/src/main/java/com/tzutalin/dlibtest/CameraActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/CameraActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/app/src/main/java/com/tzutalin/dlibtest/CameraConnectionFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/CameraConnectionFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/app/src/main/java/com/tzutalin/dlibtest/DebugLogFileTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/DebugLogFileTree.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/app/src/main/java/com/tzutalin/dlibtest/DlibDemoApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/DlibDemoApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/app/src/main/java/com/tzutalin/dlibtest/FileUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/FileUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/app/src/main/java/com/tzutalin/dlibtest/FloatingCameraWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/FloatingCameraWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/app/src/main/java/com/tzutalin/dlibtest/ImageUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/ImageUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/app/src/main/java/com/tzutalin/dlibtest/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/app/src/main/java/com/tzutalin/dlibtest/OnGetImageListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/OnGetImageListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/app/src/main/java/com/tzutalin/dlibtest/TrasparentTitleView.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/TrasparentTitleView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/app/src/main/res/drawable/baseline_alarm_black_18dp.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/baseline_alarm_black_18dp.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/app/src/main/res/drawable/baseline_arrow_back_ios_black_18dp.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/baseline_arrow_back_ios_black_18dp.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/app/src/main/res/drawable/baseline_arrow_forward_ios_black_18dp.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/baseline_arrow_forward_ios_black_18dp.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/app/src/main/res/drawable/baseline_arrow_left_black_18dp.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/baseline_arrow_left_black_18dp.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/app/src/main/res/drawable/baseline_arrow_right_black_18dp.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/baseline_arrow_right_black_18dp.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/app/src/main/res/drawable/baseline_directions_car_black_18dp.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/baseline_directions_car_black_18dp.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/app/src/main/res/drawable/baseline_email_black_18dp.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/baseline_email_black_18dp.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/app/src/main/res/drawable/baseline_how_to_reg_black_18dp.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/baseline_how_to_reg_black_18dp.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/app/src/main/res/drawable/baseline_insert_chart_outlined_black_18dp.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/baseline_insert_chart_outlined_black_18dp.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/app/src/main/res/drawable/baseline_list_black_18dp.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/baseline_list_black_18dp.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/app/src/main/res/drawable/baseline_lock_black_18dp.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/baseline_lock_black_18dp.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/app/src/main/res/drawable/baseline_navigate_before_black_18dp.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/baseline_navigate_before_black_18dp.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/app/src/main/res/drawable/baseline_navigate_next_black_18dp.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/baseline_navigate_next_black_18dp.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/app/src/main/res/drawable/baseline_perm_identity_black_18dp.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/baseline_perm_identity_black_18dp.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/app/src/main/res/drawable/baseline_photo_camera_black_18dp.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/baseline_photo_camera_black_18dp.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/app/src/main/res/drawable/baseline_play_arrow_black_18dp.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/baseline_play_arrow_black_18dp.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/app/src/main/res/drawable/baseline_reorder_black_18dp.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/baseline_reorder_black_18dp.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/app/src/main/res/drawable/baseline_settings_black_18dp.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/baseline_settings_black_18dp.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/app/src/main/res/drawable/baseline_skip_next_black_18dp.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/baseline_skip_next_black_18dp.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/app/src/main/res/drawable/baseline_skip_previous_black_18dp.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/baseline_skip_previous_black_18dp.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/app/src/main/res/drawable/baseline_thumb_up_alt_black_18dp.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/baseline_thumb_up_alt_black_18dp.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/app/src/main/res/drawable/baseline_vpn_key_black_18dp.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/baseline_vpn_key_black_18dp.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/app/src/main/res/drawable/ic_access_alarm_black_24dp.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_access_alarm_black_24dp.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/app/src/main/res/drawable/ic_camera_alt_black_36dp.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_camera_alt_black_36dp.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/app/src/main/res/layout/activity_camera.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_camera.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/app/src/main/res/layout/cam_window_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/cam_window_view.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/app/src/main/res/layout/camera.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/camera.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/app/src/main/res/layout/camera_connection_fragment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/camera_connection_fragment.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/app/src/main/res/layout/content_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/content_main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/app/src/main/res/layout/main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/app/src/main/res/layout/menu.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/menu.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/app/src/main/res/layout/setting.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/setting.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/app/src/main/res/layout/sign_up.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/sign_up.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/app/src/main/res/layout/statistics_01.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/statistics_01.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/app/src/main/res/layout/statistics_02.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/statistics_02.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/app/src/main/res/menu/menu_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/menu/menu_main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/app/src/main/res/mipmap-hdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/app/src/main/res/mipmap-mdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/app/src/main/res/mipmap-xhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/app/src/main/res/raw/shape_predictor_68_face_landmarks.dat" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/raw/shape_predictor_68_face_landmarks.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/app/src/main/res/values-v21/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values-v21/styles.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/app/src/main/res/values-w820dp/dimens.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values-w820dp/dimens.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/app/src/main/res/values/dimens.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/app/src/main/res/values/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/demo/app-debug.apk" beforeDir="false" afterPath="$PROJECT_DIR$/demo/app-debug.apk" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/demo/demo1.png" beforeDir="false" afterPath="$PROJECT_DIR$/demo/demo1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/demo/demo2.png" beforeDir="false" afterPath="$PROJECT_DIR$/demo/demo2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/demo/demo3.png" beforeDir="false" afterPath="$PROJECT_DIR$/demo/demo3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/demo/dlib-v1.0.4.aar" beforeDir="false" afterPath="$PROJECT_DIR$/demo/dlib-v1.0.4.aar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/dlib/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/dlib/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/dlib/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/dlib/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/dlib/proguard-rules.pro" beforeDir="false" afterPath="$PROJECT_DIR$/dlib/proguard-rules.pro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/dlib/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/dlib/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/dlib/src/main/java/com/tzutalin/dlib/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/dlib/src/main/java/com/tzutalin/dlib/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/dlib/src/main/java/com/tzutalin/dlib/FaceDet.java" beforeDir="false" afterPath="$PROJECT_DIR$/dlib/src/main/java/com/tzutalin/dlib/FaceDet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/dlib/src/main/java/com/tzutalin/dlib/PedestrianDet.java" beforeDir="false" afterPath="$PROJECT_DIR$/dlib/src/main/java/com/tzutalin/dlib/PedestrianDet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/dlib/src/main/java/com/tzutalin/dlib/VisionDetRet.java" beforeDir="false" afterPath="$PROJECT_DIR$/dlib/src/main/java/com/tzutalin/dlib/VisionDetRet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/dlib/src/main/jniLibs/arm64-v8a/libandroid_dlib.so" beforeDir="false" afterPath="$PROJECT_DIR$/dlib/src/main/jniLibs/arm64-v8a/libandroid_dlib.so" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/dlib/src/main/jniLibs/armeabi-v7a/libandroid_dlib.so" beforeDir="false" afterPath="$PROJECT_DIR$/dlib/src/main/jniLibs/armeabi-v7a/libandroid_dlib.so" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/dlib/src/main/jniLibs/x86/libandroid_dlib.so" beforeDir="false" afterPath="$PROJECT_DIR$/dlib/src/main/jniLibs/x86/libandroid_dlib.so" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/dlib/src/main/jniLibs/x86_64/libandroid_dlib.so" beforeDir="false" afterPath="$PROJECT_DIR$/dlib/src/main/jniLibs/x86_64/libandroid_dlib.so" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/dlib/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/dlib/src/main/res/values/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/gradlew.bat" beforeDir="false" afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/tests/test.bmp" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test.bmp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dlib-android-app-master/tests/test.sh" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/cameraEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/cameraEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/camera.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/camera.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -139,7 +26,7 @@
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="Nexus_5X_API_28" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="2c45b128ca0b7ece" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -157,8 +44,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/mainEvent.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="25" column="36" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="36" />
+            <state relative-caret-position="190">
+              <caret line="15" selection-start-line="15" selection-end-line="15" />
             </state>
           </provider>
         </entry>
@@ -166,48 +53,61 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/menuEvent.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="25" column="28" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
+            <state relative-caret-position="285">
+              <caret line="25" column="69" selection-start-line="25" selection-start-column="58" selection-end-line="25" selection-end-column="69" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/signupEvnet.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="17" column="21" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/camera.xml">
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="418">
+              <caret line="26" selection-start-line="26" selection-end-line="26" />
             </state>
           </provider>
+          <provider selected="true" editor-type-id="android-designer2" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/cameraEvent.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="399">
+              <caret line="80" column="56" selection-start-line="80" selection-start-column="56" selection-end-line="80" selection-end-column="56" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1692#2895#0" expanded="true" />
+                <element signature="e#2148#2851#0" expanded="true" />
+                <element signature="e#2850#2851#0" expanded="true" />
+                <element signature="e#2894#2895#0" expanded="true" />
+                <element signature="e#4424#4425#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/build.gradle">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="893">
+              <caret line="47" column="52" selection-start-line="47" selection-start-column="52" selection-end-line="47" selection-end-column="52" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dlib/build.gradle">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="39">
-              <caret line="13" column="35" lean-forward="true" selection-start-line="13" selection-start-column="35" selection-end-line="13" selection-end-column="35" />
+            <state relative-caret-position="190">
+              <caret line="10" selection-start-line="10" selection-end-line="10" />
             </state>
           </provider>
           <provider editor-type-id="android-manifest" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/MainActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="49" column="13" selection-start-line="49" selection-start-column="13" selection-end-line="49" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="608">
-              <caret line="32" selection-start-line="32" selection-end-line="32" />
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer2" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -247,42 +147,29 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/setting.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/mainEvent.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/menuEvent.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/signupEvnet.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/mainEvent.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/camera.xml" />
+        <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/cameraEvent.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="450" />
-    <option name="y" value="11" />
+    <option name="x" value="532" />
+    <option name="y" value="3" />
     <option name="width" value="1349" />
     <option name="height" value="1033" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
+    <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
       <pane id="ProjectPane" />
-      <pane id="PackagesPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="dlib-android-app-master" type="58d84e3e:PackageViewProjectNode" />
-              <item name="dlib-android-app-master" type="616d4139:PackageViewModuleNode" />
-            </path>
-            <path>
-              <item name="dlib-android-app-master" type="58d84e3e:PackageViewProjectNode" />
-              <item name="dlib-android-app-master" type="616d4139:PackageViewModuleNode" />
-              <item name="Libraries" type="5c3f07af:PackageViewLibrariesNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="Scope">
         <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
           <expand>
@@ -333,6 +220,26 @@
               <item name="res" type="d4f16f75:AndroidResFolderNode" />
               <item name="layout" type="ddeffd01:AndroidResFolderTypeNode" />
             </path>
+            <path>
+              <item name="dlib-android-app-master" type="1abcf292:AndroidViewProjectNode" />
+              <item name="Gradle Scripts" type="ae0cef3a:AndroidBuildScriptsGroupNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="dlib-android-app-master" type="58d84e3e:PackageViewProjectNode" />
+              <item name="dlib-android-app-master" type="616d4139:PackageViewModuleNode" />
+            </path>
+            <path>
+              <item name="dlib-android-app-master" type="58d84e3e:PackageViewProjectNode" />
+              <item name="dlib-android-app-master" type="616d4139:PackageViewModuleNode" />
+              <item name="Libraries" type="5c3f07af:PackageViewLibrariesNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -341,6 +248,8 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="2c45b128ca0b7ece" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-03-25T15:07:57.029Z" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -348,7 +257,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -463,7 +372,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584938191401</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="UI">
+      <created>1585045291893</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1585045291893</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TodoView">
@@ -476,11 +392,11 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="450" y="11" width="1349" height="1033" extended-state="0" />
+    <frame x="532" y="3" width="1349" height="1033" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.193173" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.17455392" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Designer" order="4" />
@@ -488,16 +404,16 @@
       <window_info id="Capture Tool" order="6" />
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info id="Build Variants" order="8" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="0" sideWeight="0.49573562" weight="0.3286334" />
-      <window_info anchor="bottom" id="TODO" order="1" weight="0.3286334" />
+      <window_info anchor="bottom" id="Version Control" order="0" sideWeight="0.49495733" weight="0.32814237" />
+      <window_info anchor="bottom" id="TODO" order="1" sideWeight="0.4996121" weight="0.32814237" />
       <window_info anchor="bottom" id="Find" order="2" />
       <window_info anchor="bottom" id="Terminal" order="3" weight="0.3286334" />
-      <window_info anchor="bottom" id="Event Log" order="4" sideWeight="0.5019395" side_tool="true" visible="true" weight="0.21802002" />
+      <window_info anchor="bottom" id="Event Log" order="4" sideWeight="0.5019395" side_tool="true" weight="0.32814237" />
       <window_info anchor="bottom" id="Logcat" order="5" weight="0.329718" />
-      <window_info anchor="bottom" id="Android Profiler" order="6" />
-      <window_info anchor="bottom" id="Run" order="7" />
+      <window_info anchor="bottom" id="Android Profiler" order="6" sideWeight="0.4996121" weight="0.32925472" />
+      <window_info anchor="bottom" id="Run" order="7" sideWeight="0.49806052" weight="0.32925472" />
       <window_info anchor="bottom" id="Debug" order="8" />
-      <window_info anchor="bottom" id="Build" order="9" sideWeight="0.49806052" visible="true" weight="0.21802002" />
+      <window_info anchor="bottom" id="Build" order="9" sideWeight="0.49262995" weight="0.21802002" />
       <window_info anchor="right" id="Capture Analysis" order="0" />
       <window_info anchor="right" id="Theme Preview" order="1" />
       <window_info anchor="right" id="Preview" order="2" weight="0.32971296" />
@@ -599,12 +515,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/CameraActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="836">
+          <caret line="65" column="42" selection-start-line="65" selection-start-column="42" selection-end-line="65" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/cam_window_view.xml">
+      <provider editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/CameraConnectionFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1254">
+          <caret line="128" column="43" selection-start-line="128" selection-start-column="43" selection-end-line="128" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
           <caret line="49" column="13" selection-start-line="49" selection-start-column="13" selection-end-line="49" selection-end-column="13" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_camera.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
       <provider selected="true" editor-type-id="text-editor">
@@ -622,6 +560,10 @@
       </provider>
       <provider selected="true" editor-type-id="android-designer2" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/menu.xml">
+      <provider editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="android-designer2" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/setting.xml">
       <provider editor-type-id="text-editor">
         <state relative-caret-position="1292">
@@ -630,31 +572,60 @@
       </provider>
       <provider selected="true" editor-type-id="android-designer2" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/menuEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="25" column="28" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/menu.xml">
-      <provider editor-type-id="text-editor" />
-      <provider selected="true" editor-type-id="android-designer2" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/mainEvent.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="25" column="36" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="36" />
+        <state relative-caret-position="190">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/menuEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="25" column="69" selection-start-line="25" selection-start-column="58" selection-end-line="25" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dlib/build.gradle">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="39">
-          <caret line="13" column="35" lean-forward="true" selection-start-line="13" selection-start-column="35" selection-end-line="13" selection-end-column="35" />
+        <state relative-caret-position="190">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
         </state>
       </provider>
       <provider editor-type-id="android-manifest" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="893">
+          <caret line="47" column="52" selection-start-line="47" selection-start-column="52" selection-end-line="47" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/camera.xml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/cameraEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="80" column="56" selection-start-line="80" selection-start-column="56" selection-end-line="80" selection-end-column="56" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1692#2895#0" expanded="true" />
+            <element signature="e#2148#2851#0" expanded="true" />
+            <element signature="e#2850#2851#0" expanded="true" />
+            <element signature="e#2894#2895#0" expanded="true" />
+            <element signature="e#4424#4425#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
   </component>
   <component name="masterDetails">

@@ -45,6 +45,7 @@ dependencies {
     implementation 'com.github.dexafree:materiallist:3.0.1'
     implementation 'com.jakewharton.timber:timber:4.5.1'
     implementation project(':dlib')
+    implementation 'gun0912.ted:tedpermission:2.0.0'
 
     // Add AndroidJUnit
     androidTestImplementation "com.android.support:support-annotations:${rootProject.ext.androidSupportSdkVersion}"

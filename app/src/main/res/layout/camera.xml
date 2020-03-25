@@ -6,24 +6,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <VideoView
-        android:id="@+id/videoView"
-        android:layout_width="283dp"
-        android:layout_height="379dp"
-        android:layout_marginTop="120dp"
+    <Button
+        android:id="@+id/camstart"
+        android:layout_width="95dp"
+        android:layout_height="57dp"
+        android:layout_marginBottom="50dp"
+        android:text="실행"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <SurfaceView
+        android:id="@+id/cam"
+        android:layout_width="321dp"
+        android:layout_height="347dp"
+        android:layout_marginTop="150dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/button8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="실행"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/videoView" />
 
     <Switch
         android:id="@+id/switch1"
@@ -44,4 +44,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/baseline_reorder_black_18dp" />
+
+    <Button
+        android:id="@+id/camera_trans"
+        android:layout_width="108dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="50dp"
+        android:text="전환"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>
