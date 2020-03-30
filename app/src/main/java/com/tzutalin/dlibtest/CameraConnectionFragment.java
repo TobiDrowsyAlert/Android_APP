@@ -426,7 +426,8 @@ public class CameraConnectionFragment extends Fragment {
             if (ActivityCompat.checkSelfPermission(this.getActivity(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
                 Timber.tag(TAG).w("checkSelfPermission CAMERA");
             }
-            manager.openCamera(cameraId, stateCallback, backgroundHandler);
+            // manager.openCamera(cameraId, stateCallback, backgroundHandler);          // cameraid = "0"  일시 후면 카메라
+            manager.openCamera("1", stateCallback, backgroundHandler);  // 1 일시 전면 카메라
             Timber.tag(TAG).d("open Camera");
         } catch (final CameraAccessException e) {
             Timber.tag(TAG).e("Exception!", e);

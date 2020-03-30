@@ -53,9 +53,6 @@ public class cameraEvent extends AppCompatActivity implements SurfaceHolder.Call
             public void onClick(View v) {
 
 
-
-
-
                 if(recording) {
                     Toast.makeText(cameraEvent.this, "여기들어옴", Toast.LENGTH_SHORT).show();
                     mediaRecorder.stop();
@@ -69,14 +66,11 @@ public class cameraEvent extends AppCompatActivity implements SurfaceHolder.Call
                         public void run() {
                             Toast.makeText(cameraEvent.this, "녹화가 시작?", Toast.LENGTH_SHORT).show();
                             try {
-                                mediaRecorder = new MediaRecorder();
-
-                                camera.unlock();
-                                mediaRecorder.setCamera(camera);
-
 
                                 mediaRecorder.start();
                                 recording= true;
+
+
                             } catch (Exception e) {
                                 mediaRecorder.release();
 
@@ -101,7 +95,7 @@ public class cameraEvent extends AppCompatActivity implements SurfaceHolder.Call
 
             camera = Camera.open();
             camera.setDisplayOrientation(90);
-            surfaceView = (SurfaceView)findViewById(R.id.cam);
+            surfaceView = (SurfaceView)findViewById(R.id.surface);
             surfaceHolder = surfaceView.getHolder();
             surfaceHolder.addCallback(cameraEvent.this);
             surfaceHolder.setType(surfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
@@ -113,7 +107,7 @@ public class cameraEvent extends AppCompatActivity implements SurfaceHolder.Call
 
             camera = Camera.open();
             camera.setDisplayOrientation(90);
-            surfaceView = (SurfaceView)findViewById(R.id.cam);
+            surfaceView = (SurfaceView)findViewById(R.id.surface);
             surfaceHolder = surfaceView.getHolder();
             surfaceHolder.addCallback(cameraEvent.this);
             surfaceHolder.setType(surfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
@@ -124,7 +118,7 @@ public class cameraEvent extends AppCompatActivity implements SurfaceHolder.Call
 
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
-
+        refreshCamrea(camera);
     }
 
     private void refreshCamrea(Camera camera) {
