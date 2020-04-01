@@ -1,14 +1,9 @@
-package com.tzutalin.dlibtest;
+ package com.tzutalin.dlibtest;
 
 import android.Manifest;
-import android.content.Intent;
 import android.hardware.Camera;
 import android.media.MediaRecorder;
-import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
-import android.support.annotation.Nullable;
-import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -19,8 +14,6 @@ import android.widget.Toast;
 import com.gun0912.tedpermission.PermissionListener;
 import com.gun0912.tedpermission.TedPermission;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 
 
@@ -47,7 +40,7 @@ public class cameraEvent extends AppCompatActivity implements SurfaceHolder.Call
                 .setPermissions(Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.RECORD_AUDIO)
                 .check();
 
-        btn_record = (Button)findViewById(R.id.camstart);
+        btn_record = (Button)findViewById(R.id.fab_cam);
         btn_record.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -7,7 +7,7 @@
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/camstart"
+        android:id="@+id/fab_cam"
         android:layout_width="95dp"
         android:layout_height="57dp"
         android:layout_marginBottom="50dp"
@@ -46,7 +46,7 @@
         app:srcCompat="@drawable/baseline_reorder_black_18dp" />
 
     <Button
-        android:id="@+id/camera_trans"
+        android:id="@+id/fab"
         android:layout_width="108dp"
         android:layout_height="59dp"
         android:layout_marginTop="50dp"

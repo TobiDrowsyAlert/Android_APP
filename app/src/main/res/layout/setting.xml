@@ -91,7 +91,7 @@
         android:layout_width="216dp"
         android:layout_height="22dp"
         android:layout_marginTop="25dp"
-        android:background="@color/colorAccent"
+
         app:layout_constraintEnd_toEndOf="@+id/step_1_seek"
         app:layout_constraintStart_toStartOf="@+id/step_1_seek"
         app:layout_constraintTop_toBottomOf="@+id/step_1_seek" />
@@ -101,7 +101,7 @@
         android:layout_width="216dp"
         android:layout_height="22dp"
         android:layout_marginTop="25dp"
-        android:background="@color/colorAccent"
+
         app:layout_constraintEnd_toEndOf="@+id/step_2_seek"
         app:layout_constraintStart_toStartOf="@+id/step_2_seek"
         app:layout_constraintTop_toBottomOf="@+id/step_2_seek" />
@@ -113,7 +113,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="320dp"
-        android:background="@color/colorAccent"
+
 
         app:layout_constraintStart_toEndOf="@+id/textView4"
         app:layout_constraintTop_toTopOf="parent" />

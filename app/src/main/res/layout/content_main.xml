@@ -10,7 +10,7 @@
     tools:showIn="@layout/activity_main" tools:context=".MainActivity">
 
     <com.dexafree.materialList.view.MaterialListView
+        android:id="@+id/material_listview"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:id="@+id/material_listview"/>
+        android:layout_height="fill_parent" />
 </RelativeLayout>
