@@ -96,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
         mListView = (MaterialListView) findViewById(R.id.material_listview);
         mFabActionBt = (FloatingActionButton) findViewById(R.id.fab);
         mFabCamActionBt = (FloatingActionButton) findViewById(R.id.fab_cam);
-        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        // mToolbar = (Toolbar) findViewById(R.id.toolbar);   //의미 없어보여 생략
 
         mFabActionBt.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -115,8 +115,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        mToolbar.setTitle(getString(R.string.app_name));
-        Toast.makeText(MainActivity.this, getString(R.string.description_info), Toast.LENGTH_LONG).show();
+        // toolbar 부분 생략
+        //mToolbar.setTitle(getString(R.string.app_name));
+        //Toast.makeText(MainActivity.this, getString(R.string.description_info), Toast.LENGTH_LONG).show();
     }
 
     /**
