@@ -103,6 +103,7 @@ public class OnGetImageListener implements OnImageAvailableListener {
         }
     }
 
+    // 사각형 만드는 함수
     private void drawResizedBitmap(final Bitmap src, final Bitmap dst) {
 
         Display getOrient = ((WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
@@ -114,7 +115,8 @@ public class OnGetImageListener implements OnImageAvailableListener {
         Log.d(TAG, String.format("screen size (%d,%d)", screen_width, screen_height));
         if (screen_width < screen_height) {
             orientation = Configuration.ORIENTATION_PORTRAIT;
-            mScreenRotation = 90;
+            //mScreenRotation = 90; // 기존 오픈 소스 코드
+            mScreenRotation = 270; // 변경된 소스 (작은 사각형 회전)
         } else {
             orientation = Configuration.ORIENTATION_LANDSCAPE;
             mScreenRotation = 0;
@@ -211,7 +213,7 @@ public class OnGetImageListener implements OnImageAvailableListener {
         }
 
         mRGBframeBitmap.setPixels(mRGBBytes, 0, mPreviewWdith, 0, 0, mPreviewWdith, mPreviewHeight);
-        drawResizedBitmap(mRGBframeBitmap, mCroppedBitmap);
+        drawResizedBitmap(mRGBframeBitmap, mCroppedBitmap);   // 작은 사각형 만듬
 
         if (SAVE_PREVIEW_BITMAP) {
             ImageUtils.saveBitmap(mCroppedBitmap);
@@ -234,7 +236,7 @@ public class OnGetImageListener implements OnImageAvailableListener {
                         long endTime = System.currentTimeMillis();
                         mTransparentTitleView.setText("Time cost: " + String.valueOf((endTime - startTime) / 1000f) + " sec");
                         // Draw on bitmap
-                        if (results != null) {
+                        if (results != null) {  // 랜드마크 사각형 그리기 위함(얼굴 좌표를 이용하여)
                             for (final VisionDetRet ret : results) {
                                 float resizeRatio = 1.0f;
                                 Rect bounds = new Rect();
@@ -254,6 +256,7 @@ public class OnGetImageListener implements OnImageAvailableListener {
                                 }
                             }
                         }
+
 
                         mWindow.setRGBBitmap(mCroppedBitmap);
                         mIsComputing = false;
