@@ -12,8 +12,6 @@
         android:layout_width="224dp"
         android:layout_height="70dp"
         android:layout_marginTop="320dp"
-        android:layout_marginEnd="100dp"
-        android:layout_marginRight="100dp"
         android:background="@color/colorAccent"
         android:drawableStart="@drawable/baseline_perm_identity_black_18dp"
         android:drawableLeft="@drawable/baseline_perm_identity_black_18dp"
@@ -21,6 +19,7 @@
         android:inputType="textPersonName"
         android:text="아이디"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
@@ -42,16 +41,15 @@
         android:id="@+id/login_b"
         android:layout_width="108dp"
         android:layout_height="62dp"
-        android:layout_marginEnd="148dp"
-        android:layout_marginRight="148dp"
-        android:layout_marginBottom="85dp"
+        android:layout_marginBottom="130dp"
         android:background="@color/colorAccent"
         android:shadowColor="#ffffff"
         android:text="로그인"
         android:textSize="18sp"
         android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/signup_b"
@@ -75,26 +73,16 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@color/colorAccent" />
 
-    <ImageView
-        android:id="@+id/imageView10"
-        android:layout_width="139dp"
-        android:layout_height="127dp"
-        android:layout_marginTop="50dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
-
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginBottom="25dp"
         android:text="졸음 방지 시스템"
         android:textSize="30sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView9"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView10" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
