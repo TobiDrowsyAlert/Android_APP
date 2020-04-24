@@ -37,13 +37,13 @@ public class menuEvent extends AppCompatActivity {
         });
 
 
-        btn_menu_3.setOnClickListener(new View.OnClickListener() {
+        /*btn_menu_3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(menuEvent.this, settingEvent.class);
                 startActivity(intent);
             }
-        });
+        });*/
 
         btn_menu_4.setOnClickListener(new View.OnClickListener() {
             @Override

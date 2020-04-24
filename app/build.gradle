@@ -10,6 +10,7 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode rootProject.ext.releaseVersionCode
         versionName "${rootProject.ext.releaseVersionName}"
+        multiDexEnabled true  // https://miraclehwan.tistory.com/22 참고 자료
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -34,12 +35,18 @@ buildscript {
 }
 
 repositories {
+    maven {
+        url 'https://dl.bintray.com/tzutalin/maven'
+    }
     mavenCentral()
     mavenLocal()
 }
 
 dependencies {
+    implementation 'com.tzutalin.dlib-android-app:dlib:1.0.4'
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation "com.android.support:appcompat-v7:$supportlib_version" // 추가부분
     implementation "com.android.support:appcompat-v7:${rootProject.ext.androidSupportSdkVersion}"
     implementation "com.android.support:design:${rootProject.ext.androidSupportSdkVersion}"
     implementation 'com.github.dexafree:materiallist:3.0.1'

@@ -16,7 +16,7 @@ public class statisticsPage extends AppCompatActivity {
     @Override
     protected  void onCreate(Bundle savedlnstanceState) {
         super.onCreate(savedlnstanceState);
-        setContentView(R.layout.statistics_01);
+        /*setContentView(R.layout.statistics_01);
 
         btnL = (Button)findViewById(R.id.btn_left);
         btnR = (Button)findViewById(R.id.btn_right);
@@ -32,7 +32,7 @@ public class statisticsPage extends AppCompatActivity {
             }
         });
 
-        btnR.setOnClickListener(new View.OnClickListener() {
+        /*btnR.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
@@ -41,7 +41,7 @@ public class statisticsPage extends AppCompatActivity {
                 transaction.replace(R.id.frame, fragment2);
                 transaction.commit();
             }
-        });
+        });*/
 
     }
 

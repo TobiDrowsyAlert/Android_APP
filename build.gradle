@@ -29,6 +29,7 @@ task clean(type: Delete) {
 }
 
 ext {
+    supportlib_version = '27.1.1' // 오류로 인한 추가 부분
     groupName = 'com.github.tzutalin'
     artifactName = 'dlib-android-app'
     artifactDescription = 'An Android library to wrap dlib library to use face and landmark detection'
@@ -46,4 +47,16 @@ ext {
     androidCompileSdkVersion = 27
     androidBuildToolsVersion = '27.0.0'
     androidSupportSdkVersion = '25.3.1'
+}
+
+
+subprojects {
+    project.configurations.all {
+        resolutionStrategy.eachDependency { details ->
+            if (details.requested.group == 'com.android.support'
+                    && !details.requested.name.contains('multidex') ) {
+                details.useVersion "$supportlib_version"
+            }
+        }
+    }
 }
