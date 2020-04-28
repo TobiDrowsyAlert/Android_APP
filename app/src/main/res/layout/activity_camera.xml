@@ -15,10 +15,25 @@
 -->
 
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="horizontal"
     android:background="#000"
     tools:context="com.tzutalin.dlibtest.CameraActivity"
-    />
+    >
+
+    <Button
+        android:id="@+id/message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="30dp"
+        android:onClick="OnclickHandler"
+        android:text="addButton" />
+
+
+</FrameLayout>

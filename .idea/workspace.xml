@@ -10,18 +10,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="31cab281-b875-4e5c-a1b5-b2632b85b167" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/feedback.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/Fragment1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/Fragment2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/menuEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/menuEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/statisticsPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/statisticsPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/statistics_01.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/CameraActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/CameraActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_camera.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_camera.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -56,6 +49,7 @@
         <option value="Class" />
         <option value="valueResourceFile" />
         <option value="layoutResourceFile" />
+        <option value="layoutResourceFile_vertical" />
       </list>
     </option>
   </component>
@@ -343,7 +337,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587016367334</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="04_24">
+      <created>1587705654383</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1587705654383</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -382,7 +383,8 @@
     <MESSAGE value="front_camera" />
     <MESSAGE value="04_15" />
     <MESSAGE value="04_16_Rotation" />
-    <option name="LAST_COMMIT_MESSAGE" value="04_16_Rotation" />
+    <MESSAGE value="04_24" />
+    <option name="LAST_COMMIT_MESSAGE" value="04_24" />
   </component>
   <component name="masterDetails">
     <states>
