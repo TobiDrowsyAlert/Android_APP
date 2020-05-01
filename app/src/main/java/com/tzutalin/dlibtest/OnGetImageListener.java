@@ -32,6 +32,7 @@ import android.media.Image.Plane;
 import android.media.ImageReader;
 import android.media.ImageReader.OnImageAvailableListener;
 import android.os.Handler;
+import android.os.Message;
 import android.os.Trace;
 import android.util.Log;
 import android.view.Display;
@@ -46,6 +47,10 @@ import junit.framework.Assert;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * Class that takes in preview frames and converts the image to Bitmaps to process with dlib lib.
@@ -236,24 +241,82 @@ public class OnGetImageListener implements OnImageAvailableListener {
                         long endTime = System.currentTimeMillis();
                         mTransparentTitleView.setText("Time cost: " + String.valueOf((endTime - startTime) / 1000f) + " sec");
                         // Draw on bitmap
+                        ApiData jsonData = new ApiData();
                         if (results != null) {  // 랜드마크 사각형 그리기 위함(얼굴 좌표를 이용하여)
                             for (final VisionDetRet ret : results) {
                                 float resizeRatio = 1.0f;
+                                String rect[] = new String[4];
                                 Rect bounds = new Rect();
                                 bounds.left = (int) (ret.getLeft() * resizeRatio);
                                 bounds.top = (int) (ret.getTop() * resizeRatio);
                                 bounds.right = (int) (ret.getRight() * resizeRatio);
                                 bounds.bottom = (int) (ret.getBottom() * resizeRatio);
+
+                                rect[0] = String.valueOf(bounds.left);
+                                rect[1] = String.valueOf(bounds.top);
+                                rect[2] = String.valueOf(bounds.right);
+                                rect[3] = String.valueOf(bounds.bottom);
+
+
+                                jsonData.setRect(rect);
+
                                 Canvas canvas = new Canvas(mCroppedBitmap);
                                 canvas.drawRect(bounds, mFaceLandmardkPaint);
 
                                 // Draw landmark
                                 ArrayList<Point> landmarks = ret.getFaceLandmarks();
+
+
+                                String landmark[][] = new String[landmarks.size()][2];
+                                int count = 0;
                                 for (Point point : landmarks) {
                                     int pointX = (int) (point.x * resizeRatio);
                                     int pointY = (int) (point.y * resizeRatio);
                                     canvas.drawCircle(pointX, pointY, 2, mFaceLandmardkPaint);
+                                    if(count % 2 == 0){
+                                        landmark[count][0] = String.valueOf(pointX);
+                                    }
+                                    else{
+                                        landmark[count][1] = String.valueOf(pointY);
+
+                                    }
+                                    count++;
                                 }
+                                jsonData.setLandmarks(landmark);
+                                jsonData.setDriver("True");
+                                jsonData.setFrame("50");
+
+                                RetrofitConnection retrofitConnection = new RetrofitConnection();
+                                retrofitConnection.setRetrofit("http://15.165.116.82:1234");
+
+                                Call<ApiData> call = retrofitConnection.server.sendData(jsonData);
+                                call.enqueue(new Callback<ApiData>() {
+                                    @Override
+                                    public void onResponse(Call<ApiData> call, Response<ApiData> response) {
+
+                                        if(response.isSuccessful()){
+                                            // 성공적으로 서버 통신 성공
+
+                                            final ApiData message = response.body();
+
+
+                                            Log.e("RetrofitTest", "Success" + message.toString());
+                                        }
+                                        else{
+                                            // 서버 연결은 성공했으나, 정상 동작 실패
+                                            Log.e("RetrofitTest", "UnExpected Success" + response.code());
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onFailure(Call<ApiData> call, Throwable t) {
+                                        Log.e("RetrofitTest", "onFailure" + t.toString()); // 서버 연결 실패
+
+                                    }
+                                });
+
+
+
                             }
                         }
 
