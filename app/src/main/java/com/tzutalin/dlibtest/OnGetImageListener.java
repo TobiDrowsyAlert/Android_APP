@@ -245,17 +245,17 @@ public class OnGetImageListener implements OnImageAvailableListener {
                         if (results != null) {  // 랜드마크 사각형 그리기 위함(얼굴 좌표를 이용하여)
                             for (final VisionDetRet ret : results) {
                                 float resizeRatio = 1.0f;
-                                String rect[] = new String[4];
+                                int rect[] = new int[4];
                                 Rect bounds = new Rect();
                                 bounds.left = (int) (ret.getLeft() * resizeRatio);
                                 bounds.top = (int) (ret.getTop() * resizeRatio);
                                 bounds.right = (int) (ret.getRight() * resizeRatio);
                                 bounds.bottom = (int) (ret.getBottom() * resizeRatio);
 
-                                rect[0] = String.valueOf(bounds.left);
-                                rect[1] = String.valueOf(bounds.top);
-                                rect[2] = String.valueOf(bounds.right);
-                                rect[3] = String.valueOf(bounds.bottom);
+                                rect[0] = bounds.left;
+                                rect[1] = bounds.top;
+                                rect[2] = bounds.right;
+                                rect[3] = bounds.bottom;
 
 
                                 jsonData.setRect(rect);
@@ -267,27 +267,26 @@ public class OnGetImageListener implements OnImageAvailableListener {
                                 ArrayList<Point> landmarks = ret.getFaceLandmarks();
 
 
-                                String landmark[][] = new String[landmarks.size()][2];
+                                int landmark[][] = new int[landmarks.size()][2];
                                 int count = 0;
                                 for (Point point : landmarks) {
                                     int pointX = (int) (point.x * resizeRatio);
                                     int pointY = (int) (point.y * resizeRatio);
-                                    canvas.drawCircle(pointX, pointY, 2, mFaceLandmardkPaint);
-                                    if(count % 2 == 0){
-                                        landmark[count][0] = String.valueOf(pointX);
-                                    }
-                                    else{
-                                        landmark[count][1] = String.valueOf(pointY);
-
-                                    }
-                                    count++;
-                                }
-                                jsonData.setLandmarks(landmark);
+                                canvas.drawCircle(pointX, pointY, 2, mFaceLandmardkPaint);
+                                landmark[count][0] = pointX;
+                                landmark[count][1] = pointY;
+                                count++;
+                            }
+                            jsonData.setLandmarks(landmark);
                                 jsonData.setDriver("True");
-                                jsonData.setFrame("50");
+                                jsonData.setFrame(50);
 
                                 RetrofitConnection retrofitConnection = new RetrofitConnection();
-                                retrofitConnection.setRetrofit("http://15.165.116.82:1234");
+
+                                //AWS 스프링 공인 주소, http://15.165.116.82:8080
+                                //모듈 직접 접근 http://15.165.116.82:1234
+                                //http://15.165.116.82:8080/api/value/ REST API 로 데이터 전송
+                                retrofitConnection.setRetrofit("http://15.165.116.82:8080/");
 
                                 Call<ApiData> call = retrofitConnection.server.sendData(jsonData);
                                 call.enqueue(new Callback<ApiData>() {
@@ -297,21 +296,20 @@ public class OnGetImageListener implements OnImageAvailableListener {
                                         if(response.isSuccessful()){
                                             // 성공적으로 서버 통신 성공
 
-                                            final ApiData message = response.body();
+                                            Log.e("RetrofitTest", "Success : " + response.toString());
+                                            Log.e("ResponseBody", response.body().toString());
 
 
-                                            Log.e("RetrofitTest", "Success" + message.toString());
                                         }
                                         else{
                                             // 서버 연결은 성공했으나, 정상 동작 실패
-                                            Log.e("RetrofitTest", "UnExpected Success" + response.code());
+                                            Log.e("RetrofitTest", "UnExpected Success" + response.toString());
                                         }
                                     }
 
                                     @Override
                                     public void onFailure(Call<ApiData> call, Throwable t) {
                                         Log.e("RetrofitTest", "onFailure" + t.toString()); // 서버 연결 실패
-
                                     }
                                 });
 

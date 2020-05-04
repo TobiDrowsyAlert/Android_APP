@@ -11,6 +11,9 @@
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/dlib/dlib.iml" filepath="$PROJECT_DIR$/dlib/dlib.iml" />
       <module fileurl="file://$PROJECT_DIR$/dlib-android-app-master.iml" filepath="$PROJECT_DIR$/dlib-android-app-master.iml" />
+      <module fileurl="file://$PROJECT_DIR$/home-AndroidStudioProjects-Android_APP.iml" filepath="$PROJECT_DIR$/home-AndroidStudioProjects-Android_APP.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/home-AndroidStudioProjects-Android_APP-app.iml" filepath="$PROJECT_DIR$/app/home-AndroidStudioProjects-Android_APP-app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dlib/home-AndroidStudioProjects-Android_APP-dlib.iml" filepath="$PROJECT_DIR$/dlib/home-AndroidStudioProjects-Android_APP-dlib.iml" />
     </modules>
   </component>
 </project>

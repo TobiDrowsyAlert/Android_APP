@@ -1,20 +1,20 @@
 package com.tzutalin.dlibtest;
 
 public class ApiData {
-    private String[] rect;
+    private int[] rect;
     private String driver;
-    private String[][] landmarks;
-    private String frame;
+    private int[][] landmarks;
+    private int frame;
 
     ApiData(){
 
     }
 
-    public String[] getRect (){
+    public int[] getRect (){
         return rect;
     }
 
-    public void setRect (String[] rect){
+    public void setRect (int[] rect){
         this.rect = rect;
     }
 
@@ -28,22 +28,22 @@ public class ApiData {
         this.driver = driver;
     }
 
-    public String[][] getLandmarks ()
+    public int[][] getLandmarks ()
     {
         return landmarks;
     }
 
-    public void setLandmarks (String[][] landmarks)
+    public void setLandmarks (int[][] landmarks)
     {
         this.landmarks = landmarks;
     }
 
-    public String getFrame ()
+    public int getFrame ()
     {
         return frame;
     }
 
-    public void setFrame (String frame)
+    public void setFrame (int frame)
     {
         this.frame = frame;
     }
