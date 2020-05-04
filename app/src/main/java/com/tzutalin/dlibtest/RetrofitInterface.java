@@ -13,7 +13,7 @@ public interface RetrofitInterface {
     Call<ApiData> sendData();*/
 
     @POST("/api/value")
-    Call<ApiData> sendData(@Body ApiData landmarks);
+    Call<ResponseLandmark> sendData(@Body ApiData landmarks);
 
 /*    @FormUrlEncoded
     @POST("set_face")

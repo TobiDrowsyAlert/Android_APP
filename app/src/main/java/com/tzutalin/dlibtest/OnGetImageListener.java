@@ -288,17 +288,16 @@ public class OnGetImageListener implements OnImageAvailableListener {
                                 //http://15.165.116.82:8080/api/value/ REST API 로 데이터 전송
                                 retrofitConnection.setRetrofit("http://15.165.116.82:8080/");
 
-                                Call<ApiData> call = retrofitConnection.server.sendData(jsonData);
-                                call.enqueue(new Callback<ApiData>() {
+                                Call<ResponseLandmark> call = retrofitConnection.server.sendData(jsonData);
+                                call.enqueue(new Callback<ResponseLandmark>() {
                                     @Override
-                                    public void onResponse(Call<ApiData> call, Response<ApiData> response) {
+                                    public void onResponse(Call<ResponseLandmark> call, Response<ResponseLandmark> response) {
 
                                         if(response.isSuccessful()){
                                             // 성공적으로 서버 통신 성공
 
                                             Log.e("RetrofitTest", "Success : " + response.toString());
-                                            Log.e("ResponseBody", response.body().toString());
-
+                                            Log.e("ResponseBody", "ResponseData : " + response.body().getCode());
 
                                         }
                                         else{
@@ -308,7 +307,7 @@ public class OnGetImageListener implements OnImageAvailableListener {
                                     }
 
                                     @Override
-                                    public void onFailure(Call<ApiData> call, Throwable t) {
+                                    public void onFailure(Call<ResponseLandmark> call, Throwable t) {
                                         Log.e("RetrofitTest", "onFailure" + t.toString()); // 서버 연결 실패
                                     }
                                 });
