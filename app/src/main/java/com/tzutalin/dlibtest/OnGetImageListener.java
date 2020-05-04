@@ -57,6 +57,10 @@ import retrofit2.Response;
  */
 public class OnGetImageListener implements OnImageAvailableListener {
     private static final boolean SAVE_PREVIEW_BITMAP = false;
+    // 상태 코드 상수
+    private final int STRING_NORMAL_CODE = 100;
+    private final int STRING_DROWSY_CODE = 400;
+    private final int STRING_UNEXPECTED_CODE = 500;
 
     private static final int INPUT_SIZE = 224;
     private static final String TAG = "OnGetImageListener";
@@ -293,28 +297,78 @@ public class OnGetImageListener implements OnImageAvailableListener {
                                     @Override
                                     public void onResponse(Call<ResponseLandmark> call, Response<ResponseLandmark> response) {
 
+                                        // 성공적으로 서버 통신 성공
                                         if(response.isSuccessful()){
-                                            // 성공적으로 서버 통신 성공
 
+                                            // 얼굴 인식 + 정상 운행
+                                            if(response.body().getCode() == STRING_NORMAL_CODE){
+                                                // 인터페이스 초록불
+
+                                            }
+
+
+                                            if(response.body().getCode() == STRING_DROWSY_CODE){
+                                                // 인터페이스 빨간불(졸음 발생)
+
+                                            }
                                             Log.e("RetrofitTest", "Success : " + response.toString());
                                             Log.e("ResponseBody", "ResponseData : " + response.body().getCode());
 
                                         }
                                         else{
-                                            // 서버 연결은 성공했으나, 정상 동작 실패
+                                            // 서버 연결은 성공, 인식 결과 정상 운행이나 졸음 발생 둘다 아님,
+                                            // 인터페이스 빨간불
+
                                             Log.e("RetrofitTest", "UnExpected Success" + response.toString());
                                         }
                                     }
 
+                                    // 서버 연결 실패
                                     @Override
                                     public void onFailure(Call<ResponseLandmark> call, Throwable t) {
-                                        Log.e("RetrofitTest", "onFailure" + t.toString()); // 서버 연결 실패
+                                        Log.e("RetrofitTest", "onFailure" + t.toString());
                                     }
                                 });
 
 
 
                             }
+                        }
+                        else{
+
+                            // 노란불(얼굴 인식 X )
+
+                            RetrofitConnection retrofitConnection = new RetrofitConnection();
+
+                            //AWS 스프링 공인 주소, http://15.165.116.82:8080
+                            //모듈 직접 접근 http://15.165.116.82:1234
+                            //http://15.165.116.82:8080/api/value/ REST API 로 데이터 전송
+                            retrofitConnection.setRetrofit("http://15.165.116.82:8080/");
+
+                            jsonData.setDriver("False");
+                            Call<ResponseLandmark> call = retrofitConnection.server.sendData(jsonData);
+                            call.enqueue(new Callback<ResponseLandmark>() {
+                                @Override
+                                public void onResponse(Call<ResponseLandmark> call, Response<ResponseLandmark> response) {
+
+
+                                    // 성공적으로 서버 통신 성공
+                                    if(response.isSuccessful()){
+                                        if(response.body().getCode() == STRING_DROWSY_CODE){
+                                            // 인터페이스 빨간불(얼굴 이탈)
+
+                                        }
+                                    }
+                                    else{
+
+                                    }
+                                }
+
+                                @Override
+                                public void onFailure(Call<ResponseLandmark> call, Throwable t) {
+                                    Log.e("RetrofitTest", "No one in camera + Network Error");
+                                }
+                            });
                         }
 
 
