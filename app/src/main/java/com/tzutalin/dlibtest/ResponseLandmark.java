@@ -1,14 +1,14 @@
 package com.tzutalin.dlibtest;
 
 public class ResponseLandmark {
-    private int code;
+    private int status_code;
 
     public void setCode(int code){
-        this.code = code;
+        this.status_code = status_code;
     }
 
     public int getCode(){
-        return code;
+        return status_code;
     }
 
 }

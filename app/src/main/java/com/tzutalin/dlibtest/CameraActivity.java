@@ -40,11 +40,13 @@ public class CameraActivity extends Activity {
 
 
     private static int OVERLAY_PERMISSION_REQ_CODE = 1;
+    static Context instanceContext;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        instanceContext = this;
 
         setContentView(R.layout.activity_camera);
 
@@ -79,6 +81,11 @@ public class CameraActivity extends Activity {
             }
         }
     }
+
+    static public Context getContext(){
+        return instanceContext;
+    }
+
 
     public void OnclickHandler(View view) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
