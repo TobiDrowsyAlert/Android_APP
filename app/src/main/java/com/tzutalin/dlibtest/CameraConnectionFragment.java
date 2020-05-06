@@ -45,6 +45,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.support.v4.app.ActivityCompat;
+import android.util.Log;
 import android.util.Size;
 import android.util.SparseArray;
 import android.util.SparseIntArray;
@@ -590,6 +591,7 @@ public class CameraConnectionFragment extends Fragment {
         } catch (final CameraAccessException e) {
             Timber.tag(TAG).e("Exception!", e);
         }
+
 
         mOnGetPreviewListener.initialize(getActivity().getApplicationContext(), getActivity().getAssets(), mScoreView, inferenceHandler);
     }

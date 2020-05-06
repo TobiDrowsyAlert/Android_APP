@@ -2,7 +2,7 @@ package com.tzutalin.dlibtest;
 
 public class ApiData {
     private int[] rect;
-    private String driver;
+    private Boolean driver;
     private int[][] landmarks;
     private int frame;
 
@@ -18,12 +18,12 @@ public class ApiData {
         this.rect = rect;
     }
 
-    public String getDriver ()
+    public Boolean getDriver ()
     {
         return driver;
     }
 
-    public void setDriver (String driver)
+    public void setDriver (Boolean driver)
     {
         this.driver = driver;
     }
