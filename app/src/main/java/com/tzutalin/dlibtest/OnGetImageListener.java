@@ -45,6 +45,7 @@ import android.widget.Toast;
 import com.tzutalin.dlib.Constants;
 import com.tzutalin.dlib.FaceDet;
 import com.tzutalin.dlib.VisionDetRet;
+import com.tzutalin.dlibtest.Utility.AlertUtility;
 import com.tzutalin.dlibtest.Utility.DialogBox;
 
 import junit.framework.Assert;
@@ -92,6 +93,7 @@ public class OnGetImageListener implements OnImageAvailableListener {
     private Paint mFaceLandmardkPaint;
 
     private DialogBox dialogBox;
+    private AlertUtility alertUtility;
 
     public void initialize(
             final Context context,
@@ -105,6 +107,9 @@ public class OnGetImageListener implements OnImageAvailableListener {
         mWindow = new FloatingCameraWindow(mContext);
 
         //dialogBox = new DialogBox(mContext);
+        dialogBox = new DialogBox(CameraActivity.getContext());
+        alertUtility = new AlertUtility(CameraActivity.getContext());
+
 
         mFaceLandmardkPaint = new Paint();
         mFaceLandmardkPaint.setColor(Color.GREEN);
@@ -313,9 +318,6 @@ public class OnGetImageListener implements OnImageAvailableListener {
                                     @Override
                                     public void onResponse(Call<ResponseLandmark> call, Response<ResponseLandmark> response) {
 
-
-                                        DialogBox dialogBox = new DialogBox(CameraActivity.getContext());
-
                                         // 성공적으로 서버 통신 성공
                                         if(response.isSuccessful()){
 
@@ -328,16 +330,25 @@ public class OnGetImageListener implements OnImageAvailableListener {
                                             }
                                             else if(response.body().getCode() == INT_BLIND){
                                                 // 인터페이스 빨간불(졸음 발생)
-                                                dialogBox.feedbackDialog("눈 감김");
+                                                alertUtility.feedbackDialog("눈 감김");
+                                                //alertUtility.alert();
+                                                alertUtility.alram();
+                                                alertUtility.vibrate(2000);
                                                 Toast.makeText(mContext.getApplicationContext(), "눈 감김", Toast.LENGTH_LONG).show();
                                             }
                                             else if(response.body().getCode() == INT_BLINK){
                                                 // 인터페이스 빨간불(졸음 발생)
-                                                dialogBox.feedbackDialog("눈 깜빡임");
+                                                alertUtility.feedbackDialog("눈 깜빡임");
+                                                //alertUtility.alert();
+                                                alertUtility.alram();
+                                                alertUtility.vibrate(2000);
                                                 Toast.makeText(mContext.getApplicationContext(), "눈 깜빡임", Toast.LENGTH_LONG).show();
                                             }
                                             else if(response.body().getCode() == INT_YAWN){
-                                                dialogBox.feedbackDialog("하품");
+                                                alertUtility.feedbackDialog("하품");
+                                                //alertUtility.alert();
+                                                alertUtility.alram();
+                                                alertUtility.vibrate(2000);
                                                 Toast.makeText(mContext.getApplicationContext(), "하품", Toast.LENGTH_LONG).show();
                                             }
                                         }
@@ -384,8 +395,8 @@ public class OnGetImageListener implements OnImageAvailableListener {
 
                                             if(response.body().getCode() == INT_DRIVER_AWARE_FAIL){
                                                 // 인터페이스 빨간불(졸음 발생)
-                                                Toast.makeText(mContext.getApplicationContext(), "운전자 정면 주시 X", Toast.LENGTH_LONG).show();
-                                                dialogBox.feedbackDialog("운전자 정면 주시 X");
+                                                Toast.makeText(mContext.getApplicationContext(), "정면주시실패", Toast.LENGTH_LONG).show();
+                                                dialogBox.feedbackDialog("정면주시실패");
                                             }
                                             else if(response.body().getCode() == INT_DRIVER_AWAY){
                                                 Toast.makeText(mContext.getApplicationContext(), "운전자 이탈", Toast.LENGTH_LONG).show();
