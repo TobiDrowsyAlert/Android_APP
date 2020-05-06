@@ -390,6 +390,7 @@ public class OnGetImageListener implements OnImageAvailableListener {
                                             else if(response.body().getCode() == INT_DRIVER_AWAY){
                                                 Toast.makeText(mContext.getApplicationContext(), "운전자 이탈", Toast.LENGTH_LONG).show();
                                             }
+
                                         }
 
                                     }
