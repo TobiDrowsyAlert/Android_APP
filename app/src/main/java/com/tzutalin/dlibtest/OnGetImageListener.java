@@ -301,6 +301,7 @@ public class OnGetImageListener implements OnImageAvailableListener {
                             jsonData.setLandmarks(landmark);
                                 jsonData.setDriver(true);
                                 jsonData.setFrame(50);
+                                jsonData.setCorrect(true);
 
                                 RetrofitConnection retrofitConnection = new RetrofitConnection();
 
@@ -312,7 +313,7 @@ public class OnGetImageListener implements OnImageAvailableListener {
 
 
                                 //AlertDialog alertDialog = new AlertDialog.Builder(CameraActivity.this);
-
+                                alertUtility.setRetrofitConnection(retrofitConnection);
                                 Call<ResponseLandmark> call = retrofitConnection.server.sendData(jsonData);
                                 call.enqueue(new Callback<ResponseLandmark>() {
                                     @Override
@@ -328,6 +329,7 @@ public class OnGetImageListener implements OnImageAvailableListener {
                                             if(response.body().getCode() == INT_NORMAL){
                                                 // 인터페이스 초록불
                                             }
+
                                             else if(response.body().getCode() == INT_BLIND){
                                                 // 인터페이스 빨간불(졸음 발생)
                                                 alertUtility.feedbackDialog("눈 감김");
@@ -336,6 +338,7 @@ public class OnGetImageListener implements OnImageAvailableListener {
                                                 alertUtility.vibrate(2000);
                                                 Toast.makeText(mContext.getApplicationContext(), "눈 감김", Toast.LENGTH_LONG).show();
                                             }
+
                                             else if(response.body().getCode() == INT_BLINK){
                                                 // 인터페이스 빨간불(졸음 발생)
                                                 alertUtility.feedbackDialog("눈 깜빡임");
@@ -356,7 +359,6 @@ public class OnGetImageListener implements OnImageAvailableListener {
                                         else{
                                             // 서버 연결은 성공, 인식 결과 정상 운행이나 졸음 발생 둘다 아님,
                                             // 인터페이스 빨간불
-
                                             Log.e("RetrofitTest", "UnExpected Success" + response.toString());
                                         }
                                     }
@@ -384,6 +386,7 @@ public class OnGetImageListener implements OnImageAvailableListener {
                                 jsonData.setLandmarks(null);
                                 jsonData.setRect(null);
                                 jsonData.setDriver(false);
+                                jsonData.setCorrect(true);
                                 Call<ResponseLandmark> call = retrofitConnection.server.sendData(jsonData);
                                 call.enqueue(new Callback<ResponseLandmark>() {
 

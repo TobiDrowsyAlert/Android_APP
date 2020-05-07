@@ -8,6 +8,14 @@ public class RetrofitConnection {
     Retrofit retrofit;
     RetrofitInterface server;
 
+    public RetrofitInterface getServer() {
+        return server;
+    }
+
+    public void setServer(RetrofitInterface server) {
+        this.server = server;
+    }
+
     public void setRetrofit(String url){
         retrofit = new Retrofit.Builder()
                 .baseUrl(url)
@@ -17,5 +25,6 @@ public class RetrofitConnection {
         server = retrofit.create(RetrofitInterface.class);
 
     }
+
 
 }

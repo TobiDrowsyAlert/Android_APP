@@ -5,9 +5,18 @@ public class ApiData {
     private Boolean driver;
     private int[][] landmarks;
     private int frame;
+    private Boolean isCorrect;
 
-    ApiData(){
+    public ApiData(){
 
+    }
+
+    public Boolean getCorrect() {
+        return isCorrect;
+    }
+
+    public void setCorrect(Boolean correct) {
+        isCorrect = correct;
     }
 
     public int[] getRect (){

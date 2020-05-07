@@ -15,6 +15,8 @@ public interface RetrofitInterface {
     @POST("/api/value")
     Call<ResponseLandmark> sendData(@Body ApiData landmarks);
 
+
+
 /*    @FormUrlEncoded
     @POST("set_face")
     Call<ApiData> sendData2(@Field("name") String name, @Field("age") int age);*/

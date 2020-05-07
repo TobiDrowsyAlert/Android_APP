@@ -85,6 +85,10 @@ public class CameraActivity extends Activity {
     static public Context getContext(){
         return instanceContext;
     }
+    static public void setFocus(){
+
+    }
+
 
 
     public void OnclickHandler(View view) {
