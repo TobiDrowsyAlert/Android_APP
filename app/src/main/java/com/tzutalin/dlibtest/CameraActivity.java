@@ -38,9 +38,9 @@ import android.widget.Toast;
  */
 public class CameraActivity extends Activity {
 
-
     private static int OVERLAY_PERMISSION_REQ_CODE = 1;
     static Context instanceContext;
+    static public Boolean isActivateNetwork = true;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -49,7 +49,6 @@ public class CameraActivity extends Activity {
         instanceContext = this;
 
         setContentView(R.layout.activity_camera);
-
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (!Settings.canDrawOverlays(this.getApplicationContext())) {
@@ -85,6 +84,11 @@ public class CameraActivity extends Activity {
     static public Context getContext(){
         return instanceContext;
     }
+
+    static public Boolean getIsActivateNetwork(){
+        return isActivateNetwork;
+    }
+
     static public void setFocus(){
 
     }
@@ -92,25 +96,17 @@ public class CameraActivity extends Activity {
 
 
     public void OnclickHandler(View view) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
-        builder.setTitle("졸음으로 인식되었습니다.").setMessage("하품이 맞습니까?");
+        String currentPause;
 
-        builder.setPositiveButton("NO", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int id) {
-                Toast.makeText(getApplicationContext(), "NO Click", Toast.LENGTH_SHORT).show();
-            }
-        });
+        if(isActivateNetwork == true){
+            isActivateNetwork = false;
+            currentPause = "ON";
+        }else{
+            isActivateNetwork = true;
+            currentPause = "OFF";
+        }
+        Toast.makeText(CameraActivity.this, "일시정지 " + currentPause, Toast.LENGTH_SHORT).show();
 
-        builder.setNegativeButton("OK", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int id) {
-                Toast.makeText(getApplicationContext(), "OK Click", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        AlertDialog alertDialog = builder.create();
-        alertDialog.show();
     }
 }

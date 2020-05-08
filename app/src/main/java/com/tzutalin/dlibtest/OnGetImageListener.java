@@ -95,6 +95,9 @@ public class OnGetImageListener implements OnImageAvailableListener {
     private DialogBox dialogBox;
     private AlertUtility alertUtility;
 
+    private Boolean isActivateNetwork;
+    private int sleep_step;
+
     public void initialize(
             final Context context,
             final AssetManager assetManager,
@@ -109,7 +112,7 @@ public class OnGetImageListener implements OnImageAvailableListener {
         //dialogBox = new DialogBox(mContext);
         dialogBox = new DialogBox(CameraActivity.getContext());
         alertUtility = new AlertUtility(CameraActivity.getContext());
-
+        isActivateNetwork = CameraActivity.getIsActivateNetwork();
 
         mFaceLandmardkPaint = new Paint();
         mFaceLandmardkPaint.setColor(Color.GREEN);
@@ -254,18 +257,23 @@ public class OnGetImageListener implements OnImageAvailableListener {
                             FileUtils.copyFileFromRawToOthers(mContext, R.raw.shape_predictor_68_face_landmarks, Constants.getFaceShapeModelPath());
                         }
 
-                        long startTime = System.currentTimeMillis();
                         List<VisionDetRet> results;
                         synchronized (OnGetImageListener.this) {
                             results = mFaceDet.detect(mCroppedBitmap);
                         }
-                        long endTime = System.currentTimeMillis();
-                        mTransparentTitleView.setText("Time cost: " + String.valueOf((endTime - startTime) / 1000f) + " sec");
 
                         // Draw on bitmap
                         ApiData jsonData = new ApiData();
                         if (results != null) {  // 랜드마크 사각형 그리기 위함(얼굴 좌표를 이용하여)
+
                             for (final VisionDetRet ret : results) {
+                                Log.e("OnGetImageListener", "현재 pause 진리값 : " + CameraActivity.getIsActivateNetwork().toString());
+
+                                if(!CameraActivity.getIsActivateNetwork()){
+                                    Log.e("OnGetImageListener", "Camera Pause");
+                                    break;
+                                }
+
                                 float resizeRatio = 1.0f;
                                 int rect[] = new int[4];
                                 Rect bounds = new Rect();
@@ -278,7 +286,6 @@ public class OnGetImageListener implements OnImageAvailableListener {
                                 rect[1] = bounds.top;
                                 rect[2] = bounds.right;
                                 rect[3] = bounds.bottom;
-
 
                                 jsonData.setRect(rect);
 
@@ -324,6 +331,8 @@ public class OnGetImageListener implements OnImageAvailableListener {
 
                                             Log.e("RetrofitTest", "Success : " + response.toString());
                                             Log.e("ResponseBody", "ResponseData : " + response.body().getCode());
+                                            sleep_step = response.body().getSleep_step();
+                                            alertUtility.setSleep_step(sleep_step);
 
                                             // 얼굴 인식 + 정상 운행
                                             if(response.body().getCode() == INT_NORMAL){
@@ -335,23 +344,21 @@ public class OnGetImageListener implements OnImageAvailableListener {
                                                 alertUtility.feedbackDialog("눈 감김");
                                                 //alertUtility.alert();
                                                 alertUtility.alram();
-                                                alertUtility.vibrate(2000);
+                                                alertUtility.vibrate();
                                                 Toast.makeText(mContext.getApplicationContext(), "눈 감김", Toast.LENGTH_LONG).show();
                                             }
 
                                             else if(response.body().getCode() == INT_BLINK){
                                                 // 인터페이스 빨간불(졸음 발생)
-                                                alertUtility.feedbackDialog("눈 깜빡임");
                                                 //alertUtility.alert();
                                                 alertUtility.alram();
-                                                alertUtility.vibrate(2000);
+                                                alertUtility.vibrate();
                                                 Toast.makeText(mContext.getApplicationContext(), "눈 깜빡임", Toast.LENGTH_LONG).show();
                                             }
                                             else if(response.body().getCode() == INT_YAWN){
-                                                alertUtility.feedbackDialog("하품");
                                                 //alertUtility.alert();
                                                 alertUtility.alram();
-                                                alertUtility.vibrate(2000);
+                                                alertUtility.vibrate();
                                                 Toast.makeText(mContext.getApplicationContext(), "하품", Toast.LENGTH_LONG).show();
                                             }
                                         }
@@ -395,11 +402,13 @@ public class OnGetImageListener implements OnImageAvailableListener {
 
                                         // 성공적으로 서버 통신 성공
                                         if(response.isSuccessful()){
+                                            alertUtility.setSleep_step(sleep_step);
 
                                             if(response.body().getCode() == INT_DRIVER_AWARE_FAIL){
                                                 // 인터페이스 빨간불(졸음 발생)
                                                 Toast.makeText(mContext.getApplicationContext(), "정면주시실패", Toast.LENGTH_LONG).show();
-                                                dialogBox.feedbackDialog("정면주시실패");
+                                                alertUtility.feedbackDialog("정면주시실패");
+                                                alertUtility.vibrate();
                                             }
                                             else if(response.body().getCode() == INT_DRIVER_AWAY){
                                                 Toast.makeText(mContext.getApplicationContext(), "운전자 이탈", Toast.LENGTH_LONG).show();

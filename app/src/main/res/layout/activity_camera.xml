@@ -33,7 +33,7 @@
         android:layout_marginLeft="30dp"
         android:layout_marginTop="30dp"
         android:onClick="OnclickHandler"
-        android:text="addButton" />
+        android:text="일시정지" />
 
 
 </FrameLayout>

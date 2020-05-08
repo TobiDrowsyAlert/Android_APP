@@ -1,12 +1,14 @@
 package com.tzutalin.dlibtest.Utility;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.media.MediaPlayer;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
+import android.os.Handler;
 import android.os.Vibrator;
 import android.util.Log;
 import android.widget.Toast;
@@ -32,6 +34,7 @@ public class AlertUtility {
     int StreamType = 0;
     MediaPlayer mAudio = null;
     boolean isPlay = false;
+    int sleep_step = 0;
 
     public AlertUtility(Context mContext){
         this.mContext = mContext;
@@ -55,8 +58,14 @@ public class AlertUtility {
     }
 
 
-    public void vibrate(int time){
-        vibrator.vibrate(time);
+    public void vibrate()
+    {
+        if(sleep_step == 2){
+            vibrator.vibrate(30000);
+        }
+        else if(sleep_step == 3) {
+            vibrator.vibrate(60000);
+        }
     }
 
     public void alram(){
@@ -86,7 +95,7 @@ public class AlertUtility {
     }
 
     public void feedbackDialog(String cause){
-        builder.setTitle("졸음이 인식되었습니다.").setMessage(cause + "이 맞습니까?");
+        builder.setTitle("졸음이 인식되었습니다.").setMessage("원인 : "+ cause +", 졸음단계 : " + (sleep_step-1) + " > " + sleep_step);
         builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int id) {
@@ -94,6 +103,7 @@ public class AlertUtility {
                 alramStop();
                 vibrator.cancel();
             }
+
         });
         builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
             @Override
@@ -135,6 +145,7 @@ public class AlertUtility {
         });
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
+        delayTime(5000, alertDialog);
     }
 
     public RetrofitConnection getRetrofitConnection(){
@@ -143,6 +154,26 @@ public class AlertUtility {
 
     public void setRetrofitConnection(RetrofitConnection retrofitConnection){
         this.retrofitConnection = retrofitConnection;
+    }
+
+    public void setSleep_step(int sleep_step){
+        this.sleep_step = sleep_step;
+    }
+
+    public int getSleep_step(){
+        return sleep_step;
+    }
+
+    public void delayTime(long time, final Dialog d){
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                d.dismiss();
+                Log.e("AlertUtility", "dismiss실행, time : " + time);
+            }
+        }, time);
+
     }
 
 }
