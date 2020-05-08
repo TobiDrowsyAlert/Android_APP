@@ -35,6 +35,7 @@ public class AlertUtility {
     MediaPlayer mAudio = null;
     boolean isPlay = false;
     int sleep_step = 0;
+    int time = 1000;
 
     public AlertUtility(Context mContext){
         this.mContext = mContext;
@@ -61,10 +62,10 @@ public class AlertUtility {
     public void vibrate()
     {
         if(sleep_step == 2){
-            vibrator.vibrate(30000);
+            vibrator.vibrate(60000);
         }
         else if(sleep_step == 3) {
-            vibrator.vibrate(60000);
+            vibrator.vibrate(90000);
         }
     }
 
@@ -95,6 +96,7 @@ public class AlertUtility {
     }
 
     public void feedbackDialog(String cause){
+        Log.e("AlertUtility", "feedbackDialog Activate");
         builder.setTitle("졸음이 인식되었습니다.").setMessage("원인 : "+ cause +", 졸음단계 : " + (sleep_step-1) + " > " + sleep_step);
         builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
             @Override
@@ -145,7 +147,16 @@ public class AlertUtility {
         });
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
-        delayTime(5000, alertDialog);
+        if(sleep_step == 1){
+            time = 30000;
+        }
+        else if(sleep_step == 2){
+            time = 60000;
+        }
+        else if(sleep_step == 3){
+            time = 90000;
+        }
+        delayTime(time, alertDialog);
     }
 
     public RetrofitConnection getRetrofitConnection(){
@@ -165,15 +176,14 @@ public class AlertUtility {
     }
 
     public void delayTime(long time, final Dialog d){
-
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 d.dismiss();
-                Log.e("AlertUtility", "dismiss실행, time : " + time);
+                alramStop();
+                vibrator.cancel();
             }
         }, time);
-
     }
 
 }

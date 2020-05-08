@@ -351,12 +351,14 @@ public class OnGetImageListener implements OnImageAvailableListener {
                                             else if(response.body().getCode() == INT_BLINK){
                                                 // 인터페이스 빨간불(졸음 발생)
                                                 //alertUtility.alert();
+                                                alertUtility.feedbackDialog("눈 깜빡임");
                                                 alertUtility.alram();
                                                 alertUtility.vibrate();
                                                 Toast.makeText(mContext.getApplicationContext(), "눈 깜빡임", Toast.LENGTH_LONG).show();
                                             }
                                             else if(response.body().getCode() == INT_YAWN){
                                                 //alertUtility.alert();
+                                                alertUtility.feedbackDialog("하품");
                                                 alertUtility.alram();
                                                 alertUtility.vibrate();
                                                 Toast.makeText(mContext.getApplicationContext(), "하품", Toast.LENGTH_LONG).show();
