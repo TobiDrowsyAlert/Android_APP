@@ -31,6 +31,8 @@ public class AlertUtility {
     AlertDialog.Builder builder;
     RetrofitConnection retrofitConnection;
 
+    String TAG = "AlertUtility";
+
     int StreamType = 0;
     MediaPlayer mAudio = null;
     boolean isPlay = false;
@@ -98,6 +100,7 @@ public class AlertUtility {
     public void feedbackDialog(String cause){
         Log.e("AlertUtility", "feedbackDialog Activate");
         builder.setTitle("졸음이 인식되었습니다.").setMessage("원인 : "+ cause +", 졸음단계 : " + (sleep_step-1) + " > " + sleep_step);
+
         builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int id) {
@@ -122,22 +125,23 @@ public class AlertUtility {
 
                 jsonData.setLandmarks(null);
                 jsonData.setRect(null);
-                jsonData.setDriver(false);
-                jsonData.setCorrect(true);
+                jsonData.setDriver(true);
+                jsonData.setCorrect(false);
 
-                Call call = retrofitConnection.getServer().sendData(jsonData);
+                //Call call = retrofitConnection.getServer().sendData(jsonData);
+                Call call = retrofitConnection.getServer().feedback();
 
                 call.enqueue(new Callback() {
                     @Override
                     public void onResponse(Call call, Response response) {
                         if(response.isSuccessful()){
-                            Log.e("피드백 전송 성공", "jsonData : " + jsonData.getCorrect());
+                            Log.e("피드백 전송 성공", "");
                         }
                     }
 
                     @Override
                     public void onFailure(Call call, Throwable t) {
-                        Log.e("피드백 전송 실패", "jsonData : " + jsonData.getCorrect());
+                        Log.e("피드백 전송 실패", "");
                     }
                 });
 
@@ -182,6 +186,28 @@ public class AlertUtility {
                 d.dismiss();
                 alramStop();
                 vibrator.cancel();
+            }
+        }, time);
+    }
+
+    public void dropSleepStep(long time){
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Call call = retrofitConnection.getServer().dropSleepStep();
+                call.enqueue(new Callback() {
+                    @Override
+                    public void onResponse(Call call, Response response) {
+                        if(response.isSuccessful()){
+                            Log.e(TAG,"sleepStep drop");
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call call, Throwable t) {
+
+                    }
+                });
             }
         }, time);
     }

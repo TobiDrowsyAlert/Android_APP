@@ -15,7 +15,14 @@ public interface RetrofitInterface {
     @POST("/api/value")
     Call<ResponseLandmark> sendData(@Body ApiData landmarks);
 
+    @POST("/api/sleepStep/drop")
+    Call<ResponseLandmark> dropSleepStep();
 
+    @POST("/api/sleepStep/reset")
+    Call<ResponseLandmark> resetSleepStep();
+
+    @POST("/api/sleepStep/feedback")
+    Call<ResponseLandmark> feedback();
 
 /*    @FormUrlEncoded
     @POST("set_face")

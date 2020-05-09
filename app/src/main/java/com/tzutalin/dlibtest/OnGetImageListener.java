@@ -408,11 +408,15 @@ public class OnGetImageListener implements OnImageAvailableListener {
 
                                             if(response.body().getCode() == INT_DRIVER_AWARE_FAIL){
                                                 // 인터페이스 빨간불(졸음 발생)
-                                                Toast.makeText(mContext.getApplicationContext(), "정면주시실패", Toast.LENGTH_LONG).show();
-                                                alertUtility.feedbackDialog("정면주시실패");
+                                                alertUtility.feedbackDialog("정면주시 실패");
+                                                alertUtility.alram();
                                                 alertUtility.vibrate();
+                                                Toast.makeText(mContext.getApplicationContext(), "정면주시실패", Toast.LENGTH_LONG).show();
                                             }
                                             else if(response.body().getCode() == INT_DRIVER_AWAY){
+                                                alertUtility.feedbackDialog("운전자 이탈");
+                                                alertUtility.alram();
+                                                alertUtility.vibrate();
                                                 Toast.makeText(mContext.getApplicationContext(), "운전자 이탈", Toast.LENGTH_LONG).show();
                                             }
 

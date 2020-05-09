@@ -29,11 +29,22 @@
         android:id="@+id/message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="30dp"
+        android:layout_gravity="top"
         android:onClick="OnclickHandler"
         android:text="일시정지" />
+
+    <Button
+        android:id="@+id/btnResetSleepStep"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|right"
+        android:layout_marginLeft="130dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="30dp"
+        android:onClick="onClickReset"
+        android:text="리셋" />
 
 
 </FrameLayout>

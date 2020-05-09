@@ -33,6 +33,8 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.tzutalin.dlibtest.Utility.SleepStepManager;
+
 /**
  * Created by darrenl on 2016/5/20.
  */
@@ -41,9 +43,15 @@ public class CameraActivity extends Activity {
     private static int OVERLAY_PERMISSION_REQ_CODE = 1;
     static Context instanceContext;
     static public Boolean isActivateNetwork = true;
+    RetrofitConnection retrofitConnection;
+    SleepStepManager sleepStepManager;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
+
+        retrofitConnection = new RetrofitConnection();
+        sleepStepManager = new SleepStepManager(retrofitConnection);
+
         super.onCreate(savedInstanceState);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         instanceContext = this;
@@ -108,5 +116,10 @@ public class CameraActivity extends Activity {
         }
         Toast.makeText(CameraActivity.this, "일시정지 " + currentPause, Toast.LENGTH_SHORT).show();
 
+    }
+
+    public void onClickReset(View view){
+        sleepStepManager.resetSleepStep();
+        Toast.makeText(CameraActivity.this, "졸음단계 초기화 " , Toast.LENGTH_SHORT).show();
     }
 }
