@@ -11,16 +11,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="31cab281-b875-4e5c-a1b5-b2632b85b167" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/Utility/SleepStepManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/settingEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/CameraActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/CameraActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/MainActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/OnGetImageListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/OnGetImageListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/RetrofitInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/RetrofitInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/Utility/AlertUtility.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/Utility/AlertUtility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/Utility/DialogBox.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/Utility/DialogBox.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/menuEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/menuEvent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_camera.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_camera.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/sign_up.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/sign_up.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -31,7 +31,7 @@
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="52009080fedb15bf" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="2c45b128ca0b7ece" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -52,104 +52,6 @@
   <component name="FavoritesManager">
     <favorites_list name="Android_APP" />
   </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/Utility/AlertUtility.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2337">
-              <caret line="42" column="33" lean-forward="true" selection-start-line="42" selection-start-column="33" selection-end-line="42" selection-end-column="33" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#4365#4366#0" expanded="true" />
-                <element signature="e#4435#4436#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_camera.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="45" column="37" selection-start-line="45" selection-start-column="37" selection-end-line="45" selection-end-column="37" />
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer2" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/RetrofitInterface.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="57">
-              <caret line="3" selection-start-line="3" selection-end-line="5" />
-            </state>
-          </provider>
-          <provider editor-type-id="android-manifest" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/FloatingCameraWindow.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="109">
-              <caret line="62" column="57" lean-forward="true" selection-start-line="62" selection-start-column="57" selection-end-line="62" selection-end-column="57" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/Utility/SleepStepManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="58">
-              <caret line="16" column="53" lean-forward="true" selection-start-line="16" selection-start-column="53" selection-end-line="16" selection-end-column="53" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/OnGetImageListener.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="396" column="58" lean-forward="true" selection-start-line="396" selection-start-column="58" selection-end-line="396" selection-end-column="58" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/CameraActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="343">
-              <caret line="120" column="28" selection-start-line="120" selection-start-column="16" selection-end-line="120" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/Utility/DialogBox.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="47" column="52" selection-start-line="47" selection-start-column="52" selection-end-line="47" selection-end-column="52" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
-  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -157,6 +59,7 @@
         <option value="layoutResourceFile" />
         <option value="layoutResourceFile_vertical" />
         <option value="Interface" />
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -222,97 +125,8 @@
       </branch-storage>
     </favorite-branches>
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/build.gradle" />
-        <option value="$PROJECT_DIR$/app/build.gradle" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/AutoFitTextureView.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/menuEvent.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/CameraConnectionFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/ApiData.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/Utility/DialogBox.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/RetrofitConnection.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/FloatingCameraWindow.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/ResponseLandmark.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/MainActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/OnGetImageListener.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/RetrofitInterface.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/Utility/AlertUtility.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/Utility/SleepStepManager.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/CameraActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_camera.xml" />
-      </list>
-    </option>
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="44" />
-    <option name="width" value="1656" />
-    <option name="height" value="1047" />
-  </component>
   <component name="ProjectId" id="1aKy3pYeR3zxK7axDncab89hcv8" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="AndroidView">
-        <subPane>
-          <expand>
-            <path>
-              <item name="Android_APP" type="1abcf292:AndroidViewProjectNode" />
-              <item name="home-AndroidStudioProjects-Android_APP-app~1" type="feadf853:AndroidModuleNode" />
-            </path>
-            <path>
-              <item name="Android_APP" type="1abcf292:AndroidViewProjectNode" />
-              <item name="home-AndroidStudioProjects-Android_APP-app~1" type="feadf853:AndroidModuleNode" />
-              <item name="manifests" type="f94875db:AndroidManifestsGroupNode" />
-            </path>
-            <path>
-              <item name="Android_APP" type="1abcf292:AndroidViewProjectNode" />
-              <item name="home-AndroidStudioProjects-Android_APP-app~1" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-            </path>
-            <path>
-              <item name="Android_APP" type="1abcf292:AndroidViewProjectNode" />
-              <item name="home-AndroidStudioProjects-Android_APP-app~1" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="dlibtest" type="cbb59c9e:AndroidPsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Android_APP" type="1abcf292:AndroidViewProjectNode" />
-              <item name="home-AndroidStudioProjects-Android_APP-app~1" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="dlibtest" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="Utility" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Android_APP" type="1abcf292:AndroidViewProjectNode" />
-              <item name="home-AndroidStudioProjects-Android_APP-app~1" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
-            </path>
-            <path>
-              <item name="Android_APP" type="1abcf292:AndroidViewProjectNode" />
-              <item name="home-AndroidStudioProjects-Android_APP-app~1" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
-              <item name="layout" type="ddeffd01:AndroidResFolderTypeNode" />
-            </path>
-            <path>
-              <item name="Android_APP" type="1abcf292:AndroidViewProjectNode" />
-              <item name="Gradle Scripts" type="ae0cef3a:AndroidBuildScriptsGroupNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="ProjectPane" />
-    </panes>
-  </component>
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="2c45b128ca0b7ece" />
@@ -337,6 +151,10 @@
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.tzutalin.dlibtest" />
     </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.tzutalin.dlibtest" />
+      <recent name="com.tzutalin.dlibtest.Utility" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -350,7 +168,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Android App.home-AndroidStudioProjects-Android_APP-app~1">
+  <component name="RunManager" selected="Android App.rlgus-AndroidStudioProjects-Android_APP-app">
     <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -373,8 +191,6 @@
       <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
       <option name="FORCE_STOP_RUNNING_APP" value="true" />
       <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
-      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
-      <option name="PREFERRED_AVD" value="" />
       <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
       <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
       <option name="DEBUGGER_TYPE" value="Auto" />
@@ -425,8 +241,6 @@
       <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
       <option name="FORCE_STOP_RUNNING_APP" value="true" />
       <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
-      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
-      <option name="PREFERRED_AVD" value="" />
       <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
       <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
       <option name="DEBUGGER_TYPE" value="Auto" />
@@ -584,8 +398,6 @@
       <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
       <option name="FORCE_STOP_RUNNING_APP" value="true" />
       <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
-      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
-      <option name="PREFERRED_AVD" value="" />
       <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
       <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
       <option name="DEBUGGER_TYPE" value="Auto" />
@@ -637,8 +449,57 @@
       <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
       <option name="FORCE_STOP_RUNNING_APP" value="true" />
       <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
-      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
-      <option name="PREFERRED_AVD" value="" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sample Java Methods" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="rlgus-AndroidStudioProjects-Android_APP-app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
+      <module name="rlgus-AndroidStudioProjects-Android_APP-app" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
       <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
       <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
       <option name="DEBUGGER_TYPE" value="Auto" />
@@ -680,6 +541,7 @@
       <item itemvalue="Android App.app" />
       <item itemvalue="Android App.Android_APP-app" />
       <item itemvalue="Android App.home-AndroidStudioProjects-Android_APP-app~1" />
+      <item itemvalue="Android App.rlgus-AndroidStudioProjects-Android_APP-app" />
     </list>
   </component>
   <component name="SvnConfiguration">
@@ -845,49 +707,12 @@
       <is-autoscroll-to-source value="true" />
     </todo-panel>
   </component>
-  <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
-    <layout>
-      <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.15458423" />
-      <window_info id="Structure" order="2" side_tool="true" />
-      <window_info id="Favorites" order="3" side_tool="true" />
-      <window_info id="Build Variants" order="4" side_tool="true" />
-      <window_info id="Image Layers" order="5" />
-      <window_info id="Designer" order="6" />
-      <window_info id="Resources Explorer" order="7" />
-      <window_info id="Capture Tool" order="8" />
-      <window_info anchor="bottom" id="Run" order="0" sideWeight="0.69882727" visible="true" weight="0.36767897" />
-      <window_info anchor="bottom" id="TODO" order="1" sideWeight="0.4943609" weight="0.32858709" />
-      <window_info anchor="bottom" id="Debug" order="2" />
-      <window_info anchor="bottom" id="Terminal" order="3" sideWeight="0.49310777" weight="0.3274918" />
-      <window_info anchor="bottom" id="Event Log" order="4" sideWeight="0.3011727" side_tool="true" visible="true" weight="0.36767897" />
-      <window_info anchor="bottom" id="Version Control" order="5" sideWeight="0.49733475" weight="0.3286334" />
-      <window_info anchor="bottom" id="Build" order="6" sideWeight="0.49413645" weight="0.318872" />
-      <window_info anchor="bottom" id="Android Profiler" order="7" sideWeight="0.49874687" weight="0.32968238" />
-      <window_info anchor="bottom" id="Logcat" order="8" show_stripe_button="false" sideWeight="0.67871815" weight="0.32911393" />
-      <window_info anchor="bottom" id="Find" order="9" />
-      <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" />
-      <window_info anchor="right" id="Capture Analysis" order="1" />
-      <window_info anchor="right" id="Gradle" order="2" />
-      <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info anchor="right" id="Palette&#9;" order="4" />
-      <window_info anchor="right" id="Preview" order="5" />
-    </layout>
-  </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
             <State>
-              <option name="RECENTLY_FILTERED_USER_GROUPS">
-                <collection />
-              </option>
-              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
-                <collection />
-              </option>
               <option name="COLUMN_ORDER" />
             </State>
           </value>
@@ -928,218 +753,6 @@
     <MESSAGE value="일시정지 기능" />
     <MESSAGE value="피드백 메시지 변경 / 졸음 단계에 따른 알람 동작" />
     <option name="LAST_COMMIT_MESSAGE" value="피드백 메시지 변경 / 졸음 단계에 따른 알람 동작" />
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dlib/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/statisticsPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="20" column="51" lean-forward="true" selection-start-line="20" selection-start-column="51" selection-end-line="20" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1007">
-          <caret line="53" column="32" selection-start-line="53" selection-start-column="32" selection-end-line="53" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/menuEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/ApiData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="30" selection-start-column="30" selection-end-column="30" />
-          <folding>
-            <element signature="e#248#249#0" expanded="true" />
-            <element signature="e#280#281#0" expanded="true" />
-            <element signature="e#327#328#0" expanded="true" />
-            <element signature="e#362#363#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/signupEvnet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/mainEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/DebugLogFileTree.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="49" column="57" selection-start-line="49" selection-start-column="57" selection-end-line="49" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/DlibDemoApp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-42">
-          <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/AutoFitTextureView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-441">
-          <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/CameraConnectionFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="150" column="60" lean-forward="true" selection-start-line="150" selection-start-column="60" selection-end-line="150" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="30" selection-start-line="30" selection-end-line="30" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/Utility/DialogBox.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="47" column="52" selection-start-line="47" selection-start-column="52" selection-end-line="47" selection-end-column="52" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/ResponseLandmark.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="15" column="33" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
-          <folding>
-            <element signature="e#332#333#0" expanded="true" />
-            <element signature="e#383#384#0" expanded="true" />
-            <element signature="e#429#430#0" expanded="true" />
-            <element signature="e#463#464#0" expanded="true" />
-            <element signature="e#496#497#0" expanded="true" />
-            <element signature="e#545#546#0" expanded="true" />
-            <element signature="e#589#590#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/FloatingCameraWindow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="62" column="57" lean-forward="true" selection-start-line="62" selection-start-column="57" selection-end-line="62" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/OnGetImageListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="396" column="58" lean-forward="true" selection-start-line="396" selection-start-column="58" selection-end-line="396" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/RetrofitInterface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-735">
-          <caret line="329" column="33" lean-forward="true" selection-start-line="329" selection-start-column="33" selection-end-line="329" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" selection-start-line="3" selection-end-line="5" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-manifest" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/RetrofitConnection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
-          <folding>
-            <element signature="e#244#245#0" expanded="true" />
-            <element signature="e#273#274#0" expanded="true" />
-            <element signature="e#328#329#0" expanded="true" />
-            <element signature="e#364#365#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/Utility/SleepStepManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="58">
-          <caret line="16" column="53" lean-forward="true" selection-start-line="16" selection-start-column="53" selection-end-line="16" selection-end-column="53" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/Utility/AlertUtility.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2337">
-          <caret line="42" column="33" lean-forward="true" selection-start-line="42" selection-start-column="33" selection-end-line="42" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4365#4366#0" expanded="true" />
-            <element signature="e#4435#4436#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/CameraActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="120" column="28" selection-start-line="120" selection-start-column="16" selection-end-line="120" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_camera.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="45" column="37" selection-start-line="45" selection-start-column="37" selection-end-line="45" selection-end-column="37" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2" />
-    </entry>
   </component>
   <component name="masterDetails">
     <states>

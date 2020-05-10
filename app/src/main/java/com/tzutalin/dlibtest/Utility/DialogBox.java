@@ -7,7 +7,11 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.tzutalin.dlibtest.ApiData;
+import com.tzutalin.dlibtest.CameraActivity;
+import com.tzutalin.dlibtest.OnGetImageListener;
 import com.tzutalin.dlibtest.RetrofitConnection;
+
+import java.util.logging.Handler;
 
 public class DialogBox {
 
@@ -17,6 +21,9 @@ public class DialogBox {
 
 
     public DialogBox(Context mContext){
+
+
+
         this.mContext = mContext;
         builder = new AlertDialog.Builder(mContext);
     }
@@ -31,11 +38,15 @@ public class DialogBox {
     }
 
     public void feedbackDialog(String cause){
+
         builder.setTitle("졸음이 인식되었습니다.").setMessage(cause + "이 맞습니까?");
+
         builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int id) {
                 Toast.makeText(mContext, "YES", Toast.LENGTH_SHORT).show();
+
+
             }
         });
         builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
@@ -58,11 +69,23 @@ public class DialogBox {
 
                 retrofitConnection.getServer().sendData(jsonData);
                 Log.e("잘못된 피드백" , "전달된 데이터 : " + jsonData);
+
+
             }
         });
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
     }
+
+    // 쓰레드 만들다가 맘
+
+    /*final Handler mHandler = new Handler()
+    {
+        @Override
+
+        public void mhan
+
+    }*/
 
 
 

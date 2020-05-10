@@ -18,6 +18,9 @@
       <module fileurl="file://$PROJECT_DIR$/app/home-AndroidStudioProjects-Android_APP-app~1.iml" filepath="$PROJECT_DIR$/app/home-AndroidStudioProjects-Android_APP-app~1.iml" />
       <module fileurl="file://$PROJECT_DIR$/dlib/home-AndroidStudioProjects-Android_APP-dlib.iml" filepath="$PROJECT_DIR$/dlib/home-AndroidStudioProjects-Android_APP-dlib.iml" />
       <module fileurl="file://$PROJECT_DIR$/dlib/home-AndroidStudioProjects-Android_APP-dlib~1.iml" filepath="$PROJECT_DIR$/dlib/home-AndroidStudioProjects-Android_APP-dlib~1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rlgus-AndroidStudioProjects-Android_APP.iml" filepath="$PROJECT_DIR$/rlgus-AndroidStudioProjects-Android_APP.iml" group="Android_APP" />
+      <module fileurl="file://$PROJECT_DIR$/app/rlgus-AndroidStudioProjects-Android_APP-app.iml" filepath="$PROJECT_DIR$/app/rlgus-AndroidStudioProjects-Android_APP-app.iml" group="Android_APP/app" />
+      <module fileurl="file://$PROJECT_DIR$/dlib/rlgus-AndroidStudioProjects-Android_APP-dlib.iml" filepath="$PROJECT_DIR$/dlib/rlgus-AndroidStudioProjects-Android_APP-dlib.iml" group="Android_APP/dlib" />
     </modules>
   </component>
 </project>

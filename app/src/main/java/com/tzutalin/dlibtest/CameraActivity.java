@@ -21,6 +21,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Camera;
 import android.net.Uri;
 import android.os.Build;
@@ -49,6 +50,8 @@ public class CameraActivity extends Activity {
     SleepStepManager sleepStepManager;
     static TimerHandler timerHandler;
 
+    static View v;
+
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
 
@@ -62,6 +65,9 @@ public class CameraActivity extends Activity {
         instanceContext = this;
 
         setContentView(R.layout.activity_camera);
+
+        v = (View)findViewById(R.id.view1);
+
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (!Settings.canDrawOverlays(this.getApplicationContext())) {
@@ -112,6 +118,23 @@ public class CameraActivity extends Activity {
     static public Boolean getIsActivateNetwork(){
         return isActivateNetwork;
     }
+    static public void setColor(String mcolor)
+    {
+        if(mcolor =="blue")
+        {
+            v.setBackgroundColor(Color.BLUE);
+        }
+        else if(mcolor =="red")
+        {
+            v.setBackgroundColor(Color.RED);
+        }
+        else if(mcolor =="yellow")
+        {
+            v.setBackgroundColor(Color.YELLOW);
+        }
+    }
+
+
 
     public void OnclickHandler(View view) {
 

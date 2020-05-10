@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.tzutalin.dlibtest.ApiData;
 import com.tzutalin.dlibtest.CameraActivity;
+import com.tzutalin.dlibtest.OnGetImageListener;
 import com.tzutalin.dlibtest.ResponseLandmark;
 import com.tzutalin.dlibtest.RetrofitConnection;
 
@@ -107,6 +108,7 @@ public class AlertUtility {
             public void onClick(DialogInterface dialog, int id) {
                 Toast.makeText(mContext, "YES", Toast.LENGTH_SHORT).show();
                 alramStop();
+                OnGetImageListener.isBlue = true;
                 vibrator.cancel();
             }
 
@@ -116,7 +118,7 @@ public class AlertUtility {
             public void onClick(DialogInterface dialog, int id) {
                 Toast.makeText(mContext, "NO", Toast.LENGTH_SHORT).show();
                 RetrofitConnection retrofitConnection = new RetrofitConnection();
-
+                OnGetImageListener.isBlue = true;
                 //AWS 스프링 공인 주소, http://15.165.116.82:8080
                 //모듈 직접 접근 http://15.165.116.82:1234
                 //http://15.165.116.82:8080/api/value/ REST API 로 데이터 전송
@@ -190,6 +192,9 @@ public class AlertUtility {
                 vibrator.cancel();
                 // 재실행
                 CameraActivity.onClickStartCount(null);
+                //isBule = true;
+                OnGetImageListener.isBlue = true;
+
             }
         }, time);
     }
