@@ -78,15 +78,28 @@ public class CameraActivity extends Activity {
         }
 
         onClickStartCount(null);
+        sleepStepManager.resetSleepStep();
+
 
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        onClickStopCount(null);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        onClickStartCount(null);
+    }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
         onClickStopCount(null);
-
+        sleepStepManager.resetSleepStep();
     }
 
 

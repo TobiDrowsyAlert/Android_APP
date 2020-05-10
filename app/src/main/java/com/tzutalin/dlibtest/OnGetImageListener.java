@@ -384,53 +384,56 @@ public class OnGetImageListener implements OnImageAvailableListener {
                             if(results.size() == 0) {
                                 // 노란불(얼굴 인식 X )
                                 Log.e("Debug","Nothing in here");
+                                Log.e("OnGetImageListener", "현재 pause 진리값 : " + CameraActivity.getIsActivateNetwork().toString());
 
-                                RetrofitConnection retrofitConnection = new RetrofitConnection();
+                                if(!CameraActivity.getIsActivateNetwork()){
+                                    Log.e("OnGetImageListener", "Camera Pause");
+                                }
+                                else {
+                                    RetrofitConnection retrofitConnection = new RetrofitConnection();
 
-                                //AWS 스프링 공인 주소, http://15.165.116.82:8080
-                                //모듈 직접 접근 http://15.165.116.82:1234
-                                //http://15.165.116.82:8080/api/value/ REST API 로 데이터 전송
-                                retrofitConnection.setRetrofit("http://15.165.116.82:8080/");
+                                    //AWS 스프링 공인 주소, http://15.165.116.82:8080
+                                    //모듈 직접 접근 http://15.165.116.82:1234
+                                    //http://15.165.116.82:8080/api/value/ REST API 로 데이터 전송
+                                    retrofitConnection.setRetrofit("http://15.165.116.82:8080/");
 
-                                jsonData.setLandmarks(null);
-                                jsonData.setRect(null);
-                                jsonData.setDriver(false);
-                                jsonData.setCorrect(true);
-                                Call<ResponseLandmark> call = retrofitConnection.server.sendData(jsonData);
-                                call.enqueue(new Callback<ResponseLandmark>() {
+                                    jsonData.setLandmarks(null);
+                                    jsonData.setRect(null);
+                                    jsonData.setDriver(false);
+                                    jsonData.setCorrect(true);
+                                    Call<ResponseLandmark> call = retrofitConnection.server.sendData(jsonData);
+                                    call.enqueue(new Callback<ResponseLandmark>() {
+                                        @Override
+                                        public void onResponse(Call<ResponseLandmark> call, Response<ResponseLandmark> response) {
 
-                                    @Override
-                                    public void onResponse(Call<ResponseLandmark> call, Response<ResponseLandmark> response) {
+                                            // 성공적으로 서버 통신 성공
+                                            if (response.isSuccessful()) {
+                                                alertUtility.setSleep_step(sleep_step);
 
-                                        // 성공적으로 서버 통신 성공
-                                        if(response.isSuccessful()){
-                                            alertUtility.setSleep_step(sleep_step);
+                                                if (response.body().getCode() == INT_DRIVER_AWARE_FAIL) {
+                                                    // 인터페이스 빨간불(졸음 발생)
+                                                    alertUtility.feedbackDialog("정면주시 실패");
+                                                    alertUtility.alram();
+                                                    alertUtility.vibrate();
+                                                    Toast.makeText(mContext.getApplicationContext(), "정면주시실패", Toast.LENGTH_LONG).show();
+                                                } else if (response.body().getCode() == INT_DRIVER_AWAY) {
+                                                    alertUtility.feedbackDialog("운전자 이탈");
+                                                    alertUtility.alram();
+                                                    alertUtility.vibrate();
+                                                    Toast.makeText(mContext.getApplicationContext(), "운전자 이탈", Toast.LENGTH_LONG).show();
+                                                }
 
-                                            if(response.body().getCode() == INT_DRIVER_AWARE_FAIL){
-                                                // 인터페이스 빨간불(졸음 발생)
-                                                alertUtility.feedbackDialog("정면주시 실패");
-                                                alertUtility.alram();
-                                                alertUtility.vibrate();
-                                                Toast.makeText(mContext.getApplicationContext(), "정면주시실패", Toast.LENGTH_LONG).show();
-                                            }
-                                            else if(response.body().getCode() == INT_DRIVER_AWAY){
-                                                alertUtility.feedbackDialog("운전자 이탈");
-                                                alertUtility.alram();
-                                                alertUtility.vibrate();
-                                                Toast.makeText(mContext.getApplicationContext(), "운전자 이탈", Toast.LENGTH_LONG).show();
                                             }
 
                                         }
 
-                                    }
+                                        @Override
+                                        public void onFailure(Call<ResponseLandmark> call, Throwable t) {
+                                            Log.e("RetrofitTest", "No one in camera + Network Error");
+                                        }
+                                    });
 
-                                    @Override
-                                    public void onFailure(Call<ResponseLandmark> call, Throwable t) {
-                                        Log.e("RetrofitTest", "No one in camera + Network Error");
-                                    }
-                                });
-
-
+                                }
                             }
 
                         }
