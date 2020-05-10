@@ -40,17 +40,31 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="top|right"
-        android:layout_marginLeft="130dp"
+        android:layout_marginLeft="120dp"
         android:layout_marginTop="30dp"
-        android:layout_marginRight="30dp"
+        android:layout_marginRight="20dp"
         android:onClick="onClickReset"
         android:text="리셋" />
 
-    <View
-        android:id="@+id/view1"
-        android:layout_width="match_parent"
-        android:layout_height="214dp"
-        android:background="#673AB7" />
+    <Button
+        android:id="@+id/btnTimerStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="120dp"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="top"
+        android:onClick="onClickStartCount"
+        android:text="타이머 시작" />
+
+    <Button
+        android:id="@+id/btnTimerStop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:layout_marginLeft="210dp"
+        android:layout_marginTop="30dp"
+        android:onClick="onClickStopCount"
+        android:text="타이머 종료" />
 
 
 </FrameLayout>

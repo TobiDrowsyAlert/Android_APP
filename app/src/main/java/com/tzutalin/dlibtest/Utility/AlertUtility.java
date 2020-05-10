@@ -39,7 +39,7 @@ public class AlertUtility {
     MediaPlayer mAudio = null;
     boolean isPlay = false;
     int sleep_step = 0;
-    int time = 0;
+    int time = 3000;
 
     public AlertUtility(Context mContext){
         this.mContext = mContext;
@@ -154,7 +154,7 @@ public class AlertUtility {
         });
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
-        time = 0;
+        time = 3000;
         if(sleep_step == 1){
             time = 30000;
         }
