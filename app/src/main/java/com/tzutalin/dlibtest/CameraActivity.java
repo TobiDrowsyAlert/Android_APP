@@ -78,6 +78,8 @@ public class CameraActivity extends Activity {
         }
 
         onClickStartCount(null);
+        sleepStepManager.resetSleepStep();
+
 
     }
 
@@ -86,7 +88,7 @@ public class CameraActivity extends Activity {
     protected void onDestroy() {
         super.onDestroy();
         onClickStopCount(null);
-
+        sleepStepManager.resetSleepStep();
     }
 
 
