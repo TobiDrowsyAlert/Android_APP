@@ -1,17 +1,20 @@
 package com.tzutalin.dlibtest.Utility;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.media.MediaPlayer;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
+import android.os.Handler;
 import android.os.Vibrator;
 import android.util.Log;
 import android.widget.Toast;
 
 import com.tzutalin.dlibtest.ApiData;
+import com.tzutalin.dlibtest.CameraActivity;
 import com.tzutalin.dlibtest.ResponseLandmark;
 import com.tzutalin.dlibtest.RetrofitConnection;
 
@@ -29,9 +32,13 @@ public class AlertUtility {
     AlertDialog.Builder builder;
     RetrofitConnection retrofitConnection;
 
+    String TAG = "AlertUtility";
+
     int StreamType = 0;
     MediaPlayer mAudio = null;
     boolean isPlay = false;
+    int sleep_step = 0;
+    int time = 0;
 
     public AlertUtility(Context mContext){
         this.mContext = mContext;
@@ -55,8 +62,14 @@ public class AlertUtility {
     }
 
 
-    public void vibrate(int time){
-        vibrator.vibrate(time);
+    public void vibrate()
+    {
+        if(sleep_step == 2){
+            vibrator.vibrate(60000);
+        }
+        else if(sleep_step == 3) {
+            vibrator.vibrate(90000);
+        }
     }
 
     public void alram(){
@@ -86,7 +99,9 @@ public class AlertUtility {
     }
 
     public void feedbackDialog(String cause){
-        builder.setTitle("졸음이 인식되었습니다.").setMessage(cause + "이 맞습니까?");
+        Log.e("AlertUtility", "feedbackDialog Activate");
+        builder.setTitle("졸음이 인식되었습니다.").setMessage("원인 : "+ cause +", 졸음단계 : " + (sleep_step-1) + " > " + sleep_step);
+
         builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int id) {
@@ -94,6 +109,7 @@ public class AlertUtility {
                 alramStop();
                 vibrator.cancel();
             }
+
         });
         builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
             @Override
@@ -110,22 +126,23 @@ public class AlertUtility {
 
                 jsonData.setLandmarks(null);
                 jsonData.setRect(null);
-                jsonData.setDriver(false);
-                jsonData.setCorrect(true);
+                jsonData.setDriver(true);
+                jsonData.setCorrect(false);
 
-                Call call = retrofitConnection.getServer().sendData(jsonData);
+                //Call call = retrofitConnection.getServer().sendData(jsonData);
+                Call call = retrofitConnection.getServer().feedback();
 
                 call.enqueue(new Callback() {
                     @Override
                     public void onResponse(Call call, Response response) {
                         if(response.isSuccessful()){
-                            Log.e("피드백 전송 성공", "jsonData : " + jsonData.getCorrect());
+                            Log.e("피드백 전송 성공", "");
                         }
                     }
 
                     @Override
                     public void onFailure(Call call, Throwable t) {
-                        Log.e("피드백 전송 실패", "jsonData : " + jsonData.getCorrect());
+                        Log.e("피드백 전송 실패", "");
                     }
                 });
 
@@ -135,6 +152,17 @@ public class AlertUtility {
         });
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
+        time = 0;
+        if(sleep_step == 1){
+            time = 30000;
+        }
+        else if(sleep_step == 2){
+            time = 60000;
+        }
+        else if(sleep_step == 3){
+            time = 90000;
+        }
+        delayTime(time, alertDialog);
     }
 
     public RetrofitConnection getRetrofitConnection(){
@@ -144,5 +172,28 @@ public class AlertUtility {
     public void setRetrofitConnection(RetrofitConnection retrofitConnection){
         this.retrofitConnection = retrofitConnection;
     }
+
+    public void setSleep_step(int sleep_step){
+        this.sleep_step = sleep_step;
+    }
+
+    public int getSleep_step(){
+        return sleep_step;
+    }
+
+    public void delayTime(long time, final Dialog d){
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                d.dismiss();
+                alramStop();
+                vibrator.cancel();
+                // 재실행
+                CameraActivity.onClickStartCount(null);
+            }
+        }, time);
+    }
+
+
 
 }

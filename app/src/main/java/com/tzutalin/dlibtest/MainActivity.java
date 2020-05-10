@@ -55,15 +55,13 @@ public class MainActivity extends AppCompatActivity {
 
     // Storage Permissions
     private static String[] PERMISSIONS_REQ = {
-            Manifest.permission.READ_EXTERNAL_STORAGE,
-            Manifest.permission.WRITE_EXTERNAL_STORAGE,
-            Manifest.permission.CAMERA
+            Manifest.permission.CAMERA,
+            Manifest.permission.READ_EXTERNAL_STORAGE
     };
 
     // UI
     private ProgressDialog mDialog;
     private MaterialListView mListView;
-    private FloatingActionButton mFabActionBt;
     private FloatingActionButton mFabCamActionBt;
     private Toolbar mToolbar;
 
@@ -94,19 +92,9 @@ public class MainActivity extends AppCompatActivity {
 
     protected void setupUI() {
         mListView = (MaterialListView) findViewById(R.id.material_listview);
-        mFabActionBt = (FloatingActionButton) findViewById(R.id.fab);
         mFabCamActionBt = (FloatingActionButton) findViewById(R.id.fab_cam);
         // mToolbar = (Toolbar) findViewById(R.id.toolbar);   //의미 없어보여 생략
 
-        mFabActionBt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // launch Gallery
-                Toast.makeText(MainActivity.this, "Pick one image", Toast.LENGTH_SHORT).show();
-                Intent galleryIntent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                startActivityForResult(galleryIntent, RESULT_LOAD_IMG);
-            }
-        });
 
         mFabCamActionBt.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -176,18 +164,18 @@ public class MainActivity extends AppCompatActivity {
             runDemosAsync(mTestImgPath);
         } else {
             Timber.tag(TAG).d("demoStaticImage() mTestImgPath is null, go to gallery");
-            Toast.makeText(MainActivity.this, "Pick an image to run algorithms", Toast.LENGTH_SHORT).show();
+/*            Toast.makeText(MainActivity.this, "Pick an image to run algorithms", Toast.LENGTH_SHORT).show();
             // Create intent to Open Image applications like Gallery, Google Photos
             Intent galleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-            startActivityForResult(galleryIntent, RESULT_LOAD_IMG);
+            startActivityForResult(galleryIntent, RESULT_LOAD_IMG);*/
         }
     }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         if (requestCode == REQUEST_CODE_PERMISSION) {
-            Toast.makeText(MainActivity.this, "Demo using static images", Toast.LENGTH_SHORT).show();
-            demoStaticImage();
+            // 갤러리 실행됨
+            //demoStaticImage();
         }
     }
 

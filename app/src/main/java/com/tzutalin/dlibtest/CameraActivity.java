@@ -21,6 +21,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Camera;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -33,23 +34,34 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.tzutalin.dlibtest.Utility.SleepStepManager;
+import com.tzutalin.dlibtest.Utility.TimerHandler;
+
 /**
  * Created by darrenl on 2016/5/20.
  */
 public class CameraActivity extends Activity {
 
-
     private static int OVERLAY_PERMISSION_REQ_CODE = 1;
     static Context instanceContext;
+    static public Boolean isActivateNetwork = true;
+    RetrofitConnection retrofitConnection;
+    SleepStepManager sleepStepManager;
+    static TimerHandler timerHandler;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
+
+        retrofitConnection = new RetrofitConnection();
+        retrofitConnection.setRetrofit("http://15.165.116.82:8080/");
+        sleepStepManager = new SleepStepManager(retrofitConnection);
+        timerHandler = new TimerHandler(retrofitConnection);
+
         super.onCreate(savedInstanceState);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         instanceContext = this;
 
         setContentView(R.layout.activity_camera);
-
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (!Settings.canDrawOverlays(this.getApplicationContext())) {
@@ -65,7 +77,18 @@ public class CameraActivity extends Activity {
                     .commit();
         }
 
+        onClickStartCount(null);
+
     }
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        onClickStopCount(null);
+
+    }
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -85,32 +108,40 @@ public class CameraActivity extends Activity {
     static public Context getContext(){
         return instanceContext;
     }
-    static public void setFocus(){
 
+    static public Boolean getIsActivateNetwork(){
+        return isActivateNetwork;
     }
-
-
 
     public void OnclickHandler(View view) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
-        builder.setTitle("졸음으로 인식되었습니다.").setMessage("하품이 맞습니까?");
+        String currentPause;
 
-        builder.setPositiveButton("NO", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int id) {
-                Toast.makeText(getApplicationContext(), "NO Click", Toast.LENGTH_SHORT).show();
-            }
-        });
+        if(isActivateNetwork == true){
+            isActivateNetwork = false;
+            currentPause = "ON";
+            onClickStopCount(null);
+        }else{
+            isActivateNetwork = true;
+            currentPause = "OFF";
+            onClickStartCount(null);
+        }
+        Toast.makeText(CameraActivity.this, "일시정지 " + currentPause, Toast.LENGTH_SHORT).show();
 
-        builder.setNegativeButton("OK", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int id) {
-                Toast.makeText(getApplicationContext(), "OK Click", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        AlertDialog alertDialog = builder.create();
-        alertDialog.show();
     }
+
+    public void onClickReset(View view){
+        sleepStepManager.resetSleepStep();
+        Toast.makeText(CameraActivity.this, "졸음단계 초기화 " , Toast.LENGTH_SHORT).show();
+    }
+
+    static public void onClickStartCount(View view){
+        timerHandler.sendEmptyMessage(timerHandler.MESSAGE_TIMER_START);
+        Toast.makeText(CameraActivity.getContext(),"카운트 실행", Toast.LENGTH_SHORT).show();
+    }
+    static public void onClickStopCount(View view){
+        timerHandler.sendEmptyMessage(timerHandler.MESSAGE_TIMER_STOP);
+        Toast.makeText(CameraActivity.getContext(),"카운트 중지", Toast.LENGTH_SHORT).show();
+    }
+
 }
