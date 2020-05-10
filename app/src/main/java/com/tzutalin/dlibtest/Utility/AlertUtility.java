@@ -14,6 +14,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.tzutalin.dlibtest.ApiData;
+import com.tzutalin.dlibtest.CameraActivity;
 import com.tzutalin.dlibtest.ResponseLandmark;
 import com.tzutalin.dlibtest.RetrofitConnection;
 
@@ -37,7 +38,7 @@ public class AlertUtility {
     MediaPlayer mAudio = null;
     boolean isPlay = false;
     int sleep_step = 0;
-    int time = 1000;
+    int time = 0;
 
     public AlertUtility(Context mContext){
         this.mContext = mContext;
@@ -151,6 +152,7 @@ public class AlertUtility {
         });
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
+        time = 0;
         if(sleep_step == 1){
             time = 30000;
         }
@@ -186,30 +188,12 @@ public class AlertUtility {
                 d.dismiss();
                 alramStop();
                 vibrator.cancel();
+                // 재실행
+                CameraActivity.onClickStartCount(null);
             }
         }, time);
     }
 
-    public void dropSleepStep(long time){
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Call call = retrofitConnection.getServer().dropSleepStep();
-                call.enqueue(new Callback() {
-                    @Override
-                    public void onResponse(Call call, Response response) {
-                        if(response.isSuccessful()){
-                            Log.e(TAG,"sleepStep drop");
-                        }
-                    }
 
-                    @Override
-                    public void onFailure(Call call, Throwable t) {
-
-                    }
-                });
-            }
-        }, time);
-    }
 
 }
