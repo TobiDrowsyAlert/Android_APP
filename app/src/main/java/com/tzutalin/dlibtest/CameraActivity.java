@@ -141,7 +141,7 @@ public class CameraActivity extends Activity {
         {
             v.setBackgroundColor(Color.RED);
         }
-        else if(mcolor =="yellow")
+        else if(mcolor == "yellow")
         {
             v.setBackgroundColor(Color.YELLOW);
         }
