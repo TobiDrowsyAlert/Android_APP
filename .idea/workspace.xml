@@ -12,9 +12,6 @@
   <component name="ChangeListManager">
     <list default="true" id="31cab281-b875-4e5c-a1b5-b2632b85b167" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/CameraActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/CameraActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/OnGetImageListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/OnGetImageListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_camera.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_camera.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -25,7 +22,7 @@
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="2c45b128ca0b7ece" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="Nexus_5X_API_29_x86" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -64,12 +61,6 @@
     <option name="BUILD_TARGET_KEY" value="apk" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="master" />
-      </map>
-    </option>
     <favorite-branches>
       <branch-storage>
         <map>
@@ -83,6 +74,12 @@
         </map>
       </branch-storage>
     </favorite-branches>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1aKy3pYeR3zxK7axDncab89hcv8" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -123,7 +120,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Android App.home-AndroidStudioProjects-Android_APP-app~1">
+  <component name="RunManager" selected="Android App.Android_APP-app">
     <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -626,7 +623,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589118781018</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="현재 인식 상태 알림창 작업">
+      <created>1589124426349</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1589124426349</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TodoView">
@@ -687,7 +691,8 @@
     <MESSAGE value="URL 정리" />
     <MESSAGE value="졸음단계 하락 타이머 핸들러 // 일시정지, 액티비티 종료 시 동작 추가" />
     <MESSAGE value="앱 실행/종료 시 졸음단계 초기화" />
-    <option name="LAST_COMMIT_MESSAGE" value="앱 실행/종료 시 졸음단계 초기화" />
+    <MESSAGE value="현재 인식 상태 알림창 작업" />
+    <option name="LAST_COMMIT_MESSAGE" value="현재 인식 상태 알림창 작업" />
   </component>
   <component name="masterDetails">
     <states>
