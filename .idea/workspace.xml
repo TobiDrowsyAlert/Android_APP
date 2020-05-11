@@ -10,8 +10,12 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="31cab281-b875-4e5c-a1b5-b2632b85b167" name="Default Changelist" comment="">
+    <list default="true" id="31cab281-b875-4e5c-a1b5-b2632b85b167" name="Default Changelist" comment="앱 실행/종료 시 졸음단계 초기화">
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/CameraActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/CameraActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/OnGetImageListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/OnGetImageListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/Utility/TimerHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/Utility/TimerHandler.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -54,6 +58,11 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>TimerHandler</find>
+    </findStrings>
+  </component>
   <component name="GenerateSignedApkSettings">
     <option name="KEY_STORE_PATH" value="C:\Users\home\AndroidStudioProjects\apkFolder\myKeyStore.jks" />
     <option name="KEY_ALIAS" value="key2" />
@@ -61,6 +70,12 @@
     <option name="BUILD_TARGET_KEY" value="apk" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <favorite-branches>
       <branch-storage>
         <map>
@@ -80,6 +95,12 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="424" />
+    <option name="y" value="16" />
+    <option name="width" value="1494" />
+    <option name="height" value="1001" />
   </component>
   <component name="ProjectId" id="1aKy3pYeR3zxK7axDncab89hcv8" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -387,7 +408,7 @@
       </method>
     </configuration>
     <configuration name="home-AndroidStudioProjects-Android_APP-app~1" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
-      <module name="rlgus-AndroidStudioProjects-Android_APP-app" />
+      <module name="home-AndroidStudioProjects-Android_APP-app~1" />
       <option name="DEPLOY" value="true" />
       <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
       <option name="DEPLOY_AS_INSTANT" value="false" />
@@ -691,8 +712,7 @@
     <MESSAGE value="URL 정리" />
     <MESSAGE value="졸음단계 하락 타이머 핸들러 // 일시정지, 액티비티 종료 시 동작 추가" />
     <MESSAGE value="앱 실행/종료 시 졸음단계 초기화" />
-    <MESSAGE value="현재 인식 상태 알림창 작업" />
-    <option name="LAST_COMMIT_MESSAGE" value="현재 인식 상태 알림창 작업" />
+    <option name="LAST_COMMIT_MESSAGE" value="앱 실행/종료 시 졸음단계 초기화" />
   </component>
   <component name="masterDetails">
     <states>

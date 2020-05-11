@@ -1,8 +1,10 @@
 package com.tzutalin.dlibtest.Utility;
 
+import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.tzutalin.dlibtest.RetrofitConnection;
 
@@ -16,10 +18,12 @@ public class TimerHandler extends Handler {
     public static final int MESSAGE_TIMER_STOP = 102;
     private String TAG = "TimerHandler";
     RetrofitConnection retrofitConnection;
+    Context mContext;
     int count = 0;
 
-    public TimerHandler(RetrofitConnection retrofitConnection){
+    public TimerHandler(RetrofitConnection retrofitConnection, Context mContext){
         this.retrofitConnection = retrofitConnection;
+        this.mContext = mContext;
         int count = 0;
     }
 
@@ -37,7 +41,8 @@ public class TimerHandler extends Handler {
                 Log.d(TAG,"Timer count : " + count);
 
                 // 60초마다 서버로 전송
-                if(count % 60 == 0) {
+                if(count % 10 == 0) {
+                    Toast.makeText(mContext.getApplicationContext(), "카운트 동작",Toast.LENGTH_SHORT).show();
                     Call call = retrofitConnection.getServer().dropSleepStep();
                     call.enqueue(new retrofit2.Callback() {
                         @Override
