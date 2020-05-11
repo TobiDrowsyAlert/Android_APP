@@ -26,6 +26,8 @@ import android.graphics.Camera;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.provider.Settings;
 import android.view.View;
 import android.view.WindowManager;
@@ -50,19 +52,22 @@ public class CameraActivity extends Activity {
     SleepStepManager sleepStepManager;
     static TimerHandler timerHandler;
 
+    public static Handler UiHandler;
+
     static View v;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
-
         retrofitConnection = new RetrofitConnection();
         retrofitConnection.setRetrofit("http://15.165.116.82:8080/");
         sleepStepManager = new SleepStepManager(retrofitConnection);
-        timerHandler = new TimerHandler(retrofitConnection);
+        timerHandler = new TimerHandler(retrofitConnection, this);
 
         super.onCreate(savedInstanceState);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         instanceContext = this;
+        UiHandler = new Handler(Looper.getMainLooper());
+
 
         setContentView(R.layout.activity_camera);
 
@@ -131,20 +136,31 @@ public class CameraActivity extends Activity {
     static public Boolean getIsActivateNetwork(){
         return isActivateNetwork;
     }
+
+    public static void runOnUi(Runnable runnable){
+        UiHandler.post(runnable);
+    }
     static public void setColor(String mcolor)
     {
-        if(mcolor =="blue")
-        {
-            v.setBackgroundColor(Color.BLUE);
-        }
-        else if(mcolor =="red")
-        {
-            v.setBackgroundColor(Color.RED);
-        }
-        else if(mcolor == "yellow")
-        {
-            v.setBackgroundColor(Color.YELLOW);
-        }
+        runOnUi(new Runnable() {
+            @Override
+            public void run() {
+
+                if(mcolor =="blue")
+                {
+                    v.setBackgroundColor(Color.BLUE);
+                }
+                else if(mcolor =="red")
+                {
+                    v.setBackgroundColor(Color.RED);
+                }
+                else if(mcolor == "yellow")
+                {
+                    v.setBackgroundColor(Color.YELLOW);
+                }
+
+            }
+        });
     }
 
 
