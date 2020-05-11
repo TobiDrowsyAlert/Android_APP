@@ -24,6 +24,9 @@ public interface RetrofitInterface {
     @POST("/api/feedback")
     Call<ResponseLandmark> feedback();
 
+    @POST("/api/timer")
+    Call<ResponseLandmark> timer();
+
 /*    @FormUrlEncoded
     @POST("set_face")
     Call<ApiData> sendData2(@Field("name") String name, @Field("age") int age);*/
