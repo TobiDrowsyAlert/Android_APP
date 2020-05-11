@@ -140,21 +140,22 @@ public class CameraActivity extends Activity {
     public static void runOnUi(Runnable runnable){
         UiHandler.post(runnable);
     }
-    static public void setColor(String mcolor)
+    static public void setColor(int mcolor)
     {
         runOnUi(new Runnable() {
             @Override
             public void run() {
 
-                if(mcolor =="blue")
+                // 1 = blue , 2 = red , 3 = yellow
+                if(mcolor == 1)
                 {
                     v.setBackgroundColor(Color.BLUE);
                 }
-                else if(mcolor =="red")
+                else if(mcolor == 2)
                 {
                     v.setBackgroundColor(Color.RED);
                 }
-                else if(mcolor == "yellow")
+                else if(mcolor == 3)
                 {
                     v.setBackgroundColor(Color.YELLOW);
                 }

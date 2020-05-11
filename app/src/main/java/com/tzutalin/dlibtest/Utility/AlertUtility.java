@@ -85,18 +85,24 @@ public class AlertUtility {
 
         }*/
         mAudio.start();
+        CameraActivity.setColor(2);
         isPlay = true;
     }
 
     public void alramStop(){
 
+
         if(mAudio.isPlaying()){
             mAudio.pause();
             isPlay = false;
+            CameraActivity.setColor(1);
         }
         else{
             // 알람 실행 중 아님
+
         }
+
+
     }
 
     public void feedbackDialog(String cause){
@@ -108,7 +114,7 @@ public class AlertUtility {
             public void onClick(DialogInterface dialog, int id) {
                 Toast.makeText(mContext, "YES", Toast.LENGTH_SHORT).show();
                 alramStop();
-                OnGetImageListener.isBlue = true;
+
                 vibrator.cancel();
             }
 
@@ -118,7 +124,7 @@ public class AlertUtility {
             public void onClick(DialogInterface dialog, int id) {
                 Toast.makeText(mContext, "NO", Toast.LENGTH_SHORT).show();
                 RetrofitConnection retrofitConnection = new RetrofitConnection();
-                OnGetImageListener.isBlue = true;
+
                 //AWS 스프링 공인 주소, http://15.165.116.82:8080
                 //모듈 직접 접근 http://15.165.116.82:1234
                 //http://15.165.116.82:8080/api/value/ REST API 로 데이터 전송
@@ -192,8 +198,8 @@ public class AlertUtility {
                 vibrator.cancel();
                 // 재실행
                 CameraActivity.onClickStartCount(null);
-                //isBule = true;
-                OnGetImageListener.isBlue = true;
+
+                OnGetImageListener.isBlue = 1;
 
             }
         }, time);
