@@ -10,7 +10,8 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="31cab281-b875-4e5c-a1b5-b2632b85b167" name="Default Changelist" comment="앱 실행/종료 시 졸음단계 초기화">
+    <list default="true" id="31cab281-b875-4e5c-a1b5-b2632b85b167" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/CameraActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/CameraActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/OnGetImageListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/tzutalin/dlibtest/OnGetImageListener.java" afterDir="false" />
@@ -25,7 +26,7 @@
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="Nexus_5X_API_29_x86" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="2c45b128ca0b7ece" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -647,7 +648,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589183379267</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="현재 인식 상태">
+      <created>1589210115990</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1589210115990</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TodoView">
@@ -708,7 +716,8 @@
     <MESSAGE value="URL 정리" />
     <MESSAGE value="졸음단계 하락 타이머 핸들러 // 일시정지, 액티비티 종료 시 동작 추가" />
     <MESSAGE value="앱 실행/종료 시 졸음단계 초기화" />
-    <option name="LAST_COMMIT_MESSAGE" value="앱 실행/종료 시 졸음단계 초기화" />
+    <MESSAGE value="현재 인식 상태" />
+    <option name="LAST_COMMIT_MESSAGE" value="현재 인식 상태" />
   </component>
   <component name="masterDetails">
     <states>

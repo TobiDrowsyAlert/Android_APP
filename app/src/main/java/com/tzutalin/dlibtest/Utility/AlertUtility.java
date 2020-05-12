@@ -56,7 +56,6 @@ public class AlertUtility {
         }catch(Exception e){
 
         }
-
         builder = new AlertDialog.Builder(mContext);
         builder.setCancelable(false);
 
@@ -99,8 +98,8 @@ public class AlertUtility {
         }
         else{
             // 알람 실행 중 아님
-
         }
+
 
 
     }
@@ -199,7 +198,7 @@ public class AlertUtility {
                 // 재실행
                 CameraActivity.onClickStartCount(null);
 
-                OnGetImageListener.isBlue = 1;
+
 
             }
         }, time);

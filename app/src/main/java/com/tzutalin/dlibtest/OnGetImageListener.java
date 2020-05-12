@@ -111,7 +111,7 @@ public class OnGetImageListener implements OnImageAvailableListener {
         mFaceDet = new FaceDet(Constants.getFaceShapeModelPath());
         mWindow = new FloatingCameraWindow(mContext);
 
-        isBlue = 1; // 1 = blue , 2 = red , 3 = yellow
+        //CameraActivity.setColor(1);
 
         //dialogBox = new DialogBox(mContext);
         dialogBox = new DialogBox(CameraActivity.getContext());
@@ -270,6 +270,11 @@ public class OnGetImageListener implements OnImageAvailableListener {
                         ApiData jsonData = new ApiData();
                         if (results != null) {  // 랜드마크 사각형 그리기 위함(얼굴 좌표를 이용하여)
 
+                            if(CameraActivity.getCurrentColor() != 2)
+                            {
+                                CameraActivity.setColor(1);
+                            }
+
                             for (final VisionDetRet ret : results) {
                                 Log.e("OnGetImageListener", "현재 pause 진리값 : " + CameraActivity.getIsActivateNetwork().toString());
 
@@ -331,37 +336,20 @@ public class OnGetImageListener implements OnImageAvailableListener {
                                     public void onResponse(Call<ResponseLandmark> call, Response<ResponseLandmark> response) {
 
                                         // 성공적으로 서버 통신 성공
-                                        if(response.isSuccessful()){
+                                        if(response.isSuccessful()) {
 
                                             Log.e("RetrofitTest", "Success : " + response.toString());
                                             Log.e("ResponseBody", "ResponseData : " + response.body().getCode());
                                             sleep_step = response.body().getSleep_step();
                                             alertUtility.setSleep_step(sleep_step);
 
-                                            // 1 = blue , 2 = red , 3 = yellow
-                                            if(isBlue ==1)
-                                            {
-                                                CameraActivity.setColor(1);
-                                            }
-                                            else if(isBlue == 2)
-                                            {
-                                                CameraActivity.setColor(2);
-                                            }
-                                            else if(isBlue ==3)
-                                            {
-                                                CameraActivity.setColor(3);
-                                            }
-
                                             // 얼굴 인식 + 정상 운행
                                             if(response.body().getCode() == INT_NORMAL){
                                                 // 인터페이스 초록불
-
-
                                             }
 
                                             else if(response.body().getCode() == INT_BLIND){
                                                 // 인터페이스 빨간불(졸음 발생)
-
                                                 alertUtility.feedbackDialog("눈 감김");
                                                 //alertUtility.alert();
                                                 alertUtility.alram();
@@ -408,6 +396,10 @@ public class OnGetImageListener implements OnImageAvailableListener {
                             if(results.size() == 0) {
                                 // 노란불(얼굴 인식 X )
 
+                                if(CameraActivity.getCurrentColor() != 2)
+                                {
+                                    CameraActivity.setColor(3);
+                                }
 
                                 Log.e("Debug","Nothing in here");
                                 Log.e("OnGetImageListener", "현재 pause 진리값 : " + CameraActivity.getIsActivateNetwork().toString());
@@ -422,14 +414,6 @@ public class OnGetImageListener implements OnImageAvailableListener {
                                     //모듈 직접 접근 http://15.165.116.82:1234
                                     //http://15.165.116.82:8080/api/value/ REST API 로 데이터 전송
                                     retrofitConnection.setRetrofit("http://15.165.116.82:8080/");
-
-                                    if(isBlue != 2)
-                                    {
-                                        CameraActivity.setColor(3);
-                                        Log.e("colorTest", "yellow start");
-                                    }
-
-
 
                                     jsonData.setLandmarks(null);
                                     jsonData.setRect(null);
@@ -457,10 +441,7 @@ public class OnGetImageListener implements OnImageAvailableListener {
                                                     alertUtility.vibrate();
                                                     Toast.makeText(mContext.getApplicationContext(), "운전자 이탈", Toast.LENGTH_LONG).show();
                                                 }
-
-
                                             }
-
                                         }
 
                                         @Override
