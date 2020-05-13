@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
+import android.widget.TextView;
 
 public class settingEvent extends AppCompatActivity {
 
@@ -46,11 +47,68 @@ public class settingEvent extends AppCompatActivity {
             }
         });
 
-        /*step_1.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+        step_1.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, TextView tv)
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                TextView tv_1 = (TextView)findViewById(R.id.step_1_sec);
+                tv_1.setText(String.valueOf(progress));
             }
-        });*/
+            @Override
+            public void onStartTrackingTouch(SeekBar seeBar) {
+
+            }
+            @Override
+            public void onStopTrackingTouch(SeekBar seeBar) {
+
+            }
+        });
+        step_2.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                TextView tv_2 = (TextView)findViewById(R.id.step_2_sec);
+                tv_2.setText(String.valueOf(progress));
+            }
+            @Override
+            public void onStartTrackingTouch(SeekBar seeBar) {
+
+            }
+            @Override
+            public void onStopTrackingTouch(SeekBar seeBar) {
+
+            }
+        });
+
+        step_3.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                TextView tv_3 = (TextView)findViewById(R.id.step_3_sec);
+                tv_3.setText(String.valueOf(progress));
+            }
+            @Override
+            public void onStartTrackingTouch(SeekBar seeBar) {
+
+            }
+            @Override
+            public void onStopTrackingTouch(SeekBar seeBar) {
+
+            }
+        });
+
+        sound_bar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                TextView tv_4 = (TextView)findViewById(R.id.sound_value);
+                tv_4.setText(String.valueOf(progress));
+            }
+            @Override
+            public void onStartTrackingTouch(SeekBar seeBar) {
+
+            }
+            @Override
+            public void onStopTrackingTouch(SeekBar seeBar) {
+
+            }
+        });
 
     }
 }
