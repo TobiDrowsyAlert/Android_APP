@@ -43,6 +43,10 @@ import com.tzutalin.dlibtest.Utility.TimerMinuteHandler;
 
 import java.util.Timer;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 /**
  * Created by darrenl on 2016/5/20.
  */
@@ -216,5 +220,35 @@ public class CameraActivity extends Activity {
 
     static public void countHandlerPause(){
         countHandler.sendEmptyMessage(timerHandler.MESSAGE_TIMER_PAUSE);
+    }
+
+    public void onClickDrop(View view){
+        Call call = retrofitConnection.getServer().dropSleepStep();
+        call.enqueue(new Callback() {
+            @Override
+            public void onResponse(Call call, Response response) {
+
+            }
+
+            @Override
+            public void onFailure(Call call, Throwable t) {
+
+            }
+        });
+    }
+
+    public void onClickTimerLog(View view){
+        Call call = retrofitConnection.getServer().timer();
+        call.enqueue(new Callback() {
+            @Override
+            public void onResponse(Call call, Response response) {
+
+            }
+
+            @Override
+            public void onFailure(Call call, Throwable t) {
+
+            }
+        });
     }
 }

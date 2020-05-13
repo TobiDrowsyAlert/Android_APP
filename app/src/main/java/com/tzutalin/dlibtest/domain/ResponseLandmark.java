@@ -1,8 +1,11 @@
-package com.tzutalin.dlibtest;
+package com.tzutalin.dlibtest.domain;
+
+import java.util.Date;
 
 public class ResponseLandmark {
     private int status_code;
     private int sleep_step;
+    private String curTime;
 
 
     public void setCode(int code){
@@ -27,5 +30,13 @@ public class ResponseLandmark {
 
     public void setSleep_step(int sleep_step) {
         this.sleep_step = sleep_step;
+    }
+
+    public String getCurTime() {
+        return curTime;
+    }
+
+    public void setCurTime(String curTime) {
+        this.curTime = curTime;
     }
 }
