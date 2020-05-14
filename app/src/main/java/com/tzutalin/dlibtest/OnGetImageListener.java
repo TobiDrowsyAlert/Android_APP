@@ -60,7 +60,7 @@ import retrofit2.Response;
  */
 public class OnGetImageListener implements OnImageAvailableListener {
 
-    public static boolean isBlue;
+    public static int isBlue;   // 1 = blue , 2 = red , 3 = yellow
     private static final boolean SAVE_PREVIEW_BITMAP = false;
     // 상태 코드 상수
     private final int INT_BLINK = 100;
@@ -108,7 +108,7 @@ public class OnGetImageListener implements OnImageAvailableListener {
         mFaceDet = new FaceDet(Constants.getFaceShapeModelPath());
         mWindow = new FloatingCameraWindow(mContext);
 
-        isBlue = true;
+        //CameraActivity.setColor(1);
 
         //dialogBox = new DialogBox(mContext);
         dialogBox = new DialogBox(CameraActivity.getContext());
@@ -273,6 +273,11 @@ public class OnGetImageListener implements OnImageAvailableListener {
                         ApiData jsonData = new ApiData();
                         if (results != null) {  // 랜드마크 사각형 그리기 위함(얼굴 좌표를 이용하여)
 
+                            if(CameraActivity.getCurrentColor() != 2)
+                            {
+                                CameraActivity.setColor(1);
+                            }
+
                             for (final VisionDetRet ret : results) {
                                 if(!CameraActivity.getIsActivateNetwork()){
                                     Log.e("OnGetImageListener", "Camera Pause");
@@ -332,7 +337,8 @@ public class OnGetImageListener implements OnImageAvailableListener {
                                     public void onResponse(Call<ResponseLandmark> call, Response<ResponseLandmark> response) {
 
                                         // 성공적으로 서버 통신 성공
-                                        if(response.isSuccessful()){
+                                        if(response.isSuccessful()) {
+
                                             Log.e("RetrofitTest", "Success : " + response.toString());
                                             Log.e("ResponseBody", "ResponseData : " + response.body().getCode());
                                             sleep_step = response.body().getSleep_step();
@@ -343,39 +349,24 @@ public class OnGetImageListener implements OnImageAvailableListener {
                                             // 얼굴 인식 + 정상 운행
                                             if(response.body().getCode() == INT_NORMAL){
                                                 // 인터페이스 초록불
-
-                                                if(isBlue == true)
-                                                {
-                                                    CameraActivity.setColor("blue");
-                                                }
-                                                else if(isBlue != true)
-                                                {
-                                                    CameraActivity.setColor("red");
-                                                }
-
-
                                             }
 
                                             else if(response.body().getCode() == INT_BLIND){
                                                 // 인터페이스 빨간불(졸음 발생)
-                                                CameraActivity.setColor("red");
-                                                isBlue = false;
                                                 alertUtility.feedbackDialog("눈 감김");
                                                 //alertUtility.alert();
                                                 Toast.makeText(mContext.getApplicationContext(), "눈 감김", Toast.LENGTH_LONG).show();
                                             }
 
                                             else if(response.body().getCode() == INT_BLINK){
-                                                CameraActivity.setColor("red");
-                                                isBlue = false;
+
                                                 // 인터페이스 빨간불(졸음 발생)
                                                 //alertUtility.alert();
                                                 alertUtility.feedbackDialog("눈 깜빡임");
                                                 Toast.makeText(mContext.getApplicationContext(), "눈 깜빡임", Toast.LENGTH_LONG).show();
                                             }
                                             else if(response.body().getCode() == INT_YAWN){
-                                                CameraActivity.setColor("red");
-                                                isBlue = false;
+
                                                 //alertUtility.alert();
                                                 alertUtility.feedbackDialog("하품");
                                                 Toast.makeText(mContext.getApplicationContext(), "하품", Toast.LENGTH_LONG).show();
@@ -401,9 +392,12 @@ public class OnGetImageListener implements OnImageAvailableListener {
 
                             if(results.size() == 0) {
                                 // 노란불(얼굴 인식 X )
-                                CameraActivity.setColor("yellow");
 
-                                isBlue = false;
+                                if(CameraActivity.getCurrentColor() != 2)
+                                {
+                                    CameraActivity.setColor(3);
+                                }
+
                                 Log.e("Debug","Nothing in here");
                                 Log.e("OnGetImageListener", "현재 pause 진리값 : " + CameraActivity.getIsActivateNetwork().toString());
 
@@ -436,19 +430,14 @@ public class OnGetImageListener implements OnImageAvailableListener {
 
                                                 if (response.body().getCode() == INT_DRIVER_AWARE_FAIL) {
                                                     // 인터페이스 빨간불(졸음 발생)
-                                                    CameraActivity.setColor("red");
-                                                    isBlue = false;
                                                     alertUtility.feedbackDialog("정면주시 실패");
                                                     Toast.makeText(mContext.getApplicationContext(), "정면주시실패", Toast.LENGTH_LONG).show();
                                                 } else if (response.body().getCode() == INT_DRIVER_AWAY) {
-                                                    CameraActivity.setColor("red");
-                                                    isBlue = false;
+
                                                     alertUtility.feedbackDialog("운전자 이탈");
                                                     Toast.makeText(mContext.getApplicationContext(), "운전자 이탈", Toast.LENGTH_LONG).show();
                                                 }
-
                                             }
-
                                         }
 
                                         @Override
@@ -456,7 +445,6 @@ public class OnGetImageListener implements OnImageAvailableListener {
                                             Log.e("RetrofitTest", "No one in camera + Network Error");
                                         }
                                     });
-
                                 }
                             }
 

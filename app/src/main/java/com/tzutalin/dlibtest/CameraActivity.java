@@ -62,6 +62,7 @@ public class CameraActivity extends Activity {
     RetrofitConnection retrofitConnection;
     SleepStepManager sleepStepManager;
     static TimerHandler timerHandler;
+    static int currentColor;
     static TimerMinuteHandler countHandler;
 
     public static Handler UiHandler;
@@ -181,29 +182,35 @@ public class CameraActivity extends Activity {
     public static void runOnUi(Runnable runnable){
         UiHandler.post(runnable);
     }
-    static public void setColor(String mcolor)
+    static public void setColor(int changeColor)
     {
         runOnUi(new Runnable() {
             @Override
             public void run() {
 
-                if(mcolor =="blue")
+                // 1 = blue , 2 = red , 3 = yellow
+                if(changeColor == 1)
                 {
                     v.setBackgroundColor(Color.BLUE);
                 }
-                else if(mcolor =="red")
+                else if(changeColor == 2)
                 {
                     v.setBackgroundColor(Color.RED);
                 }
-                else if(mcolor == "yellow")
+                else if(changeColor == 3)
                 {
                     v.setBackgroundColor(Color.YELLOW);
                 }
 
             }
         });
+
+        currentColor = changeColor;
     }
 
+    public static int getCurrentColor(){
+        return currentColor;
+    }
 
 
     public void OnclickHandler(View view) {

@@ -113,18 +113,24 @@ public class AlertUtility {
 
         }*/
         mAudio.start();
+        CameraActivity.setColor(2);
         isPlay = true;
     }
 
     static public void alramStop(){
 
+
         if(mAudio.isPlaying()){
             mAudio.pause();
             isPlay = false;
+            CameraActivity.setColor(1);
         }
         else{
             // 알람 실행 중 아님
         }
+
+
+
     }
 
     public void feedbackDialog(String cause){
@@ -143,6 +149,7 @@ public class AlertUtility {
                 OnGetImageListener.isBlue = true;
 
                 alramStop();
+
                 vibrator.cancel();
             }
 
@@ -154,7 +161,7 @@ public class AlertUtility {
                 handler.removeCallbacks(runnable);
 
                 RetrofitConnection retrofitConnection = new RetrofitConnection();
-                OnGetImageListener.isBlue = true;
+
                 //AWS 스프링 공인 주소, http://15.165.116.82:8080
                 //모듈 직접 접근 http://15.165.116.82:1234
                 //http://15.165.116.82:8080/api/value/ REST API 로 데이터 전송
@@ -229,8 +236,8 @@ public class AlertUtility {
 
                 // 재실행
                 CameraActivity.onClickStartCount(null);
-                //isBule = true;
-                OnGetImageListener.isBlue = true;
+
+
 
                 Toast.makeText(mContext, "DelayTime 실행", Toast.LENGTH_SHORT).show();
                 Log.e(TAG, "DelayTime 실행");
