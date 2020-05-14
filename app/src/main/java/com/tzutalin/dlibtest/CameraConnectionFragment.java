@@ -41,9 +41,11 @@ import android.hardware.camera2.CaptureResult;
 import android.hardware.camera2.TotalCaptureResult;
 import android.hardware.camera2.params.StreamConfigurationMap;
 import android.media.ImageReader;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
+import android.os.Vibrator;
 import android.support.v4.app.ActivityCompat;
 import android.util.Log;
 import android.util.Size;
@@ -55,6 +57,8 @@ import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
+
+import com.tzutalin.dlibtest.Utility.AlertUtility;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -672,5 +676,6 @@ public class CameraConnectionFragment extends Fragment {
                             })
                     .create();
         }
+
     }
 }

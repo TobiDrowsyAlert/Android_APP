@@ -92,7 +92,7 @@ public class OnGetImageListener implements OnImageAvailableListener {
     private Paint mFaceLandmardkPaint;
 
     private DialogBox dialogBox;
-    private AlertUtility alertUtility;
+    private static AlertUtility alertUtility;
 
     private Boolean isActivateNetwork;
     private int sleep_step;
@@ -120,6 +120,12 @@ public class OnGetImageListener implements OnImageAvailableListener {
         mFaceLandmardkPaint.setStrokeWidth(2);
         mFaceLandmardkPaint.setStyle(Paint.Style.STROKE);
     }
+
+
+    static public AlertUtility getAlertUtility(){
+        return alertUtility;
+    }
+
 
     public void deInitialize() {
         synchronized (OnGetImageListener.this) {
@@ -268,8 +274,6 @@ public class OnGetImageListener implements OnImageAvailableListener {
                         if (results != null) {  // 랜드마크 사각형 그리기 위함(얼굴 좌표를 이용하여)
 
                             for (final VisionDetRet ret : results) {
-                                Log.e("OnGetImageListener", "현재 pause 진리값 : " + CameraActivity.getIsActivateNetwork().toString());
-
                                 if(!CameraActivity.getIsActivateNetwork()){
                                     Log.e("OnGetImageListener", "Camera Pause");
                                     break;
@@ -358,8 +362,6 @@ public class OnGetImageListener implements OnImageAvailableListener {
                                                 isBlue = false;
                                                 alertUtility.feedbackDialog("눈 감김");
                                                 //alertUtility.alert();
-                                                alertUtility.alram();
-                                                alertUtility.vibrate();
                                                 Toast.makeText(mContext.getApplicationContext(), "눈 감김", Toast.LENGTH_LONG).show();
                                             }
 
@@ -369,8 +371,6 @@ public class OnGetImageListener implements OnImageAvailableListener {
                                                 // 인터페이스 빨간불(졸음 발생)
                                                 //alertUtility.alert();
                                                 alertUtility.feedbackDialog("눈 깜빡임");
-                                                alertUtility.alram();
-                                                alertUtility.vibrate();
                                                 Toast.makeText(mContext.getApplicationContext(), "눈 깜빡임", Toast.LENGTH_LONG).show();
                                             }
                                             else if(response.body().getCode() == INT_YAWN){
@@ -378,8 +378,6 @@ public class OnGetImageListener implements OnImageAvailableListener {
                                                 isBlue = false;
                                                 //alertUtility.alert();
                                                 alertUtility.feedbackDialog("하품");
-                                                alertUtility.alram();
-                                                alertUtility.vibrate();
                                                 Toast.makeText(mContext.getApplicationContext(), "하품", Toast.LENGTH_LONG).show();
                                             }
                                         }
@@ -441,15 +439,11 @@ public class OnGetImageListener implements OnImageAvailableListener {
                                                     CameraActivity.setColor("red");
                                                     isBlue = false;
                                                     alertUtility.feedbackDialog("정면주시 실패");
-                                                    alertUtility.alram();
-                                                    alertUtility.vibrate();
                                                     Toast.makeText(mContext.getApplicationContext(), "정면주시실패", Toast.LENGTH_LONG).show();
                                                 } else if (response.body().getCode() == INT_DRIVER_AWAY) {
                                                     CameraActivity.setColor("red");
                                                     isBlue = false;
                                                     alertUtility.feedbackDialog("운전자 이탈");
-                                                    alertUtility.alram();
-                                                    alertUtility.vibrate();
                                                     Toast.makeText(mContext.getApplicationContext(), "운전자 이탈", Toast.LENGTH_LONG).show();
                                                 }
 
@@ -477,5 +471,12 @@ public class OnGetImageListener implements OnImageAvailableListener {
 
         Trace.endSection();
 
+
+
     }
+
+
+
+
+
 }

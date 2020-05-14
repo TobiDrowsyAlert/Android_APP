@@ -23,12 +23,15 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Camera;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.os.Vibrator;
 import android.provider.Settings;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -37,6 +40,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.tzutalin.dlibtest.Utility.AlertUtility;
 import com.tzutalin.dlibtest.Utility.SleepStepManager;
 import com.tzutalin.dlibtest.Utility.TimerHandler;
 import com.tzutalin.dlibtest.Utility.TimerMinuteHandler;
@@ -61,6 +65,7 @@ public class CameraActivity extends Activity {
     static TimerMinuteHandler countHandler;
 
     public static Handler UiHandler;
+    AlertUtility alertUtility;
 
     static View v;
 
@@ -79,6 +84,7 @@ public class CameraActivity extends Activity {
 
 
         setContentView(R.layout.activity_camera);
+        alertUtility = new AlertUtility(this);
 
         v = (View)findViewById(R.id.view1);
 
@@ -109,6 +115,16 @@ public class CameraActivity extends Activity {
         super.onPause();
         onClickStopCount(null);
         countHandlerStop();
+        AlertUtility alertUtility = OnGetImageListener.getAlertUtility();
+        Log.e("CameraActivity", "객체 : " + alertUtility.toString() );
+        if(alertUtility != null) {
+            Log.e("CameraActivity", "객체 : " + alertUtility.toString() );
+            Log.e("CameraActivity", "onResume 초기화 실행");
+            Vibrator vibrator = alertUtility.getVibrator();
+            MediaPlayer mediaPlayer = alertUtility.getMediaPlayer();
+            vibrator.cancel();
+            mediaPlayer.pause();
+        }
     }
 
     @Override
@@ -116,6 +132,8 @@ public class CameraActivity extends Activity {
         super.onResume();
         onClickStartCount(null);
         countHandlerStart();
+
+
     }
 
     @Override
@@ -124,6 +142,17 @@ public class CameraActivity extends Activity {
         onClickStopCount(null);
         countHandlerStop();
         sleepStepManager.resetSleepStep();
+        AlertUtility alertUtility = OnGetImageListener.getAlertUtility();
+        Log.e("CameraActivity", "객체 : " + alertUtility.toString() );
+        if(alertUtility != null) {
+            Log.e("CameraActivity", "객체 : " + alertUtility.toString() );
+            Log.e("CameraActivity", "onDestroy 초기화 실행");
+            Vibrator vibrator = alertUtility.getVibrator();
+            MediaPlayer mediaPlayer = alertUtility.getMediaPlayer();
+            vibrator.cancel();
+            mediaPlayer.pause();
+        }
+
     }
 
     @Override

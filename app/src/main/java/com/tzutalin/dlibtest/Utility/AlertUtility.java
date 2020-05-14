@@ -9,6 +9,7 @@ import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Handler;
+import android.os.Message;
 import android.os.Vibrator;
 import android.util.Log;
 import android.widget.Toast;
@@ -19,11 +20,16 @@ import com.tzutalin.dlibtest.domain.ResponseLandmark;
 import com.tzutalin.dlibtest.RetrofitConnection;
 import com.tzutalin.dlibtest.domain.ResponseFeedback;
 
+import java.util.ArrayList;
+import java.util.Queue;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class AlertUtility {
+
+    ArrayList<AlertDialog> queue;
 
     Vibrator vibrator;
     Ringtone ringtone;
@@ -34,18 +40,29 @@ public class AlertUtility {
     RetrofitConnection retrofitConnection;
     ResponseLandmark responseLandmark;
 
+    Handler handler;
+    Runnable runnable;
+    Runnable alramRunnable;
+
     String TAG = "AlertUtility";
     int StreamType = 0;
-    MediaPlayer mAudio = null;
-    boolean isPlay = false;
+    static MediaPlayer mAudio = null;
+    static boolean isPlay = false;
+
     int sleep_step = 0;
     int time = 3000;
 
+    public static final int MESSAGE_DELAY_START = 100;
+    public static final int MESSAGE_DELAY_STOP = 102;
+
     public AlertUtility(Context mContext){
+
         this.mContext = mContext;
         mAudio = new MediaPlayer();
         vibrator = (Vibrator)mContext.getSystemService(Context.VIBRATOR_SERVICE);
         alramSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
+        handler = new Handler();
+        queue = new ArrayList<AlertDialog>();
         //ringtone = RingtoneManager.getRingtone(mContext.getApplicationContext(), alramSound);
 
         try{
@@ -56,6 +73,13 @@ public class AlertUtility {
         }catch(Exception e){
 
         }
+        alramRunnable = new Runnable() {
+            @Override
+            public void run() {
+                alramStop();
+                vibrator.cancel();
+            }
+        };
 
         builder = new AlertDialog.Builder(mContext);
         builder.setCancelable(false);
@@ -73,7 +97,11 @@ public class AlertUtility {
         }
     }
 
-    public void alram(){
+    public void vibrateCancel(){
+        vibrator.cancel();
+    }
+
+    static public void alram(){
 /*        try {
             //mAudio.setDataSource(alramSound.toString());
             mAudio.setDataSource(mContext, alramSound);
@@ -88,7 +116,7 @@ public class AlertUtility {
         isPlay = true;
     }
 
-    public void alramStop(){
+    static public void alramStop(){
 
         if(mAudio.isPlaying()){
             mAudio.pause();
@@ -102,13 +130,19 @@ public class AlertUtility {
     public void feedbackDialog(String cause){
         Log.e("AlertUtility", "feedbackDialog Activate");
         builder.setTitle("졸음이 인식되었습니다.").setMessage("원인 : "+ cause +", 졸음단계 : " + sleep_step);
+        alram();
+        vibrate();
+        // 새로운 졸음 들어온 것, 기존 알람 소리 초기화 필요
 
         builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int id) {
                 Toast.makeText(mContext, "YES", Toast.LENGTH_SHORT).show();
-                alramStop();
+                handler.removeCallbacks(runnable);
+
                 OnGetImageListener.isBlue = true;
+
+                alramStop();
                 vibrator.cancel();
             }
 
@@ -117,6 +151,8 @@ public class AlertUtility {
             @Override
             public void onClick(DialogInterface dialog, int id) {
                 Toast.makeText(mContext, "NO", Toast.LENGTH_SHORT).show();
+                handler.removeCallbacks(runnable);
+
                 RetrofitConnection retrofitConnection = new RetrofitConnection();
                 OnGetImageListener.isBlue = true;
                 //AWS 스프링 공인 주소, http://15.165.116.82:8080
@@ -151,15 +187,16 @@ public class AlertUtility {
         alertDialog.show();
         time = 3000;
         if(sleep_step == 1){
-            time = 30000;
+            time = 10000;
         }
         else if(sleep_step == 2){
-            time = 60000;
+            time = 20000;
         }
         else if(sleep_step == 3){
-            time = 90000;
+            time = 30000;
         }
         delayTime(time, alertDialog);
+        queue.add(alertDialog);
     }
 
     public RetrofitConnection getRetrofitConnection(){
@@ -183,21 +220,41 @@ public class AlertUtility {
     }
 
     public void delayTime(long time, final Dialog d){
-        new Handler().postDelayed(new Runnable() {
+        queue.remove(d);
+        runnable = new Runnable() {
             @Override
             public void run() {
+
                 d.dismiss();
-                alramStop();
-                vibrator.cancel();
+
                 // 재실행
                 CameraActivity.onClickStartCount(null);
                 //isBule = true;
                 OnGetImageListener.isBlue = true;
 
+                Toast.makeText(mContext, "DelayTime 실행", Toast.LENGTH_SHORT).show();
+                Log.e(TAG, "DelayTime 실행");
             }
-        }, time);
+        };
+
+        handler.removeCallbacks(alramRunnable);
+        handler.postDelayed(alramRunnable, time);
+        handler.postDelayed(runnable, time);
     }
 
+
+    public Vibrator getVibrator(){
+        return vibrator;
+    }
+
+    public MediaPlayer getMediaPlayer(){
+        return mAudio;
+    }
+
+    public void reset(){
+        vibrator.cancel();
+        mAudio.pause();
+    }
 
 
 }
