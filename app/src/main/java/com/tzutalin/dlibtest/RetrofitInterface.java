@@ -1,10 +1,10 @@
 package com.tzutalin.dlibtest;
 
+import com.tzutalin.dlibtest.domain.ResponseFeedback;
+import com.tzutalin.dlibtest.domain.ResponseLandmark;
+
 import retrofit2.Call;
 import retrofit2.http.Body;
-import retrofit2.http.Field;
-import retrofit2.http.FormUrlEncoded;
-import retrofit2.http.GET;
 import retrofit2.http.POST;
 
 public interface RetrofitInterface {
@@ -22,7 +22,10 @@ public interface RetrofitInterface {
     Call<ResponseLandmark> resetSleepStep();
 
     @POST("/api/feedback")
-    Call<ResponseLandmark> feedback();
+    Call<ResponseLandmark> feedback(@Body ResponseFeedback responseFeedback);
+
+    @POST("/api/timer")
+    Call<ResponseLandmark> timer();
 
 /*    @FormUrlEncoded
     @POST("set_face")

@@ -16,10 +16,7 @@
 
 package com.tzutalin.dlibtest;
 
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.res.AssetManager;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
@@ -35,7 +32,6 @@ import android.media.Image.Plane;
 import android.media.ImageReader;
 import android.media.ImageReader.OnImageAvailableListener;
 import android.os.Handler;
-import android.os.Message;
 import android.os.Trace;
 import android.util.Log;
 import android.view.Display;
@@ -47,6 +43,7 @@ import com.tzutalin.dlib.FaceDet;
 import com.tzutalin.dlib.VisionDetRet;
 import com.tzutalin.dlibtest.Utility.AlertUtility;
 import com.tzutalin.dlibtest.Utility.DialogBox;
+import com.tzutalin.dlibtest.domain.ResponseLandmark;
 
 import junit.framework.Assert;
 
@@ -342,6 +339,8 @@ public class OnGetImageListener implements OnImageAvailableListener {
                                             Log.e("ResponseBody", "ResponseData : " + response.body().getCode());
                                             sleep_step = response.body().getSleep_step();
                                             alertUtility.setSleep_step(sleep_step);
+                                            ResponseLandmark responseLandmark = response.body();
+                                            alertUtility.setResponseLandmark(responseLandmark);
 
                                             // 얼굴 인식 + 정상 운행
                                             if(response.body().getCode() == INT_NORMAL){
@@ -426,7 +425,10 @@ public class OnGetImageListener implements OnImageAvailableListener {
 
                                             // 성공적으로 서버 통신 성공
                                             if (response.isSuccessful()) {
+                                                sleep_step = response.body().getSleep_step();
                                                 alertUtility.setSleep_step(sleep_step);
+                                                ResponseLandmark responseLandmark = response.body();
+                                                alertUtility.setResponseLandmark(responseLandmark);
 
                                                 if (response.body().getCode() == INT_DRIVER_AWARE_FAIL) {
                                                     // 인터페이스 빨간불(졸음 발생)
@@ -462,5 +464,6 @@ public class OnGetImageListener implements OnImageAvailableListener {
 
 
         Trace.endSection();
+
     }
 }

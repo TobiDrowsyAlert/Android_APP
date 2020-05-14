@@ -53,8 +53,8 @@
         android:layout_marginLeft="120dp"
         android:layout_marginTop="30dp"
         android:layout_gravity="top"
-        android:onClick="onClickStartCount"
-        android:text="타이머 시작" />
+        android:onClick="onClickDrop"
+        android:text="단계하락" />
 
     <Button
         android:id="@+id/btnTimerStop"
@@ -63,8 +63,8 @@
         android:layout_gravity="top"
         android:layout_marginLeft="210dp"
         android:layout_marginTop="30dp"
-        android:onClick="onClickStopCount"
-        android:text="타이머 종료" />
+        android:onClick="onClickTimerLog"
+        android:text="기록" />
 
     <View
         android:id="@+id/view1"

@@ -39,6 +39,13 @@ import android.widget.Toast;
 
 import com.tzutalin.dlibtest.Utility.SleepStepManager;
 import com.tzutalin.dlibtest.Utility.TimerHandler;
+import com.tzutalin.dlibtest.Utility.TimerMinuteHandler;
+
+import java.util.Timer;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * Created by darrenl on 2016/5/20.
@@ -52,6 +59,7 @@ public class CameraActivity extends Activity {
     SleepStepManager sleepStepManager;
     static TimerHandler timerHandler;
     static int currentColor;
+    static TimerMinuteHandler countHandler;
 
     public static Handler UiHandler;
 
@@ -63,6 +71,7 @@ public class CameraActivity extends Activity {
         retrofitConnection.setRetrofit("http://15.165.116.82:8080/");
         sleepStepManager = new SleepStepManager(retrofitConnection);
         timerHandler = new TimerHandler(retrofitConnection, this);
+        countHandler = new TimerMinuteHandler(retrofitConnection, this);
 
         super.onCreate(savedInstanceState);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
@@ -90,6 +99,7 @@ public class CameraActivity extends Activity {
         }
 
         onClickStartCount(null);
+        countHandlerStart();
         sleepStepManager.resetSleepStep();
 
 
@@ -99,21 +109,23 @@ public class CameraActivity extends Activity {
     protected void onPause() {
         super.onPause();
         onClickStopCount(null);
+        countHandlerStop();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         onClickStartCount(null);
+        countHandlerStart();
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
         onClickStopCount(null);
+        countHandlerStop();
         sleepStepManager.resetSleepStep();
     }
-
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -180,10 +192,12 @@ public class CameraActivity extends Activity {
             isActivateNetwork = false;
             currentPause = "ON";
             onClickStopCount(null);
+            countHandlerStop();
         }else{
             isActivateNetwork = true;
             currentPause = "OFF";
             onClickStartCount(null);
+            countHandlerStart();
         }
         Toast.makeText(CameraActivity.this, "일시정지 " + currentPause, Toast.LENGTH_SHORT).show();
 
@@ -203,4 +217,45 @@ public class CameraActivity extends Activity {
         Toast.makeText(CameraActivity.getContext(),"카운트 중지", Toast.LENGTH_SHORT).show();
     }
 
+    static public void countHandlerStart(){
+        countHandler.sendEmptyMessage(timerHandler.MESSAGE_TIMER_START);
+    }
+
+    static public void countHandlerStop(){
+        countHandler.sendEmptyMessage(timerHandler.MESSAGE_TIMER_STOP);
+    }
+
+    static public void countHandlerPause(){
+        countHandler.sendEmptyMessage(timerHandler.MESSAGE_TIMER_PAUSE);
+    }
+
+    public void onClickDrop(View view){
+        Call call = retrofitConnection.getServer().dropSleepStep();
+        call.enqueue(new Callback() {
+            @Override
+            public void onResponse(Call call, Response response) {
+
+            }
+
+            @Override
+            public void onFailure(Call call, Throwable t) {
+
+            }
+        });
+    }
+
+    public void onClickTimerLog(View view){
+        Call call = retrofitConnection.getServer().timer();
+        call.enqueue(new Callback() {
+            @Override
+            public void onResponse(Call call, Response response) {
+
+            }
+
+            @Override
+            public void onFailure(Call call, Throwable t) {
+
+            }
+        });
+    }
 }

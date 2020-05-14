@@ -13,11 +13,11 @@ import android.os.Vibrator;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.tzutalin.dlibtest.ApiData;
 import com.tzutalin.dlibtest.CameraActivity;
 import com.tzutalin.dlibtest.OnGetImageListener;
-import com.tzutalin.dlibtest.ResponseLandmark;
+import com.tzutalin.dlibtest.domain.ResponseLandmark;
 import com.tzutalin.dlibtest.RetrofitConnection;
+import com.tzutalin.dlibtest.domain.ResponseFeedback;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -32,9 +32,9 @@ public class AlertUtility {
 
     AlertDialog.Builder builder;
     RetrofitConnection retrofitConnection;
+    ResponseLandmark responseLandmark;
 
     String TAG = "AlertUtility";
-
     int StreamType = 0;
     MediaPlayer mAudio = null;
     boolean isPlay = false;
@@ -106,7 +106,7 @@ public class AlertUtility {
 
     public void feedbackDialog(String cause){
         Log.e("AlertUtility", "feedbackDialog Activate");
-        builder.setTitle("졸음이 인식되었습니다.").setMessage("원인 : "+ cause +", 졸음단계 : " + (sleep_step-1) + " > " + sleep_step);
+        builder.setTitle("졸음이 인식되었습니다.").setMessage("원인 : "+ cause +", 졸음단계 : " + sleep_step);
 
         builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
             @Override
@@ -129,16 +129,11 @@ public class AlertUtility {
                 //http://15.165.116.82:8080/api/value/ REST API 로 데이터 전송
                 retrofitConnection.setRetrofit("http://15.165.116.82:8080/");
 
-                ApiData jsonData = new ApiData();
-
-                jsonData.setLandmarks(null);
-                jsonData.setRect(null);
-                jsonData.setDriver(true);
-                jsonData.setCorrect(false);
-
+                ResponseFeedback responseFeedback = new ResponseFeedback(); // Date And isCorrect
                 //Call call = retrofitConnection.getServer().sendData(jsonData);
-                Call call = retrofitConnection.getServer().feedback();
-
+                responseFeedback.setCorrect(true);
+                responseFeedback.setDate(responseLandmark.getCurTime());
+                Call call = retrofitConnection.getServer().feedback(responseFeedback);
                 call.enqueue(new Callback() {
                     @Override
                     public void onResponse(Call call, Response response) {
@@ -186,6 +181,10 @@ public class AlertUtility {
 
     public int getSleep_step(){
         return sleep_step;
+    }
+
+    public void setResponseLandmark(ResponseLandmark responseLandmark){
+        this.responseLandmark = responseLandmark;
     }
 
     public void delayTime(long time, final Dialog d){
