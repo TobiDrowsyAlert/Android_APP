@@ -10,12 +10,12 @@ import com.tzutalin.dlibtest.CameraActivity;
 
 public class AlarmManager {
 
-    Context mContext;
-    MediaPlayer mAudio = null;
-    Vibrator vibrator;
-    Uri alramSound;
-    int StreamType = 0;
-    int sleep_step;
+    private Context mContext;
+    private MediaPlayer mAudio = null;
+    private Vibrator vibrator;
+    private Uri alramSound;
+    private int StreamType = 0;
+    private int sleep_step;
 
     Boolean isPlay;
 
@@ -27,7 +27,6 @@ public class AlarmManager {
         vibrator = (Vibrator)mContext.getSystemService(Context.VIBRATOR_SERVICE);
         alramSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
         isPlay = false;
-
         try{
             mAudio.setDataSource(mContext, alramSound);
             mAudio.setAudioStreamType(StreamType);
@@ -47,6 +46,8 @@ public class AlarmManager {
         if(sleep_step == 3)
             vibrator.vibrate(90000);
     }
+
+    public void vibrateCancel(){ vibrator.cancel(); }
 
 
     public void alram(){
@@ -70,10 +71,14 @@ public class AlarmManager {
         alramRunnable = new Runnable() {
             @Override
             public void run() {
-
+                mAudio.pause();
                 vibrator.cancel();
             }
         };
+    }
+
+    public Runnable getAlarmRunnable(){
+        return alramRunnable;
     }
 
 }
