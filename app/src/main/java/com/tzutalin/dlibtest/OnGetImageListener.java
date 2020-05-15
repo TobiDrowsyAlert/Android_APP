@@ -43,6 +43,8 @@ import com.tzutalin.dlib.FaceDet;
 import com.tzutalin.dlib.VisionDetRet;
 import com.tzutalin.dlibtest.Utility.AlertUtility;
 import com.tzutalin.dlibtest.Utility.DialogBox;
+import com.tzutalin.dlibtest.domain.FaceLandmark;
+import com.tzutalin.dlibtest.domain.FaceRect;
 import com.tzutalin.dlibtest.domain.ResponseLandmark;
 
 import junit.framework.Assert;
@@ -270,7 +272,7 @@ public class OnGetImageListener implements OnImageAvailableListener {
                         }
 
                         // Draw on bitmap
-                        ApiData jsonData = new ApiData();
+                        RequestAnalyzeSleepDTO requestAnalyzeDTO = new RequestAnalyzeSleepDTO();
                         if (results != null) {  // 랜드마크 사각형 그리기 위함(얼굴 좌표를 이용하여)
 
                             if(CameraActivity.getCurrentColor() != 2)
@@ -292,12 +294,9 @@ public class OnGetImageListener implements OnImageAvailableListener {
                                 bounds.right = (int) (ret.getRight() * resizeRatio);
                                 bounds.bottom = (int) (ret.getBottom() * resizeRatio);
 
-                                rect[0] = bounds.left;
-                                rect[1] = bounds.top;
-                                rect[2] = bounds.right;
-                                rect[3] = bounds.bottom;
+                                FaceRect faceRect = new FaceRect(bounds);
 
-                                jsonData.setRect(rect);
+
 
                                 Canvas canvas = new Canvas(mCroppedBitmap);
                                 canvas.drawRect(bounds, mFaceLandmardkPaint);
@@ -305,40 +304,36 @@ public class OnGetImageListener implements OnImageAvailableListener {
                                 // Draw landmark
                                 ArrayList<Point> landmarks = ret.getFaceLandmarks();
 
+                                FaceLandmark faceLandmark = new FaceLandmark(landmarks, resizeRatio);
+
                                 int landmark[][] = new int[landmarks.size()][2];
                                 int count = 0;
                                 for (Point point : landmarks) {
                                     int pointX = (int) (point.x * resizeRatio);
                                     int pointY = (int) (point.y * resizeRatio);
-                                canvas.drawCircle(pointX, pointY, 2, mFaceLandmardkPaint);
-                                landmark[count][0] = pointX;
-                                landmark[count][1] = pointY;
-                                count++;
-                            }
-                            jsonData.setLandmarks(landmark);
-                                jsonData.setDriver(true);
-                                jsonData.setFrame(50);
-                                jsonData.setCorrect(true);
+                                    canvas.drawCircle(pointX, pointY, 2, mFaceLandmardkPaint);
+                                    landmark[count][0] = pointX;
+                                    landmark[count][1] = pointY;
+                                    count++;
+                                 }
 
-                                RetrofitConnection retrofitConnection = new RetrofitConnection();
+                                requestAnalyzeDTO.setRequestAnalyzeSleepDTO(faceRect.getRect(),
+                                        true, faceLandmark.getLandmark(), 50, true);
 
                                 //AWS 스프링 공인 주소, http://15.165.116.82:8080
                                 //모듈 직접 접근 http://15.165.116.82:1234
-                                //http://15.165.116.82:8080/api/value/ REST API 로 데이터 전송
-                                retrofitConnection.setRetrofit("http://15.165.116.82:8080/");
-                               // DialogBox dialogBox = new DialogBox(mContext.getApplicationContext());
+                                RetrofitConnection retrofitConnection = new RetrofitConnection("http://15.165.116.82:8080/");
 
-
-                                //AlertDialog alertDialog = new AlertDialog.Builder(CameraActivity.this);
                                 alertUtility.setRetrofitConnection(retrofitConnection);
-                                Call<ResponseLandmark> call = retrofitConnection.server.sendData(jsonData);
-                                call.enqueue(new Callback<ResponseLandmark>() {
+                                Call<ResponseLandmark> call = retrofitConnection.server.sendData(requestAnalyzeDTO);
+/*                                call.enqueue(new Callback<ResponseLandmark>() {
                                     @Override
                                     public void onResponse(Call<ResponseLandmark> call, Response<ResponseLandmark> response) {
 
-                                        // 성공적으로 서버 통신 성공
-                                        if(response.isSuccessful()) {
+                                        if(!response.isSuccessful())
+                                            Log.e("RetrofitTest", "Server Error" + response.toString());
 
+                                        if(response.isSuccessful()) {
                                             Log.e("RetrofitTest", "Success : " + response.toString());
                                             Log.e("ResponseBody", "ResponseData : " + response.body().getCode());
                                             sleep_step = response.body().getSleep_step();
@@ -351,34 +346,24 @@ public class OnGetImageListener implements OnImageAvailableListener {
                                                 // 인터페이스 초록불
                                             }
 
-                                            else if(response.body().getCode() == INT_BLIND){
+                                            if(response.body().getCode() == INT_BLIND){
                                                 // 인터페이스 빨간불(졸음 발생)
                                                 alertUtility.feedbackDialog("눈 감김");
-                                                //alertUtility.alert();
                                                 Toast.makeText(mContext.getApplicationContext(), "눈 감김", Toast.LENGTH_LONG).show();
                                             }
 
-                                            else if(response.body().getCode() == INT_BLINK){
-
-                                                // 인터페이스 빨간불(졸음 발생)
-                                                //alertUtility.alert();
+                                            if(response.body().getCode() == INT_BLINK){
                                                 alertUtility.feedbackDialog("눈 깜빡임");
                                                 Toast.makeText(mContext.getApplicationContext(), "눈 깜빡임", Toast.LENGTH_LONG).show();
                                             }
-                                            else if(response.body().getCode() == INT_YAWN){
 
-                                                //alertUtility.alert();
+                                            if(response.body().getCode() == INT_YAWN){
                                                 alertUtility.feedbackDialog("하품");
                                                 Toast.makeText(mContext.getApplicationContext(), "하품", Toast.LENGTH_LONG).show();
                                             }
                                         }
 
-                                        else{
-                                            // 서버 연결은 성공, 인식 결과 정상 운행이나 졸음 발생 둘다 아님,
-                                            // 인터페이스 빨간불
 
-                                            Log.e("RetrofitTest", "UnExpected Success" + response.toString());
-                                        }
                                     }
 
                                     // 서버 연결 실패
@@ -386,7 +371,7 @@ public class OnGetImageListener implements OnImageAvailableListener {
                                     public void onFailure(Call<ResponseLandmark> call, Throwable t) {
                                         Log.e("RetrofitTest", "onFailure" + t.toString());
                                     }
-                                });
+                                });*/
 
                             }
 
@@ -412,11 +397,12 @@ public class OnGetImageListener implements OnImageAvailableListener {
                                     //http://15.165.116.82:8080/api/value/ REST API 로 데이터 전송
                                     retrofitConnection.setRetrofit("http://15.165.116.82:8080/");
 
-                                    jsonData.setLandmarks(null);
-                                    jsonData.setRect(null);
-                                    jsonData.setDriver(false);
-                                    jsonData.setCorrect(true);
-                                    Call<ResponseLandmark> call = retrofitConnection.server.sendData(jsonData);
+                                   /* requestAnalyzeDTO.setLandmarks(null);
+                                    requestAnalyzeDTO.setRect(null);
+                                    requestAnalyzeDTO.setDriver(false);
+                                    requestAnalyzeDTO.setCorrect(true);*/
+                                    requestAnalyzeDTO.setRequestAnalyzeSleepDTO(null,false,null,0,true);
+                                    Call<ResponseLandmark> call = retrofitConnection.server.sendData(requestAnalyzeDTO);
                                     call.enqueue(new Callback<ResponseLandmark>() {
                                         @Override
                                         public void onResponse(Call<ResponseLandmark> call, Response<ResponseLandmark> response) {

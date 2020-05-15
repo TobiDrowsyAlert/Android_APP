@@ -6,9 +6,9 @@ import android.content.DialogInterface;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.tzutalin.dlibtest.ApiData;
 import com.tzutalin.dlibtest.CameraActivity;
 import com.tzutalin.dlibtest.OnGetImageListener;
+import com.tzutalin.dlibtest.RequestAnalyzeSleepDTO;
 import com.tzutalin.dlibtest.RetrofitConnection;
 
 import java.util.logging.Handler;
@@ -60,7 +60,7 @@ public class DialogBox {
                 //http://15.165.116.82:8080/api/value/ REST API 로 데이터 전송
                 retrofitConnection.setRetrofit("http://15.165.116.82:8080/");
 
-                ApiData jsonData = new ApiData();
+                RequestAnalyzeSleepDTO jsonData = new RequestAnalyzeSleepDTO();
 
                 jsonData.setLandmarks(null);
                 jsonData.setRect(null);

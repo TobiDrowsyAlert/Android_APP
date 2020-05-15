@@ -8,6 +8,12 @@ public class RetrofitConnection {
     Retrofit retrofit;
     RetrofitInterface server;
 
+    public RetrofitConnection(){ }
+
+    public RetrofitConnection(String url){
+        setRetrofit(url);
+    }
+
     public RetrofitInterface getServer() {
         return server;
     }
@@ -23,6 +29,10 @@ public class RetrofitConnection {
                 .build();
 
         server = retrofit.create(RetrofitInterface.class);
+
+    }
+
+    public void requestSleepAnalyze(RequestAnalyzeSleepDTO requestAnalyzeSleepDTO){
 
     }
 

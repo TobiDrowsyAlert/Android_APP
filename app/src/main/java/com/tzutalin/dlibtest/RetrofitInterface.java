@@ -13,7 +13,7 @@ public interface RetrofitInterface {
     Call<ApiData> sendData();*/
 
     @POST("/api/value")
-    Call<ResponseLandmark> sendData(@Body ApiData landmarks);
+    Call<ResponseLandmark> sendData(@Body RequestAnalyzeSleepDTO landmarks);
 
     @POST("/api/drop")
     Call<ResponseLandmark> dropSleepStep();

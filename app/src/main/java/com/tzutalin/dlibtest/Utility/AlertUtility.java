@@ -29,8 +29,6 @@ import retrofit2.Response;
 
 public class AlertUtility {
 
-    ArrayList<AlertDialog> queue;
-
     Vibrator vibrator;
     Ringtone ringtone;
     Context mContext;
@@ -62,7 +60,6 @@ public class AlertUtility {
         vibrator = (Vibrator)mContext.getSystemService(Context.VIBRATOR_SERVICE);
         alramSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
         handler = new Handler();
-        queue = new ArrayList<AlertDialog>();
         //ringtone = RingtoneManager.getRingtone(mContext.getApplicationContext(), alramSound);
 
         try{
@@ -129,8 +126,6 @@ public class AlertUtility {
             // 알람 실행 중 아님
         }
 
-
-
     }
 
     public void feedbackDialog(String cause){
@@ -146,7 +141,7 @@ public class AlertUtility {
                 Toast.makeText(mContext, "YES", Toast.LENGTH_SHORT).show();
                 handler.removeCallbacks(runnable);
 
-                OnGetImageListener.isBlue = true;
+                //OnGetImageListener.isBlue = 1;
 
                 alramStop();
 
@@ -203,7 +198,6 @@ public class AlertUtility {
             time = 30000;
         }
         delayTime(time, alertDialog);
-        queue.add(alertDialog);
     }
 
     public RetrofitConnection getRetrofitConnection(){
@@ -227,7 +221,6 @@ public class AlertUtility {
     }
 
     public void delayTime(long time, final Dialog d){
-        queue.remove(d);
         runnable = new Runnable() {
             @Override
             public void run() {
@@ -236,8 +229,6 @@ public class AlertUtility {
 
                 // 재실행
                 CameraActivity.onClickStartCount(null);
-
-
 
                 Toast.makeText(mContext, "DelayTime 실행", Toast.LENGTH_SHORT).show();
                 Log.e(TAG, "DelayTime 실행");
