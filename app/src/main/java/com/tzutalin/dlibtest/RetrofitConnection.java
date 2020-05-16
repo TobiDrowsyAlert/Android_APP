@@ -1,5 +1,7 @@
 package com.tzutalin.dlibtest;
 
+import com.tzutalin.dlibtest.domain.RequestAnalyzeSleepDTO;
+
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 

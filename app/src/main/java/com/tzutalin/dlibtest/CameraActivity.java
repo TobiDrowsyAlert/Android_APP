@@ -118,14 +118,6 @@ public class CameraActivity extends Activity {
         countHandlerStop();
         AlertUtility alertUtility = OnGetImageListener.getAlertUtility();
         Log.e("CameraActivity", "객체 : " + alertUtility.toString() );
-        if(alertUtility != null) {
-            Log.e("CameraActivity", "객체 : " + alertUtility.toString() );
-            Log.e("CameraActivity", "onResume 초기화 실행");
-            Vibrator vibrator = alertUtility.getVibrator();
-            MediaPlayer mediaPlayer = alertUtility.getMediaPlayer();
-            vibrator.cancel();
-            mediaPlayer.pause();
-        }
     }
 
     @Override
@@ -133,8 +125,6 @@ public class CameraActivity extends Activity {
         super.onResume();
         onClickStartCount(null);
         countHandlerStart();
-
-
     }
 
     @Override
@@ -145,15 +135,6 @@ public class CameraActivity extends Activity {
         sleepStepManager.resetSleepStep();
         AlertUtility alertUtility = OnGetImageListener.getAlertUtility();
         Log.e("CameraActivity", "객체 : " + alertUtility.toString() );
-        if(alertUtility != null) {
-            Log.e("CameraActivity", "객체 : " + alertUtility.toString() );
-            Log.e("CameraActivity", "onDestroy 초기화 실행");
-            Vibrator vibrator = alertUtility.getVibrator();
-            MediaPlayer mediaPlayer = alertUtility.getMediaPlayer();
-            vibrator.cancel();
-            mediaPlayer.pause();
-        }
-
     }
 
     @Override

@@ -42,9 +42,9 @@ import com.tzutalin.dlib.Constants;
 import com.tzutalin.dlib.FaceDet;
 import com.tzutalin.dlib.VisionDetRet;
 import com.tzutalin.dlibtest.Utility.AlertUtility;
-import com.tzutalin.dlibtest.Utility.DialogBox;
 import com.tzutalin.dlibtest.domain.FaceLandmark;
 import com.tzutalin.dlibtest.domain.FaceRect;
+import com.tzutalin.dlibtest.domain.RequestAnalyzeSleepDTO;
 import com.tzutalin.dlibtest.domain.ResponseLandmark;
 
 import junit.framework.Assert;
@@ -93,7 +93,6 @@ public class OnGetImageListener implements OnImageAvailableListener {
     private FloatingCameraWindow mWindow;
     private Paint mFaceLandmardkPaint;
 
-    private DialogBox dialogBox;
     private static AlertUtility alertUtility;
 
     private Boolean isActivateNetwork;
@@ -113,7 +112,6 @@ public class OnGetImageListener implements OnImageAvailableListener {
         //CameraActivity.setColor(1);
 
         //dialogBox = new DialogBox(mContext);
-        dialogBox = new DialogBox(CameraActivity.getContext());
         alertUtility = new AlertUtility(CameraActivity.getContext());
         isActivateNetwork = CameraActivity.getIsActivateNetwork();
 
@@ -320,13 +318,11 @@ public class OnGetImageListener implements OnImageAvailableListener {
                                 requestAnalyzeDTO.setRequestAnalyzeSleepDTO(faceRect.getRect(),
                                         true, faceLandmark.getLandmark(), 50, true);
 
-                                //AWS 스프링 공인 주소, http://15.165.116.82:8080
-                                //모듈 직접 접근 http://15.165.116.82:1234
                                 RetrofitConnection retrofitConnection = new RetrofitConnection("http://15.165.116.82:8080/");
 
                                 alertUtility.setRetrofitConnection(retrofitConnection);
                                 Call<ResponseLandmark> call = retrofitConnection.server.sendData(requestAnalyzeDTO);
-/*                                call.enqueue(new Callback<ResponseLandmark>() {
+                                call.enqueue(new Callback<ResponseLandmark>() {
                                     @Override
                                     public void onResponse(Call<ResponseLandmark> call, Response<ResponseLandmark> response) {
 
@@ -371,12 +367,11 @@ public class OnGetImageListener implements OnImageAvailableListener {
                                     public void onFailure(Call<ResponseLandmark> call, Throwable t) {
                                         Log.e("RetrofitTest", "onFailure" + t.toString());
                                     }
-                                });*/
+                                });
 
                             }
 
                             if(results.size() == 0) {
-                                // 노란불(얼굴 인식 X )
 
                                 if(CameraActivity.getCurrentColor() != 2)
                                 {
@@ -391,16 +386,8 @@ public class OnGetImageListener implements OnImageAvailableListener {
                                 }
                                 else {
                                     RetrofitConnection retrofitConnection = new RetrofitConnection();
-
-                                    //AWS 스프링 공인 주소, http://15.165.116.82:8080
-                                    //모듈 직접 접근 http://15.165.116.82:1234
-                                    //http://15.165.116.82:8080/api/value/ REST API 로 데이터 전송
                                     retrofitConnection.setRetrofit("http://15.165.116.82:8080/");
 
-                                   /* requestAnalyzeDTO.setLandmarks(null);
-                                    requestAnalyzeDTO.setRect(null);
-                                    requestAnalyzeDTO.setDriver(false);
-                                    requestAnalyzeDTO.setCorrect(true);*/
                                     requestAnalyzeDTO.setRequestAnalyzeSleepDTO(null,false,null,0,true);
                                     Call<ResponseLandmark> call = retrofitConnection.server.sendData(requestAnalyzeDTO);
                                     call.enqueue(new Callback<ResponseLandmark>() {
@@ -433,10 +420,7 @@ public class OnGetImageListener implements OnImageAvailableListener {
                                     });
                                 }
                             }
-
                         }
-
-
                         mWindow.setRGBBitmap(mCroppedBitmap);
                         mIsComputing = false;
                     }

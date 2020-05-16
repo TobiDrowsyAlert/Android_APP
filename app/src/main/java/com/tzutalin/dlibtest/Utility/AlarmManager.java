@@ -10,6 +10,8 @@ import com.tzutalin.dlibtest.CameraActivity;
 
 public class AlarmManager {
 
+    private final int INT_VIBRATE_TIME = 30000;
+
     private Context mContext;
     private MediaPlayer mAudio = null;
     private Vibrator vibrator;
@@ -40,11 +42,7 @@ public class AlarmManager {
 
     public void vibrate(int sleep_step)
     {
-        if(sleep_step == 2)
-            vibrator.vibrate(60000);
-
-        if(sleep_step == 3)
-            vibrator.vibrate(90000);
+       vibrator.vibrate(sleep_step * INT_VIBRATE_TIME);
     }
 
     public void vibrateCancel(){ vibrator.cancel(); }
@@ -81,4 +79,11 @@ public class AlarmManager {
         return alramRunnable;
     }
 
+    public Vibrator getVibrator(){
+        return vibrator;
+    }
+
+    public MediaPlayer getMAudio(){
+        return mAudio;
+    }
 }

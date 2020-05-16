@@ -1,4 +1,4 @@
-package com.tzutalin.dlibtest;
+package com.tzutalin.dlibtest.domain;
 
 public class RequestAnalyzeSleepDTO {
     private int[] rect;
@@ -6,6 +6,7 @@ public class RequestAnalyzeSleepDTO {
     private int[][] landmarks;
     private int frame;
     private Boolean isCorrect;
+    private String userId;
 
     public RequestAnalyzeSleepDTO(){
 
@@ -17,6 +18,7 @@ public class RequestAnalyzeSleepDTO {
         this.landmarks = landmarks;
         this.frame = frame;
         this.isCorrect = isCorrect;
+        this.userId = userId;
     }
 
     public Boolean getCorrect() {

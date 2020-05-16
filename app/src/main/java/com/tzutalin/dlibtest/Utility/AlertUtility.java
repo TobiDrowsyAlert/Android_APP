@@ -39,7 +39,7 @@ public class AlertUtility {
 
     Runnable runnable;
 
-    AlarmManager alaramManager;
+    public AlarmManager alaramManager;
     Handler handler;
 
 
@@ -118,26 +118,6 @@ public class AlertUtility {
         delayTime(time, alertDialog);
     }
 
-    public RetrofitConnection getRetrofitConnection(){
-        return retrofitConnection;
-    }
-
-    public void setRetrofitConnection(RetrofitConnection retrofitConnection){
-        this.retrofitConnection = retrofitConnection;
-    }
-
-    public void setSleep_step(int sleep_step){
-        this.sleep_step = sleep_step;
-    }
-
-    public int getSleep_step(){
-        return sleep_step;
-    }
-
-    public void setResponseLandmark(ResponseLandmark responseLandmark){
-        this.responseLandmark = responseLandmark;
-    }
-
     public void delayTime(long time, final Dialog d){
         runnable = new Runnable() {
             @Override
@@ -156,6 +136,26 @@ public class AlertUtility {
         handler.removeCallbacks(alaramManager.getAlarmRunnable());
         handler.postDelayed(alaramManager.getAlarmRunnable(), time);
         handler.postDelayed(runnable, time);
+    }
+
+    public RetrofitConnection getRetrofitConnection(){
+        return retrofitConnection;
+    }
+
+    public void setRetrofitConnection(RetrofitConnection retrofitConnection){
+        this.retrofitConnection = retrofitConnection;
+    }
+
+    public void setSleep_step(int sleep_step){
+        this.sleep_step = sleep_step;
+    }
+
+    public int getSleep_step(){
+        return sleep_step;
+    }
+
+    public void setResponseLandmark(ResponseLandmark responseLandmark){
+        this.responseLandmark = responseLandmark;
     }
 
 

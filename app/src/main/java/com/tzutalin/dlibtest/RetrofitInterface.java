@@ -1,5 +1,6 @@
 package com.tzutalin.dlibtest;
 
+import com.tzutalin.dlibtest.domain.RequestAnalyzeSleepDTO;
 import com.tzutalin.dlibtest.domain.ResponseFeedback;
 import com.tzutalin.dlibtest.domain.ResponseLandmark;
 
