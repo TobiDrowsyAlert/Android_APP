@@ -1,14 +1,24 @@
-package com.tzutalin.dlibtest;
+package com.tzutalin.dlibtest.domain;
 
-public class ApiData {
+public class RequestAnalyzeSleepDTO {
     private int[] rect;
     private Boolean driver;
     private int[][] landmarks;
     private int frame;
     private Boolean isCorrect;
+    private String userId;
 
-    public ApiData(){
+    public RequestAnalyzeSleepDTO(){
 
+    }
+
+    public RequestAnalyzeSleepDTO(int[] rect, Boolean driver, int[][] landmarks, int frame, Boolean isCorrect){
+        this.rect = rect;
+        this.driver = driver;
+        this.landmarks = landmarks;
+        this.frame = frame;
+        this.isCorrect = isCorrect;
+        this.userId = userId;
     }
 
     public Boolean getCorrect() {
@@ -55,6 +65,14 @@ public class ApiData {
     public void setFrame (int frame)
     {
         this.frame = frame;
+    }
+
+    public void setRequestAnalyzeSleepDTO(int[] rect, Boolean driver, int[][] landmarks, int frame, Boolean isCorrect){
+        this.rect = rect;
+        this.driver = driver;
+        this.landmarks = landmarks;
+        this.frame = frame;
+        this.isCorrect = isCorrect;
     }
 
     @Override

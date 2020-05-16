@@ -29,25 +29,21 @@ import retrofit2.Response;
 
 public class AlertUtility {
 
-    ArrayList<AlertDialog> queue;
+    final int INT_ALRAM_TIME = 10000;
 
-    Vibrator vibrator;
-    Ringtone ringtone;
     Context mContext;
-    Uri alramSound;
 
     AlertDialog.Builder builder;
     RetrofitConnection retrofitConnection;
     ResponseLandmark responseLandmark;
 
-    Handler handler;
     Runnable runnable;
-    Runnable alramRunnable;
+
+    public AlarmManager alaramManager;
+    Handler handler;
+
 
     String TAG = "AlertUtility";
-    int StreamType = 0;
-    static MediaPlayer mAudio = null;
-    static boolean isPlay = false;
 
     int sleep_step = 0;
     int time = 3000;
@@ -58,86 +54,19 @@ public class AlertUtility {
     public AlertUtility(Context mContext){
 
         this.mContext = mContext;
-        mAudio = new MediaPlayer();
-        vibrator = (Vibrator)mContext.getSystemService(Context.VIBRATOR_SERVICE);
-        alramSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
+        alaramManager = new AlarmManager(mContext);
         handler = new Handler();
-        queue = new ArrayList<AlertDialog>();
-        //ringtone = RingtoneManager.getRingtone(mContext.getApplicationContext(), alramSound);
-
-        try{
-            mAudio.setDataSource(mContext, alramSound);
-            mAudio.setAudioStreamType(StreamType);
-            mAudio.setLooping(true);
-            mAudio.prepare();
-        }catch(Exception e){
-
-        }
-        alramRunnable = new Runnable() {
-            @Override
-            public void run() {
-                alramStop();
-                vibrator.cancel();
-            }
-        };
-
         builder = new AlertDialog.Builder(mContext);
         builder.setCancelable(false);
 
     }
 
 
-    public void vibrate()
-    {
-        if(sleep_step == 2){
-            vibrator.vibrate(60000);
-        }
-        else if(sleep_step == 3) {
-            vibrator.vibrate(90000);
-        }
-    }
-
-    public void vibrateCancel(){
-        vibrator.cancel();
-    }
-
-    static public void alram(){
-/*        try {
-            //mAudio.setDataSource(alramSound.toString());
-            mAudio.setDataSource(mContext, alramSound);
-            mAudio.setAudioStreamType(StreamType);
-            mAudio.setLooping(true);
-            mAudio.prepareAsync();
-
-        }catch (Exception e){
-
-        }*/
-        mAudio.start();
-        CameraActivity.setColor(2);
-        isPlay = true;
-    }
-
-    static public void alramStop(){
-
-
-        if(mAudio.isPlaying()){
-            mAudio.pause();
-            isPlay = false;
-            CameraActivity.setColor(1);
-        }
-        else{
-            // 알람 실행 중 아님
-        }
-
-
-
-    }
-
     public void feedbackDialog(String cause){
         Log.e("AlertUtility", "feedbackDialog Activate");
         builder.setTitle("졸음이 인식되었습니다.").setMessage("원인 : "+ cause +", 졸음단계 : " + sleep_step);
-        alram();
-        vibrate();
+        alaramManager.alram();
+        alaramManager.vibrate(sleep_step);
         // 새로운 졸음 들어온 것, 기존 알람 소리 초기화 필요
 
         builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
@@ -145,12 +74,8 @@ public class AlertUtility {
             public void onClick(DialogInterface dialog, int id) {
                 Toast.makeText(mContext, "YES", Toast.LENGTH_SHORT).show();
                 handler.removeCallbacks(runnable);
-
-                OnGetImageListener.isBlue = true;
-
-                alramStop();
-
-                vibrator.cancel();
+                alaramManager.alramStop();
+                alaramManager.vibrateCancel();
             }
 
         });
@@ -161,14 +86,8 @@ public class AlertUtility {
                 handler.removeCallbacks(runnable);
 
                 RetrofitConnection retrofitConnection = new RetrofitConnection();
-
-                //AWS 스프링 공인 주소, http://15.165.116.82:8080
-                //모듈 직접 접근 http://15.165.116.82:1234
-                //http://15.165.116.82:8080/api/value/ REST API 로 데이터 전송
                 retrofitConnection.setRetrofit("http://15.165.116.82:8080/");
-
-                ResponseFeedback responseFeedback = new ResponseFeedback(); // Date And isCorrect
-                //Call call = retrofitConnection.getServer().sendData(jsonData);
+                ResponseFeedback responseFeedback = new ResponseFeedback();
                 responseFeedback.setCorrect(true);
                 responseFeedback.setDate(responseLandmark.getCurTime());
                 Call call = retrofitConnection.getServer().feedback(responseFeedback);
@@ -186,24 +105,37 @@ public class AlertUtility {
                     }
                 });
 
-                alramStop();
-                vibrator.cancel();
+                alaramManager.alramStop();
+                alaramManager.vibrateCancel();
             }
         });
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
+
         time = 3000;
-        if(sleep_step == 1){
-            time = 10000;
-        }
-        else if(sleep_step == 2){
-            time = 20000;
-        }
-        else if(sleep_step == 3){
-            time = 30000;
-        }
+        time = sleep_step * INT_ALRAM_TIME;
+
         delayTime(time, alertDialog);
-        queue.add(alertDialog);
+    }
+
+    public void delayTime(long time, final Dialog d){
+        runnable = new Runnable() {
+            @Override
+            public void run() {
+
+                d.dismiss();
+
+                // 재실행
+                CameraActivity.onClickStartCount(null);
+
+                Toast.makeText(mContext, "DelayTime 실행", Toast.LENGTH_SHORT).show();
+                Log.e(TAG, "DelayTime 실행");
+            }
+        };
+
+        handler.removeCallbacks(alaramManager.getAlarmRunnable());
+        handler.postDelayed(alaramManager.getAlarmRunnable(), time);
+        handler.postDelayed(runnable, time);
     }
 
     public RetrofitConnection getRetrofitConnection(){
@@ -226,42 +158,7 @@ public class AlertUtility {
         this.responseLandmark = responseLandmark;
     }
 
-    public void delayTime(long time, final Dialog d){
-        queue.remove(d);
-        runnable = new Runnable() {
-            @Override
-            public void run() {
 
-                d.dismiss();
-
-                // 재실행
-                CameraActivity.onClickStartCount(null);
-
-
-
-                Toast.makeText(mContext, "DelayTime 실행", Toast.LENGTH_SHORT).show();
-                Log.e(TAG, "DelayTime 실행");
-            }
-        };
-
-        handler.removeCallbacks(alramRunnable);
-        handler.postDelayed(alramRunnable, time);
-        handler.postDelayed(runnable, time);
-    }
-
-
-    public Vibrator getVibrator(){
-        return vibrator;
-    }
-
-    public MediaPlayer getMediaPlayer(){
-        return mAudio;
-    }
-
-    public void reset(){
-        vibrator.cancel();
-        mAudio.pause();
-    }
 
 
 }

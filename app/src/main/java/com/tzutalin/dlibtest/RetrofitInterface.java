@@ -1,5 +1,6 @@
 package com.tzutalin.dlibtest;
 
+import com.tzutalin.dlibtest.domain.RequestAnalyzeSleepDTO;
 import com.tzutalin.dlibtest.domain.ResponseFeedback;
 import com.tzutalin.dlibtest.domain.ResponseLandmark;
 
@@ -13,7 +14,7 @@ public interface RetrofitInterface {
     Call<ApiData> sendData();*/
 
     @POST("/api/value")
-    Call<ResponseLandmark> sendData(@Body ApiData landmarks);
+    Call<ResponseLandmark> sendData(@Body RequestAnalyzeSleepDTO landmarks);
 
     @POST("/api/drop")
     Call<ResponseLandmark> dropSleepStep();

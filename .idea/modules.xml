@@ -2,25 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/AndroidStudioProjects-Android_APP.iml" filepath="$PROJECT_DIR$/AndroidStudioProjects-Android_APP.iml" group="Android_APP" />
-      <module fileurl="file://$PROJECT_DIR$/app/AndroidStudioProjects-Android_APP-app.iml" filepath="$PROJECT_DIR$/app/AndroidStudioProjects-Android_APP-app.iml" group="Android_APP/app" />
-      <module fileurl="file://$PROJECT_DIR$/dlib/AndroidStudioProjects-Android_APP-dlib.iml" filepath="$PROJECT_DIR$/dlib/AndroidStudioProjects-Android_APP-dlib.iml" group="Android_APP/dlib" />
       <module fileurl="file://$PROJECT_DIR$/Android_APP.iml" filepath="$PROJECT_DIR$/Android_APP.iml" group="Android_APP" />
-      <module fileurl="file://$PROJECT_DIR$/app/Android_APP-app.iml" filepath="$PROJECT_DIR$/app/Android_APP-app.iml" group="Android_APP/app" />
-      <module fileurl="file://$PROJECT_DIR$/dlib/Android_APP-dlib.iml" filepath="$PROJECT_DIR$/dlib/Android_APP-dlib.iml" group="Android_APP/dlib" />
-      <module fileurl="file://$PROJECT_DIR$/Users-home-AndroidStudioProjects-Android_APP.iml" filepath="$PROJECT_DIR$/Users-home-AndroidStudioProjects-Android_APP.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Users-home-AndroidStudioProjects-Android_APP~1.iml" filepath="$PROJECT_DIR$/Users-home-AndroidStudioProjects-Android_APP~1.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/dlib/dlib.iml" filepath="$PROJECT_DIR$/dlib/dlib.iml" />
-      <module fileurl="file://$PROJECT_DIR$/dlib-android-app-master.iml" filepath="$PROJECT_DIR$/dlib-android-app-master.iml" />
-      <module fileurl="file://$PROJECT_DIR$/home-AndroidStudioProjects-Android_APP.iml" filepath="$PROJECT_DIR$/home-AndroidStudioProjects-Android_APP.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/home-AndroidStudioProjects-Android_APP-app.iml" filepath="$PROJECT_DIR$/app/home-AndroidStudioProjects-Android_APP-app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/home-AndroidStudioProjects-Android_APP-app~1.iml" filepath="$PROJECT_DIR$/app/home-AndroidStudioProjects-Android_APP-app~1.iml" />
-      <module fileurl="file://$PROJECT_DIR$/dlib/home-AndroidStudioProjects-Android_APP-dlib.iml" filepath="$PROJECT_DIR$/dlib/home-AndroidStudioProjects-Android_APP-dlib.iml" />
-      <module fileurl="file://$PROJECT_DIR$/dlib/home-AndroidStudioProjects-Android_APP-dlib~1.iml" filepath="$PROJECT_DIR$/dlib/home-AndroidStudioProjects-Android_APP-dlib~1.iml" />
-      <module fileurl="file://$PROJECT_DIR$/rlgus-AndroidStudioProjects-Android_APP.iml" filepath="$PROJECT_DIR$/rlgus-AndroidStudioProjects-Android_APP.iml" group="Android_APP" />
-      <module fileurl="file://$PROJECT_DIR$/app/rlgus-AndroidStudioProjects-Android_APP-app.iml" filepath="$PROJECT_DIR$/app/rlgus-AndroidStudioProjects-Android_APP-app.iml" group="Android_APP/app" />
-      <module fileurl="file://$PROJECT_DIR$/dlib/rlgus-AndroidStudioProjects-Android_APP-dlib.iml" filepath="$PROJECT_DIR$/dlib/rlgus-AndroidStudioProjects-Android_APP-dlib.iml" group="Android_APP/dlib" />
     </modules>
   </component>
 </project>
