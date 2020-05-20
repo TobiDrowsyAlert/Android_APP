@@ -1,8 +1,10 @@
 package com.tzutalin.dlibtest;
 
 import com.tzutalin.dlibtest.domain.RequestAnalyzeSleepDTO;
-import com.tzutalin.dlibtest.domain.ResponseFeedback;
-import com.tzutalin.dlibtest.domain.ResponseLandmark;
+import com.tzutalin.dlibtest.domain.ResponseFeedbackDTO;
+import com.tzutalin.dlibtest.domain.ResponseLandmarkDTO;
+import com.tzutalin.dlibtest.user.domain.ResponseLoginDTO;
+import com.tzutalin.dlibtest.user.domain.RequestLoginDTO;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -14,23 +16,24 @@ public interface RetrofitInterface {
     Call<ApiData> sendData();*/
 
     @POST("/api/value")
-    Call<ResponseLandmark> sendData(@Body RequestAnalyzeSleepDTO landmarks);
+    Call<ResponseLandmarkDTO> sendData(@Body RequestAnalyzeSleepDTO landmarks);
 
     @POST("/api/drop")
-    Call<ResponseLandmark> dropSleepStep();
+    Call<ResponseLandmarkDTO> dropSleepStep();
 
     @POST("/api/reset")
-    Call<ResponseLandmark> resetSleepStep();
+    Call<ResponseLandmarkDTO> resetSleepStep();
 
     @POST("/api/feedback")
-    Call<ResponseLandmark> feedback(@Body ResponseFeedback responseFeedback);
+    Call<ResponseLandmarkDTO> feedback(@Body ResponseFeedbackDTO responseFeedback);
 
     @POST("/api/timer")
-    Call<ResponseLandmark> timer();
+    Call<ResponseLandmarkDTO> timer();
 
-/*    @FormUrlEncoded
-    @POST("set_face")
-    Call<ApiData> sendData2(@Field("name") String name, @Field("age") int age);*/
+    @POST("/user/login")
+    Call<ResponseLoginDTO> login(@Body RequestLoginDTO requestLoginDTO);
+
+
 
 
 }

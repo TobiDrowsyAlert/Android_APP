@@ -45,7 +45,7 @@ import com.tzutalin.dlibtest.Utility.AlertUtility;
 import com.tzutalin.dlibtest.domain.FaceLandmark;
 import com.tzutalin.dlibtest.domain.FaceRect;
 import com.tzutalin.dlibtest.domain.RequestAnalyzeSleepDTO;
-import com.tzutalin.dlibtest.domain.ResponseLandmark;
+import com.tzutalin.dlibtest.user.model.User;
 
 import junit.framework.Assert;
 
@@ -64,13 +64,6 @@ public class OnGetImageListener implements OnImageAvailableListener {
 
     public static int isBlue;   // 1 = blue , 2 = red , 3 = yellow
     private static final boolean SAVE_PREVIEW_BITMAP = false;
-    // 상태 코드 상수
-    private final int INT_BLINK = 100;
-    private final int INT_BLIND = 101;
-    private final int INT_YAWN = 200;
-    private final int INT_DRIVER_AWAY = 300;
-    private final int INT_DRIVER_AWARE_FAIL = 301;
-    private final int INT_NORMAL = 400;
 
     private static final int INPUT_SIZE = 224;
     private static final String TAG = "OnGetImageListener";
@@ -94,6 +87,7 @@ public class OnGetImageListener implements OnImageAvailableListener {
     private Paint mFaceLandmardkPaint;
 
     private static AlertUtility alertUtility;
+    private User user;
 
     private Boolean isActivateNetwork;
     private int sleep_step;
@@ -110,6 +104,7 @@ public class OnGetImageListener implements OnImageAvailableListener {
         mWindow = new FloatingCameraWindow(mContext);
 
         //CameraActivity.setColor(1);
+        user = User.getInstance();
 
         //dialogBox = new DialogBox(mContext);
         alertUtility = new AlertUtility(CameraActivity.getContext());
@@ -294,14 +289,11 @@ public class OnGetImageListener implements OnImageAvailableListener {
 
                                 FaceRect faceRect = new FaceRect(bounds);
 
-
-
                                 Canvas canvas = new Canvas(mCroppedBitmap);
                                 canvas.drawRect(bounds, mFaceLandmardkPaint);
 
                                 // Draw landmark
                                 ArrayList<Point> landmarks = ret.getFaceLandmarks();
-
                                 FaceLandmark faceLandmark = new FaceLandmark(landmarks, resizeRatio);
 
                                 int landmark[][] = new int[landmarks.size()][2];
@@ -317,57 +309,10 @@ public class OnGetImageListener implements OnImageAvailableListener {
 
                                 requestAnalyzeDTO.setRequestAnalyzeSleepDTO(faceRect.getRect(),
                                         true, faceLandmark.getLandmark(), 50, true);
+                                requestAnalyzeDTO.setUserId(user.getUserId());
 
-                                RetrofitConnection retrofitConnection = new RetrofitConnection("http://15.165.116.82:8080/");
-
-                                alertUtility.setRetrofitConnection(retrofitConnection);
-                                Call<ResponseLandmark> call = retrofitConnection.server.sendData(requestAnalyzeDTO);
-                                call.enqueue(new Callback<ResponseLandmark>() {
-                                    @Override
-                                    public void onResponse(Call<ResponseLandmark> call, Response<ResponseLandmark> response) {
-
-                                        if(!response.isSuccessful())
-                                            Log.e("RetrofitTest", "Server Error" + response.toString());
-
-                                        if(response.isSuccessful()) {
-                                            Log.e("RetrofitTest", "Success : " + response.toString());
-                                            Log.e("ResponseBody", "ResponseData : " + response.body().getCode());
-                                            sleep_step = response.body().getSleep_step();
-                                            alertUtility.setSleep_step(sleep_step);
-                                            ResponseLandmark responseLandmark = response.body();
-                                            alertUtility.setResponseLandmark(responseLandmark);
-
-                                            // 얼굴 인식 + 정상 운행
-                                            if(response.body().getCode() == INT_NORMAL){
-                                                // 인터페이스 초록불
-                                            }
-
-                                            if(response.body().getCode() == INT_BLIND){
-                                                // 인터페이스 빨간불(졸음 발생)
-                                                alertUtility.feedbackDialog("눈 감김");
-                                                Toast.makeText(mContext.getApplicationContext(), "눈 감김", Toast.LENGTH_LONG).show();
-                                            }
-
-                                            if(response.body().getCode() == INT_BLINK){
-                                                alertUtility.feedbackDialog("눈 깜빡임");
-                                                Toast.makeText(mContext.getApplicationContext(), "눈 깜빡임", Toast.LENGTH_LONG).show();
-                                            }
-
-                                            if(response.body().getCode() == INT_YAWN){
-                                                alertUtility.feedbackDialog("하품");
-                                                Toast.makeText(mContext.getApplicationContext(), "하품", Toast.LENGTH_LONG).show();
-                                            }
-                                        }
-
-
-                                    }
-
-                                    // 서버 연결 실패
-                                    @Override
-                                    public void onFailure(Call<ResponseLandmark> call, Throwable t) {
-                                        Log.e("RetrofitTest", "onFailure" + t.toString());
-                                    }
-                                });
+                                alertUtility.generateRetrofitConnectionWithURL("http://15.165.116.82:8080/");
+                                alertUtility.requestSleepAnalyze(requestAnalyzeDTO);
 
                             }
 
@@ -385,39 +330,10 @@ public class OnGetImageListener implements OnImageAvailableListener {
                                     Log.e("OnGetImageListener", "Camera Pause");
                                 }
                                 else {
-                                    RetrofitConnection retrofitConnection = new RetrofitConnection();
-                                    retrofitConnection.setRetrofit("http://15.165.116.82:8080/");
-
+                                    alertUtility.generateRetrofitConnectionWithURL("http://15.165.116.82:8080/");
                                     requestAnalyzeDTO.setRequestAnalyzeSleepDTO(null,false,null,0,true);
-                                    Call<ResponseLandmark> call = retrofitConnection.server.sendData(requestAnalyzeDTO);
-                                    call.enqueue(new Callback<ResponseLandmark>() {
-                                        @Override
-                                        public void onResponse(Call<ResponseLandmark> call, Response<ResponseLandmark> response) {
-
-                                            // 성공적으로 서버 통신 성공
-                                            if (response.isSuccessful()) {
-                                                sleep_step = response.body().getSleep_step();
-                                                alertUtility.setSleep_step(sleep_step);
-                                                ResponseLandmark responseLandmark = response.body();
-                                                alertUtility.setResponseLandmark(responseLandmark);
-
-                                                if (response.body().getCode() == INT_DRIVER_AWARE_FAIL) {
-                                                    // 인터페이스 빨간불(졸음 발생)
-                                                    alertUtility.feedbackDialog("정면주시 실패");
-                                                    Toast.makeText(mContext.getApplicationContext(), "정면주시실패", Toast.LENGTH_LONG).show();
-                                                } else if (response.body().getCode() == INT_DRIVER_AWAY) {
-
-                                                    alertUtility.feedbackDialog("운전자 이탈");
-                                                    Toast.makeText(mContext.getApplicationContext(), "운전자 이탈", Toast.LENGTH_LONG).show();
-                                                }
-                                            }
-                                        }
-
-                                        @Override
-                                        public void onFailure(Call<ResponseLandmark> call, Throwable t) {
-                                            Log.e("RetrofitTest", "No one in camera + Network Error");
-                                        }
-                                    });
+                                    requestAnalyzeDTO.setUserId(user.getUserId());
+                                    alertUtility.requestSleepAnalyze(requestAnalyzeDTO);
                                 }
                             }
                         }

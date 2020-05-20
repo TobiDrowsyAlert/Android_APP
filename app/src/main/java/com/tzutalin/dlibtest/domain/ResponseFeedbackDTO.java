@@ -2,15 +2,15 @@ package com.tzutalin.dlibtest.domain;
 
 import java.util.Date;
 
-public class ResponseFeedback {
+public class ResponseFeedbackDTO {
     private Boolean isCorrect;
     private String date;
 
-    public ResponseFeedback(){
+    public ResponseFeedbackDTO(){
 
     }
 
-    public ResponseFeedback(String date){
+    public ResponseFeedbackDTO(String date){
         this.date = date;
     }
 
