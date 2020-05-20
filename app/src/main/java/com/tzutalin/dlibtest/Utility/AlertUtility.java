@@ -4,32 +4,20 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.media.MediaPlayer;
-import android.media.Ringtone;
-import android.media.RingtoneManager;
-import android.net.Uri;
 import android.os.Handler;
-import android.os.Message;
-import android.os.Vibrator;
 import android.util.Log;
 import android.widget.Toast;
 
 import com.tzutalin.dlibtest.CameraActivity;
-import com.tzutalin.dlibtest.OnGetImageListener;
 import com.tzutalin.dlibtest.domain.RequestAnalyzeSleepDTO;
-import com.tzutalin.dlibtest.domain.ResponseLandmark;
 import com.tzutalin.dlibtest.RetrofitConnection;
-import com.tzutalin.dlibtest.domain.ResponseFeedback;
+import com.tzutalin.dlibtest.domain.ResponseFeedbackDTO;
+import com.tzutalin.dlibtest.domain.ResponseLandmarkDTO;
 import com.tzutalin.dlibtest.domain.SleepCode;
-
-import java.util.ArrayList;
-import java.util.EnumMap;
-import java.util.Queue;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
 
 public class AlertUtility {
 
@@ -47,7 +35,7 @@ public class AlertUtility {
 
     AlertDialog.Builder builder;
     RetrofitConnection retrofitConnection;
-    ResponseLandmark responseLandmark;
+    ResponseLandmarkDTO responseLandmark;
 
     Runnable runnable;
 
@@ -99,10 +87,10 @@ public class AlertUtility {
 
                 RetrofitConnection retrofitConnection = new RetrofitConnection();
                 retrofitConnection.setRetrofit("http://15.165.116.82:8080/");
-                ResponseFeedback responseFeedback = new ResponseFeedback();
-                responseFeedback.setCorrect(true);
-                responseFeedback.setDate(responseLandmark.getCurTime());
-                Call call = retrofitConnection.getServer().feedback(responseFeedback);
+                ResponseFeedbackDTO responseFeedbackDTO = new ResponseFeedbackDTO();
+                responseFeedbackDTO.setCorrect(true);
+                responseFeedbackDTO.setDate(responseLandmark.getCurTime());
+                Call call = retrofitConnection.getServer().feedback(responseFeedbackDTO);
                 call.enqueue(new Callback() {
                     @Override
                     public void onResponse(Call call, Response response) {
@@ -166,8 +154,8 @@ public class AlertUtility {
         return sleep_step;
     }
 
-    public void setResponseLandmark(ResponseLandmark responseLandmark){
-        this.responseLandmark = responseLandmark;
+    public void setResponseLandmark(ResponseLandmarkDTO responseLandmarkDTO){
+        this.responseLandmark = responseLandmarkDTO;
     }
 
     public void generateRetrofitConnectionWithURL(String url){
@@ -175,17 +163,16 @@ public class AlertUtility {
     }
 
     public void requestSleepAnalyze(RequestAnalyzeSleepDTO requestDTO){
-
-        Call<ResponseLandmark> call = retrofitConnection.getServer().sendData(requestDTO);
-        call.enqueue(new Callback<ResponseLandmark>() {
+        Call<ResponseLandmarkDTO> call = retrofitConnection.getServer().sendData(requestDTO);
+        call.enqueue(new Callback<ResponseLandmarkDTO>() {
             @Override
-            public void onResponse(Call<ResponseLandmark> call, Response<ResponseLandmark> response) {
+            public void onResponse(Call<ResponseLandmarkDTO> call, Response<ResponseLandmarkDTO> response) {
 
                 // 성공적으로 서버 통신 성공
                 if (response.isSuccessful()) {
                     sleep_step = response.body().getSleep_step();
-                    ResponseLandmark responseLandmark = response.body();
-                    setResponseLandmark(responseLandmark);
+                    ResponseLandmarkDTO responseLandmarkDTO = response.body();
+                    setResponseLandmark(responseLandmarkDTO);
 
                     for(SleepCode sleepCode : SleepCode.values()){
                         if(sleepCode.getCode() == getSleep_step()){
@@ -196,18 +183,10 @@ public class AlertUtility {
             }
 
             @Override
-            public void onFailure(Call<ResponseLandmark> call, Throwable t) {
+            public void onFailure(Call<ResponseLandmarkDTO> call, Throwable t) {
                 Log.e("RetrofitTest", "No one in camera + Network Error");
             }
         });
-    }
-
-    public boolean isDrowsy(int code){
-        if(code == INT_DRIVER_AWARE_FAIL){
-
-        }
-
-        return true;
     }
 
 

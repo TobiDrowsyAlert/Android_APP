@@ -2,10 +2,11 @@ package com.tzutalin.dlibtest.domain;
 
 import java.util.Date;
 
-public class ResponseLandmark {
+public class ResponseLandmarkDTO {
     private int status_code;
     private int sleep_step;
     private String curTime;
+    private String userId;
 
 
     public void setCode(int code){
@@ -39,4 +40,10 @@ public class ResponseLandmark {
     public void setCurTime(String curTime) {
         this.curTime = curTime;
     }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+
 }

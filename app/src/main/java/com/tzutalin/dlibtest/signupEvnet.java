@@ -17,10 +17,8 @@ public class signupEvnet extends AppCompatActivity {
         btn_join.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(signupEvnet.this , mainEvent.class);
+                Intent intent = new Intent(signupEvnet.this , LoginActivity.class);
                 startActivity(intent);
-
-
 
             }
         });

@@ -8,7 +8,7 @@
     android:orientation="vertical" >
 
     <EditText
-        android:id="@+id/id_text"
+        android:id="@+id/edit_login"
         android:layout_width="224dp"
         android:layout_height="70dp"
         android:layout_marginTop="320dp"
@@ -23,7 +23,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/pw_text"
+        android:id="@+id/edit_password"
         android:layout_width="224dp"
         android:layout_height="59dp"
         android:background="@color/colorAccent"
@@ -32,13 +32,13 @@
         android:ems="10"
         android:inputType="textPassword"
         android:text="비밀번호"
-        app:layout_constraintEnd_toEndOf="@+id/id_text"
+        app:layout_constraintEnd_toEndOf="@+id/edit_login"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/id_text"
-        app:layout_constraintTop_toBottomOf="@+id/id_text" />
+        app:layout_constraintStart_toStartOf="@+id/edit_login"
+        app:layout_constraintTop_toBottomOf="@+id/edit_login" />
 
     <Button
-        android:id="@+id/login_b"
+        android:id="@+id/btn_login"
         android:layout_width="108dp"
         android:layout_height="62dp"
         android:layout_marginBottom="130dp"
@@ -52,7 +52,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/signup_b"
+        android:id="@+id/btn_signup"
         android:layout_width="109dp"
         android:layout_height="65dp"
         android:layout_marginTop="10dp"
@@ -61,9 +61,9 @@
         android:textSize="18sp"
         android:textStyle="italic"
         android:tint="@color/colorAccent"
-        app:layout_constraintEnd_toEndOf="@+id/login_b"
-        app:layout_constraintStart_toStartOf="@+id/login_b"
-        app:layout_constraintTop_toBottomOf="@+id/login_b" />
+        app:layout_constraintEnd_toEndOf="@+id/btn_login"
+        app:layout_constraintStart_toStartOf="@+id/btn_login"
+        app:layout_constraintTop_toBottomOf="@+id/btn_login" />
 
     <ImageView
         android:id="@+id/imageView9"

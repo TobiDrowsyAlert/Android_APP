@@ -45,7 +45,7 @@ import com.tzutalin.dlibtest.Utility.AlertUtility;
 import com.tzutalin.dlibtest.domain.FaceLandmark;
 import com.tzutalin.dlibtest.domain.FaceRect;
 import com.tzutalin.dlibtest.domain.RequestAnalyzeSleepDTO;
-import com.tzutalin.dlibtest.domain.ResponseLandmark;
+import com.tzutalin.dlibtest.user.model.User;
 
 import junit.framework.Assert;
 
@@ -87,6 +87,7 @@ public class OnGetImageListener implements OnImageAvailableListener {
     private Paint mFaceLandmardkPaint;
 
     private static AlertUtility alertUtility;
+    private User user;
 
     private Boolean isActivateNetwork;
     private int sleep_step;
@@ -103,6 +104,7 @@ public class OnGetImageListener implements OnImageAvailableListener {
         mWindow = new FloatingCameraWindow(mContext);
 
         //CameraActivity.setColor(1);
+        user = User.getInstance();
 
         //dialogBox = new DialogBox(mContext);
         alertUtility = new AlertUtility(CameraActivity.getContext());
@@ -287,14 +289,11 @@ public class OnGetImageListener implements OnImageAvailableListener {
 
                                 FaceRect faceRect = new FaceRect(bounds);
 
-
-
                                 Canvas canvas = new Canvas(mCroppedBitmap);
                                 canvas.drawRect(bounds, mFaceLandmardkPaint);
 
                                 // Draw landmark
                                 ArrayList<Point> landmarks = ret.getFaceLandmarks();
-
                                 FaceLandmark faceLandmark = new FaceLandmark(landmarks, resizeRatio);
 
                                 int landmark[][] = new int[landmarks.size()][2];
@@ -310,6 +309,7 @@ public class OnGetImageListener implements OnImageAvailableListener {
 
                                 requestAnalyzeDTO.setRequestAnalyzeSleepDTO(faceRect.getRect(),
                                         true, faceLandmark.getLandmark(), 50, true);
+                                requestAnalyzeDTO.setUserId(user.getUserId());
 
                                 alertUtility.generateRetrofitConnectionWithURL("http://15.165.116.82:8080/");
                                 alertUtility.requestSleepAnalyze(requestAnalyzeDTO);
@@ -332,6 +332,7 @@ public class OnGetImageListener implements OnImageAvailableListener {
                                 else {
                                     alertUtility.generateRetrofitConnectionWithURL("http://15.165.116.82:8080/");
                                     requestAnalyzeDTO.setRequestAnalyzeSleepDTO(null,false,null,0,true);
+                                    requestAnalyzeDTO.setUserId(user.getUserId());
                                     alertUtility.requestSleepAnalyze(requestAnalyzeDTO);
                                 }
                             }

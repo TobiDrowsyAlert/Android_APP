@@ -12,7 +12,7 @@ public class RequestAnalyzeSleepDTO {
 
     }
 
-    public RequestAnalyzeSleepDTO(int[] rect, Boolean driver, int[][] landmarks, int frame, Boolean isCorrect){
+    public RequestAnalyzeSleepDTO(int[] rect, Boolean driver, int[][] landmarks, int frame, Boolean isCorrect, String userId){
         this.rect = rect;
         this.driver = driver;
         this.landmarks = landmarks;
@@ -67,18 +67,16 @@ public class RequestAnalyzeSleepDTO {
         this.frame = frame;
     }
 
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
     public void setRequestAnalyzeSleepDTO(int[] rect, Boolean driver, int[][] landmarks, int frame, Boolean isCorrect){
         this.rect = rect;
         this.driver = driver;
         this.landmarks = landmarks;
         this.frame = frame;
         this.isCorrect = isCorrect;
-    }
-
-    @Override
-    public String toString()
-    {
-        return "ClassPojo [rect = "+rect+", driver = "+driver+", landmarks = "+landmarks+", frame = "+frame+"]";
     }
 
 }
