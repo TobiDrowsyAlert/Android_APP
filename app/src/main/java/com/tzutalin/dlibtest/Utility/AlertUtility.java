@@ -16,18 +16,30 @@ import android.widget.Toast;
 
 import com.tzutalin.dlibtest.CameraActivity;
 import com.tzutalin.dlibtest.OnGetImageListener;
+import com.tzutalin.dlibtest.domain.RequestAnalyzeSleepDTO;
 import com.tzutalin.dlibtest.domain.ResponseLandmark;
 import com.tzutalin.dlibtest.RetrofitConnection;
 import com.tzutalin.dlibtest.domain.ResponseFeedback;
+import com.tzutalin.dlibtest.domain.SleepCode;
 
 import java.util.ArrayList;
+import java.util.EnumMap;
 import java.util.Queue;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import retrofit2.Retrofit;
 
 public class AlertUtility {
+
+    // 상태 코드 상수
+    private final int INT_BLINK = 100;
+    private final int INT_BLIND = 101;
+    private final int INT_YAWN = 200;
+    private final int INT_DRIVER_AWAY = 300;
+    private final int INT_DRIVER_AWARE_FAIL = 301;
+    private final int INT_NORMAL = 400;
 
     final int INT_ALRAM_TIME = 10000;
 
@@ -52,18 +64,18 @@ public class AlertUtility {
     public static final int MESSAGE_DELAY_STOP = 102;
 
     public AlertUtility(Context mContext){
-
         this.mContext = mContext;
         alaramManager = new AlarmManager(mContext);
         handler = new Handler();
         builder = new AlertDialog.Builder(mContext);
         builder.setCancelable(false);
-
     }
 
 
     public void feedbackDialog(String cause){
         Log.e("AlertUtility", "feedbackDialog Activate");
+        Toast.makeText(mContext.getApplicationContext(), cause, Toast.LENGTH_LONG).show();
+
         builder.setTitle("졸음이 인식되었습니다.").setMessage("원인 : "+ cause +", 졸음단계 : " + sleep_step);
         alaramManager.alram();
         alaramManager.vibrate(sleep_step);
@@ -158,6 +170,45 @@ public class AlertUtility {
         this.responseLandmark = responseLandmark;
     }
 
+    public void generateRetrofitConnectionWithURL(String url){
+        this.retrofitConnection = new RetrofitConnection(url);
+    }
+
+    public void requestSleepAnalyze(RequestAnalyzeSleepDTO requestDTO){
+
+        Call<ResponseLandmark> call = retrofitConnection.getServer().sendData(requestDTO);
+        call.enqueue(new Callback<ResponseLandmark>() {
+            @Override
+            public void onResponse(Call<ResponseLandmark> call, Response<ResponseLandmark> response) {
+
+                // 성공적으로 서버 통신 성공
+                if (response.isSuccessful()) {
+                    sleep_step = response.body().getSleep_step();
+                    ResponseLandmark responseLandmark = response.body();
+                    setResponseLandmark(responseLandmark);
+
+                    for(SleepCode sleepCode : SleepCode.values()){
+                        if(sleepCode.getCode() == getSleep_step()){
+                            feedbackDialog(sleepCode.getReason());
+                        }
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseLandmark> call, Throwable t) {
+                Log.e("RetrofitTest", "No one in camera + Network Error");
+            }
+        });
+    }
+
+    public boolean isDrowsy(int code){
+        if(code == INT_DRIVER_AWARE_FAIL){
+
+        }
+
+        return true;
+    }
 
 
 

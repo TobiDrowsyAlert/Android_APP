@@ -1,7 +1,14 @@
 package com.tzutalin.dlibtest;
 
-import com.tzutalin.dlibtest.domain.RequestAnalyzeSleepDTO;
+import android.util.Log;
+import android.widget.Toast;
 
+import com.tzutalin.dlibtest.domain.RequestAnalyzeSleepDTO;
+import com.tzutalin.dlibtest.domain.ResponseLandmark;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -34,9 +41,6 @@ public class RetrofitConnection {
 
     }
 
-    public void requestSleepAnalyze(RequestAnalyzeSleepDTO requestAnalyzeSleepDTO){
-
-    }
 
 
 }
