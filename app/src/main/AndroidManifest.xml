@@ -41,6 +41,7 @@
         <activity android:name=".menuEvent"/>
         <activity android:name=".MainActivity"/>
         <activity android:name=".settingEvent"/>
+        <activity android:name=".bmbtest"/>
 
 
         <activity

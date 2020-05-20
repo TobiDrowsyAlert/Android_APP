@@ -56,8 +56,11 @@ repositories {
 }
 
 dependencies {
+    compile 'com.nightonke:boommenu:2.1.1'
     implementation 'com.tzutalin.dlib-android-app:dlib:1.0.4'
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+
 
     implementation "com.android.support:appcompat-v7:$supportlib_version" // 추가부분
     implementation "com.android.support:appcompat-v7:${rootProject.ext.androidSupportSdkVersion}"

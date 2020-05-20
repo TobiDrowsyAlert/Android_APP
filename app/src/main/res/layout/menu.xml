@@ -6,7 +6,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <!--//android:ser="@android:color/darker_gray"-->
+    <!--<com.sackcentrury.shinebuttonlib.ShineButton-->
     <Button
+
         android:id="@+id/menu_2"
         android:layout_width="208dp"
         android:layout_height="60dp"
@@ -22,6 +25,8 @@
         app:layout_constraintEnd_toEndOf="@+id/menu_1"
         app:layout_constraintStart_toStartOf="@+id/menu_1"
         app:layout_constraintTop_toBottomOf="@+id/menu_1" />
+
+
 
     <Button
         android:id="@+id/menu_1"
@@ -99,3 +104,5 @@
         app:srcCompat="@drawable/baseline_reorder_black_18dp" />
 
 </android.support.constraint.ConstraintLayout>
+<!--
+</android.support.constraint.ConstraintLayout>-->
