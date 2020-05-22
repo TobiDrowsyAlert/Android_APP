@@ -20,7 +20,9 @@ public class RetrofitConnection {
     Retrofit retrofit;
     RetrofitInterface server;
 
-    public RetrofitConnection(){ }
+    public RetrofitConnection(){
+        setRetrofit("http://15.165.116.82:8080/");
+    }
 
     public RetrofitConnection(String url){
         setRetrofit(url);

@@ -6,7 +6,6 @@ public class ResponseLandmarkDTO {
     private int status_code;
     private int sleep_step;
     private String curTime;
-    private String userId;
 
 
     public void setCode(int code){
@@ -41,9 +40,6 @@ public class ResponseLandmarkDTO {
         this.curTime = curTime;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
 
 
 }

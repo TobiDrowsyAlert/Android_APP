@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.tzutalin.dlibtest.user.domain.RequestLoginDTO;
 import com.tzutalin.dlibtest.user.model.User;
 
 public class LoginActivity extends AppCompatActivity {
@@ -46,6 +47,12 @@ public class LoginActivity extends AppCompatActivity {
 
                 user.setUserId(userId);
                 Toast.makeText(LoginActivity.this, "로그인 : " + user.getUserId(), Toast.LENGTH_SHORT).show();
+                RetrofitConnection retrofitConnection = new RetrofitConnection();
+
+                RequestLoginDTO requestLoginDTO = new RequestLoginDTO();
+                requestLoginDTO.setUserId(userId);
+                retrofitConnection.requestLogin(requestLoginDTO);
+
 
                 Intent intent = new Intent(LoginActivity.this, menuEvent.class);
                 startActivity(intent);

@@ -2,15 +2,16 @@ package com.tzutalin.dlibtest.domain;
 
 import java.util.Date;
 
-public class ResponseFeedbackDTO {
+public class RequestFeedbackDTO {
     private Boolean isCorrect;
     private String date;
+    private String userId;
 
-    public ResponseFeedbackDTO(){
+    public RequestFeedbackDTO(){
 
     }
 
-    public ResponseFeedbackDTO(String date){
+    public RequestFeedbackDTO(String date){
         this.date = date;
     }
 
@@ -28,5 +29,13 @@ public class ResponseFeedbackDTO {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getUserId() {
+        return userId;
     }
 }

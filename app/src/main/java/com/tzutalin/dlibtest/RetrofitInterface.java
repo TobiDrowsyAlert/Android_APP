@@ -1,7 +1,7 @@
 package com.tzutalin.dlibtest;
 
 import com.tzutalin.dlibtest.domain.RequestAnalyzeSleepDTO;
-import com.tzutalin.dlibtest.domain.ResponseFeedbackDTO;
+import com.tzutalin.dlibtest.domain.RequestFeedbackDTO;
 import com.tzutalin.dlibtest.domain.ResponseLandmarkDTO;
 import com.tzutalin.dlibtest.user.domain.ResponseLoginDTO;
 import com.tzutalin.dlibtest.user.domain.RequestLoginDTO;
@@ -25,7 +25,7 @@ public interface RetrofitInterface {
     Call<ResponseLandmarkDTO> resetSleepStep();
 
     @POST("/api/feedback")
-    Call<ResponseLandmarkDTO> feedback(@Body ResponseFeedbackDTO responseFeedback);
+    Call<ResponseLandmarkDTO> feedback(@Body RequestFeedbackDTO responseFeedback);
 
     @POST("/api/timer")
     Call<ResponseLandmarkDTO> timer();

@@ -11,9 +11,11 @@ import android.widget.Toast;
 import com.tzutalin.dlibtest.CameraActivity;
 import com.tzutalin.dlibtest.domain.RequestAnalyzeSleepDTO;
 import com.tzutalin.dlibtest.RetrofitConnection;
-import com.tzutalin.dlibtest.domain.ResponseFeedbackDTO;
+import com.tzutalin.dlibtest.domain.RequestFeedbackDTO;
+import com.tzutalin.dlibtest.domain.RequestFeedbackDTO;
 import com.tzutalin.dlibtest.domain.ResponseLandmarkDTO;
 import com.tzutalin.dlibtest.domain.SleepCode;
+import com.tzutalin.dlibtest.user.model.User;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -87,10 +89,11 @@ public class AlertUtility {
 
                 RetrofitConnection retrofitConnection = new RetrofitConnection();
                 retrofitConnection.setRetrofit("http://15.165.116.82:8080/");
-                ResponseFeedbackDTO responseFeedbackDTO = new ResponseFeedbackDTO();
-                responseFeedbackDTO.setCorrect(true);
-                responseFeedbackDTO.setDate(responseLandmark.getCurTime());
-                Call call = retrofitConnection.getServer().feedback(responseFeedbackDTO);
+                RequestFeedbackDTO requestFeedbackDTO = new RequestFeedbackDTO();
+                requestFeedbackDTO.setCorrect(true);
+                requestFeedbackDTO.setDate(responseLandmark.getCurTime());
+                requestFeedbackDTO.setUserId(User.getInstance().getUserId());
+                Call call = retrofitConnection.getServer().feedback(requestFeedbackDTO);
                 call.enqueue(new Callback() {
                     @Override
                     public void onResponse(Call call, Response response) {
