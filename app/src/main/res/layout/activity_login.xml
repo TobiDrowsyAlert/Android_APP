@@ -5,33 +5,43 @@
     android:id="@+id/linearLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:background="#ffffff"
+
+    android:orientation="vertical">
+
 
     <EditText
         android:id="@+id/edit_login"
-        android:layout_width="224dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="320dp"
-        android:background="@color/colorAccent"
+        style="@android:style/Widget.DeviceDefault.AutoCompleteTextView"
+        android:layout_width="270dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/roundrectangle2"
         android:drawableStart="@drawable/baseline_perm_identity_black_18dp"
         android:drawableLeft="@drawable/baseline_perm_identity_black_18dp"
         android:ems="10"
+        android:fontFamily="@font/cookierunblack"
+
+        android:hint="fdfd"
         android:inputType="textPersonName"
-        android:text="아이디"
+        android:textColor="#070707"
+        android:textColorHint="#070707"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
     <EditText
         android:id="@+id/edit_password"
-        android:layout_width="224dp"
-        android:layout_height="59dp"
-        android:background="@color/colorAccent"
+        android:layout_width="270dp"
+        android:layout_height="60dp"
+        android:background="@drawable/roundrectangle2"
         android:drawableStart="@drawable/baseline_lock_black_18dp"
         android:drawableLeft="@drawable/baseline_lock_black_18dp"
         android:ems="10"
+        android:fontFamily="@font/cookierunblack"
+        android:hint="비밀번호"
         android:inputType="textPassword"
-        android:text="비밀번호"
         app:layout_constraintEnd_toEndOf="@+id/edit_login"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/edit_login"
@@ -39,50 +49,48 @@
 
     <Button
         android:id="@+id/btn_login"
-        android:layout_width="108dp"
-        android:layout_height="62dp"
-        android:layout_marginBottom="130dp"
-        android:background="@color/colorAccent"
-        android:shadowColor="#ffffff"
+        android:layout_width="170dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/roundrectangle"
+        android:cursorVisible="false"
+        android:fontFamily="@font/cookierunregular"
+        android:shadowColor="@color/colorPrimaryDark"
         android:text="로그인"
-        android:textSize="18sp"
-        android:textStyle="italic"
-        app:layout_constraintBottom_toBottomOf="parent"
+
+        android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Title"
+        android:textColor="#ffffff"
+        android:textSize="23sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_password" />
 
     <Button
         android:id="@+id/btn_signup"
-        android:layout_width="109dp"
-        android:layout_height="65dp"
+        android:layout_width="170dp"
+        android:layout_height="70dp"
         android:layout_marginTop="10dp"
-        android:background="@color/colorAccent"
+
+        android:background="@drawable/roundrectangle"
+        android:fontFamily="@font/cookierunregular"
         android:text="회원가입"
-        android:textSize="18sp"
-        android:textStyle="italic"
+        android:textColor="#ffffff"
+        android:textSize="23sp"
         android:tint="@color/colorAccent"
-        app:layout_constraintEnd_toEndOf="@+id/btn_login"
-        app:layout_constraintStart_toStartOf="@+id/btn_login"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_login" />
 
     <ImageView
-        android:id="@+id/imageView9"
-        android:layout_width="425dp"
-        android:layout_height="249dp"
+        android:id="@+id/imageView3"
+        android:layout_width="200dp"
+        android:layout_height="190dp"
+        android:layout_marginTop="10dp"
+        android:background="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@color/colorAccent" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="25dp"
-        android:text="졸음 방지 시스템"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView9"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:srcCompat="@drawable/driver_2" />
 
 </android.support.constraint.ConstraintLayout>

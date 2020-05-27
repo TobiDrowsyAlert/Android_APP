@@ -4,7 +4,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#ffffff">
+
 
     <TextView
         android:id="@+id/step1"
@@ -13,7 +15,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="145dp"
-        android:background="@color/colorAccent"
+        android:background="@drawable/textview"
         android:text="1단계"
         android:textColor="@color/colorPrimary"
         android:textSize="24sp"
@@ -25,7 +27,7 @@
         android:layout_width="62dp"
         android:layout_height="33dp"
         android:layout_marginTop="15dp"
-        android:background="@color/colorAccent"
+        android:background="@drawable/textview"
         android:text="2단계"
         android:textColor="@color/colorPrimary"
         android:textSize="24sp"
@@ -38,7 +40,7 @@
         android:layout_width="62dp"
         android:layout_height="33dp"
         android:layout_marginTop="15dp"
-        android:background="@color/colorAccent"
+        android:background="@drawable/textview"
         android:text="3단계"
         android:textColor="@color/colorPrimary"
         android:textSize="24sp"
@@ -53,7 +55,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="40dp"
-        android:background="@color/colorAccent"
+        android:background="@drawable/textview"
         android:text="소리 크기"
         android:textColor="@color/colorPrimary"
         android:textSize="24sp"
@@ -67,7 +69,7 @@
         android:layout_marginStart="50dp"
         android:layout_marginLeft="50dp"
         android:layout_marginBottom="170dp"
-        android:background="@color/colorAccent"
+        android:background="@drawable/textview"
         android:text="졸음 체크 문구 사용 체크"
         android:textColor="@color/colorPrimary"
         android:textSize="24sp"
@@ -113,6 +115,8 @@
         android:layout_marginStart="30dp"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="320dp"
+        android:maxWidth="20dp"
+        android:minHeight="20dp"
 
 
         app:layout_constraintStart_toEndOf="@+id/textView4"
@@ -198,6 +202,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginLeft="30dp"
         android:layout_marginBottom="170dp"
+        android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView9" />
 
@@ -208,7 +213,7 @@
         android:layout_marginStart="100dp"
         android:layout_marginLeft="100dp"
         android:layout_marginBottom="50dp"
-        android:background="@color/colorAccent"
+        android:background="@drawable/buttoncliek"
         android:text="초기화"
         android:textColor="@color/colorPrimary"
         android:textSize="18sp"
@@ -222,7 +227,7 @@
         android:layout_marginEnd="100dp"
         android:layout_marginRight="100dp"
         android:layout_marginBottom="50dp"
-        android:background="@color/colorAccent"
+        android:background="@drawable/buttoncliek"
         android:text="변경 확인"
         android:textColor="@color/colorPrimary"
         android:textSize="18sp"

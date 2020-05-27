@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.motion.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/motionLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layoutDescription="@xml/list_scene"
+    tools:showPaths="true">
+
+    <View
+        android:id="@+id/button"
+        android:layout_width="66dp"
+        android:layout_height="66dp"
+        android:background="@color/colorAccent"
+        android:text="Button"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="230dp"
+        />
+</android.support.constraint.motion.MotionLayout>

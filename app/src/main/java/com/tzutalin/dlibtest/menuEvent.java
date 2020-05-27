@@ -52,12 +52,12 @@ public class menuEvent extends AppCompatActivity {
                 startActivity(intent);
             }
         });*/
-        btn_menu_5.setOnClickListener(new View.OnClickListener() {
+        /*btn_menu_5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(menuEvent.this, bmbtest.class);
-                startActivity(intent);
+                Intent intent = new Intent(menuEvent.this, ViewHandler.class);
+                //startActivity(intent);
             }
-        });
+        });*/
     }
 }
