@@ -8,6 +8,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.tzutalin.dlibtest.RetrofitConnection;
+import com.tzutalin.dlibtest.user.model.User;
 
 import retrofit2.Call;
 import retrofit2.Response;
@@ -45,7 +46,7 @@ public class TimerMinuteHandler extends Handler{
                 // 60초마다 서버로 전송
                 if(count % 60 == 0) {
                     //Toast.makeText(mContext.getApplicationContext(), "카운트 동작",Toast.LENGTH_SHORT).show();
-                    Call call = retrofitConnection.getServer().timer();
+                    Call call = retrofitConnection.getServer().timer(User.getInstance().getUserDTO());
                     call.enqueue(new retrofit2.Callback() {
                         @Override
                         public void onResponse(Call call, Response response) {

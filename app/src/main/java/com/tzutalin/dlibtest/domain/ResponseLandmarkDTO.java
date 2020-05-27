@@ -8,14 +8,6 @@ public class ResponseLandmarkDTO {
     private String curTime;
 
 
-    public void setCode(int code){
-        this.status_code = status_code;
-    }
-
-    public int getCode(){
-        return status_code;
-    }
-
     public int getStatus_code() {
         return status_code;
     }

@@ -28,6 +28,7 @@ public class AlarmManager {
         mAudio = new MediaPlayer();
         vibrator = (Vibrator)mContext.getSystemService(Context.VIBRATOR_SERVICE);
         alramSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
+        alramRunnable = getAlarmRunnable();
         isPlay = false;
         try{
             mAudio.setDataSource(mContext, alramSound);
@@ -42,7 +43,10 @@ public class AlarmManager {
 
     public void vibrate(int sleep_step)
     {
-       vibrator.vibrate(sleep_step * INT_VIBRATE_TIME);
+        if(sleep_step == 0)
+            return;
+
+        vibrator.vibrate(sleep_step * INT_VIBRATE_TIME);
     }
 
     public void vibrateCancel(){ vibrator.cancel(); }

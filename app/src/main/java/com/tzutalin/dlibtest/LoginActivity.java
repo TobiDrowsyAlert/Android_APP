@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.tzutalin.dlibtest.user.domain.RequestLoginDTO;
 import com.tzutalin.dlibtest.user.model.User;
+import com.tzutalin.dlibtest.user.model.UserDTO;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -45,14 +46,14 @@ public class LoginActivity extends AppCompatActivity {
                     return;
                 }
 
-                user.setUserId(userId);
-                Toast.makeText(LoginActivity.this, "로그인 : " + user.getUserId(), Toast.LENGTH_SHORT).show();
+                user.setUserDTO(new UserDTO());
+                user.getUserDTO().setUserId(userId);
+                Toast.makeText(LoginActivity.this, "로그인 : " + userId, Toast.LENGTH_SHORT).show();
                 RetrofitConnection retrofitConnection = new RetrofitConnection();
 
                 RequestLoginDTO requestLoginDTO = new RequestLoginDTO();
                 requestLoginDTO.setUserId(userId);
                 retrofitConnection.requestLogin(requestLoginDTO);
-
 
                 Intent intent = new Intent(LoginActivity.this, menuEvent.class);
                 startActivity(intent);

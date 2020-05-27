@@ -4,6 +4,7 @@ import android.os.Handler;
 import android.util.Log;
 
 import com.tzutalin.dlibtest.RetrofitConnection;
+import com.tzutalin.dlibtest.user.model.User;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -24,7 +25,7 @@ public class SleepStepManager {
 
             @Override
             public void run() {
-                Call call = retrofitConnection.getServer().dropSleepStep();
+                Call call = retrofitConnection.getServer().dropSleepStep(User.getInstance().getUserDTO());
                 call.enqueue(new Callback() {
                     @Override
                     public void onResponse(Call call, Response response) {
@@ -43,7 +44,7 @@ public class SleepStepManager {
     }
 
     public void resetSleepStep(){
-        Call call = retrofitConnection.getServer().resetSleepStep();
+        Call call = retrofitConnection.getServer().resetSleepStep(User.getInstance().getUserDTO());
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
