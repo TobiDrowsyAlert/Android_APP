@@ -17,7 +17,7 @@
         android:drawableLeft="@drawable/baseline_perm_identity_black_18dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="아이디"
+        android:hint="아이디"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -31,7 +31,7 @@
         android:drawableLeft="@drawable/baseline_lock_black_18dp"
         android:ems="10"
         android:inputType="textPassword"
-        android:text="비밀번호"
+        android:hint="비밀번호"
         app:layout_constraintEnd_toEndOf="@+id/edit_login"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/edit_login"
