@@ -1,101 +1,121 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#e0ecf4">
 
-    <Button
-        android:id="@+id/menu_2"
-        android:layout_width="208dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="20dp"
-        android:background="#B2DFDB"
-        android:drawableStart="@drawable/baseline_insert_chart_outlined_black_18dp"
-        android:drawableLeft="@drawable/baseline_insert_chart_outlined_black_18dp"
-        android:text="기록 확인"
-        android:textAllCaps="false"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        android:textStyle="bold|italic"
-        app:layout_constraintEnd_toEndOf="@+id/menu_1"
-        app:layout_constraintStart_toStartOf="@+id/menu_1"
-        app:layout_constraintTop_toBottomOf="@+id/menu_1" />
+    <!--//android:ser="@android:color/darker_gray"-->
+    <!--<com.sackcentrury.shinebuttonlib.ShineButton-->
+
 
     <Button
         android:id="@+id/menu_1"
-        android:layout_width="208dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="120dp"
-        android:layout_marginEnd="100dp"
-        android:layout_marginRight="100dp"
-        android:background="#B2DFDB"
+        android:layout_width="330dp"
+        android:layout_height="130dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/roundrectangle_r"
         android:drawableStart="@drawable/baseline_directions_car_black_18dp"
         android:drawableLeft="@drawable/baseline_directions_car_black_18dp"
-        android:text="졸음 인식 서비스"
+        android:fontFamily="@font/benzo"
+        android:padding="20sp"
+        android:text="Sleep Recognition"
         android:textColor="#000000"
-        android:textSize="18sp"
-        android:textStyle="bold|italic"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/menu_4"
-        android:layout_width="208dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="20dp"
-        android:background="#B2DFDB"
-        android:drawableStart="@drawable/baseline_settings_black_18dp"
-        android:drawableLeft="@drawable/baseline_settings_black_18dp"
-        android:text="사용 방법"
+
+        android:id="@+id/menu_2"
+        android:layout_width="170dp"
+        android:layout_height="160dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/roundrectangle_r2"
+        android:drawableTop="@drawable/baseline_insert_chart_outlined_black_18dp"
+
+        android:fontFamily="@font/benzo"
+        android:padding="20sp"
+
+        android:text="Record Check"
+        android:textAllCaps="false"
         android:textColor="#000000"
-        android:textSize="18sp"
-        android:textStyle="bold|italic"
-        app:layout_constraintEnd_toEndOf="@+id/menu_3"
-        app:layout_constraintStart_toStartOf="@+id/menu_3"
-        app:layout_constraintTop_toBottomOf="@+id/menu_3" />
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/menu_1" />
+
+    <Button
+        android:id="@+id/menu_4"
+        android:layout_width="170dp"
+        android:layout_height="160dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/roundrectangle_r4"
+        android:drawableTop="@drawable/baseline_settings_black_18dp"
+        android:fontFamily="@font/benzo"
+        android:padding="20sp"
+
+        android:text="How to use"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/menu_2" />
 
     <Button
         android:id="@+id/menu_5"
-        android:layout_width="208dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="20dp"
-        android:background="#B2DFDB"
-        android:drawableStart="@drawable/baseline_thumb_up_alt_black_18dp"
-        android:drawableLeft="@drawable/baseline_thumb_up_alt_black_18dp"
+        android:layout_width="170dp"
+        android:layout_height="160dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/roundrectangle_r5"
+        android:drawableTop="@drawable/baseline_thumb_up_alt_black_18dp"
+        android:fontFamily="@font/benzo"
+        android:padding="20sp"
         android:text="FAQ"
         android:textColor="#000000"
-        android:textSize="18sp"
-        android:textStyle="bold|italic"
-        app:layout_constraintEnd_toEndOf="@+id/menu_4"
-        app:layout_constraintStart_toStartOf="@+id/menu_4"
-        app:layout_constraintTop_toBottomOf="@+id/menu_4" />
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/menu_3" />
 
     <Button
         android:id="@+id/menu_3"
-        android:layout_width="208dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="20dp"
-        android:background="#B2DFDB"
-        android:drawableStart="@drawable/baseline_alarm_black_18dp"
-        android:drawableLeft="@drawable/baseline_alarm_black_18dp"
-        android:text="알람 설정"
+        android:layout_width="170dp"
+        android:layout_height="160dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/roundrectangle_r3"
+        android:drawableTop="@drawable/baseline_alarm_black_18dp"
+        android:fontFamily="@font/benzo"
+        android:padding="20sp"
+        android:text="Alarm Settings"
         android:textColor="#000000"
-        android:textSize="18sp"
-        android:textStyle="bold|italic"
-        app:layout_constraintEnd_toEndOf="@+id/menu_2"
-        app:layout_constraintStart_toStartOf="@+id/menu_2"
-        app:layout_constraintTop_toBottomOf="@+id/menu_2" />
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/menu_1" />
 
-    <ImageButton
-        android:id="@+id/back_b_main"
-        android:layout_width="53dp"
-        android:layout_height="53dp"
-        android:background="#00F7F0F0"
-        android:tint="@color/colorPrimary"
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="match_parent"
+        android:layout_height="630dp"
+        android:layout_marginStart="-10dp"
+        android:layout_marginLeft="-10dp"
+        android:layout_marginTop="196dp"
+        android:layout_marginEnd="-10dp"
+        android:layout_marginRight="-10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/baseline_reorder_black_18dp" />
+        app:srcCompat="@drawable/roundrectangle_6" />
 
 </android.support.constraint.ConstraintLayout>
+<!--
+</android.support.constraint.ConstraintLayout>-->

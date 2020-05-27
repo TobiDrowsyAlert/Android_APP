@@ -18,7 +18,7 @@ public class menuEvent extends AppCompatActivity {
 //        Button btn_menu_2 =(Button)findViewById(R.id.menu_2);
         Button btn_menu_3 =(Button)findViewById(R.id.menu_3);
 //        Button btn_menu_4 =(Button)findViewById(R.id.menu_4);
-//        Button btn_menu_5 =(Button)findViewById(R.id.menu_5);
+        Button btn_menu_5 =(Button)findViewById(R.id.menu_5);
 
         btn_menu_1.setOnClickListener(new View.OnClickListener() {
            @Override
@@ -55,8 +55,8 @@ public class menuEvent extends AppCompatActivity {
         /*btn_menu_5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(menuEvent.this, MainActivity.class);
-                startActivity(intent);
+                Intent intent = new Intent(menuEvent.this, ViewHandler.class);
+                //startActivity(intent);
             }
         });*/
     }

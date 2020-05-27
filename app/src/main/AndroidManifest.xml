@@ -3,9 +3,6 @@
           xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-
-
-
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -41,6 +38,8 @@
         <activity android:name=".menuEvent"/>
         <activity android:name=".MainActivity"/>
         <activity android:name=".settingEvent"/>
+        <activity android:name=".bmbtest"/>
+
 
 
         <activity

@@ -50,14 +50,32 @@ buildscript {
 repositories {
     maven {
         url 'https://dl.bintray.com/tzutalin/maven'
+        mavenCentral()
     }
     mavenCentral()
     mavenLocal()
 }
 
 dependencies {
+    implementation 'com.android.support.constraint:constraint-layout:2.0.0-alpha2'
+
+    //compile 'cn.pedant.sweetalert:library:1.3'
+
+    //compile 'com.nightonke:boommenu:2.1.1'
+    //compile 'com.ogaclejapan.arclayout:library:1.1.0@aar'
+    //compile 'com.jpardogo.flabbylistview:library:(latest version)'
+    //compile 'com.github.chenupt.android:springindicator:1.0.2@aar'
+    /*compile 'com.github.traex.rippleeffect:library:1.3'
+    implementation 'nl.dionsegijn:konfetti:1.2.0'
+    compile 'com.balysv:material-ripple:1.0.2'*/
+
+
+
+
     implementation 'com.tzutalin.dlib-android-app:dlib:1.0.4'
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+
 
     implementation "com.android.support:appcompat-v7:$supportlib_version" // 추가부분
     implementation "com.android.support:appcompat-v7:${rootProject.ext.androidSupportSdkVersion}"
