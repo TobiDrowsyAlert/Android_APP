@@ -309,7 +309,7 @@ public class OnGetImageListener implements OnImageAvailableListener {
 
                                 requestAnalyzeDTO.setRequestAnalyzeSleepDTO(faceRect.getRect(),
                                         true, faceLandmark.getLandmark(), 50, true);
-                                requestAnalyzeDTO.setUserId(user.getUserId());
+                                requestAnalyzeDTO.setUserId(user.getUserDTO().getUserId());
 
                                 alertUtility.generateRetrofitConnectionWithURL("http://15.165.116.82:8080/");
                                 alertUtility.requestSleepAnalyze(requestAnalyzeDTO);
@@ -332,7 +332,7 @@ public class OnGetImageListener implements OnImageAvailableListener {
                                 else {
                                     alertUtility.generateRetrofitConnectionWithURL("http://15.165.116.82:8080/");
                                     requestAnalyzeDTO.setRequestAnalyzeSleepDTO(null,false,null,0,true);
-                                    requestAnalyzeDTO.setUserId(user.getUserId());
+                                    requestAnalyzeDTO.setUserId(user.getUserDTO().getUserId());
                                     alertUtility.requestSleepAnalyze(requestAnalyzeDTO);
                                 }
                             }

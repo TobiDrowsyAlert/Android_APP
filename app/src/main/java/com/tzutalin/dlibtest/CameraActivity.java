@@ -44,6 +44,7 @@ import com.tzutalin.dlibtest.Utility.AlertUtility;
 import com.tzutalin.dlibtest.Utility.SleepStepManager;
 import com.tzutalin.dlibtest.Utility.TimerHandler;
 import com.tzutalin.dlibtest.Utility.TimerMinuteHandler;
+import com.tzutalin.dlibtest.user.model.User;
 
 import java.util.Timer;
 
@@ -240,7 +241,7 @@ public class CameraActivity extends Activity {
     }
 
     public void onClickDrop(View view){
-        Call call = retrofitConnection.getServer().dropSleepStep();
+        Call call = retrofitConnection.getServer().dropSleepStep(User.getInstance().getUserDTO());
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
@@ -255,7 +256,7 @@ public class CameraActivity extends Activity {
     }
 
     public void onClickTimerLog(View view){
-        Call call = retrofitConnection.getServer().timer();
+        Call call = retrofitConnection.getServer().timer(User.getInstance().getUserDTO());
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {

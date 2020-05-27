@@ -11,9 +11,11 @@ import android.widget.Toast;
 import com.tzutalin.dlibtest.CameraActivity;
 import com.tzutalin.dlibtest.domain.RequestAnalyzeSleepDTO;
 import com.tzutalin.dlibtest.RetrofitConnection;
-import com.tzutalin.dlibtest.domain.ResponseFeedbackDTO;
+import com.tzutalin.dlibtest.domain.RequestFeedbackDTO;
+import com.tzutalin.dlibtest.domain.RequestFeedbackDTO;
 import com.tzutalin.dlibtest.domain.ResponseLandmarkDTO;
 import com.tzutalin.dlibtest.domain.SleepCode;
+import com.tzutalin.dlibtest.user.model.User;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -35,9 +37,10 @@ public class AlertUtility {
 
     AlertDialog.Builder builder;
     RetrofitConnection retrofitConnection;
-    ResponseLandmarkDTO responseLandmark;
+    ResponseLandmarkDTO responseDrowsyResponse;
 
-    Runnable runnable;
+    Runnable dialogRunnable;
+    Runnable alarmRunnable;
 
     public AlarmManager alaramManager;
     Handler handler;
@@ -45,11 +48,7 @@ public class AlertUtility {
 
     String TAG = "AlertUtility";
 
-    int sleep_step = 0;
     int time = 3000;
-
-    public static final int MESSAGE_DELAY_START = 100;
-    public static final int MESSAGE_DELAY_STOP = 102;
 
     public AlertUtility(Context mContext){
         this.mContext = mContext;
@@ -64,16 +63,16 @@ public class AlertUtility {
         Log.e("AlertUtility", "feedbackDialog Activate");
         Toast.makeText(mContext.getApplicationContext(), cause, Toast.LENGTH_LONG).show();
 
-        builder.setTitle("졸음이 인식되었습니다.").setMessage("원인 : "+ cause +", 졸음단계 : " + sleep_step);
+        builder.setTitle("졸음이 인식되었습니다.").setMessage("원인 : "+ cause +", 졸음단계 : " + responseDrowsyResponse.getSleep_step());
         alaramManager.alram();
-        alaramManager.vibrate(sleep_step);
+        alaramManager.vibrate(responseDrowsyResponse.getSleep_step());
         // 새로운 졸음 들어온 것, 기존 알람 소리 초기화 필요
 
         builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int id) {
                 Toast.makeText(mContext, "YES", Toast.LENGTH_SHORT).show();
-                handler.removeCallbacks(runnable);
+                handler.removeCallbacks(dialogRunnable);
                 alaramManager.alramStop();
                 alaramManager.vibrateCancel();
             }
@@ -83,14 +82,15 @@ public class AlertUtility {
             @Override
             public void onClick(DialogInterface dialog, int id) {
                 Toast.makeText(mContext, "NO", Toast.LENGTH_SHORT).show();
-                handler.removeCallbacks(runnable);
+                handler.removeCallbacks(dialogRunnable);
 
                 RetrofitConnection retrofitConnection = new RetrofitConnection();
                 retrofitConnection.setRetrofit("http://15.165.116.82:8080/");
-                ResponseFeedbackDTO responseFeedbackDTO = new ResponseFeedbackDTO();
-                responseFeedbackDTO.setCorrect(true);
-                responseFeedbackDTO.setDate(responseLandmark.getCurTime());
-                Call call = retrofitConnection.getServer().feedback(responseFeedbackDTO);
+                RequestFeedbackDTO requestFeedbackDTO = new RequestFeedbackDTO();
+                requestFeedbackDTO.setCorrect(true);
+                requestFeedbackDTO.setDate(responseDrowsyResponse.getCurTime());
+                requestFeedbackDTO.setUserId(User.getInstance().getUserDTO().getUserId());
+                Call call = retrofitConnection.getServer().feedback(requestFeedbackDTO);
                 call.enqueue(new Callback() {
                     @Override
                     public void onResponse(Call call, Response response) {
@@ -112,14 +112,13 @@ public class AlertUtility {
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
 
-        time = 3000;
-        time = sleep_step * INT_ALRAM_TIME;
+        time = responseDrowsyResponse.getSleep_step() * INT_ALRAM_TIME;
 
         delayTime(time, alertDialog);
     }
 
     public void delayTime(long time, final Dialog d){
-        runnable = new Runnable() {
+        dialogRunnable = new Runnable() {
             @Override
             public void run() {
 
@@ -128,14 +127,23 @@ public class AlertUtility {
                 // 재실행
                 CameraActivity.onClickStartCount(null);
 
-                Toast.makeText(mContext, "DelayTime 실행", Toast.LENGTH_SHORT).show();
+                Toast.makeText(mContext, "무응답, 알람 종료", Toast.LENGTH_SHORT).show();
                 Log.e(TAG, "DelayTime 실행");
             }
         };
 
-        handler.removeCallbacks(alaramManager.getAlarmRunnable());
-        handler.postDelayed(alaramManager.getAlarmRunnable(), time);
-        handler.postDelayed(runnable, time);
+        alarmRunnable = new Runnable() {
+            @Override
+            public void run() {
+                alaramManager.alramStop();
+                alaramManager.vibrateCancel();
+            }
+        };
+
+
+        handler.removeCallbacks(alarmRunnable);
+        handler.postDelayed(alarmRunnable, time);
+        handler.postDelayed(dialogRunnable, time);
     }
 
     public RetrofitConnection getRetrofitConnection(){
@@ -146,16 +154,8 @@ public class AlertUtility {
         this.retrofitConnection = retrofitConnection;
     }
 
-    public void setSleep_step(int sleep_step){
-        this.sleep_step = sleep_step;
-    }
-
-    public int getSleep_step(){
-        return sleep_step;
-    }
-
     public void setResponseLandmark(ResponseLandmarkDTO responseLandmarkDTO){
-        this.responseLandmark = responseLandmarkDTO;
+        this.responseDrowsyResponse = responseLandmarkDTO;
     }
 
     public void generateRetrofitConnectionWithURL(String url){
@@ -170,12 +170,13 @@ public class AlertUtility {
 
                 // 성공적으로 서버 통신 성공
                 if (response.isSuccessful()) {
-                    sleep_step = response.body().getSleep_step();
-                    ResponseLandmarkDTO responseLandmarkDTO = response.body();
-                    setResponseLandmark(responseLandmarkDTO);
+                    responseDrowsyResponse = response.body();
+                    setResponseLandmark(responseDrowsyResponse);
+                    Log.e(TAG, "ResponseLandmark : " + response.body());
 
                     for(SleepCode sleepCode : SleepCode.values()){
-                        if(sleepCode.getCode() == getSleep_step()){
+                        Log.e(TAG, "sleepCode : " + sleepCode + "StatusCode : " + responseDrowsyResponse.getStatus_code());
+                        if(sleepCode.getCode() == responseDrowsyResponse.getStatus_code()){
                             feedbackDialog(sleepCode.getReason());
                         }
                     }

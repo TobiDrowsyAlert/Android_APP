@@ -4,7 +4,7 @@ import android.os.UserManager;
 
 public class User {
 
-    String userId;
+    UserDTO userDTO;
     private static UserManager instance;
 
     private static class LazyHolder{
@@ -18,11 +18,11 @@ public class User {
         return LazyHolder.INSTANCE;
     }
 
-    public String getUserId() {
-        return userId;
+    public void setUserDTO(UserDTO userId) {
+        this.userDTO = userId;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public UserDTO getUserDTO() {
+        return userDTO;
     }
 }
