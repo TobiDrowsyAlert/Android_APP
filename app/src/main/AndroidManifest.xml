@@ -24,8 +24,9 @@
         <activity
             android:name=".LoginActivity"
             android:configChanges="orientation|screenSize"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:label="@string/app_name">
+            <!--android:theme="@style/AppTheme.NoActionBar"-->
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -38,8 +39,6 @@
         <activity android:name=".menuEvent"/>
         <activity android:name=".MainActivity"/>
         <activity android:name=".settingEvent"/>
-        <activity android:name=".bmbtest"/>
-
 
 
         <activity

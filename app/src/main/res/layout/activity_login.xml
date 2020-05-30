@@ -6,8 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ffffff"
-
-    android:orientation="vertical">
+    >
 
 
     <EditText
@@ -21,10 +20,9 @@
         android:drawableLeft="@drawable/baseline_perm_identity_black_18dp"
         android:ems="10"
         android:fontFamily="@font/cookierunblack"
-        android:inputType="textPersonName"
-        android:textColor="#070707"
-        android:textColorHint="#070707"
         android:hint="아이디"
+        android:inputType="textPersonName"
+        android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"

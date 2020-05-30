@@ -21,6 +21,8 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Camera;
 import android.media.MediaPlayer;
@@ -31,11 +33,15 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Vibrator;
 import android.provider.Settings;
+import android.support.annotation.Nullable;
+import android.support.constraint.ConstraintLayout;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
@@ -71,6 +77,10 @@ public class CameraActivity extends Activity {
 
     static View v;
 
+    Bitmap bitm;
+    ImageView i;
+
+
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         retrofitConnection = new RetrofitConnection();
@@ -85,7 +95,15 @@ public class CameraActivity extends Activity {
         UiHandler = new Handler(Looper.getMainLooper());
 
 
+
         setContentView(R.layout.activity_camera);
+
+
+        i = (ImageView)findViewById(R.id.ttt);
+        bitm = BitmapFactory.decodeResource(getResources(), R.drawable.stopimage);
+
+
+        
         alertUtility = new AlertUtility(this);
 
         v = (View)findViewById(R.id.view1);
@@ -111,6 +129,7 @@ public class CameraActivity extends Activity {
 
 
     }
+
 
     @Override
     protected void onPause() {
@@ -202,11 +221,19 @@ public class CameraActivity extends Activity {
         if(isActivateNetwork == true){
             isActivateNetwork = false;
             currentPause = "ON";
+
+            i.bringToFront();  //이미지 최상단으로 올리기
+            i.setImageBitmap(bitm);  // 이미지 추가
+            i.setVisibility(View.VISIBLE);  // 이미지 다시 생성하기
+
             onClickStopCount(null);
             countHandlerStop();
         }else{
             isActivateNetwork = true;
             currentPause = "OFF";
+
+            i.setVisibility(View.GONE); // 이미지 사라지게 하는 것
+
             onClickStartCount(null);
             countHandlerStart();
         }

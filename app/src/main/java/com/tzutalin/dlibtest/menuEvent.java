@@ -23,7 +23,9 @@ public class menuEvent extends AppCompatActivity {
         btn_menu_1.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
-               Intent intent = new Intent(menuEvent.this, MainActivity.class);
+               Intent intent = new Intent(menuEvent.this, CameraActivity.class);
+               // 원래 밑에가 기본 오류 발생 시 여기부터 시작.
+               /*Intent intent = new Intent(menuEvent.this, MainActivity.class);*/
                startActivity(intent);
            }
         });
