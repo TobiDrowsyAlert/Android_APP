@@ -15,10 +15,8 @@
         android:layout_width="330dp"
         android:layout_height="130dp"
         android:layout_marginTop="50dp"
-        android:background="@drawable/roundrectangle_r"
         android:drawableStart="@drawable/baseline_directions_car_black_18dp"
         android:drawableLeft="@drawable/baseline_directions_car_black_18dp"
-        android:fontFamily="@font/benzo"
         android:padding="20sp"
         android:text="Sleep Recognition"
         android:textColor="#000000"
@@ -36,10 +34,8 @@
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="50dp"
-        android:background="@drawable/roundrectangle_r2"
         android:drawableTop="@drawable/baseline_insert_chart_outlined_black_18dp"
 
-        android:fontFamily="@font/benzo"
         android:padding="20sp"
 
         android:text="Record Check"
@@ -56,9 +52,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="50dp"
-        android:background="@drawable/roundrectangle_r4"
         android:drawableTop="@drawable/baseline_settings_black_18dp"
-        android:fontFamily="@font/benzo"
         android:padding="20sp"
 
         android:text="How to use"
@@ -74,9 +68,7 @@
         android:layout_marginTop="50dp"
         android:layout_marginEnd="20dp"
         android:layout_marginRight="20dp"
-        android:background="@drawable/roundrectangle_r5"
         android:drawableTop="@drawable/baseline_thumb_up_alt_black_18dp"
-        android:fontFamily="@font/benzo"
         android:padding="20sp"
         android:text="FAQ"
         android:textColor="#000000"
@@ -91,9 +83,7 @@
         android:layout_marginTop="50dp"
         android:layout_marginEnd="20dp"
         android:layout_marginRight="20dp"
-        android:background="@drawable/roundrectangle_r3"
         android:drawableTop="@drawable/baseline_alarm_black_18dp"
-        android:fontFamily="@font/benzo"
         android:padding="20sp"
         android:text="Alarm Settings"
         android:textColor="#000000"
@@ -113,8 +103,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/roundrectangle_6" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
 <!--

@@ -4,7 +4,7 @@
     <font
         android:fontStyle="normal"
         android:fontWeight="400"
-        android:font="@font/cookierunblack"/>
+        android:font="@font/cookie_run_black"/>
     <!--대문자는 안된담-->
 
 </font-family>

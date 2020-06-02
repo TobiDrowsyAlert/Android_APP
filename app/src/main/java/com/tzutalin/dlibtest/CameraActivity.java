@@ -118,7 +118,6 @@ public class CameraActivity extends Activity {
         onClickStopCount(null);
         countHandlerStop();
         AlertUtility alertUtility = OnGetImageListener.getAlertUtility();
-        Log.e("CameraActivity", "객체 : " + alertUtility.toString() );
     }
 
     @Override
