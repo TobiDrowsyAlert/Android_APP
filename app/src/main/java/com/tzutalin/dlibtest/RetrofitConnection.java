@@ -4,6 +4,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.tzutalin.dlibtest.domain.RequestAnalyzeSleepDTO;
+import com.tzutalin.dlibtest.domain.RequestRegisterDTO;
 import com.tzutalin.dlibtest.user.domain.RequestLoginDTO;
 import com.tzutalin.dlibtest.user.domain.ResponseLoginDTO;
 
@@ -17,11 +18,13 @@ public class RetrofitConnection {
 
     final String TAG = "RetrofitConnection";
 
+    static Boolean isSuccess = false;
+
     Retrofit retrofit;
     RetrofitInterface server;
 
     public RetrofitConnection(){
-        setRetrofit("http://15.165.116.82:8080/");
+        setRetrofit("http://15.165.116.82:8080");
     }
 
     public RetrofitConnection(String url){
@@ -46,23 +49,56 @@ public class RetrofitConnection {
 
     }
 
-    public void requestLogin(RequestLoginDTO requestLoginDTO){
+    public void requestRegitser(RequestRegisterDTO requestRegisterDTO){
+        Call<ResponseLoginDTO> call = this.getServer().register(requestRegisterDTO);
+        call.enqueue(new Callback<ResponseLoginDTO>() {
+            @Override
+            public void onResponse(Call<ResponseLoginDTO> call, Response<ResponseLoginDTO> response) {
+                if(response.isSuccessful()){
+                    Toast.makeText(LoginActivity.getContext(), "회원가입 성공", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    Toast.makeText(LoginActivity.getContext(), "회원가입 실패", Toast.LENGTH_SHORT).show();
+                    Log.e("requestLogin", response.message());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseLoginDTO> call, Throwable t) {
+                Toast.makeText(LoginActivity.getContext(), "회원가입 실패 // 네트워크 오류", Toast.LENGTH_SHORT).show();
+                Log.e("requestRegitser", t.getMessage());
+            }
+        });
+    }
+
+    public Boolean requestLogin(RequestLoginDTO requestLoginDTO){
+
         Call<ResponseLoginDTO> call = this.getServer().login(requestLoginDTO);
         call.enqueue(new Callback<ResponseLoginDTO>() {
             @Override
             public void onResponse(Call<ResponseLoginDTO> call, Response<ResponseLoginDTO> response) {
 
                 if(response.isSuccessful()){
-                    Log.e(TAG,"loginSuccess");
+                    Toast.makeText(LoginActivity.getContext(), "로그인 성공", Toast.LENGTH_SHORT).show();
+                    isSuccess = true;
+                }
+                else{
+                    Toast.makeText(LoginActivity.getContext(), "로그인 실패", Toast.LENGTH_SHORT).show();
+                    Log.e("requestLogin", response.message());
+                    isSuccess = true;
                 }
 
             }
 
             @Override
             public void onFailure(Call<ResponseLoginDTO> call, Throwable t) {
-
+                Toast.makeText(LoginActivity.getContext(), "로그인 실패 // 네트워크 오류", Toast.LENGTH_SHORT).show();
+                Log.e("requestLogin", t.getMessage());
+                isSuccess = true;
             }
         });
+
+        return isSuccess;
     }
 
 

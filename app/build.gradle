@@ -29,11 +29,8 @@ android {
         }
     }
 
-    sourceSets {
-        main {
-            assets.srcDirs = ['src/main/res/raw']
-        }
-    }
+   sourceSets { main{ assets.srcDirs = ['src/main/res/raw'] } }
+
     compileOptions {
         sourceCompatibility = 1.8
         targetCompatibility = 1.8
