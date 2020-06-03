@@ -75,11 +75,11 @@ public class FloatingCameraWindow {
         }
         // Default window size
         //화면 크기? 줄여보자
-        mWindowWidth = mScreenMaxWidth / 3;
-        mWindowHeight = mScreenMaxHeight / 3;
+        mWindowWidth = mScreenMaxWidth;
+        mWindowHeight = mScreenMaxHeight;
 
-        mWindowWidth = mWindowWidth > 0 && mWindowWidth < mScreenMaxWidth ? mWindowWidth : mScreenMaxWidth;
-        mWindowHeight = mWindowHeight > 0 && mWindowHeight < mScreenMaxHeight ? mWindowHeight : mScreenMaxHeight;
+/*        mWindowWidth = mWindowWidth > 0 && mWindowWidth < mScreenMaxWidth ? mWindowWidth : mScreenMaxWidth;
+        mWindowHeight = mWindowHeight > 0 && mWindowHeight < mScreenMaxHeight ? mWindowHeight : mScreenMaxHeight;*/
     }
 
     public FloatingCameraWindow(Context context, int windowWidth, int windowHeight) {
@@ -130,7 +130,7 @@ public class FloatingCameraWindow {
     private WindowManager.LayoutParams initWindowParameter() {
         mWindowParam = new WindowManager.LayoutParams();
 
-        mWindowParam.type = WindowManager.LayoutParams.TYPE_SYSTEM_ALERT;
+        mWindowParam.type = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
         mWindowParam.format = 1;
         mWindowParam.flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE;
         mWindowParam.flags = mWindowParam.flags | WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH;

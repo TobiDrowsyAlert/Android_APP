@@ -2,6 +2,7 @@ package com.tzutalin.dlibtest;
 
 import com.tzutalin.dlibtest.domain.RequestAnalyzeSleepDTO;
 import com.tzutalin.dlibtest.domain.RequestFeedbackDTO;
+import com.tzutalin.dlibtest.domain.RequestRegisterDTO;
 import com.tzutalin.dlibtest.domain.ResponseLandmarkDTO;
 import com.tzutalin.dlibtest.user.domain.ResponseLoginDTO;
 import com.tzutalin.dlibtest.user.domain.RequestLoginDTO;
@@ -9,6 +10,7 @@ import com.tzutalin.dlibtest.user.model.UserDTO;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.Headers;
 import retrofit2.http.POST;
 
 public interface RetrofitInterface {
@@ -32,9 +34,10 @@ public interface RetrofitInterface {
     Call<ResponseLandmarkDTO> timer(@Body UserDTO userDTO);
 
     @POST("/user/login")
-    Call<ResponseLoginDTO> login(@Body RequestLoginDTO requestLoginDTO);
+    Call<ResponseLandmarkDTO> login(@Body RequestLoginDTO requestLoginDTO);
 
-
+    @POST("/user/register")
+    Call<ResponseLoginDTO> register(@Body RequestRegisterDTO requestRegisterDTO);
 
 
 }

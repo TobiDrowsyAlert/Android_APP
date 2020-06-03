@@ -16,12 +16,14 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_M" />
+        app:layout_constraintTop_toTopOf="parent"
+        />
 
     <EditText
-        android:id="@+id/text_ID"
+        android:id="@+id/user_id"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
+        android:layout_marginTop="130dp"
         android:layout_marginBottom="360dp"
         android:background="@drawable/roundrectangle2"
         android:drawableStart="@drawable/baseline_perm_identity_black_18dp"
@@ -35,7 +37,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/text_PW"
+        android:id="@+id/user_password"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:layout_marginTop="10dp"
@@ -43,14 +45,14 @@
         android:drawableLeft="@drawable/baseline_lock_black_18dp"
         android:ems="10"
         android:hint="비밀번호"
-        android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="@+id/text_ID"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/user_id"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/text_ID"
-        app:layout_constraintTop_toBottomOf="@+id/text_ID" />
+        app:layout_constraintStart_toStartOf="@+id/user_id"
+        app:layout_constraintTop_toBottomOf="@+id/user_id" />
 
     <EditText
-        android:id="@+id/text_PW2"
+        android:id="@+id/user_password_confirm"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:layout_marginTop="10dp"
@@ -61,13 +63,13 @@
         android:ems="10"
         android:inputType="textPassword"
         android:hint="비밀번호 재확인"
-        app:layout_constraintEnd_toEndOf="@+id/text_PW"
+        app:layout_constraintEnd_toEndOf="@+id/user_password"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/text_PW"
-        app:layout_constraintTop_toBottomOf="@+id/text_PW" />
+        app:layout_constraintStart_toStartOf="@+id/user_password"
+        app:layout_constraintTop_toBottomOf="@+id/user_password" />
 
     <EditText
-        android:id="@+id/text_N"
+        android:id="@+id/user_name"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:layout_marginTop="10dp"
@@ -77,12 +79,12 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:hint="이름"
-        app:layout_constraintEnd_toEndOf="@+id/text_PW2"
-        app:layout_constraintStart_toStartOf="@+id/text_PW2"
-        app:layout_constraintTop_toBottomOf="@+id/text_PW2" />
+        app:layout_constraintEnd_toEndOf="@+id/user_password_confirm"
+        app:layout_constraintStart_toStartOf="@+id/user_password_confirm"
+        app:layout_constraintTop_toBottomOf="@+id/user_password_confirm" />
 
     <EditText
-        android:id="@+id/text_M"
+        android:id="@+id/user_email"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:layout_marginTop="10dp"
@@ -92,10 +94,10 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:hint="이메일"
-        app:layout_constraintEnd_toEndOf="@+id/text_N"
+        app:layout_constraintEnd_toEndOf="@+id/user_name"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/text_N"
-        app:layout_constraintTop_toBottomOf="@+id/text_N" />
+        app:layout_constraintStart_toStartOf="@+id/user_name"
+        app:layout_constraintTop_toBottomOf="@+id/user_name" />
 
     <ImageButton
         android:id="@+id/back"

@@ -1,5 +1,6 @@
 package com.tzutalin.dlibtest;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -15,6 +16,7 @@ import com.tzutalin.dlibtest.user.model.UserDTO;
 
 public class LoginActivity extends AppCompatActivity {
 
+    static Context context;
     private User user;
 
     @Override
@@ -23,6 +25,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         user = User.getInstance();
+        context = this;
 
         Button btn_login;
         Button btn_signup;
@@ -48,12 +51,17 @@ public class LoginActivity extends AppCompatActivity {
 
                 user.setUserDTO(new UserDTO());
                 user.getUserDTO().setUserId(userId);
-                Toast.makeText(LoginActivity.this, "로그인 : " + userId, Toast.LENGTH_SHORT).show();
                 RetrofitConnection retrofitConnection = new RetrofitConnection();
 
                 RequestLoginDTO requestLoginDTO = new RequestLoginDTO();
                 requestLoginDTO.setUserId(userId);
-                retrofitConnection.requestLogin(requestLoginDTO);
+                requestLoginDTO.setUserPassword(userPassword);
+
+                user.setUserId(userId);
+
+                if(!retrofitConnection.requestLogin(requestLoginDTO)){
+                    return;
+                }
 
                 Intent intent = new Intent(LoginActivity.this, menuEvent.class);
                 startActivity(intent);
@@ -67,5 +75,9 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    static public Context getContext(){
+        return context;
     }
 }

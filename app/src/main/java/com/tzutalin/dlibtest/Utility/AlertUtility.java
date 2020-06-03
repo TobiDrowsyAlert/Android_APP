@@ -23,13 +23,6 @@ import retrofit2.Response;
 
 public class AlertUtility {
 
-    // 상태 코드 상수
-    private final int INT_BLINK = 100;
-    private final int INT_BLIND = 101;
-    private final int INT_YAWN = 200;
-    private final int INT_DRIVER_AWAY = 300;
-    private final int INT_DRIVER_AWARE_FAIL = 301;
-    private final int INT_NORMAL = 400;
 
     final int INT_ALRAM_TIME = 10000;
 
@@ -89,7 +82,7 @@ public class AlertUtility {
                 RequestFeedbackDTO requestFeedbackDTO = new RequestFeedbackDTO();
                 requestFeedbackDTO.setCorrect(true);
                 requestFeedbackDTO.setDate(responseDrowsyResponse.getCurTime());
-                requestFeedbackDTO.setUserId(User.getInstance().getUserDTO().getUserId());
+                requestFeedbackDTO.setUserId(User.getInstance().getUserId());
                 Call call = retrofitConnection.getServer().feedback(requestFeedbackDTO);
                 call.enqueue(new Callback() {
                     @Override

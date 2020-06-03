@@ -47,7 +47,6 @@ import com.tzutalin.dlibtest.domain.FaceRect;
 import com.tzutalin.dlibtest.domain.RequestAnalyzeSleepDTO;
 import com.tzutalin.dlibtest.user.model.User;
 
-import junit.framework.Assert;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -153,7 +152,6 @@ public class OnGetImageListener implements OnImageAvailableListener {
             mScreenRotation = 0;
         }
 
-        Assert.assertEquals(dst.getWidth(), dst.getHeight());
         final float minDim = Math.min(src.getWidth(), src.getHeight());
 
         final Matrix matrix = new Matrix();
@@ -279,7 +277,7 @@ public class OnGetImageListener implements OnImageAvailableListener {
                                     break;
                                 }
 
-                                float resizeRatio = 1.0f;
+                                float resizeRatio = 3.0f;
                                 int rect[] = new int[4];
                                 Rect bounds = new Rect();
                                 bounds.left = (int) (ret.getLeft() * resizeRatio);
@@ -291,7 +289,7 @@ public class OnGetImageListener implements OnImageAvailableListener {
 
                                 Canvas canvas = new Canvas(mCroppedBitmap);
                                 canvas.drawRect(bounds, mFaceLandmardkPaint);
-
+  
                                 // Draw landmark
                                 ArrayList<Point> landmarks = ret.getFaceLandmarks();
                                 FaceLandmark faceLandmark = new FaceLandmark(landmarks, resizeRatio);
@@ -299,8 +297,8 @@ public class OnGetImageListener implements OnImageAvailableListener {
                                 int landmark[][] = new int[landmarks.size()][2];
                                 int count = 0;
                                 for (Point point : landmarks) {
-                                    int pointX = (int) (point.x * resizeRatio);
-                                    int pointY = (int) (point.y * resizeRatio);
+                                    int pointX = (int) (point.x);
+                                    int pointY = (int) (point.y);
                                     canvas.drawCircle(pointX, pointY, 2, mFaceLandmardkPaint);
                                     landmark[count][0] = pointX;
                                     landmark[count][1] = pointY;
@@ -309,7 +307,7 @@ public class OnGetImageListener implements OnImageAvailableListener {
 
                                 requestAnalyzeDTO.setRequestAnalyzeSleepDTO(faceRect.getRect(),
                                         true, faceLandmark.getLandmark(), 50, true);
-                                requestAnalyzeDTO.setUserId(user.getUserDTO().getUserId());
+                                requestAnalyzeDTO.setUserId(user.getUserId());
 
                                 alertUtility.generateRetrofitConnectionWithURL("http://15.165.116.82:8080/");
                                 alertUtility.requestSleepAnalyze(requestAnalyzeDTO);
@@ -332,7 +330,7 @@ public class OnGetImageListener implements OnImageAvailableListener {
                                 else {
                                     alertUtility.generateRetrofitConnectionWithURL("http://15.165.116.82:8080/");
                                     requestAnalyzeDTO.setRequestAnalyzeSleepDTO(null,false,null,0,true);
-                                    requestAnalyzeDTO.setUserId(user.getUserDTO().getUserId());
+                                    requestAnalyzeDTO.setUserId(user.getUserId());
                                     alertUtility.requestSleepAnalyze(requestAnalyzeDTO);
                                 }
                             }
