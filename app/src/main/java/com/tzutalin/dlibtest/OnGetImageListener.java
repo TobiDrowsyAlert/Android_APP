@@ -277,7 +277,7 @@ public class OnGetImageListener implements OnImageAvailableListener {
                                     break;
                                 }
 
-                                float resizeRatio = 1.0f;
+                                float resizeRatio = 3.0f;
                                 int rect[] = new int[4];
                                 Rect bounds = new Rect();
                                 bounds.left = (int) (ret.getLeft() * resizeRatio);
@@ -289,7 +289,7 @@ public class OnGetImageListener implements OnImageAvailableListener {
 
                                 Canvas canvas = new Canvas(mCroppedBitmap);
                                 canvas.drawRect(bounds, mFaceLandmardkPaint);
-
+  
                                 // Draw landmark
                                 ArrayList<Point> landmarks = ret.getFaceLandmarks();
                                 FaceLandmark faceLandmark = new FaceLandmark(landmarks, resizeRatio);
@@ -297,8 +297,8 @@ public class OnGetImageListener implements OnImageAvailableListener {
                                 int landmark[][] = new int[landmarks.size()][2];
                                 int count = 0;
                                 for (Point point : landmarks) {
-                                    int pointX = (int) (point.x * resizeRatio);
-                                    int pointY = (int) (point.y * resizeRatio);
+                                    int pointX = (int) (point.x);
+                                    int pointY = (int) (point.y);
                                     canvas.drawCircle(pointX, pointY, 2, mFaceLandmardkPaint);
                                     landmark[count][0] = pointX;
                                     landmark[count][1] = pointY;

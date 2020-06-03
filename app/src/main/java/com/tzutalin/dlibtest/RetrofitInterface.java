@@ -34,7 +34,7 @@ public interface RetrofitInterface {
     Call<ResponseLandmarkDTO> timer(@Body UserDTO userDTO);
 
     @POST("/user/login")
-    Call<ResponseLoginDTO> login(@Body RequestLoginDTO requestLoginDTO);
+    Call<ResponseLandmarkDTO> login(@Body RequestLoginDTO requestLoginDTO);
 
     @POST("/user/register")
     Call<ResponseLoginDTO> register(@Body RequestRegisterDTO requestRegisterDTO);

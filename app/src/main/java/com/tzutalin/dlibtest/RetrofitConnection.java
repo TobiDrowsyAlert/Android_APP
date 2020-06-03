@@ -5,8 +5,11 @@ import android.widget.Toast;
 
 import com.tzutalin.dlibtest.domain.RequestAnalyzeSleepDTO;
 import com.tzutalin.dlibtest.domain.RequestRegisterDTO;
+import com.tzutalin.dlibtest.domain.ResponseLandmarkDTO;
 import com.tzutalin.dlibtest.user.domain.RequestLoginDTO;
 import com.tzutalin.dlibtest.user.domain.ResponseLoginDTO;
+
+import java.util.Observable;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -73,10 +76,10 @@ public class RetrofitConnection {
 
     public Boolean requestLogin(RequestLoginDTO requestLoginDTO){
 
-        Call<ResponseLoginDTO> call = this.getServer().login(requestLoginDTO);
-        call.enqueue(new Callback<ResponseLoginDTO>() {
+        Call<ResponseLandmarkDTO> call = this.getServer().login(requestLoginDTO);
+        call.enqueue(new Callback<ResponseLandmarkDTO>() {
             @Override
-            public void onResponse(Call<ResponseLoginDTO> call, Response<ResponseLoginDTO> response) {
+            public void onResponse(Call<ResponseLandmarkDTO> call, Response<ResponseLandmarkDTO> response) {
 
                 if(response.isSuccessful()){
                     Toast.makeText(LoginActivity.getContext(), "로그인 성공", Toast.LENGTH_SHORT).show();
@@ -85,16 +88,16 @@ public class RetrofitConnection {
                 else{
                     Toast.makeText(LoginActivity.getContext(), "로그인 실패", Toast.LENGTH_SHORT).show();
                     Log.e("requestLogin", response.message());
-                    isSuccess = true;
+                    isSuccess = false;
                 }
 
             }
 
             @Override
-            public void onFailure(Call<ResponseLoginDTO> call, Throwable t) {
+            public void onFailure(Call<ResponseLandmarkDTO> call, Throwable t) {
                 Toast.makeText(LoginActivity.getContext(), "로그인 실패 // 네트워크 오류", Toast.LENGTH_SHORT).show();
                 Log.e("requestLogin", t.getMessage());
-                isSuccess = true;
+                isSuccess = false;
             }
         });
 
