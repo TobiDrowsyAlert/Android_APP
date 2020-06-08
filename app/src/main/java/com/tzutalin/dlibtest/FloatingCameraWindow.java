@@ -75,8 +75,8 @@ public class FloatingCameraWindow {
         }
         // Default window size
         //화면 크기? 줄여보자
-        mWindowWidth = mScreenMaxWidth;
-        mWindowHeight = mScreenMaxHeight;
+        mWindowWidth = mScreenMaxWidth / 3;
+        mWindowHeight = mScreenMaxHeight / 3;
 
 /*        mWindowWidth = mWindowWidth > 0 && mWindowWidth < mScreenMaxWidth ? mWindowWidth : mScreenMaxWidth;
         mWindowHeight = mWindowHeight > 0 && mWindowHeight < mScreenMaxHeight ? mWindowHeight : mScreenMaxHeight;*/
