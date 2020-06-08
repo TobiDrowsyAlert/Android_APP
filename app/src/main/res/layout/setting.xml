@@ -10,40 +10,45 @@
 
     <TextView
         android:id="@+id/step1"
-        android:layout_width="62dp"
-        android:layout_height="33dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="145dp"
+        android:layout_width="50dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="240dp"
+        android:layout_marginRight="240dp"
+        android:layout_marginBottom="340dp"
         android:background="@drawable/textview"
+        android:fontFamily="@font/cookierunregular"
         android:text="1단계"
         android:textColor="@color/colorPrimary"
-        android:textSize="24sp"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/step2"
-        android:layout_width="62dp"
-        android:layout_height="33dp"
+        android:layout_width="50dp"
+        android:layout_height="30dp"
         android:layout_marginTop="15dp"
         android:background="@drawable/textview"
+        android:fontFamily="@font/cookierunregular"
         android:text="2단계"
         android:textColor="@color/colorPrimary"
-        android:textSize="24sp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="@+id/step1"
         app:layout_constraintStart_toStartOf="@+id/step1"
         app:layout_constraintTop_toBottomOf="@+id/step1" />
 
     <TextView
         android:id="@+id/step3"
-        android:layout_width="62dp"
-        android:layout_height="33dp"
+        android:layout_width="50dp"
+        android:layout_height="30dp"
         android:layout_marginTop="15dp"
         android:background="@drawable/textview"
+        android:fontFamily="@font/cookierunregular"
         android:text="3단계"
         android:textColor="@color/colorPrimary"
-        android:textSize="24sp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="@+id/step2"
         app:layout_constraintStart_toStartOf="@+id/step2"
         app:layout_constraintTop_toBottomOf="@+id/step2" />
@@ -52,47 +57,55 @@
         android:id="@+id/textView4"
         android:layout_width="104dp"
         android:layout_height="31dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginLeft="60dp"
         android:layout_marginTop="40dp"
         android:background="@drawable/textview"
+        android:fontFamily="@font/cookierunregular"
         android:text="소리 크기"
         android:textColor="@color/colorPrimary"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/step3"
+        app:layout_constraintStart_toStartOf="@+id/step3"
         app:layout_constraintTop_toBottomOf="@+id/step3" />
 
     <TextView
         android:id="@+id/textView9"
         android:layout_width="251dp"
         android:layout_height="33dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginBottom="170dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginBottom="50dp"
         android:background="@drawable/textview"
+        android:fontFamily="@font/cookierunregular"
         android:text="졸음 체크 문구 사용 체크"
         android:textColor="@color/colorPrimary"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/button9"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <SeekBar
         android:id="@+id/step_1_seek"
-        android:layout_width="216dp"
-        android:layout_height="22dp"
-        android:layout_marginTop="150dp"
-        android:layout_marginEnd="90dp"
-        android:layout_marginRight="90dp"
-        android:background="@color/cardview_light_background"
+        android:layout_width="180dp"
+        android:layout_height="25dp"
 
+        android:layout_marginEnd="100dp"
+        android:layout_marginRight="100dp"
+        android:layout_marginBottom="340dp"
+        android:background="@color/cardview_light_background"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/step1"
         app:layout_constraintTop_toTopOf="parent" />
 
     <SeekBar
         android:id="@+id/step_2_seek"
-        android:layout_width="216dp"
-        android:layout_height="22dp"
-        android:layout_marginTop="25dp"
+        android:layout_width="180dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="20dp"
 
         app:layout_constraintEnd_toEndOf="@+id/step_1_seek"
         app:layout_constraintStart_toStartOf="@+id/step_1_seek"
@@ -100,9 +113,9 @@
 
     <SeekBar
         android:id="@+id/step_3_seek"
-        android:layout_width="216dp"
-        android:layout_height="22dp"
-        android:layout_marginTop="25dp"
+        android:layout_width="180dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="20dp"
 
         app:layout_constraintEnd_toEndOf="@+id/step_2_seek"
         app:layout_constraintStart_toStartOf="@+id/step_2_seek"
@@ -110,23 +123,23 @@
 
     <SeekBar
         android:id="@+id/sound_seek"
-        android:layout_width="216dp"
-        android:layout_height="22dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="320dp"
+        android:layout_width="180dp"
+        android:layout_height="25dp"
+
+
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginRight="50dp"
         android:maxWidth="20dp"
         android:minHeight="20dp"
-
-
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView4"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/step_3_sec" />
 
     <TextView
         android:id="@+id/step_1_sec"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="1dp"
         android:text="1.2/sec"
         android:textColor="@color/colorPrimary"
         app:layout_constraintEnd_toEndOf="@+id/step_1_seek"
@@ -137,7 +150,6 @@
         android:id="@+id/step_2_sec"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="1dp"
         android:text="5/sec"
         android:textColor="@color/colorPrimary"
         app:layout_constraintEnd_toEndOf="@+id/step_2_seek"
@@ -148,7 +160,6 @@
         android:id="@+id/step_3_sec"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="1dp"
         android:text="30/sec"
         android:textColor="@color/colorPrimary"
         app:layout_constraintEnd_toEndOf="@+id/step_3_seek"
@@ -169,29 +180,29 @@
         android:id="@+id/step_2_CB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
         android:layout_marginTop="15dp"
-        app:layout_constraintStart_toEndOf="@+id/step_2_seek"
+        app:layout_constraintEnd_toEndOf="@+id/step_1_CB"
+        app:layout_constraintStart_toStartOf="@+id/step_1_CB"
         app:layout_constraintTop_toBottomOf="@+id/step_1_CB" />
 
     <CheckBox
         android:id="@+id/step_3_CB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
         android:layout_marginTop="15dp"
-        app:layout_constraintStart_toEndOf="@+id/step_3_seek"
+        app:layout_constraintEnd_toEndOf="@+id/step_2_CB"
+        app:layout_constraintStart_toStartOf="@+id/step_2_CB"
         app:layout_constraintTop_toBottomOf="@+id/step_2_CB" />
 
     <CheckBox
         android:id="@+id/step_1_CB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="150dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginBottom="340dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/step_1_seek"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -201,38 +212,47 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginLeft="30dp"
-        android:layout_marginBottom="170dp"
+        android:layout_marginTop="140dp"
+        android:layout_marginEnd="80dp"
+        android:layout_marginRight="80dp"
+        android:layout_marginBottom="51dp"
         android:textColor="#000000"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView9" />
+        app:layout_constraintBottom_toTopOf="@+id/button10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView9"
+        app:layout_constraintTop_toBottomOf="@+id/sound_value" />
 
     <Button
         android:id="@+id/button9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginLeft="100dp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginTop="510dp"
+        android:layout_marginEnd="160dp"
+        android:layout_marginRight="160dp"
         android:background="@drawable/buttoncliek"
+        android:fontFamily="@font/cookierunregular"
         android:text="초기화"
         android:textColor="@color/colorPrimary"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="100dp"
-        android:layout_marginRight="100dp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginTop="510dp"
         android:background="@drawable/buttoncliek"
+        android:fontFamily="@font/cookierunregular"
         android:text="변경 확인"
         android:textColor="@color/colorPrimary"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button9"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
         android:id="@+id/imageButton5"

@@ -4,107 +4,125 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#e0ecf4">
 
-    <!--//android:ser="@android:color/darker_gray"-->
-    <!--<com.sackcentrury.shinebuttonlib.ShineButton-->
+    android:background="#e0ecf4">
 
 
     <Button
         android:id="@+id/menu_1"
-        android:layout_width="330dp"
-        android:layout_height="130dp"
-        android:layout_marginTop="50dp"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/roundrectangle_r"
         android:drawableStart="@drawable/baseline_directions_car_black_18dp"
         android:drawableLeft="@drawable/baseline_directions_car_black_18dp"
+        android:fontFamily="@font/benzo"
         android:padding="20sp"
         android:text="Sleep Recognition"
         android:textColor="#000000"
-        android:textSize="30sp"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <Button
-
         android:id="@+id/menu_2"
-        android:layout_width="170dp"
-        android:layout_height="160dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="50dp"
+        android:layout_width="140dp"
+        android:layout_height="130dp"
+        android:layout_marginEnd="170dp"
+        android:layout_marginRight="170dp"
+        android:layout_marginBottom="300dp"
+        android:background="@drawable/roundrectangle_r2"
         android:drawableTop="@drawable/baseline_insert_chart_outlined_black_18dp"
-
+        android:fontFamily="@font/benzo"
         android:padding="20sp"
-
         android:text="Record Check"
         android:textAllCaps="false"
         android:textColor="#000000"
-        android:textSize="20sp"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/menu_1" />
+        app:layout_constraintTop_toTopOf="@+id/imageView4" />
 
     <Button
         android:id="@+id/menu_4"
-        android:layout_width="170dp"
-        android:layout_height="160dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="50dp"
-        android:drawableTop="@drawable/baseline_settings_black_18dp"
-        android:padding="20sp"
+        android:layout_width="140dp"
+        android:layout_height="130dp"
+        android:layout_marginEnd="170dp"
+        android:layout_marginRight="170dp"
 
+        android:layout_marginBottom="130dp"
+        android:background="@drawable/roundrectangle_r4"
+        android:drawableTop="@drawable/baseline_settings_black_18dp"
+        android:fontFamily="@font/benzo"
+        android:padding="20sp"
         android:text="How to use"
         android:textColor="#000000"
-        android:textSize="20sp"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/menu_2" />
 
     <Button
         android:id="@+id/menu_5"
-        android:layout_width="170dp"
-        android:layout_height="160dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_width="140dp"
+        android:layout_height="130dp"
+        android:layout_marginBottom="130dp"
+        android:background="@drawable/roundrectangle_r5"
         android:drawableTop="@drawable/baseline_thumb_up_alt_black_18dp"
+        android:fontFamily="@font/benzo"
         android:padding="20sp"
         android:text="FAQ"
         android:textColor="#000000"
-        android:textSize="20sp"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/menu_4"
         app:layout_constraintTop_toBottomOf="@+id/menu_3" />
 
     <Button
         android:id="@+id/menu_3"
-        android:layout_width="170dp"
-        android:layout_height="160dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_width="140dp"
+        android:layout_height="130dp"
+        android:layout_marginBottom="300dp"
+        android:background="@drawable/roundrectangle_r3"
         android:drawableTop="@drawable/baseline_alarm_black_18dp"
-        android:padding="20sp"
+        android:fontFamily="@font/benzo"
+        android:padding="15sp"
         android:text="Alarm Settings"
         android:textColor="#000000"
-        android:textSize="20sp"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/menu_1" />
+        app:layout_constraintStart_toEndOf="@+id/menu_2"
+        app:layout_constraintTop_toTopOf="@+id/imageView4" />
 
     <ImageView
         android:id="@+id/imageView4"
         android:layout_width="match_parent"
-        android:layout_height="630dp"
+        android:layout_height="1000dp"
         android:layout_marginStart="-10dp"
         android:layout_marginLeft="-10dp"
-        android:layout_marginTop="196dp"
+        android:layout_marginTop="175dp"
         android:layout_marginEnd="-10dp"
         android:layout_marginRight="-10dp"
+        android:layout_weight="9"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/roundrectangle_6">
+
+
+    </ImageView>
+
 
 </android.support.constraint.ConstraintLayout>
-<!--
-</android.support.constraint.ConstraintLayout>-->
+

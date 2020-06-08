@@ -6,8 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ffffff"
-
-    android:orientation="vertical">
+    >
 
 
     <EditText
@@ -15,15 +14,17 @@
         style="@android:style/Widget.DeviceDefault.AutoCompleteTextView"
         android:layout_width="270dp"
         android:layout_height="60dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/roundrectangle2"
         android:drawableStart="@drawable/baseline_perm_identity_black_18dp"
         android:drawableLeft="@drawable/baseline_perm_identity_black_18dp"
         android:ems="10"
-        android:fontFamily="@font/cookie_run_black"
-        android:inputType="textPersonName"
-        android:textColor="#070707"
-        android:textColorHint="#070707"
+        android:focusable="auto"
+
+        android:fontFamily="@font/cookierunblack"
         android:hint="아이디"
+        android:inputType="textPersonName"
+        android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
@@ -33,10 +34,11 @@
         android:id="@+id/edit_password"
         android:layout_width="270dp"
         android:layout_height="60dp"
+        android:background="@drawable/roundrectangle2"
         android:drawableStart="@drawable/baseline_lock_black_18dp"
         android:drawableLeft="@drawable/baseline_lock_black_18dp"
         android:ems="10"
-        android:fontFamily="@font/cookie_run_black"
+        android:fontFamily="@font/cookierunblack"
         android:hint="비밀번호"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="@+id/edit_login"
@@ -48,33 +50,36 @@
         android:id="@+id/btn_login"
         android:layout_width="170dp"
         android:layout_height="70dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/roundrectangle"
         android:cursorVisible="false"
-        android:fontFamily="@font/cookie_run_black"
+        android:fontFamily="@font/cookierunregular"
         android:shadowColor="@color/colorPrimaryDark"
-        android:text="로그인"
 
+        android:text="로그인"
         android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Title"
         android:textColor="#ffffff"
         android:textSize="23sp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_signup"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_password" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btn_signup"
         android:layout_width="170dp"
         android:layout_height="70dp"
-        android:layout_marginTop="10dp"
 
-        android:fontFamily="@font/cookie_run_black"
+        android:layout_marginTop="500dp"
+        android:background="@drawable/roundrectangle"
+        android:fontFamily="@font/cookierunregular"
         android:text="회원가입"
         android:textColor="#ffffff"
         android:textSize="23sp"
         android:tint="@color/colorAccent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_login" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView3"

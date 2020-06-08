@@ -11,23 +11,26 @@
         android:layout_width="235dp"
         android:layout_height="55dp"
         android:layout_marginTop="400dp"
+        android:background="@drawable/roundrectangle2"
         android:text="가입하기"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/user_id"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
-        android:layout_marginTop="130dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="370dp"
+        android:background="@drawable/roundrectangle2"
         android:drawableStart="@drawable/baseline_perm_identity_black_18dp"
         android:drawableLeft="@drawable/baseline_perm_identity_black_18dp"
         android:ems="10"
         android:hint="아이디"
         android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -37,6 +40,7 @@
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:layout_marginTop="10dp"
+        android:background="@drawable/roundrectangle2"
         android:drawableLeft="@drawable/baseline_lock_black_18dp"
         android:ems="10"
         android:hint="비밀번호"
@@ -51,11 +55,12 @@
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:layout_marginTop="10dp"
+        android:background="@drawable/roundrectangle2"
 
         android:drawableStart="@drawable/baseline_lock_black_18dp"
         android:drawableLeft="@drawable/baseline_lock_black_18dp"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="textPassword"
         android:hint="비밀번호 재확인"
         app:layout_constraintEnd_toEndOf="@+id/user_password"
         app:layout_constraintHorizontal_bias="0.0"
@@ -67,6 +72,7 @@
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:layout_marginTop="10dp"
+        android:background="@drawable/roundrectangle2"
         android:drawableStart="@drawable/baseline_how_to_reg_black_18dp"
         android:drawableLeft="@drawable/baseline_how_to_reg_black_18dp"
         android:ems="10"
@@ -81,6 +87,7 @@
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:layout_marginTop="10dp"
+        android:background="@drawable/roundrectangle2"
         android:drawableStart="@drawable/baseline_email_black_18dp"
         android:drawableLeft="@drawable/baseline_email_black_18dp"
         android:ems="10"
@@ -100,6 +107,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/baseline_reorder_black_18dp" />
+
 
 
 </android.support.constraint.ConstraintLayout>
