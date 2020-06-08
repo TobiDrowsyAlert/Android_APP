@@ -64,7 +64,7 @@ public class OnGetImageListener implements OnImageAvailableListener {
     public static int isBlue;   // 1 = blue , 2 = red , 3 = yellow
     private static final boolean SAVE_PREVIEW_BITMAP = false;
 
-    private static final int INPUT_SIZE = 224;
+    private static final int INPUT_SIZE = 224; //224
     private static final String TAG = "OnGetImageListener";
 
     private int mScreenRotation = 90;
@@ -204,6 +204,7 @@ public class OnGetImageListener implements OnImageAvailableListener {
                 Log.d(TAG, String.format("Initializing at size %dx%d", mPreviewWdith, mPreviewHeight));
                 mRGBBytes = new int[mPreviewWdith * mPreviewHeight];
                 mRGBframeBitmap = Bitmap.createBitmap(mPreviewWdith, mPreviewHeight, Config.ARGB_8888);
+                //	createBitmap(int width, int height, Bitmap.Config config)
                 mCroppedBitmap = Bitmap.createBitmap(INPUT_SIZE, INPUT_SIZE, Config.ARGB_8888);
 
                 mYUVBytes = new byte[planes.length][];
@@ -240,7 +241,7 @@ public class OnGetImageListener implements OnImageAvailableListener {
             Trace.endSection();
             return;
         }
-
+        //setPixels(int[] pixels, int offset, int stride, int x, int y, int width, int height)
         mRGBframeBitmap.setPixels(mRGBBytes, 0, mPreviewWdith, 0, 0, mPreviewWdith, mPreviewHeight);
         drawResizedBitmap(mRGBframeBitmap, mCroppedBitmap);   // 작은 사각형 만듬
 
@@ -258,6 +259,7 @@ public class OnGetImageListener implements OnImageAvailableListener {
                         }
 
                         List<VisionDetRet> results;
+                        // 비트맵에서 디텍트!
                         synchronized (OnGetImageListener.this) {
                             results = mFaceDet.detect(mCroppedBitmap);
                         }
@@ -277,7 +279,7 @@ public class OnGetImageListener implements OnImageAvailableListener {
                                     break;
                                 }
 
-                                float resizeRatio = 3.0f;
+                                float resizeRatio = 1.0f;
                                 int rect[] = new int[4];
                                 Rect bounds = new Rect();
                                 bounds.left = (int) (ret.getLeft() * resizeRatio);
@@ -289,7 +291,7 @@ public class OnGetImageListener implements OnImageAvailableListener {
 
                                 Canvas canvas = new Canvas(mCroppedBitmap);
                                 canvas.drawRect(bounds, mFaceLandmardkPaint);
-  
+
                                 // Draw landmark
                                 ArrayList<Point> landmarks = ret.getFaceLandmarks();
                                 FaceLandmark faceLandmark = new FaceLandmark(landmarks, resizeRatio);

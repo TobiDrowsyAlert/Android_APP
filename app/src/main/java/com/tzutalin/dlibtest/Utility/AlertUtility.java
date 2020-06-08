@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Handler;
 import android.util.Log;
 import android.widget.Toast;
@@ -25,6 +26,10 @@ public class AlertUtility {
 
 
     final int INT_ALRAM_TIME = 10000;
+    private final int DEFAULT_STEP_ONE_TIME = 5;
+    private final int DEFAULT_STEP_TWO_TIME = 10;
+    private final int DEFAULT_STEP_THREE_TIME = 15;
+    private final int DEFAULT_ALRAM_VOLUME = 50;
 
     Context mContext;
 
@@ -32,12 +37,17 @@ public class AlertUtility {
     RetrofitConnection retrofitConnection;
     ResponseLandmarkDTO responseDrowsyResponse;
 
+    SharedPreferences settingPreferences;
+
     Runnable dialogRunnable;
     Runnable alarmRunnable;
 
     public AlarmManager alaramManager;
     Handler handler;
 
+    Float stepOneAlarmTime;
+    Float stepTwoAlarmTime;
+    Float stepThreeAlarmTime;
 
     String TAG = "AlertUtility";
 
@@ -49,6 +59,19 @@ public class AlertUtility {
         handler = new Handler();
         builder = new AlertDialog.Builder(mContext);
         builder.setCancelable(false);
+
+        SharedPreferences settingPreferences = mContext.getSharedPreferences("settingPreferences", Context.MODE_PRIVATE);
+
+        stepOneAlarmTime = settingPreferences.getFloat("stepOneTime", DEFAULT_STEP_ONE_TIME) * 1000;
+        stepTwoAlarmTime = settingPreferences.getFloat("stepTwoTime", DEFAULT_STEP_TWO_TIME) * 1000;
+        stepThreeAlarmTime = settingPreferences.getFloat("stepThreeTime", DEFAULT_STEP_THREE_TIME) * 1000;
+
+        Log.e("알람시간 체크", "step1 : " + stepOneAlarmTime.toString() + ", " +
+                "step2 : " + stepTwoAlarmTime.toString() + ", " +
+                "step3 : " + stepThreeAlarmTime.toString());
+
+
+
     }
 
 
@@ -105,7 +128,17 @@ public class AlertUtility {
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
 
-        time = responseDrowsyResponse.getSleep_step() * INT_ALRAM_TIME;
+
+
+        int sleep_step = responseDrowsyResponse.getSleep_step();
+
+        if(sleep_step == 1){
+            time = stepOneAlarmTime.intValue();
+        } else if(sleep_step == 2){
+            time = stepTwoAlarmTime.intValue();
+        }else if(sleep_step == 3){
+            time = stepThreeAlarmTime.intValue();
+        }
 
         delayTime(time, alertDialog);
     }

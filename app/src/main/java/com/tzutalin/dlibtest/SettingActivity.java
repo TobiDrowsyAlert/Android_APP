@@ -74,8 +74,17 @@ public class SettingActivity extends AppCompatActivity {
                 editor.putInt("stepTwo", step_2.getProgress());
                 editor.putInt("stepThree", step_3.getProgress());
                 editor.putInt("soundBar", sound_bar.getProgress());
+                editor.putFloat("stepOneTime", (float)getTimeText(step_1.getProgress(),
+                        DEFAULT_STEP_ONE_TIME,DEFAULT_STEP_ONE_TIME));
+                editor.putFloat("stepTwoTime", (float)getTimeText(step_2.getProgress(),
+                        DEFAULT_STEP_TWO_TIME,DEFAULT_STEP_TWO_TIME));
+                editor.putFloat("stepThreeTime", (float)getTimeText(step_3.getProgress(),
+                        DEFAULT_STEP_THREE_TIME,DEFAULT_STEP_THREE_TIME));
 
                 editor.commit();
+
+                Intent intent = new Intent(SettingActivity.this , menuEvent.class);
+                startActivity(intent);
             }
         });
 
