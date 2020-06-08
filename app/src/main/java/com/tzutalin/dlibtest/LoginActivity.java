@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+
 import com.tzutalin.dlibtest.user.domain.RequestLoginDTO;
 import com.tzutalin.dlibtest.user.model.User;
 import com.tzutalin.dlibtest.user.model.UserDTO;
@@ -35,6 +36,9 @@ public class LoginActivity extends AppCompatActivity {
         btn_signup =(Button)findViewById(R.id.btn_signup);
         editText_login = (EditText)findViewById(R.id.edit_login);
         editText_password = (EditText)findViewById(R.id.edit_password);
+
+
+
 
 
         btn_login.setOnClickListener(new View.OnClickListener() {
@@ -75,9 +79,27 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        editText_login.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                editText_login.setHint("");
+                editText_password.setHint("비밀번호");
+            }
+        });
+        editText_password.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                editText_login.setHint("아이디");
+                editText_password.setHint("");
+            }
+        });
+
+
     }
 
     static public Context getContext(){
         return context;
     }
+
+
 }
