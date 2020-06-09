@@ -120,7 +120,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/roundrectangle_6">
 
-
     </ImageView>
 
 

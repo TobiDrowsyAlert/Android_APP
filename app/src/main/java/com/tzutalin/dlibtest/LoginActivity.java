@@ -38,9 +38,6 @@ public class LoginActivity extends AppCompatActivity {
         editText_password = (EditText)findViewById(R.id.edit_password);
 
 
-
-
-
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,8 +64,6 @@ public class LoginActivity extends AppCompatActivity {
                     return;
                 }
 
-                Intent intent = new Intent(LoginActivity.this, menuEvent.class);
-                startActivity(intent);
             }
         });
         btn_signup.setOnClickListener(new View.OnClickListener() {

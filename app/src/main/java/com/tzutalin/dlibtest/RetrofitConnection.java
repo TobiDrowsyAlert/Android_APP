@@ -1,5 +1,6 @@
 package com.tzutalin.dlibtest;
 
+import android.content.Intent;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -83,6 +84,8 @@ public class RetrofitConnection {
 
                 if(response.isSuccessful()){
                     Toast.makeText(LoginActivity.getContext(), "로그인 성공", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(LoginActivity.getContext(), menuEvent.class);
+                    LoginActivity.getContext().startActivity(intent);
                     isSuccess = true;
                 }
                 else{
