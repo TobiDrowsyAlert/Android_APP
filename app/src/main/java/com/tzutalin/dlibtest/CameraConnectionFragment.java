@@ -78,6 +78,7 @@ public class CameraConnectionFragment extends Fragment {
      * containing a DESIRED_SIZE x DESIRED_SIZE square.
      */
     private static final int MINIMUM_PREVIEW_SIZE = 320;
+    private final int PERMISSION_REQUEST_CODE = 100;
     private static final String TAG = "CameraConnectionFragment";
 
     private TrasparentTitleView mScoreView;
@@ -430,7 +431,9 @@ public class CameraConnectionFragment extends Fragment {
             }
             if (ActivityCompat.checkSelfPermission(this.getActivity(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
                 Timber.tag(TAG).w("checkSelfPermission CAMERA");
+                MainActivity.verifyPermissions(this.getActivity());
             }
+
             // manager.openCamera(cameraId, stateCallback, backgroundHandler);          // cameraid = "0"  일시 후면 카메라
             manager.openCamera("1", stateCallback, backgroundHandler);  // 1 일시 전면 카메라
             Timber.tag(TAG).d("open Camera");
