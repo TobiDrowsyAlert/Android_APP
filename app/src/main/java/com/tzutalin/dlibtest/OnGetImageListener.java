@@ -64,7 +64,7 @@ public class OnGetImageListener implements OnImageAvailableListener {
     public static int isBlue;   // 1 = blue , 2 = red , 3 = yellow
     private static final boolean SAVE_PREVIEW_BITMAP = false;
 
-    private static final int INPUT_SIZE = 224; //224
+    private static final int INPUT_SIZE = 300; //224
     private static final String TAG = "OnGetImageListener";
 
     private int mScreenRotation = 90;
@@ -85,8 +85,8 @@ public class OnGetImageListener implements OnImageAvailableListener {
     private FloatingCameraWindow mWindow;
     private Paint mFaceLandmardkPaint;
 
-    private static AlertUtility alertUtility;
-    private User user;
+    private static AlertUtility alertUtility;    private User user;
+
 
     private Boolean isActivateNetwork;
     private int sleep_step;
@@ -294,6 +294,7 @@ public class OnGetImageListener implements OnImageAvailableListener {
 
                                 // Draw landmark
                                 ArrayList<Point> landmarks = ret.getFaceLandmarks();
+                                Log.e(TAG, landmarks.toString());
                                 FaceLandmark faceLandmark = new FaceLandmark(landmarks, resizeRatio);
 
                                 int landmark[][] = new int[landmarks.size()][2];

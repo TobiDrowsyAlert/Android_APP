@@ -66,6 +66,10 @@ public class AlertUtility {
         stepTwoAlarmTime = settingPreferences.getFloat("stepTwoTime", DEFAULT_STEP_TWO_TIME) * 1000;
         stepThreeAlarmTime = settingPreferences.getFloat("stepThreeTime", DEFAULT_STEP_THREE_TIME) * 1000;
 
+        RetrofitConnection retrofitConnection = new RetrofitConnection();
+        retrofitConnection.setRetrofit("http://15.165.116.82:8080/");
+
+
         Log.e("알람시간 체크", "step1 : " + stepOneAlarmTime.toString() + ", " +
                 "step2 : " + stepTwoAlarmTime.toString() + ", " +
                 "step3 : " + stepThreeAlarmTime.toString());
@@ -74,8 +78,29 @@ public class AlertUtility {
 
     }
 
+    public void feedbackTrans(int logNo, Boolean isCorrect){
+        RequestFeedbackDTO requestFeedbackDTO = new RequestFeedbackDTO();
+        requestFeedbackDTO.setLogNo(logNo);
+        requestFeedbackDTO.setCorrect(isCorrect);
+        requestFeedbackDTO.setUserId(User.getInstance().getUserId());
+        requestFeedbackDTO.setIsFeedback(true);
+        Call call = retrofitConnection.getServer().feedback(requestFeedbackDTO);
+        call.enqueue(new Callback() {
+            @Override
+            public void onResponse(Call call, Response response) {
+                if(response.isSuccessful()){
+                    Log.e("피드백 전송 성공", "");
+                }
+            }
 
-    public void feedbackDialog(String cause){
+            @Override
+            public void onFailure(Call call, Throwable t) {
+                Log.e("피드백 전송 실패", "");
+            }
+        });
+    }
+
+    public void feedbackDialog(int logNo, String cause){
         Log.e("AlertUtility", "feedbackDialog Activate");
         Toast.makeText(mContext.getApplicationContext(), cause, Toast.LENGTH_LONG).show();
 
@@ -84,6 +109,8 @@ public class AlertUtility {
         alaramManager.vibrate(responseDrowsyResponse.getSleep_step());
         // 새로운 졸음 들어온 것, 기존 알람 소리 초기화 필요
 
+        Log.e(TAG, "LogNo : " + logNo );
+
         builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int id) {
@@ -91,6 +118,7 @@ public class AlertUtility {
                 handler.removeCallbacks(dialogRunnable);
                 alaramManager.alramStop();
                 alaramManager.vibrateCancel();
+                feedbackTrans(logNo,true);
             }
 
         });
@@ -99,36 +127,13 @@ public class AlertUtility {
             public void onClick(DialogInterface dialog, int id) {
                 Toast.makeText(mContext, "NO", Toast.LENGTH_SHORT).show();
                 handler.removeCallbacks(dialogRunnable);
-
-                RetrofitConnection retrofitConnection = new RetrofitConnection();
-                retrofitConnection.setRetrofit("http://15.165.116.82:8080/");
-                RequestFeedbackDTO requestFeedbackDTO = new RequestFeedbackDTO();
-                requestFeedbackDTO.setCorrect(true);
-                requestFeedbackDTO.setDate(responseDrowsyResponse.getCurTime());
-                requestFeedbackDTO.setUserId(User.getInstance().getUserId());
-                Call call = retrofitConnection.getServer().feedback(requestFeedbackDTO);
-                call.enqueue(new Callback() {
-                    @Override
-                    public void onResponse(Call call, Response response) {
-                        if(response.isSuccessful()){
-                            Log.e("피드백 전송 성공", "");
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(Call call, Throwable t) {
-                        Log.e("피드백 전송 실패", "");
-                    }
-                });
-
                 alaramManager.alramStop();
                 alaramManager.vibrateCancel();
+                feedbackTrans(logNo,false);
             }
         });
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
-
-
 
         int sleep_step = responseDrowsyResponse.getSleep_step();
 
@@ -180,10 +185,6 @@ public class AlertUtility {
         this.retrofitConnection = retrofitConnection;
     }
 
-    public void setResponseLandmark(ResponseLandmarkDTO responseLandmarkDTO){
-        this.responseDrowsyResponse = responseLandmarkDTO;
-    }
-
     public void generateRetrofitConnectionWithURL(String url){
         this.retrofitConnection = new RetrofitConnection(url);
     }
@@ -197,13 +198,12 @@ public class AlertUtility {
                 // 성공적으로 서버 통신 성공
                 if (response.isSuccessful()) {
                     responseDrowsyResponse = response.body();
-                    setResponseLandmark(responseDrowsyResponse);
                     Log.e(TAG, "ResponseLandmark : " + response.body());
 
                     for(SleepCode sleepCode : SleepCode.values()){
                         Log.e(TAG, "sleepCode : " + sleepCode + "StatusCode : " + responseDrowsyResponse.getStatus_code());
                         if(sleepCode.getCode() == responseDrowsyResponse.getStatus_code()){
-                            feedbackDialog(sleepCode.getReason());
+                            feedbackDialog(responseDrowsyResponse.getLogNo(), sleepCode.getReason());
                         }
                     }
                 }

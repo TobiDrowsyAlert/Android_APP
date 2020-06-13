@@ -87,6 +87,16 @@ public class MainActivity extends AppCompatActivity {
             verifyPermissions(this);
         }
 
+/*
+        // 요청
+        if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.CAMERA)){
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, 100);
+        } else {
+
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, 100);
+        }
+*/
+
         setupUI();
     }
 
@@ -115,11 +125,13 @@ public class MainActivity extends AppCompatActivity {
      * @param activity
      */
     @DebugLog
-    private static boolean verifyPermissions(Activity activity) {
+    public static boolean verifyPermissions(Activity activity) {
         // Check if we have write permission
         int write_permission = ActivityCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE);
         int read_persmission = ActivityCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE);
         int camera_permission = ActivityCompat.checkSelfPermission(activity, Manifest.permission.CAMERA);
+
+        Timber.e("verifyPermission Start " + activity.toString());
 
         if (write_permission != PackageManager.PERMISSION_GRANTED ||
                 read_persmission != PackageManager.PERMISSION_GRANTED ||

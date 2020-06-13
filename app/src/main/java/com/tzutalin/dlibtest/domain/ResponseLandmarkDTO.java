@@ -3,10 +3,18 @@ package com.tzutalin.dlibtest.domain;
 import java.util.Date;
 
 public class ResponseLandmarkDTO {
+    private int logNo;
     private int status_code;
     private int sleep_step;
     private String curTime;
 
+    public int getLogNo() {
+        return logNo;
+    }
+
+    public void setLogNo(int logNo) {
+        this.logNo = logNo;
+    }
 
     public int getStatus_code() {
         return status_code;
