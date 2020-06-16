@@ -13,9 +13,9 @@ import android.widget.TextView;
 public class SettingActivity extends AppCompatActivity {
 
     static private SharedPreferences settingPreferences;
-    private final int DEFAULT_STEP_ONE_TIME = 5;
-    private final int DEFAULT_STEP_TWO_TIME = 10;
-    private final int DEFAULT_STEP_THREE_TIME = 15;
+    private final int DEFAULT_STEP_ONE_TIME = 0;
+    private final int DEFAULT_STEP_TWO_TIME = 0;
+    private final int DEFAULT_STEP_THREE_TIME = 0;
     private final int DEFAULT_ALRAM_VOLUME = 50;
 
 
@@ -62,6 +62,9 @@ public class SettingActivity extends AppCompatActivity {
                editor.putInt("soundBar", DEFAULT_ALRAM_VOLUME);
 
                editor.commit();
+
+               Intent intent = new Intent(SettingActivity.this , menuEvent.class);
+               startActivity(intent);
            }
         });
 

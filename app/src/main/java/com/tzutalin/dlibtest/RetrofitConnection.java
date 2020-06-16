@@ -1,6 +1,7 @@
 package com.tzutalin.dlibtest;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -81,6 +82,8 @@ public class RetrofitConnection {
         call.enqueue(new Callback<ResponseLandmarkDTO>() {
             @Override
             public void onResponse(Call<ResponseLandmarkDTO> call, Response<ResponseLandmarkDTO> response) {
+
+                SharedPreferences settingPreferences = LoginActivity.getContext().getSharedPreferences("settingPreferences", LoginActivity.getContext().MODE_PRIVATE);
 
                 if(response.isSuccessful()){
                     Toast.makeText(LoginActivity.getContext(), "로그인 성공", Toast.LENGTH_SHORT).show();
