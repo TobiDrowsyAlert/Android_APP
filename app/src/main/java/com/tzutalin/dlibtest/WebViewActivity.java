@@ -2,9 +2,12 @@ package com.tzutalin.dlibtest;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.webkit.JavascriptInterface;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+
+import com.tzutalin.dlibtest.user.model.User;
 
 
 public class WebViewActivity extends AppCompatActivity {
@@ -32,7 +35,8 @@ public class WebViewActivity extends AppCompatActivity {
         mWebSettings.setCacheMode(WebSettings.LOAD_NO_CACHE); // 브라우저 캐시 허용 여부
         mWebSettings.setDomStorageEnabled(true); // 로컬저장소 허용 여부
 
-        mWebView.loadUrl("http://www.naver.com");
+        mWebView.loadUrl("http://15.165.116.82:8080/api/chart?userId=" + User.getInstance().getUserDTO().getUserId());
+
     }
 
 }

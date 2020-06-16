@@ -28,13 +28,8 @@ public class RetrofitConnection {
 
     final String TAG = "RetrofitConnection";
 
-
-
-
     static Boolean isSuccess = false;
 
-
-    RequestLoginDTO user;
 
     Retrofit retrofit;
     RetrofitInterface server;
@@ -89,7 +84,6 @@ public class RetrofitConnection {
 
     public Boolean requestLogin(RequestLoginDTO requestLoginDTO){
 
-
         Call<ResponseLandmarkDTO> call = this.getServer().login(requestLoginDTO);
         call.enqueue(new Callback<ResponseLandmarkDTO>() {
             @Override
@@ -116,6 +110,7 @@ public class RetrofitConnection {
                     Log.e("requestLogin", response.message());
                     isSuccess = false;
                 }
+
             }
 
             @Override
@@ -128,9 +123,6 @@ public class RetrofitConnection {
 
         return isSuccess;
     }
-
-    //public String getUserId(){return this._userid;}
-    //public String get_password() {return this._password; }
 
 
 
