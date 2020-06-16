@@ -5,10 +5,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import android.content.SharedPreferences;
 
 
 import com.tzutalin.dlibtest.user.domain.RequestLoginDTO;
@@ -19,14 +21,25 @@ public class LoginActivity extends AppCompatActivity {
 
     static Context context;
     private User user;
+    private RequestLoginDTO login_infor;
+
+    static private SharedPreferences LoginPreferences;
+    RetrofitConnection retro;
+
+    private final String defualt = "";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        RequestLoginDTO requestLoginDTO = new RequestLoginDTO();  // 선언 위치 변경함
+
+        LoginPreferences = getSharedPreferences("LoginPreferences",MODE_PRIVATE);
+
         user = User.getInstance();
         context = this;
+
 
         Button btn_login;
         Button btn_signup;
@@ -36,6 +49,27 @@ public class LoginActivity extends AppCompatActivity {
         btn_signup =(Button)findViewById(R.id.btn_signup);
         editText_login = (EditText)findViewById(R.id.edit_login);
         editText_password = (EditText)findViewById(R.id.edit_password);
+
+        /*_name = retro.getUserId();
+        _password = retro.get_password();
+        String username = LoginPreferences.getString(_name,defualt);
+        String userpassword = LoginPreferences.getString(_password,defualt);
+
+        if(_name != null)
+        {
+            editText_login.setText(String.format("%s", username));
+            editText_password.setText(String.format("%s", userpassword));
+        }*/
+
+        //String username = LoginPreferences.getString(requestLoginDTO.getUserId(), defualt);
+        //String userpasssword = LoginPreferences.getString(requestLoginDTO.getUserPassword(), defualt);
+        String username = LoginPreferences.getString("id", defualt); // ""
+        String userpasssword = LoginPreferences.getString("password", defualt);
+
+        editText_login.setText(String.format("%s", username));
+        editText_password.setText(String.format("%s",userpasssword));
+
+
 
 
         btn_login.setOnClickListener(new View.OnClickListener() {
@@ -54,12 +88,16 @@ public class LoginActivity extends AppCompatActivity {
                 user.getUserDTO().setUserId(userId);
                 RetrofitConnection retrofitConnection = new RetrofitConnection();
 
-                RequestLoginDTO requestLoginDTO = new RequestLoginDTO();
-                requestLoginDTO.setUserId(userId);
-                requestLoginDTO.setUserPassword(userPassword);
+                //RequestLoginDTO requestLoginDTO = new RequestLoginDTO();  //선언
+                requestLoginDTO.setUserId(userId);            // 아이디 저장
+                requestLoginDTO.setUserPassword(userPassword);      //비번 저장
 
                 user.setUserId(userId);
 
+
+
+
+                //retro.getUserId();
                 if(!retrofitConnection.requestLogin(requestLoginDTO)){
                     return;
                 }

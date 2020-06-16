@@ -33,7 +33,6 @@ public class WebViewActivity extends AppCompatActivity {
         mWebSettings.setDomStorageEnabled(true); // 로컬저장소 허용 여부
 
         mWebView.loadUrl("http://www.naver.com");
-
     }
 
 }

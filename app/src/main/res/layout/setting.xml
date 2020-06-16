@@ -140,7 +140,7 @@
         android:id="@+id/step_1_sec"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="1.2/sec"
+        android:hint="1.2/sec"
         android:textColor="@color/colorPrimary"
         app:layout_constraintEnd_toEndOf="@+id/step_1_seek"
         app:layout_constraintStart_toStartOf="@+id/step_1_seek"
@@ -150,7 +150,7 @@
         android:id="@+id/step_2_sec"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="5/sec"
+
         android:textColor="@color/colorPrimary"
         app:layout_constraintEnd_toEndOf="@+id/step_2_seek"
         app:layout_constraintStart_toStartOf="@+id/step_2_seek"
@@ -160,7 +160,7 @@
         android:id="@+id/step_3_sec"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="30/sec"
+
         android:textColor="@color/colorPrimary"
         app:layout_constraintEnd_toEndOf="@+id/step_3_seek"
         app:layout_constraintStart_toStartOf="@+id/step_3_seek"
@@ -170,7 +170,7 @@
         android:id="@+id/sound_value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="0"
+
         android:textColor="@color/colorPrimary"
         app:layout_constraintEnd_toEndOf="@+id/sound_seek"
         app:layout_constraintStart_toStartOf="@+id/sound_seek"

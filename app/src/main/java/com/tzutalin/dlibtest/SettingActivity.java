@@ -40,6 +40,11 @@ public class SettingActivity extends AppCompatActivity {
         step_3 = findViewById(R.id.step_3_seek);
         sound_bar = findViewById(R.id.sound_seek);
 
+        TextView tv_1 = findViewById(R.id.step_1_sec);
+        TextView tv_2 = findViewById(R.id.step_2_sec);
+        TextView tv_3 = findViewById(R.id.step_3_sec);
+        TextView tv_4 = findViewById(R.id.sound_value);
+
         int currentStepOneTime = settingPreferences.getInt("stepOne", DEFAULT_STEP_ONE_TIME);
         int currentStepTwoTime = settingPreferences.getInt("stepTwo", DEFAULT_STEP_TWO_TIME);
         int currentStepThreeTime = settingPreferences.getInt("stepThree", DEFAULT_STEP_THREE_TIME);
@@ -49,6 +54,14 @@ public class SettingActivity extends AppCompatActivity {
         step_2.setProgress(currentStepTwoTime);
         step_3.setProgress(currentStepThreeTime);
         sound_bar.setProgress(currentAlramVolume);
+
+        tv_1.setText(String.format("%s/sec", getTimeText(currentStepOneTime,
+                DEFAULT_STEP_ONE_TIME,DEFAULT_STEP_ONE_TIME)));
+        tv_2.setText(String.format("%s/sec", getTimeText(currentStepTwoTime,
+                DEFAULT_STEP_TWO_TIME,DEFAULT_STEP_TWO_TIME)));
+        tv_3.setText(String.format("%s/sec", getTimeText(currentStepThreeTime,
+                DEFAULT_STEP_THREE_TIME,DEFAULT_STEP_THREE_TIME)));
+        tv_4.setText(String.format("%s", currentAlramVolume));
 
 
         btn_reset.setOnClickListener(new View.OnClickListener() {
@@ -91,7 +104,7 @@ public class SettingActivity extends AppCompatActivity {
         step_1.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                TextView tv_1 = findViewById(R.id.step_1_sec);
+
                 tv_1.setText(String.format("%s/sec", getTimeText(progress,
                         DEFAULT_STEP_ONE_TIME,DEFAULT_STEP_ONE_TIME)));
             }
@@ -107,7 +120,7 @@ public class SettingActivity extends AppCompatActivity {
         step_2.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                TextView tv_2 = findViewById(R.id.step_2_sec);
+
                 tv_2.setText(String.format("%s/sec", getTimeText(progress,
                         DEFAULT_STEP_TWO_TIME,DEFAULT_STEP_TWO_TIME)));
             }
@@ -124,7 +137,7 @@ public class SettingActivity extends AppCompatActivity {
         step_3.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                TextView tv_3 = findViewById(R.id.step_3_sec);
+
                 tv_3.setText(String.format("%s/sec", getTimeText(progress,
                         DEFAULT_STEP_THREE_TIME,DEFAULT_STEP_THREE_TIME)));
             }
@@ -141,7 +154,7 @@ public class SettingActivity extends AppCompatActivity {
         sound_bar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                TextView tv_4 = findViewById(R.id.sound_value);
+
                 tv_4.setText(String.valueOf(progress));
             }
             @Override

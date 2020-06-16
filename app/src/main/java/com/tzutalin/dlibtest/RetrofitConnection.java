@@ -1,6 +1,8 @@
 package com.tzutalin.dlibtest;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -9,6 +11,8 @@ import com.tzutalin.dlibtest.domain.RequestRegisterDTO;
 import com.tzutalin.dlibtest.domain.ResponseLandmarkDTO;
 import com.tzutalin.dlibtest.user.domain.RequestLoginDTO;
 import com.tzutalin.dlibtest.user.domain.ResponseLoginDTO;
+import com.tzutalin.dlibtest.user.model.User;
+import com.tzutalin.dlibtest.user.model.UserDTO;
 
 import java.util.Observable;
 
@@ -18,11 +22,19 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import static android.content.Context.MODE_PRIVATE;
+
 public class RetrofitConnection {
 
     final String TAG = "RetrofitConnection";
 
+
+
+
     static Boolean isSuccess = false;
+
+
+    RequestLoginDTO user;
 
     Retrofit retrofit;
     RetrofitInterface server;
@@ -77,12 +89,23 @@ public class RetrofitConnection {
 
     public Boolean requestLogin(RequestLoginDTO requestLoginDTO){
 
+
         Call<ResponseLandmarkDTO> call = this.getServer().login(requestLoginDTO);
         call.enqueue(new Callback<ResponseLandmarkDTO>() {
             @Override
             public void onResponse(Call<ResponseLandmarkDTO> call, Response<ResponseLandmarkDTO> response) {
 
                 if(response.isSuccessful()){
+
+                    //Log.e("로그인 성공시 플래그 값","1:" +login_flag);
+
+                    SharedPreferences LoginPreferences = LoginActivity.getContext().getSharedPreferences("LoginPreferences", LoginActivity.getContext().MODE_PRIVATE);
+                    SharedPreferences.Editor editor = LoginPreferences.edit();
+                    editor.putString("id", requestLoginDTO.getUserId());
+
+                    editor.putString("password", requestLoginDTO.getUserPassword());
+                    editor.commit();
+
                     Toast.makeText(LoginActivity.getContext(), "로그인 성공", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(LoginActivity.getContext(), menuEvent.class);
                     LoginActivity.getContext().startActivity(intent);
@@ -93,7 +116,6 @@ public class RetrofitConnection {
                     Log.e("requestLogin", response.message());
                     isSuccess = false;
                 }
-
             }
 
             @Override
@@ -106,6 +128,9 @@ public class RetrofitConnection {
 
         return isSuccess;
     }
+
+    //public String getUserId(){return this._userid;}
+    //public String get_password() {return this._password; }
 
 
 
