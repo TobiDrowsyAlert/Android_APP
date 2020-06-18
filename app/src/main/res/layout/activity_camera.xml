@@ -47,7 +47,6 @@
         android:layout_gravity="top"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="150dp"
-
         android:onClick="OnclickHandler"
         android:text="일시정지" />
 
@@ -55,8 +54,8 @@
         android:id="@+id/btnResetSleepStep"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="top|right"
-        android:layout_marginLeft="120dp"
+        android:layout_gravity="top"
+        android:layout_marginLeft="130dp"
         android:layout_marginTop="30dp"
         android:layout_marginRight="20dp"
         android:onClick="onClickReset"
@@ -66,9 +65,9 @@
         android:id="@+id/btnTimerStart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="120dp"
-        android:layout_marginTop="30dp"
         android:layout_gravity="top"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="90dp"
         android:onClick="onClickDrop"
         android:text="단계하락" />
 
@@ -77,15 +76,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="top"
-        android:layout_marginLeft="210dp"
+        android:layout_marginLeft="30dp"
         android:layout_marginTop="30dp"
         android:onClick="onClickTimerLog"
         android:text="기록" />
 
     <View
         android:id="@+id/view1"
-        android:layout_width="wrap_content"
-        android:layout_height="218dp" />
+        android:layout_width="199dp"
+        android:layout_height="191dp" />
 
 
     <ImageView
@@ -95,6 +94,26 @@
         android:layout_marginLeft="140dp"
         android:layout_marginTop="300dp"
         />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="230dp"
+        android:layout_marginTop="50dp"
+        android:background="#ffffff"
+        android:text="취약시간 : "
+        android:textSize="20sp">
+    </TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="230dp"
+        android:layout_marginTop="100dp"
+        android:background="#ffffff"
+        android:text="졸음 단계 : "
+        android:textSize="20sp">
+    </TextView>
 
     <!--fronttobring 써보기-->
 

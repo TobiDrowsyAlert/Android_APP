@@ -40,6 +40,12 @@
         <activity android:name=".MainActivity"/>
         <activity android:name=".SettingActivity"/>
         <activity android:name=".WebViewActivity"/>
+        <activity android:name=".dashboardRedActivity"/>
+        <activity android:name=".dashboardYellowActivity"/>
+        <activity android:name=".dashboardBlueActivity"/>
+        <activity android:name=".use1Activity"/>
+        <activity android:name=".use2Activity"/>
+        <activity android:name=".use3Activity"/>
 
 
         <activity

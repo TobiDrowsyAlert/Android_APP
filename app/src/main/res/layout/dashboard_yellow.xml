@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:background="#ffeda0"
+
+    >
+
+    <ImageView
+        android:id="@+id/image_blue"
+        android:layout_width="182dp"
+        android:layout_height="176dp"
+        android:layout_marginBottom="250dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/yellow" />
+
+    <ImageButton
+        android:id="@+id/btn_right"
+        android:layout_width="72dp"
+        android:layout_height="70dp"
+        android:background="#ffeda0"
+
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.499"
+        app:srcCompat="@drawable/right_black_18dp"
+        tools:layout_editor_absoluteX="354dp"
+        tools:layout_editor_absoluteY="142dp" />
+
+    <TextView
+        android:id="@+id/status"
+        android:layout_width="188dp"
+        android:layout_height="85dp"
+        android:fontFamily="@font/cookierunblack"
+        android:gravity="center"
+        android:text="현재 위험도"
+        android:textSize="24sp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.818"
+        tools:layout_editor_absoluteX="133dp" />
+
+</android.support.constraint.ConstraintLayout>

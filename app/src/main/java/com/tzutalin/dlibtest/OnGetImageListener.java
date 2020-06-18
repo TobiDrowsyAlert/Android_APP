@@ -146,7 +146,8 @@ public class OnGetImageListener implements OnImageAvailableListener {
         if (screen_width < screen_height) {
             orientation = Configuration.ORIENTATION_PORTRAIT;
             //mScreenRotation = 90; // 기존 오픈 소스 코드
-            mScreenRotation = 270; // 변경된 소스 (작은 사각형 회전)
+            //mScreenRotation = 270; // 변경된 소스 (작은 사각형 회전)
+            mScreenRotation = -90; // 변경된 소스 (작은 사각형 회전)
         } else {
             orientation = Configuration.ORIENTATION_LANDSCAPE;
             mScreenRotation = 0;

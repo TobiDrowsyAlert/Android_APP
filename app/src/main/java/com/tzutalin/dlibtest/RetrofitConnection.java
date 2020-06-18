@@ -101,7 +101,7 @@ public class RetrofitConnection {
                     editor.commit();
 
                     Toast.makeText(LoginActivity.getContext(), "로그인 성공", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(LoginActivity.getContext(), menuEvent.class);
+                    Intent intent = new Intent(LoginActivity.getContext(), dashboardBlueActivity.class);
                     LoginActivity.getContext().startActivity(intent);
                     isSuccess = true;
                 }
