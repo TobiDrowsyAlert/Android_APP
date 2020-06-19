@@ -50,6 +50,7 @@ import com.tzutalin.dlibtest.Utility.AlertUtility;
 import com.tzutalin.dlibtest.Utility.SleepStepManager;
 import com.tzutalin.dlibtest.Utility.TimerHandler;
 import com.tzutalin.dlibtest.Utility.TimerMinuteHandler;
+import com.tzutalin.dlibtest.domain.ResponseLandmarkDTO;
 import com.tzutalin.dlibtest.user.model.User;
 
 import java.util.Timer;
@@ -71,6 +72,8 @@ public class CameraActivity extends Activity {
     static TimerHandler timerHandler;
     static int currentColor;
     static TimerMinuteHandler countHandler;
+
+    ResponseLandmarkDTO landmarkdto;
 
     public static Handler UiHandler;
     AlertUtility alertUtility;
@@ -95,6 +98,9 @@ public class CameraActivity extends Activity {
         UiHandler = new Handler(Looper.getMainLooper());
 
 
+
+
+        //landmarkdto
 
         setContentView(R.layout.activity_camera);
 
@@ -171,6 +177,8 @@ public class CameraActivity extends Activity {
         }
     }
 
+
+
     static public Context getContext(){
         return instanceContext;
     }
@@ -211,6 +219,7 @@ public class CameraActivity extends Activity {
     public static int getCurrentColor(){
         return currentColor;
     }
+
 
 
     public void OnclickHandler(View view) {

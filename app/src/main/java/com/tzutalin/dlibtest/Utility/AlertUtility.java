@@ -31,11 +31,12 @@ public class AlertUtility {
     private final int DEFAULT_STEP_THREE_TIME = 15;
     private final int DEFAULT_ALRAM_VOLUME = 50;
 
+
     Context mContext;
 
     AlertDialog.Builder builder;
     RetrofitConnection retrofitConnection;
-    ResponseLandmarkDTO responseDrowsyResponse;
+    ResponseLandmarkDTO responseDrowsyResponse; // step
 
     SharedPreferences settingPreferences;
 
@@ -59,6 +60,8 @@ public class AlertUtility {
         handler = new Handler();
         builder = new AlertDialog.Builder(mContext);
         builder.setCancelable(false);
+
+
 
         SharedPreferences settingPreferences = mContext.getSharedPreferences("settingPreferences", Context.MODE_PRIVATE);
 
@@ -197,10 +200,12 @@ public class AlertUtility {
 
                 // 성공적으로 서버 통신 성공
                 if (response.isSuccessful()) {
+
                     responseDrowsyResponse = response.body();
                     Log.e(TAG, "ResponseLandmark : " + response.body());
 
                     for(SleepCode sleepCode : SleepCode.values()){
+
                         Log.e(TAG, "sleepCode : " + sleepCode + "StatusCode : " + responseDrowsyResponse.getStatus_code());
                         if(sleepCode.getCode() == responseDrowsyResponse.getStatus_code()){
                             feedbackDialog(responseDrowsyResponse.getLogNo(), sleepCode.getReason());
