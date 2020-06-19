@@ -7,6 +7,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
+
+import com.tzutalin.dlibtest.user.model.User;
 
 public class dashboardRedActivity extends AppCompatActivity {
 
@@ -18,6 +21,8 @@ public class dashboardRedActivity extends AppCompatActivity {
         setContentView(R.layout.dashboard_red);
 
         ImageButton btn_right = (ImageButton)findViewById(R.id.btn_right);
+        TextView editText_avgStage = (TextView)findViewById(R.id.avgStage);
+        editText_avgStage.setText(String.valueOf(User.getInstance().getAvgStage()));
 
         btn_right.setOnClickListener(new View.OnClickListener() {
             @Override

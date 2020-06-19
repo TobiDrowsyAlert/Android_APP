@@ -7,6 +7,7 @@ import android.os.Message;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.tzutalin.dlibtest.CameraActivity;
 import com.tzutalin.dlibtest.RetrofitConnection;
 import com.tzutalin.dlibtest.domain.ResponseLandmarkDTO;
 import com.tzutalin.dlibtest.user.model.User;
@@ -53,7 +54,9 @@ public class TimerMinuteHandler extends Handler{
                         @Override
                         public void onResponse(Call<ResponseLandmarkDTO> call, Response<ResponseLandmarkDTO> response) {
                             if (response.isSuccessful()) {
-                                Log.e(TAG, "Handler Response Success : " + response.body().getAvgStage());
+                                Log.e(TAG, "Handler Response Success : " + (response.body() != null ? response.body().getWeakTime() : null));
+                                CameraActivity.setWeakTime(response.body().getWeakTime() ? "YES" : "NO");
+
                             } else {
                                 Log.e(TAG, "Handler Work Fail");
                             }

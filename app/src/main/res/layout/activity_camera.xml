@@ -96,6 +96,7 @@
         />
 
     <TextView
+        android:id="@+id/textViewIsWeakTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="230dp"
@@ -105,7 +106,9 @@
         android:textSize="20sp">
     </TextView>
 
+
     <TextView
+        android:id="@+id/textViewStage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="230dp"
@@ -115,10 +118,6 @@
         android:textSize="20sp">
     </TextView>
 
-    <!--fronttobring 써보기-->
-
-
-        <!--style="?android:attr/borderlessButtonStyle"-->
 
 
 

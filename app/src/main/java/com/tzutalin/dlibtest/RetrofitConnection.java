@@ -90,9 +90,11 @@ public class RetrofitConnection {
             public void onResponse(Call<ResponseLandmarkDTO> call, Response<ResponseLandmarkDTO> response) {
 
                 if(response.isSuccessful()){
+                    double avgStage = response.body().getAvgStage();
+                    User.getInstance().setAvgStage(avgStage);
+                    Intent intent = null;
 
                     //Log.e("로그인 성공시 플래그 값","1:" +login_flag);
-
                     SharedPreferences LoginPreferences = LoginActivity.getContext().getSharedPreferences("LoginPreferences", LoginActivity.getContext().MODE_PRIVATE);
                     SharedPreferences.Editor editor = LoginPreferences.edit();
                     editor.putString("id", requestLoginDTO.getUserId());
@@ -101,7 +103,14 @@ public class RetrofitConnection {
                     editor.commit();
 
                     Toast.makeText(LoginActivity.getContext(), "로그인 성공", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(LoginActivity.getContext(), dashboardBlueActivity.class);
+                    if(avgStage < 1){
+                        intent = new Intent(LoginActivity.getContext(), dashboardBlueActivity.class);
+                    }else if(avgStage < 2){
+                        intent = new Intent(LoginActivity.getContext(), dashboardYellowActivity.class);
+                    }else{
+                        intent = new Intent(LoginActivity.getContext(), dashboardRedActivity.class);
+                    }
+
                     LoginActivity.getContext().startActivity(intent);
                     isSuccess = true;
                 }

@@ -8,6 +8,38 @@
     android:background="#74a9cf"
     >
 
+    <TextView
+        android:id="@+id/avgStage"
+        android:layout_width="188dp"
+        android:layout_height="85dp"
+        android:fontFamily="@font/cookierunblack"
+        android:gravity="center"
+        android:textSize="24sp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.488"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.928" />
+
+
+    <TextView
+        android:id="@+id/status"
+        android:layout_width="188dp"
+        android:layout_height="85dp"
+        android:fontFamily="@font/cookierunblack"
+        android:gravity="center"
+        android:text="현재 위험도"
+        android:textSize="24sp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.761" />
+
     <ImageView
         android:id="@+id/image_blue"
         android:layout_width="182dp"
@@ -32,20 +64,5 @@
         app:layout_constraintVertical_bias="0.499"
         app:srcCompat="@drawable/right_black_18dp" />
 
-    <TextView
-        android:id="@+id/status"
-        android:layout_width="188dp"
-        android:layout_height="85dp"
-        android:fontFamily="@font/cookierunblack"
-        android:text="현재 위험도"
-        android:gravity="center"
-        android:textSize="24sp"
-
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.818" />
 
 </android.support.constraint.ConstraintLayout>

@@ -15,11 +15,6 @@ public class use1Activity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.use_1);
-
-
-
-
-
         ImageButton btn_left =(ImageButton)findViewById(R.id.btn_left);
         ImageButton btn_right =(ImageButton)findViewById(R.id.btn_right);
 

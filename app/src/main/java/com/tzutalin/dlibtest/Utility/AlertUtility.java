@@ -174,7 +174,6 @@ public class AlertUtility {
             }
         };
 
-
         handler.removeCallbacks(alarmRunnable);
         handler.postDelayed(alarmRunnable, time);
         handler.postDelayed(dialogRunnable, time);
@@ -203,9 +202,9 @@ public class AlertUtility {
 
                     responseDrowsyResponse = response.body();
                     Log.e(TAG, "ResponseLandmark : " + response.body());
+                    CameraActivity.setStage(String.valueOf(responseDrowsyResponse.getSleep_step()));
 
                     for(SleepCode sleepCode : SleepCode.values()){
-
                         Log.e(TAG, "sleepCode : " + sleepCode + "StatusCode : " + responseDrowsyResponse.getStatus_code());
                         if(sleepCode.getCode() == responseDrowsyResponse.getStatus_code()){
                             feedbackDialog(responseDrowsyResponse.getLogNo(), sleepCode.getReason());

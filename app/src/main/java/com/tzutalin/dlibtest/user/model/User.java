@@ -6,6 +6,9 @@ public class User {
 
     UserDTO userDTO;
     String userId;
+    double avgStage;
+    int currentStage;
+    Boolean isWeakTime;
     private static UserManager instance;
 
     private static class LazyHolder{
@@ -31,8 +34,31 @@ public class User {
         this.userId = userId;
     }
 
-
     public String getUserId(){
         return userId;
+    }
+
+    public double getAvgStage() {
+        return avgStage;
+    }
+
+    public void setAvgStage(double avgStage) {
+        this.avgStage = avgStage;
+    }
+
+    public int getCurrentStage() {
+        return currentStage;
+    }
+
+    public void setCurrentStage(int currentStage) {
+        this.currentStage = currentStage;
+    }
+
+    public Boolean getWeakTime() {
+        return isWeakTime;
+    }
+
+    public void setWeakTime(Boolean weakTime) {
+        isWeakTime = weakTime;
     }
 }

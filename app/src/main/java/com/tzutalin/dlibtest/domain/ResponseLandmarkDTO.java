@@ -8,6 +8,7 @@ public class ResponseLandmarkDTO {
     private int sleep_step;
     private String curTime;
     private double avgStage;
+    private Boolean isWeakTime;
 
     public int getLogNo() {
         return logNo;
@@ -49,5 +50,11 @@ public class ResponseLandmarkDTO {
         this.avgStage = avgStage;
     }
 
+    public Boolean getWeakTime() {
+        return isWeakTime;
+    }
 
+    public void setWeakTime(Boolean weakTime) {
+        isWeakTime = weakTime;
+    }
 }

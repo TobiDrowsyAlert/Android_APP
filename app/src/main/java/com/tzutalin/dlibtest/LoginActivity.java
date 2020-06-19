@@ -50,19 +50,6 @@ public class LoginActivity extends AppCompatActivity {
         editText_login = (EditText)findViewById(R.id.edit_login);
         editText_password = (EditText)findViewById(R.id.edit_password);
 
-        /*_name = retro.getUserId();
-        _password = retro.get_password();
-        String username = LoginPreferences.getString(_name,defualt);
-        String userpassword = LoginPreferences.getString(_password,defualt);
-
-        if(_name != null)
-        {
-            editText_login.setText(String.format("%s", username));
-            editText_password.setText(String.format("%s", userpassword));
-        }*/
-
-        //String username = LoginPreferences.getString(requestLoginDTO.getUserId(), defualt);
-        //String userpasssword = LoginPreferences.getString(requestLoginDTO.getUserPassword(), defualt);
         String username = LoginPreferences.getString("id", defualt); // ""
         String userpasssword = LoginPreferences.getString("password", defualt);
 
@@ -90,9 +77,6 @@ public class LoginActivity extends AppCompatActivity {
                 requestLoginDTO.setUserPassword(userPassword);      //비번 저장
 
                 user.setUserId(userId);
-
-
-
 
                 //retro.getUserId();
                 if(!retrofitConnection.requestLogin(requestLoginDTO)){

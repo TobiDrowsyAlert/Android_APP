@@ -35,6 +35,7 @@ import android.os.Vibrator;
 import android.provider.Settings;
 import android.support.annotation.Nullable;
 import android.support.constraint.ConstraintLayout;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,6 +45,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.tzutalin.dlibtest.Utility.AlertUtility;
@@ -62,7 +64,7 @@ import retrofit2.Response;
 /**
  * Created by darrenl on 2016/5/20.
  */
-public class CameraActivity extends Activity {
+public class CameraActivity extends AppCompatActivity {
 
     private static int OVERLAY_PERMISSION_REQ_CODE = 1;
     static Context instanceContext;
@@ -83,33 +85,32 @@ public class CameraActivity extends Activity {
     Bitmap bitm;
     ImageView i;
 
+    static TextView textViewWeakTime;
+    static TextView textViewStage;
+
+    Button btn;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_camera);
         retrofitConnection = new RetrofitConnection();
         retrofitConnection.setRetrofit("http://15.165.116.82:8080/");
         sleepStepManager = new SleepStepManager(retrofitConnection);
         timerHandler = new TimerHandler(retrofitConnection, this);
         countHandler = new TimerMinuteHandler(retrofitConnection, this);
 
-        super.onCreate(savedInstanceState);
+
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         instanceContext = this;
         UiHandler = new Handler(Looper.getMainLooper());
 
-
-
-
-        //landmarkdto
-
-        setContentView(R.layout.activity_camera);
-
+        textViewWeakTime = (TextView)findViewById(R.id.textViewIsWeakTime);
+        textViewStage = (TextView)findViewById(R.id.textViewStage);
 
         i = (ImageView)findViewById(R.id.ttt);
         bitm = BitmapFactory.decodeResource(getResources(), R.drawable.stopimage);
 
-
-        
         alertUtility = new AlertUtility(this);
 
         v = (View)findViewById(R.id.view1);
@@ -132,7 +133,6 @@ public class CameraActivity extends Activity {
         onClickStartCount(null);
         countHandlerStart();
         sleepStepManager.resetSleepStep();
-
 
     }
 
@@ -190,6 +190,27 @@ public class CameraActivity extends Activity {
     public static void runOnUi(Runnable runnable){
         UiHandler.post(runnable);
     }
+
+    static public void setStage(String stage){
+
+        runOnUi(new Runnable() {
+            @Override
+            public void run() {
+                textViewStage.setText("졸음 단계 : "+stage);
+            }
+        });
+    }
+
+    static public void setWeakTime(String isWeakTime){
+
+        runOnUi(new Runnable() {
+            @Override
+            public void run() {
+                textViewWeakTime.setText("취약 시간대 : "+isWeakTime);
+            }
+        });
+    }
+
     static public void setColor(int changeColor)
     {
         runOnUi(new Runnable() {
@@ -215,6 +236,8 @@ public class CameraActivity extends Activity {
 
         currentColor = changeColor;
     }
+
+
 
     public static int getCurrentColor(){
         return currentColor;
