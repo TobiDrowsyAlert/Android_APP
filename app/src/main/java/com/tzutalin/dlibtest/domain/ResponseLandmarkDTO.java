@@ -7,6 +7,7 @@ public class ResponseLandmarkDTO {
     private int status_code;
     private int sleep_step;
     private String curTime;
+    private double avgStage;
 
     public int getLogNo() {
         return logNo;
@@ -40,6 +41,13 @@ public class ResponseLandmarkDTO {
         this.curTime = curTime;
     }
 
+    public double getAvgStage(){
+        return avgStage;
+    }
+
+    public void setAvgStage(double avgStage){
+        this.avgStage = avgStage;
+    }
 
 
 }

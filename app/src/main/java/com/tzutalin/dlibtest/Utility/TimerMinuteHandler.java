@@ -8,9 +8,11 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.tzutalin.dlibtest.RetrofitConnection;
+import com.tzutalin.dlibtest.domain.ResponseLandmarkDTO;
 import com.tzutalin.dlibtest.user.model.User;
 
 import retrofit2.Call;
+import retrofit2.Callback;
 import retrofit2.Response;
 
 public class TimerMinuteHandler extends Handler{
@@ -46,22 +48,23 @@ public class TimerMinuteHandler extends Handler{
                 // 60초마다 서버로 전송
                 if(count % 60 == 0) {
                     //Toast.makeText(mContext.getApplicationContext(), "카운트 동작",Toast.LENGTH_SHORT).show();
-                    Call call = retrofitConnection.getServer().timer(User.getInstance().getUserDTO());
-                    call.enqueue(new retrofit2.Callback() {
+                    Call<ResponseLandmarkDTO> call = retrofitConnection.getServer().timer(User.getInstance().getUserDTO());
+                    call.enqueue(new retrofit2.Callback<ResponseLandmarkDTO>() {
                         @Override
-                        public void onResponse(Call call, Response response) {
+                        public void onResponse(Call<ResponseLandmarkDTO> call, Response<ResponseLandmarkDTO> response) {
                             if (response.isSuccessful()) {
-                                Log.e(TAG, "Handler Response Success");
+                                Log.e(TAG, "Handler Response Success : " + response.body().getAvgStage());
                             } else {
                                 Log.e(TAG, "Handler Work Fail");
                             }
                         }
 
                         @Override
-                        public void onFailure(Call call, Throwable t) {
+                        public void onFailure(Call<ResponseLandmarkDTO> call, Throwable t) {
                             Log.e(TAG, "Network Error : " + t.toString());
                         }
                     });
+
                 }
                 count++;
                 this.sendEmptyMessageDelayed(MESSAGE_TIMER_REPEAT, 1000);

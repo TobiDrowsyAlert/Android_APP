@@ -69,9 +69,6 @@ public class LoginActivity extends AppCompatActivity {
         editText_login.setText(String.format("%s", username));
         editText_password.setText(String.format("%s",userpasssword));
 
-
-
-
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
