@@ -2,6 +2,7 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
@@ -75,10 +76,11 @@
         android:layout_height="130dp"
         android:layout_marginBottom="130dp"
         android:background="@drawable/roundrectangle_r5"
-        android:drawableTop="@drawable/baseline_thumb_up_alt_black_18dp"
+        android:drawableTop="@drawable/outdoor2"
+
         android:fontFamily="@font/benzo"
         android:padding="20sp"
-        android:text="FAQ"
+        android:text="logout"
         android:textColor="#000000"
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -53,40 +53,6 @@
         app:layout_constraintStart_toStartOf="@+id/step2"
         app:layout_constraintTop_toBottomOf="@+id/step2" />
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="104dp"
-        android:layout_height="31dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginLeft="60dp"
-        android:layout_marginTop="40dp"
-        android:background="@drawable/textview"
-        android:fontFamily="@font/cookierunregular"
-        android:text="소리 크기"
-        android:textColor="@color/colorPrimary"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/step3"
-        app:layout_constraintStart_toStartOf="@+id/step3"
-        app:layout_constraintTop_toBottomOf="@+id/step3" />
-
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="251dp"
-        android:layout_height="33dp"
-        android:layout_marginTop="150dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginBottom="50dp"
-        android:background="@drawable/textview"
-        android:fontFamily="@font/cookierunregular"
-        android:text="졸음 체크 문구 사용 체크"
-        android:textColor="@color/colorPrimary"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/button9"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
-
     <SeekBar
         android:id="@+id/step_1_seek"
         android:layout_width="180dp"
@@ -121,21 +87,6 @@
         app:layout_constraintStart_toStartOf="@+id/step_2_seek"
         app:layout_constraintTop_toBottomOf="@+id/step_2_seek" />
 
-    <SeekBar
-        android:id="@+id/sound_seek"
-        android:layout_width="180dp"
-        android:layout_height="25dp"
-
-
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginRight="50dp"
-        android:maxWidth="20dp"
-        android:minHeight="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView4"
-        app:layout_constraintTop_toBottomOf="@+id/step_3_sec" />
-
     <TextView
         android:id="@+id/step_1_sec"
         android:layout_width="wrap_content"
@@ -166,16 +117,6 @@
         app:layout_constraintStart_toStartOf="@+id/step_3_seek"
         app:layout_constraintTop_toBottomOf="@+id/step_3_seek" />
 
-    <TextView
-        android:id="@+id/sound_value"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:textColor="@color/colorPrimary"
-        app:layout_constraintEnd_toEndOf="@+id/sound_seek"
-        app:layout_constraintStart_toStartOf="@+id/sound_seek"
-        app:layout_constraintTop_toBottomOf="@+id/sound_seek" />
-
     <CheckBox
         android:id="@+id/step_2_CB"
         android:layout_width="wrap_content"
@@ -205,22 +146,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/step_1_seek"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <CheckBox
-        android:id="@+id/checkBox4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="140dp"
-        android:layout_marginEnd="80dp"
-        android:layout_marginRight="80dp"
-        android:layout_marginBottom="51dp"
-        android:textColor="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/button10"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView9"
-        app:layout_constraintTop_toBottomOf="@+id/sound_value" />
 
     <Button
         android:id="@+id/button9"

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest package="com.tzutalin.dlibtest"
-          xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
@@ -21,12 +22,19 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
+
         android:usesCleartextTraffic="true">
         <activity
             android:name=".LoginActivity"
-            android:configChanges="orientation|screenSize"
+
+            android:screenOrientation="portrait"
+            tools:ignore ="LockedOrientationActivity"
+
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+
+            >
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -35,22 +43,57 @@
 
         </activity>
 
-        <activity android:name=".signupEvnet"/>
-        <activity android:name=".menuEvent"/>
-        <activity android:name=".MainActivity"/>
-        <activity android:name=".SettingActivity"/>
-        <activity android:name=".WebViewActivity"/>
-        <activity android:name=".dashboardRedActivity"/>
-        <activity android:name=".dashboardYellowActivity"/>
-        <activity android:name=".dashboardBlueActivity"/>
-        <activity android:name=".use1Activity"/>
-        <activity android:name=".use2Activity"/>
-        <activity android:name=".use3Activity"/>
+
+        <activity android:name=".signupEvnet"
+            android:screenOrientation="portrait"
+            tools:ignore ="LockedOrientationActivity"/>
+        <activity android:name=".menuEvent"
+            android:screenOrientation="portrait"
+            tools:ignore ="LockedOrientationActivity"/>
+
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait"
+            tools:ignore ="LockedOrientationActivity"/>
+        <activity android:name=".SettingActivity"
+            android:screenOrientation="portrait"
+            tools:ignore ="LockedOrientationActivity"/>
+        <activity android:name=".WebViewActivity"
+            android:screenOrientation="portrait"
+            tools:ignore ="LockedOrientationActivity"/>
+
+        // 대쉬보드 엑비티비
+        <activity android:name=".dashboardRedActivity"
+            android:screenOrientation="portrait"
+            tools:ignore ="LockedOrientationActivity"/>
+        <activity android:name=".dashboardYellowActivity"
+            android:screenOrientation="portrait"
+            tools:ignore ="LockedOrientationActivity"/>
+        <activity android:name=".dashboardBlueActivity"
+            android:screenOrientation="portrait"
+            tools:ignore ="LockedOrientationActivity"/>
+
+        // 사용 방법 엑티비티
+        <activity android:name=".use1Activity"
+            android:screenOrientation="portrait"
+            tools:ignore ="LockedOrientationActivity"/>
+        <activity android:name=".use2Activity"
+            android:screenOrientation="portrait"
+            tools:ignore ="LockedOrientationActivity"/>
+        <activity android:name=".use3Activity"
+            android:screenOrientation="portrait"
+            tools:ignore ="LockedOrientationActivity"/>
+        <activity android:name=".use0Activity"
+            android:screenOrientation="portrait"
+            tools:ignore ="LockedOrientationActivity"/>
+        <activity android:name=".usedashboradActivity"
+            android:screenOrientation="portrait"
+            tools:ignore ="LockedOrientationActivity"/>
 
 
         <activity
             android:name=".CameraActivity"
-            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait"
+            tools:ignore ="LockedOrientationActivity"
             android:label="@string/app_name">
         </activity>
 

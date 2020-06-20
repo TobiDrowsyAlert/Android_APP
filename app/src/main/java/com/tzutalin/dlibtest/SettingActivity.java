@@ -38,12 +38,12 @@ public class SettingActivity extends AppCompatActivity {
         step_1 = findViewById(R.id.step_1_seek);
         step_2 = findViewById(R.id.step_2_seek);
         step_3 = findViewById(R.id.step_3_seek);
-        sound_bar = findViewById(R.id.sound_seek);
+        //sound_bar = findViewById(R.id.sound_seek);
 
         TextView tv_1 = findViewById(R.id.step_1_sec);
         TextView tv_2 = findViewById(R.id.step_2_sec);
         TextView tv_3 = findViewById(R.id.step_3_sec);
-        TextView tv_4 = findViewById(R.id.sound_value);
+        //TextView tv_4 = findViewById(R.id.sound_value);
 
         int currentStepOneTime = settingPreferences.getInt("stepOne", DEFAULT_STEP_ONE_TIME);
         int currentStepTwoTime = settingPreferences.getInt("stepTwo", DEFAULT_STEP_TWO_TIME);
@@ -53,7 +53,7 @@ public class SettingActivity extends AppCompatActivity {
         step_1.setProgress(currentStepOneTime);
         step_2.setProgress(currentStepTwoTime);
         step_3.setProgress(currentStepThreeTime);
-        sound_bar.setProgress(currentAlramVolume);
+        //sound_bar.setProgress(currentAlramVolume);
 
         tv_1.setText(String.format("%s/sec", getTimeText(currentStepOneTime,
                 DEFAULT_STEP_ONE_TIME,DEFAULT_STEP_ONE_TIME)));
@@ -61,7 +61,7 @@ public class SettingActivity extends AppCompatActivity {
                 DEFAULT_STEP_TWO_TIME,DEFAULT_STEP_TWO_TIME)));
         tv_3.setText(String.format("%s/sec", getTimeText(currentStepThreeTime,
                 DEFAULT_STEP_THREE_TIME,DEFAULT_STEP_THREE_TIME)));
-        tv_4.setText(String.format("%s", currentAlramVolume));
+        //tv_4.setText(String.format("%s", currentAlramVolume));
 
 
         btn_reset.setOnClickListener(new View.OnClickListener() {
@@ -89,7 +89,7 @@ public class SettingActivity extends AppCompatActivity {
                 editor.putInt("stepOne", step_1.getProgress());
                 editor.putInt("stepTwo", step_2.getProgress());
                 editor.putInt("stepThree", step_3.getProgress());
-                editor.putInt("soundBar", sound_bar.getProgress());
+                //editor.putInt("soundBar", sound_bar.getProgress());
                 editor.putFloat("stepOneTime", (float)getTimeText(step_1.getProgress(),
                         DEFAULT_STEP_ONE_TIME,DEFAULT_STEP_ONE_TIME));
                 editor.putFloat("stepTwoTime", (float)getTimeText(step_2.getProgress(),
@@ -154,7 +154,7 @@ public class SettingActivity extends AppCompatActivity {
             }
         });
 
-        sound_bar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+/*        sound_bar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
 
@@ -168,7 +168,7 @@ public class SettingActivity extends AppCompatActivity {
             public void onStopTrackingTouch(SeekBar seeBar) {
 
             }
-        });
+        });*/
     }
 
     private double getTimeText(int progress, int defaultTime, int differentTime){

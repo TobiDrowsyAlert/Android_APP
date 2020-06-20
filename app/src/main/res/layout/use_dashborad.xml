@@ -7,7 +7,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
     <ImageView
         android:id="@+id/imageView5"
         android:layout_width="match_parent"
@@ -15,22 +14,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/use2" />
+        app:srcCompat="@drawable/dashboard" />
 
     <TextView
-        android:id="@+id/howtouse"
+        android:id="@+id/use"
         android:layout_width="230dp"
         android:layout_height="94dp"
         android:layout_marginTop="370dp"
         android:fontFamily="@font/cookierunblack"
         android:gravity="center"
-        android:text="얼굴인식이 안 될 경우 노란색으로 알람을 줍니다.
-오랫동안 얼굴 인식이 안 될 경우 경보가 울리게 됩니다."
+        android:text="로그인 성공 시 졸음 단계의 위험도를 보여줍니다."
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
     <ImageButton
         android:id="@+id/btn_left"
