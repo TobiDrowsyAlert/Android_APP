@@ -116,6 +116,7 @@ public class RetrofitConnection {
                         intent = new Intent(LoginActivity.getContext(), dashboardRedActivity.class);
                     }
 
+                    intent.setFlags(intent.FLAG_ACTIVITY_NO_HISTORY);
                     LoginActivity.getContext().startActivity(intent);
                     isSuccess = true;
                 }

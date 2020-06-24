@@ -1,9 +1,12 @@
 package com.tzutalin.dlibtest;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -46,7 +49,7 @@ public class menuEvent extends AppCompatActivity {
         Button btn_menu_2 =(Button)findViewById(R.id.menu_2);
         Button btn_menu_3 =(Button)findViewById(R.id.menu_3);
         Button btn_menu_4 =(Button)findViewById(R.id.menu_4);
-        //Button btn_menu_5 =(Button)findViewById(R.id.menu_5);
+        Button btn_menu_5 =(Button)findViewById(R.id.menu_5);
 
         btn_menu_1.setOnClickListener(new View.OnClickListener() {
            @Override
@@ -71,6 +74,7 @@ public class menuEvent extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(menuEvent.this, SettingActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
                 startActivity(intent);
             }
         });
@@ -78,7 +82,8 @@ public class menuEvent extends AppCompatActivity {
         btn_menu_4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(menuEvent.this, use1Activity.class);
+                Intent intent = new Intent(menuEvent.this, usedashboradActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
                 startActivity(intent);
             }
         });
@@ -105,6 +110,32 @@ public class menuEvent extends AppCompatActivity {
 
 
 
+        btn_menu_5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(menuEvent.this);
+                builder.setMessage("로그아웃 하시겠습니까?");
+                builder.setTitle("로그아웃 알림창")
+                        .setCancelable(false)
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                finish();
+                                //System.runFinalizersOnExit(true);
+                                //System.exit(0);
+                            }
+                        })
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int i) {
+                                dialog.cancel();
+                            }
+                        });
+                AlertDialog alert = builder.create();
+                alert.setTitle("로그아웃 알림창");
+                alert.show();
+            }
+        });
     }
 
     @Override

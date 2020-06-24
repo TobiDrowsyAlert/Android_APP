@@ -14,9 +14,6 @@ public class use3Activity extends AppCompatActivity {
         setContentView(R.layout.use_3);
 
 
-
-
-
         ImageButton btn_left =(ImageButton)findViewById(R.id.btn_left);
         //ImageButton btn_right =(ImageButton)findViewById(R.id.btn_right);
 
@@ -24,6 +21,7 @@ public class use3Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(use3Activity.this, use2Activity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
                 startActivity(intent);
             }
         });

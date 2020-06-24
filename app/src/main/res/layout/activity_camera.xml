@@ -55,8 +55,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="top"
-        android:layout_marginLeft="130dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="20dp"
         android:onClick="onClickReset"
         android:text="리셋" />
@@ -66,8 +66,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="top"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="90dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="60dp"
         android:onClick="onClickDrop"
         android:text="단계하락" />
 
@@ -76,15 +76,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="top"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
         android:onClick="onClickTimerLog"
         android:text="기록" />
 
     <View
         android:id="@+id/view1"
-        android:layout_width="199dp"
-        android:layout_height="191dp" />
+        android:layout_width="202dp"
+        android:layout_height="230dp" />
 
 
     <ImageView
@@ -99,9 +99,10 @@
         android:id="@+id/textViewIsWeakTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="230dp"
-        android:layout_marginTop="50dp"
-        android:background="#ffffff"
+        android:layout_marginLeft="210dp"
+        android:layout_marginTop="20dp"
+        android:background="#000000"
+        android:textColor ="#ffffff"
         android:text="취약시간 : "
         android:textSize="20sp">
     </TextView>
@@ -111,9 +112,10 @@
         android:id="@+id/textViewStage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="230dp"
-        android:layout_marginTop="100dp"
-        android:background="#ffffff"
+        android:layout_marginLeft="210dp"
+        android:layout_marginTop="70dp"
+        android:background="#000000"
+        android:textColor ="#ffffff"
         android:text="졸음 단계 : "
         android:textSize="20sp">
     </TextView>
