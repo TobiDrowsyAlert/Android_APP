@@ -13,9 +13,9 @@ import android.widget.TextView;
 public class SettingActivity extends AppCompatActivity {
 
     static private SharedPreferences settingPreferences;
-    private final int DEFAULT_STEP_ONE_TIME = 0;
-    private final int DEFAULT_STEP_TWO_TIME = 0;
-    private final int DEFAULT_STEP_THREE_TIME = 0;
+    private final int DEFAULT_STEP_ONE_TIME = 5;
+    private final int DEFAULT_STEP_TWO_TIME = 10;
+    private final int DEFAULT_STEP_THREE_TIME = 20;
     private final int DEFAULT_ALRAM_VOLUME = 50;
 
 
@@ -175,4 +175,5 @@ public class SettingActivity extends AppCompatActivity {
         double value = defaultTime + (progress / 100.0) * differentTime;
         return value = Math.round((value * 100)/100.0);
     }
+
 }

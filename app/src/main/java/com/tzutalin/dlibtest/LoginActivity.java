@@ -17,6 +17,8 @@ import com.tzutalin.dlibtest.user.domain.RequestLoginDTO;
 import com.tzutalin.dlibtest.user.model.User;
 import com.tzutalin.dlibtest.user.model.UserDTO;
 
+import retrofit2.Retrofit;
+
 public class LoginActivity extends AppCompatActivity {
 
     static Context context;
@@ -24,7 +26,7 @@ public class LoginActivity extends AppCompatActivity {
     private RequestLoginDTO login_infor;
 
     static private SharedPreferences LoginPreferences;
-    RetrofitConnection retro;
+    RetrofitConnection retrofitConnection;
 
     private final String defualt = "";
 
@@ -34,6 +36,9 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         RequestLoginDTO requestLoginDTO = new RequestLoginDTO();  // 선언 위치 변경함
+
+        retrofitConnection = RetrofitConnection.getInstance();
+        retrofitConnection.setRetrofit("http://15.165.116.82:8080/");
 
         LoginPreferences = getSharedPreferences("LoginPreferences",MODE_PRIVATE);
 
@@ -70,7 +75,6 @@ public class LoginActivity extends AppCompatActivity {
 
                 user.setUserDTO(new UserDTO());
                 user.getUserDTO().setUserId(userId);
-                RetrofitConnection retrofitConnection = new RetrofitConnection();
 
                 //RequestLoginDTO requestLoginDTO = new RequestLoginDTO();  //선언
                 requestLoginDTO.setUserId(userId);            // 아이디 저장
@@ -107,9 +111,8 @@ public class LoginActivity extends AppCompatActivity {
                 editText_password.setHint("");
             }
         });
-
-
     }
+
 
     static public Context getContext(){
         return context;

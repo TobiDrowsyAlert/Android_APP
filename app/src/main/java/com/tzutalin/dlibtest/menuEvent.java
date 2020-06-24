@@ -8,6 +8,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
+
+import retrofit2.Retrofit;
 
 public class menuEvent extends AppCompatActivity {
 
@@ -15,12 +18,15 @@ public class menuEvent extends AppCompatActivity {
     private final int DEFAULT_STEP_TWO_TIME = 10;
     private final int DEFAULT_STEP_THREE_TIME = 15;
     private final int DEFAULT_ALRAM_VOLUME = 50;
+    private RetrofitConnection retrofitConnection;
+    private long lastTimeBackPressed;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu);
 
+        retrofitConnection = RetrofitConnection.getInstance();
         SharedPreferences settingPreferences = getSharedPreferences("settingPreferences", MODE_PRIVATE);
 
         if(!settingPreferences.contains("stepOne")){
@@ -77,12 +83,35 @@ public class menuEvent extends AppCompatActivity {
             }
         });
 
-        /*btn_menu_5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(menuEvent.this, ViewHandler.class);
-                //startActivity(intent);
-            }
-        });*/
     }
+    public void onClickLogout(View view){
+        retrofitConnection.requestLogout();
+        finishAffinity();
+        System.runFinalization();
+        System.exit(0);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if(System.currentTimeMillis() - lastTimeBackPressed < 1500){
+            retrofitConnection.requestLogout();
+            finishAffinity();
+            System.runFinalization();
+            System.exit(0);
+            return;
+        }
+        lastTimeBackPressed = System.currentTimeMillis();
+        Toast.makeText(this,"'뒤로' 버튼을 한 번 더 누르면 종료됩니다.",Toast.LENGTH_SHORT).show();
+
+
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        retrofitConnection.requestLogout();
+    }
+
+
 }

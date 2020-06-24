@@ -60,7 +60,7 @@ public class AlertUtility {
         handler = new Handler();
         builder = new AlertDialog.Builder(mContext);
         builder.setCancelable(false);
-
+        retrofitConnection = RetrofitConnection.getInstance();
 
 
         SharedPreferences settingPreferences = mContext.getSharedPreferences("settingPreferences", Context.MODE_PRIVATE);
@@ -69,7 +69,7 @@ public class AlertUtility {
         stepTwoAlarmTime = settingPreferences.getFloat("stepTwoTime", DEFAULT_STEP_TWO_TIME) * 1000;
         stepThreeAlarmTime = settingPreferences.getFloat("stepThreeTime", DEFAULT_STEP_THREE_TIME) * 1000;
 
-        RetrofitConnection retrofitConnection = new RetrofitConnection();
+        RetrofitConnection retrofitConnection = RetrofitConnection.getInstance();
         retrofitConnection.setRetrofit("http://15.165.116.82:8080/");
 
 
@@ -185,10 +185,6 @@ public class AlertUtility {
 
     public void setRetrofitConnection(RetrofitConnection retrofitConnection){
         this.retrofitConnection = retrofitConnection;
-    }
-
-    public void generateRetrofitConnectionWithURL(String url){
-        this.retrofitConnection = new RetrofitConnection(url);
     }
 
     public void requestSleepAnalyze(RequestAnalyzeSleepDTO requestDTO){

@@ -13,6 +13,8 @@ import com.tzutalin.dlibtest.domain.RequestRegisterDTO;
 
 import java.util.regex.Pattern;
 
+import retrofit2.Retrofit;
+
 public class signupEvnet extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -43,7 +45,7 @@ public class signupEvnet extends AppCompatActivity {
                     return;
                 }
 
-                RetrofitConnection retrofitConnection = new RetrofitConnection();
+                RetrofitConnection retrofitConnection = RetrofitConnection.getInstance();
                 retrofitConnection.requestRegitser(requestRegisterDTO);
 
                 Intent intent = new Intent(signupEvnet.this , LoginActivity.class);

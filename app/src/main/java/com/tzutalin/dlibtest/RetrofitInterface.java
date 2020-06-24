@@ -36,4 +36,7 @@ public interface RetrofitInterface {
     @POST("/user/register")
     Call<ResponseLoginDTO> register(@Body RequestRegisterDTO requestRegisterDTO);
 
+    @POST("/user/logout")
+    Call<ResponseLoginDTO> logout(@Body UserDTO userDTO);
+
 }

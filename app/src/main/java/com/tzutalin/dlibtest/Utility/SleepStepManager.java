@@ -19,8 +19,6 @@ public class SleepStepManager {
 
     public SleepStepManager(RetrofitConnection retrofitConnection){
         this.retrofitConnection = retrofitConnection;
-        retrofitConnection.setRetrofit("http://15.165.116.82:8080/");
-
         runnable = new Runnable() {
 
             @Override

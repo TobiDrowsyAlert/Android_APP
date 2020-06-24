@@ -94,8 +94,7 @@ public class CameraActivity extends AppCompatActivity {
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camera);
-        retrofitConnection = new RetrofitConnection();
-        retrofitConnection.setRetrofit("http://15.165.116.82:8080/");
+        retrofitConnection = RetrofitConnection.getInstance();
         sleepStepManager = new SleepStepManager(retrofitConnection);
         timerHandler = new TimerHandler(retrofitConnection, this);
         countHandler = new TimerMinuteHandler(retrofitConnection, this);

@@ -313,7 +313,6 @@ public class OnGetImageListener implements OnImageAvailableListener {
                                         true, faceLandmark.getLandmark(), 50, true);
                                 requestAnalyzeDTO.setUserId(user.getUserId());
 
-                                alertUtility.generateRetrofitConnectionWithURL("http://15.165.116.82:8080/");
                                 alertUtility.requestSleepAnalyze(requestAnalyzeDTO);
 
                             }
@@ -332,7 +331,6 @@ public class OnGetImageListener implements OnImageAvailableListener {
                                     Log.e("OnGetImageListener", "Camera Pause");
                                 }
                                 else {
-                                    alertUtility.generateRetrofitConnectionWithURL("http://15.165.116.82:8080/");
                                     requestAnalyzeDTO.setRequestAnalyzeSleepDTO(null,false,null,0,true);
                                     requestAnalyzeDTO.setUserId(user.getUserId());
                                     alertUtility.requestSleepAnalyze(requestAnalyzeDTO);

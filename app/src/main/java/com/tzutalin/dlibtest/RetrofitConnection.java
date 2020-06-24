@@ -34,12 +34,17 @@ public class RetrofitConnection {
     Retrofit retrofit;
     RetrofitInterface server;
 
-    public RetrofitConnection(){
-        setRetrofit("http://15.165.116.82:8080");
+
+    private static class Lazyholder{
+        public static final RetrofitConnection INSTANCE = new RetrofitConnection();
     }
 
-    public RetrofitConnection(String url){
-        setRetrofit(url);
+    //setRetrofit("http://15.165.116.82:8080");
+    private RetrofitConnection(){
+    }
+
+    static public RetrofitConnection getInstance(){
+        return Lazyholder.INSTANCE;
     }
 
     public RetrofitInterface getServer() {
@@ -131,6 +136,25 @@ public class RetrofitConnection {
         });
 
         return isSuccess;
+    }
+
+    public void requestLogout(){
+
+        Call<ResponseLoginDTO> call = this.getServer().logout(User.getInstance().getUserDTO());
+        call.enqueue(new Callback<ResponseLoginDTO>() {
+            @Override
+            public void onResponse(Call<ResponseLoginDTO> call, Response<ResponseLoginDTO> response) {
+                if(response.isSuccessful()){
+                    Log.e(TAG, "logout Success");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseLoginDTO> call, Throwable t) {
+
+            }
+        });
+
     }
 
 
