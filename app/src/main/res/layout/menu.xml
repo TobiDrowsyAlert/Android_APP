@@ -71,19 +71,17 @@
         app:layout_constraintTop_toBottomOf="@+id/menu_2" />
 
     <Button
-        android:id="@+id/logout_button"
+        android:id="@+id/menu_5"
         android:layout_width="140dp"
         android:layout_height="130dp"
         android:layout_marginBottom="130dp"
         android:background="@drawable/roundrectangle_r5"
         android:drawableTop="@drawable/baseline_dashboard_black_18dp"
-
         android:fontFamily="@font/benzo"
         android:padding="20sp"
         android:text="dashboard"
         android:textColor="#000000"
         android:textSize="15sp"
-        android:onClick = "onClickLogout"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/menu_4"

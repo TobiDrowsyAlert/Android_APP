@@ -87,6 +87,10 @@ public class AlertUtility {
         requestFeedbackDTO.setCorrect(isCorrect);
         requestFeedbackDTO.setUserId(User.getInstance().getUserId());
         requestFeedbackDTO.setIsFeedback(true);
+        Log.e(TAG,"========확인=======");
+        Log.e(TAG, requestFeedbackDTO.toString());
+        Log.e(TAG, requestFeedbackDTO.getIsFeedback().toString());
+
         Call call = retrofitConnection.getServer().feedback(requestFeedbackDTO);
         call.enqueue(new Callback() {
             @Override

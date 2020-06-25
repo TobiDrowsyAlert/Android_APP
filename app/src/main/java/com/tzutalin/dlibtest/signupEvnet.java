@@ -39,7 +39,7 @@ public class signupEvnet extends AppCompatActivity {
                 String name = userName.getText().toString();
                 String email = userEmail.getText().toString();
 
-                RequestRegisterDTO requestRegisterDTO = new RequestRegisterDTO(id, password, passwordConfirm, name, email);
+                RequestRegisterDTO requestRegisterDTO = new RequestRegisterDTO(id, password, passwordConfirm, email, name);
 
                 if(!isCorrectNamingRule(requestRegisterDTO)){
                     return;

@@ -13,6 +13,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.tzutalin.dlibtest.user.model.User;
+
 import retrofit2.Retrofit;
 
 public class menuEvent extends AppCompatActivity {
@@ -88,12 +90,24 @@ public class menuEvent extends AppCompatActivity {
             }
         });
 
-    }
-    public void onClickLogout(View view){
-        retrofitConnection.requestLogout();
-        finishAffinity();
-        System.runFinalization();
-        System.exit(0);
+        btn_menu_5.setOnClickListener(new View.OnClickListener() {
+            Intent intent;
+            @Override
+            public void onClick(View v) {
+                double avgStage = User.getInstance().getAvgStage();
+                if(avgStage < 1){
+                    intent = new Intent(LoginActivity.getContext(), dashboardBlueActivity.class);
+                }else if(avgStage < 2){
+                    intent = new Intent(LoginActivity.getContext(), dashboardYellowActivity.class);
+                }else{
+                    intent = new Intent(LoginActivity.getContext(), dashboardRedActivity.class);
+                }
+
+                intent.setFlags(intent.FLAG_ACTIVITY_NO_HISTORY);
+                startActivity(intent);
+
+            }
+        });
     }
 
     @Override
@@ -107,35 +121,6 @@ public class menuEvent extends AppCompatActivity {
         }
         lastTimeBackPressed = System.currentTimeMillis();
         Toast.makeText(this,"'뒤로' 버튼을 한 번 더 누르면 종료됩니다.",Toast.LENGTH_SHORT).show();
-
-
-
-        btn_menu_5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(menuEvent.this);
-                builder.setMessage("로그아웃 하시겠습니까?");
-                builder.setTitle("로그아웃 알림창")
-                        .setCancelable(false)
-                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                finish();
-                                //System.runFinalizersOnExit(true);
-                                //System.exit(0);
-                            }
-                        })
-                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int i) {
-                                dialog.cancel();
-                            }
-                        });
-                AlertDialog alert = builder.create();
-                alert.setTitle("로그아웃 알림창");
-                alert.show();
-            }
-        });
     }
 
     @Override
