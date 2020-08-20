@@ -29,8 +29,10 @@ import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.Looper;
+import android.os.Message;
 import android.os.Vibrator;
 import android.provider.Settings;
 import android.support.annotation.Nullable;
@@ -48,13 +50,17 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.naver.speech.clientapi.SpeechRecognitionResult;
 import com.tzutalin.dlibtest.Utility.AlertUtility;
 import com.tzutalin.dlibtest.Utility.SleepStepManager;
 import com.tzutalin.dlibtest.Utility.TimerHandler;
 import com.tzutalin.dlibtest.Utility.TimerMinuteHandler;
 import com.tzutalin.dlibtest.domain.ResponseLandmarkDTO;
 import com.tzutalin.dlibtest.user.model.User;
+import com.tzutalin.dlibtest.utils.AudioWriterPCM;
 
+import java.lang.ref.WeakReference;
+import java.util.List;
 import java.util.Timer;
 
 import retrofit2.Call;
@@ -65,7 +71,7 @@ import retrofit2.Response;
  * Created by darrenl on 2016/5/20.
  */
 public class CameraActivity extends AppCompatActivity {
-
+    private static final String TAG = MainActivity.class.getSimpleName();
     private static int OVERLAY_PERMISSION_REQ_CODE = 1;
     static Context instanceContext;
     static public Boolean isActivateNetwork = true;
@@ -75,7 +81,14 @@ public class CameraActivity extends AppCompatActivity {
     static int currentColor;
     static TimerMinuteHandler countHandler;
 
-    ResponseLandmarkDTO landmarkdto;
+    Button btnSpeech;
+
+    // 음성인식 변수들
+    private static final String CLIENT_ID = "lpsdk0tjp1"; // "내 애플리케이션"에서 Client ID를 확인해서 이곳에 적어주세요.
+    private CameraActivity.RecognitionHandler handler;
+    private static NaverRecognizer naverRecognizer;
+    private String mResult;
+    private AudioWriterPCM writer;
 
     public static Handler UiHandler;
     AlertUtility alertUtility;
@@ -88,7 +101,62 @@ public class CameraActivity extends AppCompatActivity {
     static TextView textViewWeakTime;
     static TextView textViewStage;
 
+    static AlertDialog alertDialog;
+
     Button btn;
+
+    // Handle speech recognition Messages.
+    private void handleMessage(Message msg) {
+        switch (msg.what) {
+            case R.id.clientReady: // 음성인식 준비 가능
+                //동작 확인용 인터페이스 추가 필요
+                writer = new AudioWriterPCM(Environment.getExternalStorageDirectory().getAbsolutePath() + "/NaverSpeechTest");
+                writer.open("Test");
+                break;
+            case R.id.audioRecording:
+                writer.write((short[]) msg.obj);
+                break;
+            case R.id.partialResult:
+                mResult = (String) (msg.obj);
+                // 실패 시 원인 설명 필요
+                break;
+            case R.id.finalResult: // 최종 인식 결과
+                SpeechRecognitionResult speechRecognitionResult = (SpeechRecognitionResult) msg.obj;
+                List<String> results = speechRecognitionResult.getResults();
+                StringBuilder strBuf = new StringBuilder();
+                for(String result : results) {
+                    strBuf.append(result);
+                    strBuf.append("\n");
+                    if(result.contains("예")){
+                        Toast.makeText(CameraActivity.this, "응답 `예` 확인" , Toast.LENGTH_SHORT).show();
+                        alertDialog.getButton(DialogInterface.BUTTON_POSITIVE).callOnClick();
+                    }
+                    else if(result.contains("아니요")){
+                        Toast.makeText(CameraActivity.this, "응답 `아니요` 확인" , Toast.LENGTH_SHORT).show();
+                        alertDialog.getButton(DialogInterface.BUTTON_NEGATIVE).callOnClick();
+                    }
+                }
+                mResult = strBuf.toString();
+                // 결과값 텍스트로 보여주기
+                //txtResult.setText(mResult);
+                break;
+            case R.id.recognitionError:
+                if (writer != null) {
+                    writer.close();
+                }
+                mResult = "Error code : " + msg.obj.toString();
+                // 실패 시 결과 값 테스트로 보여주기
+                //txtResult.setText(mResult);
+                break;
+            case R.id.clientInactive:
+                if (writer != null) {
+                    writer.close();
+                }
+/*                btnStart.setText(R.string.str_start);
+                btnStart.setEnabled(true);*/
+                break;
+        }
+    }
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -99,6 +167,8 @@ public class CameraActivity extends AppCompatActivity {
         timerHandler = new TimerHandler(retrofitConnection, this);
         countHandler = new TimerMinuteHandler(retrofitConnection, this);
 
+        handler = new RecognitionHandler(this);
+        naverRecognizer = new NaverRecognizer(this, handler, CLIENT_ID);
 
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         instanceContext = this;
@@ -108,6 +178,7 @@ public class CameraActivity extends AppCompatActivity {
         textViewStage = (TextView)findViewById(R.id.textViewStage);
 
         i = (ImageView)findViewById(R.id.ttt);
+        btnSpeech = (Button)findViewById(R.id.btnSpeech);
         bitm = BitmapFactory.decodeResource(getResources(), R.drawable.stopimage);
 
         alertUtility = new AlertUtility(this);
@@ -129,6 +200,13 @@ public class CameraActivity extends AppCompatActivity {
                     .commit();
         }
 
+        btnSpeech.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startSpeech();
+            }
+        });
+
         onClickStartCount(null);
         countHandlerStart();
         sleepStepManager.resetSleepStep();
@@ -145,10 +223,22 @@ public class CameraActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onStart() {
+        super.onStart(); // 음성인식 서버 초기화는 여기서
+        naverRecognizer.getSpeechRecognizer().initialize();
+    }
+
+    @Override
     protected void onResume() {
         super.onResume();
         onClickStartCount(null);
         countHandlerStart();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop(); // 음성인식 서버 종료
+        naverRecognizer.getSpeechRecognizer().release();
     }
 
     @Override
@@ -297,6 +387,8 @@ public class CameraActivity extends AppCompatActivity {
         countHandler.sendEmptyMessage(timerHandler.MESSAGE_TIMER_PAUSE);
     }
 
+
+
     public void onClickDrop(View view){
         Call call = retrofitConnection.getServer().dropSleepStep(User.getInstance().getUserDTO());
         call.enqueue(new Callback() {
@@ -325,5 +417,40 @@ public class CameraActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    static public void startSpeech(){
+        if(!naverRecognizer.getSpeechRecognizer().isRunning()) {
+            naverRecognizer.recognize();
+            // 실행 중 동작 아이콘 추가 부분
+        } else {
+            Log.d(TAG, "stop and wait Final Result");
+            naverRecognizer.getSpeechRecognizer().stop();
+        }
+    }
+
+    static public void startSpeech(AlertDialog alertDialog){
+        if(!naverRecognizer.getSpeechRecognizer().isRunning()) {
+            naverRecognizer.recognize();
+            // 실행 중 동작 아이콘 추가 부분
+        } else {
+            Log.d(TAG, "stop and wait Final Result");
+            naverRecognizer.getSpeechRecognizer().stop();
+        }
+    }
+
+    // Declare handler for handling SpeechRecognizer thread's Messages.
+    static class RecognitionHandler extends Handler {
+        private final WeakReference<CameraActivity> mActivity;
+        RecognitionHandler(CameraActivity activity) {
+            mActivity = new WeakReference<CameraActivity>(activity);
+        }
+        @Override
+        public void handleMessage(Message msg) {
+            CameraActivity activity = mActivity.get();
+            if (activity != null) {
+                activity.handleMessage(msg);
+            }
+        }
     }
 }

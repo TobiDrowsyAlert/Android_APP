@@ -39,7 +39,6 @@ public class RetrofitConnection {
         public static final RetrofitConnection INSTANCE = new RetrofitConnection();
     }
 
-    //setRetrofit("http://15.165.116.82:8080");
     private RetrofitConnection(){
     }
 
@@ -71,17 +70,17 @@ public class RetrofitConnection {
             @Override
             public void onResponse(Call<ResponseLoginDTO> call, Response<ResponseLoginDTO> response) {
                 if(response.isSuccessful()){
-                    Toast.makeText(LoginActivity.getContext(), "회원가입 성공", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(LoginActivity.getContext(), "회원가입 성공", Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    Toast.makeText(LoginActivity.getContext(), "회원가입 실패", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(LoginActivity.getContext(), "회원가입 실패", Toast.LENGTH_SHORT).show();
                     Log.e("requestLogin", response.message());
                 }
             }
 
             @Override
             public void onFailure(Call<ResponseLoginDTO> call, Throwable t) {
-                Toast.makeText(LoginActivity.getContext(), "회원가입 실패 // 네트워크 오류", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(LoginActivity.getContext(), "회원가입 실패 // 네트워크 오류", Toast.LENGTH_SHORT).show();
                 Log.e("requestRegitser", t.getMessage());
             }
         });

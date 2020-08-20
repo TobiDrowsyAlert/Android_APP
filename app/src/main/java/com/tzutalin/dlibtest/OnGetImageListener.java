@@ -85,7 +85,8 @@ public class OnGetImageListener implements OnImageAvailableListener {
     private FloatingCameraWindow mWindow;
     private Paint mFaceLandmardkPaint;
 
-    private static AlertUtility alertUtility;    private User user;
+    private static AlertUtility alertUtility;
+    private User user;
 
 
     private Boolean isActivateNetwork;

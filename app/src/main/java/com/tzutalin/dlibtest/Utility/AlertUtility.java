@@ -5,8 +5,10 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
+import android.graphics.Camera;
 import android.os.Handler;
 import android.util.Log;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.tzutalin.dlibtest.CameraActivity;
@@ -116,6 +118,7 @@ public class AlertUtility {
         alaramManager.vibrate(responseDrowsyResponse.getSleep_step());
         // 새로운 졸음 들어온 것, 기존 알람 소리 초기화 필요
 
+
         Log.e(TAG, "LogNo : " + logNo );
 
         builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
@@ -141,6 +144,10 @@ public class AlertUtility {
         });
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
+
+        if(true){
+            CameraActivity.startSpeech(alertDialog);
+        }
 
         int sleep_step = responseDrowsyResponse.getSleep_step();
 
