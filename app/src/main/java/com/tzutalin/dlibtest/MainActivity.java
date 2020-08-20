@@ -56,7 +56,8 @@ public class MainActivity extends AppCompatActivity {
     // Storage Permissions
     private static String[] PERMISSIONS_REQ = {
             Manifest.permission.CAMERA,
-            Manifest.permission.READ_EXTERNAL_STORAGE
+            Manifest.permission.READ_EXTERNAL_STORAGE,
+            Manifest.permission.RECORD_AUDIO
     };
 
     // UI
