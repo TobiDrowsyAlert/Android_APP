@@ -209,8 +209,8 @@ public class CameraActivity extends AppCompatActivity {
 
         bitm_mic = BitmapFactory.decodeResource(getResources(), R.drawable.mic_48);
         bitm_stretch = BitmapFactory.decodeResource(getResources(), R.drawable.roll2);
-        bitm_undo = BitmapFactory.decodeResource(getResources(), R.drawable.undo_l);
-        bitm_redo = BitmapFactory.decodeResource(getResources(), R.drawable.redo_r);
+        bitm_undo = BitmapFactory.decodeResource(getResources(), R.drawable.lll);
+        bitm_redo = BitmapFactory.decodeResource(getResources(), R.drawable.rrr);
 
         alertUtility = new AlertUtility(this);
 
