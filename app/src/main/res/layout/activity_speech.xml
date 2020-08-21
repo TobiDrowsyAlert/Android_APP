@@ -25,4 +25,10 @@
         android:layout_centerHorizontal="true"
         android:singleLine="false" />
 
+    <Button
+        android:id="@+id/btn_random_speech"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="무작위 사운드" />
+
 </RelativeLayout>

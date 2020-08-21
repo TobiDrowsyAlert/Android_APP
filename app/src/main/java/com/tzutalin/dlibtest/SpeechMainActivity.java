@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.view.View;
 import com.naver.speech.clientapi.SpeechRecognitionResult;
+import com.tzutalin.dlibtest.Utility.MediaUtility;
 import com.tzutalin.dlibtest.utils.AudioWriterPCM;
 
 import java.lang.ref.WeakReference;
@@ -26,8 +27,10 @@ public class SpeechMainActivity extends Activity {
     private NaverRecognizer naverRecognizer;
     private TextView txtResult;
     private Button btnStart;
+    private Button btnRandomSound;
     private String mResult;
     private AudioWriterPCM writer;
+    MediaUtility mediaUtility;
     // Handle speech recognition Messages.
     private void handleMessage(Message msg) {
         switch (msg.what) {
@@ -79,9 +82,11 @@ public class SpeechMainActivity extends Activity {
         setContentView(R.layout.activity_speech);
         txtResult = (TextView) findViewById(R.id.txt_result);
         btnStart = (Button) findViewById(R.id.btn_start);
+        btnRandomSound = (Button) findViewById(R.id.btn_random_speech);
         handler = new RecognitionHandler(this);
         naverRecognizer = new NaverRecognizer(this, handler, CLIENT_ID);
-/*
+        mediaUtility = MediaUtility.getInstance(this);
+        /*
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.RECORD_AUDIO}, 1);
         } else if (ActivityCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED) { }
@@ -100,6 +105,13 @@ public class SpeechMainActivity extends Activity {
                     btnStart.setEnabled(false);
                     naverRecognizer.getSpeechRecognizer().stop();
                 }
+            }
+        });
+
+        btnRandomSound.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mediaUtility.randomStart();
             }
         });
     }
