@@ -80,6 +80,7 @@ public class CameraActivity extends AppCompatActivity {
     static TimerHandler timerHandler;
     static int currentColor;
     static TimerMinuteHandler countHandler;
+    static AlertDialog alertDialog;
 
     Button btnSpeech;
 
@@ -101,7 +102,6 @@ public class CameraActivity extends AppCompatActivity {
     static TextView textViewWeakTime;
     static TextView textViewStage;
 
-    static AlertDialog alertDialog;
 
     Button btn;
 
@@ -174,16 +174,16 @@ public class CameraActivity extends AppCompatActivity {
         instanceContext = this;
         UiHandler = new Handler(Looper.getMainLooper());
 
-        textViewWeakTime = (TextView)findViewById(R.id.textViewIsWeakTime);
-        textViewStage = (TextView)findViewById(R.id.textViewStage);
+        textViewWeakTime = findViewById(R.id.textViewIsWeakTime);
+        textViewStage = findViewById(R.id.textViewStage);
 
-        i = (ImageView)findViewById(R.id.ttt);
-        btnSpeech = (Button)findViewById(R.id.btnSpeech);
+        i = findViewById(R.id.ttt);
+        btnSpeech = findViewById(R.id.btnSpeech);
         bitm = BitmapFactory.decodeResource(getResources(), R.drawable.stopimage);
 
         alertUtility = new AlertUtility(this);
 
-        v = (View)findViewById(R.id.view1);
+        v = findViewById(R.id.view1);
 
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -367,24 +367,24 @@ public class CameraActivity extends AppCompatActivity {
     }
 
     static public void onClickStartCount(View view){
-        timerHandler.sendEmptyMessage(timerHandler.MESSAGE_TIMER_START);
+        timerHandler.sendEmptyMessage(TimerHandler.MESSAGE_TIMER_START);
         Toast.makeText(CameraActivity.getContext(),"카운트 실행", Toast.LENGTH_SHORT).show();
     }
     static public void onClickStopCount(View view){
-        timerHandler.sendEmptyMessage(timerHandler.MESSAGE_TIMER_STOP);
+        timerHandler.sendEmptyMessage(TimerHandler.MESSAGE_TIMER_STOP);
         Toast.makeText(CameraActivity.getContext(),"카운트 중지", Toast.LENGTH_SHORT).show();
     }
 
     static public void countHandlerStart(){
-        countHandler.sendEmptyMessage(timerHandler.MESSAGE_TIMER_START);
+        countHandler.sendEmptyMessage(TimerHandler.MESSAGE_TIMER_START);
     }
 
     static public void countHandlerStop(){
-        countHandler.sendEmptyMessage(timerHandler.MESSAGE_TIMER_STOP);
+        countHandler.sendEmptyMessage(TimerHandler.MESSAGE_TIMER_STOP);
     }
 
     static public void countHandlerPause(){
-        countHandler.sendEmptyMessage(timerHandler.MESSAGE_TIMER_PAUSE);
+        countHandler.sendEmptyMessage(TimerHandler.MESSAGE_TIMER_PAUSE);
     }
 
 
@@ -432,6 +432,7 @@ public class CameraActivity extends AppCompatActivity {
     static public void startSpeech(AlertDialog alertDialog){
         if(!naverRecognizer.getSpeechRecognizer().isRunning()) {
             naverRecognizer.recognize();
+            CameraActivity.alertDialog = alertDialog;
             // 실행 중 동작 아이콘 추가 부분
         } else {
             Log.d(TAG, "stop and wait Final Result");
