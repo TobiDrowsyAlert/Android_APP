@@ -80,6 +80,7 @@ public class CameraActivity extends AppCompatActivity {
     static TimerHandler timerHandler;
     static int currentColor;
     static TimerMinuteHandler countHandler;
+    static AlertDialog alertDialog;
 
     Button btnSpeech;
 
@@ -409,8 +410,6 @@ public class CameraActivity extends AppCompatActivity {
             i.setImageBitmap(bitm);  // 이미지 추가
             i.setVisibility(View.VISIBLE);  // 이미지 다시 생성하기
 
-
-
             onClickStopCount(null);
             countHandlerStop();
         }else{
@@ -418,7 +417,6 @@ public class CameraActivity extends AppCompatActivity {
             currentPause = "OFF";
 
             i.setVisibility(View.GONE); // 이미지 사라지게 하는 것
-
 
             onClickStartCount(null);
             countHandlerStart();
@@ -475,6 +473,7 @@ public class CameraActivity extends AppCompatActivity {
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
+
             }
 
             @Override
@@ -497,6 +496,7 @@ public class CameraActivity extends AppCompatActivity {
     static public void startSpeech(AlertDialog alertDialog){
         if(!naverRecognizer.getSpeechRecognizer().isRunning()) {
             naverRecognizer.recognize();
+            CameraActivity.alertDialog = alertDialog;
             // 실행 중 동작 아이콘 추가 부분
         } else {
             Log.d(TAG, "stop and wait Final Result");

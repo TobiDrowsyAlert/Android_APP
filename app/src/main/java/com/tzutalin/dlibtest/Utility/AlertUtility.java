@@ -37,6 +37,7 @@ public class AlertUtility {
     Context mContext;
 
     AlertDialog.Builder builder;
+    AlertDialog alertDialog;
     RetrofitConnection retrofitConnection;
     ResponseLandmarkDTO responseDrowsyResponse; // step
 
@@ -124,7 +125,6 @@ public class AlertUtility {
         builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int id) {
-                Toast.makeText(mContext, "YES", Toast.LENGTH_SHORT).show();
                 handler.removeCallbacks(dialogRunnable);
                 alaramManager.alramStop();
                 alaramManager.vibrateCancel();
@@ -135,15 +135,15 @@ public class AlertUtility {
         builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int id) {
-                Toast.makeText(mContext, "NO", Toast.LENGTH_SHORT).show();
                 handler.removeCallbacks(dialogRunnable);
                 alaramManager.alramStop();
                 alaramManager.vibrateCancel();
                 feedbackTrans(logNo,false);
             }
         });
-        AlertDialog alertDialog = builder.create();
+        alertDialog = builder.create();
         alertDialog.show();
+
 
         if(true){
             CameraActivity.startSpeech(alertDialog);

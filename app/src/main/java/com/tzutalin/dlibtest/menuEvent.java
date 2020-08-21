@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.tzutalin.dlibtest.Utility.MediaUtility;
 import com.tzutalin.dlibtest.user.model.User;
 
 import retrofit2.Retrofit;
@@ -119,6 +120,7 @@ public class menuEvent extends AppCompatActivity {
             }
         });
 
+        MediaUtility.getInstance(this).warningSound();
     }
 
     @Override
