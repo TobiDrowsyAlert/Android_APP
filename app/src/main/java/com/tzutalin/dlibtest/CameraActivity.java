@@ -96,7 +96,19 @@ public class CameraActivity extends AppCompatActivity {
     static View v;
 
     Bitmap bitm;
+
+    Bitmap bitm_mic;
+    Bitmap bitm_stretch;
+    Bitmap bitm_undo;
+    Bitmap bitm_redo;
+
     ImageView i;
+
+    ImageView mic;  // 마이크 이미지
+    ImageView stretch;  //스트레칭 이미지
+    ImageView undo; // 왼쪽아래 이미지
+    ImageView redo; //
+
 
     static TextView textViewWeakTime;
     static TextView textViewStage;
@@ -112,6 +124,11 @@ public class CameraActivity extends AppCompatActivity {
                 //동작 확인용 인터페이스 추가 필요
                 writer = new AudioWriterPCM(Environment.getExternalStorageDirectory().getAbsolutePath() + "/NaverSpeechTest");
                 writer.open("Test");
+
+                mic.bringToFront();  // 마이크 맨 앞으로
+                mic.setImageBitmap(bitm_mic);  // 마이크 사진
+                mic.setVisibility(View.VISIBLE);   // 마이크 띄우기
+
                 break;
             case R.id.audioRecording:
                 writer.write((short[]) msg.obj);
@@ -139,6 +156,9 @@ public class CameraActivity extends AppCompatActivity {
                 mResult = strBuf.toString();
                 // 결과값 텍스트로 보여주기
                 //txtResult.setText(mResult);
+
+                mic.setVisibility(View.GONE);  // 마이크 사진 안보이게 하기
+
                 break;
             case R.id.recognitionError:
                 if (writer != null) {
@@ -178,8 +198,19 @@ public class CameraActivity extends AppCompatActivity {
         textViewStage = (TextView)findViewById(R.id.textViewStage);
 
         i = (ImageView)findViewById(R.id.ttt);
+
+        mic = (ImageView)findViewById(R.id.mic_image);
+        stretch = (ImageView)findViewById(R.id.stretchImage);
+        undo = (ImageView)findViewById(R.id.undo_L);
+        redo = (ImageView)findViewById(R.id.redo_R);
+
         btnSpeech = (Button)findViewById(R.id.btnSpeech);
         bitm = BitmapFactory.decodeResource(getResources(), R.drawable.stopimage);
+
+        bitm_mic = BitmapFactory.decodeResource(getResources(), R.drawable.mic_48);
+        bitm_stretch = BitmapFactory.decodeResource(getResources(), R.drawable.roll2);
+        bitm_undo = BitmapFactory.decodeResource(getResources(), R.drawable.undo_l);
+        bitm_redo = BitmapFactory.decodeResource(getResources(), R.drawable.redo_r);
 
         alertUtility = new AlertUtility(this);
 
@@ -332,7 +363,39 @@ public class CameraActivity extends AppCompatActivity {
         return currentColor;
     }
 
+    public void OnclickTest(View view)
+    {
 
+        if(isActivateNetwork == true)
+        {
+            isActivateNetwork = false;
+            mic.bringToFront();
+            mic.setImageBitmap(bitm_mic);
+            mic.setVisibility(view.VISIBLE);
+
+            stretch.bringToFront();
+            stretch.setImageBitmap(bitm_stretch);
+            stretch.setVisibility(view.VISIBLE);
+
+            undo.bringToFront();
+            undo.setImageBitmap(bitm_undo);
+            undo.setVisibility(View.VISIBLE);
+
+            redo.bringToFront();
+            redo.setImageBitmap(bitm_redo);
+            redo.setVisibility(View.VISIBLE);
+        }
+        else
+        {
+            isActivateNetwork = true;
+
+            mic.setVisibility(view.GONE);
+            stretch.setVisibility(view.GONE);
+            undo.setVisibility(View.GONE);
+            redo.setVisibility(View.GONE);
+        }
+
+    }
 
     public void OnclickHandler(View view) {
 
