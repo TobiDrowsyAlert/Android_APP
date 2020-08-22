@@ -52,6 +52,7 @@ import android.widget.Toast;
 
 import com.naver.speech.clientapi.SpeechRecognitionResult;
 import com.tzutalin.dlibtest.Utility.AlertUtility;
+import com.tzutalin.dlibtest.Utility.MediaUtility;
 import com.tzutalin.dlibtest.Utility.SleepStepManager;
 import com.tzutalin.dlibtest.Utility.TimerHandler;
 import com.tzutalin.dlibtest.Utility.TimerMinuteHandler;
@@ -102,7 +103,7 @@ public class CameraActivity extends AppCompatActivity {
     static TextView textViewWeakTime;
     static TextView textViewStage;
 
-
+    int select;
     Button btn;
 
     // Handle speech recognition Messages.
@@ -127,13 +128,21 @@ public class CameraActivity extends AppCompatActivity {
                 for(String result : results) {
                     strBuf.append(result);
                     strBuf.append("\n");
-                    if(result.contains("예")){
+                    if(result.contains("예") && alertDialog != null){
                         Toast.makeText(CameraActivity.this, "응답 `예` 확인" , Toast.LENGTH_SHORT).show();
                         alertDialog.getButton(DialogInterface.BUTTON_POSITIVE).callOnClick();
                     }
-                    else if(result.contains("아니요")){
+                    else if(result.contains("아니요") && alertDialog != null){
                         Toast.makeText(CameraActivity.this, "응답 `아니요` 확인" , Toast.LENGTH_SHORT).show();
                         alertDialog.getButton(DialogInterface.BUTTON_NEGATIVE).callOnClick();
+                    }
+                    else if(alertDialog == null){
+                        if(!MediaUtility.getInstance(this).isMeaningCorrect(result, select)){
+                            // 졸음 단계 상승 + 틀림을 음성으로 알려줌
+                        }
+                        else{
+                            // 졸음 단계 상승 X + 맞았음을 알려줌
+                        }
                     }
                 }
                 mResult = strBuf.toString();

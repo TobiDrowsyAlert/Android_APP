@@ -5,6 +5,7 @@ import android.media.MediaPlayer;
 import android.util.Printer;
 import android.widget.Toast;
 
+import com.tzutalin.dlibtest.CameraActivity;
 import com.tzutalin.dlibtest.R;
 
 import java.io.File;
@@ -40,7 +41,7 @@ public class MediaUtility {
         return mediaUtility;
     }
 
-    public void randomStart(){
+    public int randomStart(){
         int random = (int) (Math.random() * soundVector.size());
         mediaPlayer = MediaPlayer.create(mContext, soundVector.get(random));
         Toast.makeText(mContext, soundName[random], Toast.LENGTH_SHORT).show();
@@ -50,14 +51,17 @@ public class MediaUtility {
             mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                 @Override
                 public void onCompletion(MediaPlayer mediaPlayer) {
+                    // 여기서 음성인식이 시작되어야 한다.
                     mediaPlayer.stop();
                     mediaPlayer.release();
+                    CameraActivity.startSpeech();
                 }
             });
         } else {
             mediaPlayer.stop();
             mediaPlayer.release();
         }
+        return random;
     }
 
     public void warningSound(){
@@ -76,6 +80,20 @@ public class MediaUtility {
             mediaPlayer.stop();
             mediaPlayer.release();
         }
+    }
+
+    public Boolean isMeaningCorrect(String str, int select){
+        int cnt = 0;
+        str = str.replaceAll(" ", "");
+        String answer = soundName[select];
+        Boolean result;
+        for(int i = 0; i < str.length(); i++){
+            if(answer.charAt(i) == str.charAt(i)){
+                cnt++;
+            }
+        }
+
+        return (str.length() / 2) < cnt;
     }
 
 }
