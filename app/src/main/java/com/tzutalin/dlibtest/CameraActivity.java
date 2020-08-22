@@ -383,24 +383,49 @@ public class CameraActivity extends AppCompatActivity {
 
             stretch.bringToFront();
             stretch.setImageBitmap(bitm_stretch);
-            stretch.setVisibility(view.VISIBLE);
+            stretch.setVisibility(View.VISIBLE);
 
-            undo.bringToFront();
-            undo.setImageBitmap(bitm_undo);
-            undo.setVisibility(View.VISIBLE);
+            if(flag == 0)  // 0이면 왼쪽, 1이면 오른쪽 , 2면 스트레칭 x 상태
+            {
+                undo.bringToFront();
+                undo.setImageBitmap(bitm_undo);
+                undo.setVisibility(View.VISIBLE);
 
-            redo.bringToFront();
-            redo.setImageBitmap(bitm_redo);
-            redo.setVisibility(View.VISIBLE);
+                MediaUtility.getInstance(this).leftRightSound(true);
+                Toast.makeText(CameraActivity.this, "왼쪽스트레칭" , Toast.LENGTH_SHORT).show();
 
+                //if(~~~)
+                // 스트레칭 수행 시 반대 쪽 수행 하도록
+            }
+            else if(flag == 1)
+            {
+                redo.bringToFront();
+                redo.setImageBitmap(bitm_redo);
+                redo.setVisibility(View.VISIBLE);
+
+                MediaUtility.getInstance(this).leftRightSound(false);
+                Toast.makeText(CameraActivity.this, "오른쪽스트레칭" , Toast.LENGTH_SHORT).show();
+
+                //if(~~)
+                // 스트레칭 모두 수행 시 스트레칭 이미지 없애기
+            }
         }
         else
         {
             isActivateNetwork = true;
 
-            stretch.setVisibility(view.GONE);
-            undo.setVisibility(View.GONE);
-            redo.setVisibility(View.GONE);
+            stretch.setVisibility(View.GONE);  // 스트레칭 이미지 없애기
+            undo.setVisibility(View.GONE);    // 왼쪽 스트레칭 없애기
+            redo.setVisibility(View.GONE);  // 오른쪽
+
+            Toast.makeText(CameraActivity.this, "스트레칭 끝" , Toast.LENGTH_SHORT).show();
+
+            if(flag == 1)
+            {
+                flag =0;
+            }
+            else
+                flag =1;
         }
 
     }
