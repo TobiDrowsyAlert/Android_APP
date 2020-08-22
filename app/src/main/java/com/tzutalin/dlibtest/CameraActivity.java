@@ -52,6 +52,7 @@ import android.widget.Toast;
 
 import com.naver.speech.clientapi.SpeechRecognitionResult;
 import com.tzutalin.dlibtest.Utility.AlertUtility;
+import com.tzutalin.dlibtest.Utility.MediaUtility;
 import com.tzutalin.dlibtest.Utility.SleepStepManager;
 import com.tzutalin.dlibtest.Utility.TimerHandler;
 import com.tzutalin.dlibtest.Utility.TimerMinuteHandler;
@@ -111,30 +112,72 @@ public class CameraActivity extends AppCompatActivity {
     ImageView redo; //
 
 
+
     static TextView textViewWeakTime;
     static TextView textViewStage;
 
-    static AlertDialog alertDialog;
+    // static AlertDialog alertDialog;
 
     Button btn;
 
+
+
+    int flag = 1;  // 0이면 왼쪽, 1이면 오른쪽 , 2면 스트레칭 x 상태
+
     // Handle speech recognition Messages.
     private void handleMessage(Message msg) {
+
+        stretch.bringToFront();
+        stretch.setImageBitmap(bitm_stretch);
+        stretch.setVisibility(View.VISIBLE);
+
+        if(flag == 0)  // 0이면 왼쪽, 1이면 오른쪽 , 2면 스트레칭 x 상태
+        {
+            undo.bringToFront();
+            undo.setImageBitmap(bitm_undo);
+            undo.setVisibility(View.VISIBLE);
+
+            MediaUtility.getInstance(this).leftRightSound(true);
+            Toast.makeText(CameraActivity.this, "왼쪽스트레칭" , Toast.LENGTH_SHORT).show();
+
+            //if(~~~)
+            // 스트레칭 수행 시 반대 쪽 수행 하도록
+            flag = 1;
+        }
+        else if(flag == 1)
+        {
+            redo.bringToFront();
+            redo.setImageBitmap(bitm_redo);
+            redo.setVisibility(View.VISIBLE);
+
+            MediaUtility.getInstance(this).leftRightSound(false);
+            Toast.makeText(CameraActivity.this, "오른쪽스트레칭" , Toast.LENGTH_SHORT).show();
+
+            //if(~~)
+            // 스트레칭 모두 수행 시 스트레칭 이미지 없애기
+            flag = 2;
+        }
+        else if(flag == 2)
+        {
+            stretch.setVisibility(View.GONE);  // 스트레칭 이미지 없애기
+            undo.setVisibility(View.GONE);    // 왼쪽 스트레칭 없애기
+            redo.setVisibility(View.GONE);  // 오른쪽
+
+            Toast.makeText(CameraActivity.this, "스트레칭 끝" , Toast.LENGTH_SHORT).show();
+
+            flag = 3;
+        }
         switch (msg.what) {
             case R.id.clientReady: // 음성인식 준비 가능
                 //동작 확인용 인터페이스 추가 필요
                 writer = new AudioWriterPCM(Environment.getExternalStorageDirectory().getAbsolutePath() + "/NaverSpeechTest");
                 writer.open("Test");
-
-                mic.bringToFront();  // 마이크 맨 앞으로
-                mic.setImageBitmap(bitm_mic);  // 마이크 사진
-                mic.setVisibility(View.VISIBLE);   // 마이크 띄우기
-
                 break;
             case R.id.audioRecording:
                 writer.write((short[]) msg.obj);
                 break;
             case R.id.partialResult:
+
                 mResult = (String) (msg.obj);
                 // 실패 시 원인 설명 필요
                 break;
@@ -157,9 +200,6 @@ public class CameraActivity extends AppCompatActivity {
                 mResult = strBuf.toString();
                 // 결과값 텍스트로 보여주기
                 //txtResult.setText(mResult);
-
-                mic.setVisibility(View.GONE);  // 마이크 사진 안보이게 하기
-
                 break;
             case R.id.recognitionError:
                 if (writer != null) {
@@ -370,9 +410,6 @@ public class CameraActivity extends AppCompatActivity {
         if(isActivateNetwork == true)
         {
             isActivateNetwork = false;
-            mic.bringToFront();
-            mic.setImageBitmap(bitm_mic);
-            mic.setVisibility(view.VISIBLE);
 
             stretch.bringToFront();
             stretch.setImageBitmap(bitm_stretch);
@@ -385,12 +422,12 @@ public class CameraActivity extends AppCompatActivity {
             redo.bringToFront();
             redo.setImageBitmap(bitm_redo);
             redo.setVisibility(View.VISIBLE);
+
         }
         else
         {
             isActivateNetwork = true;
 
-            mic.setVisibility(view.GONE);
             stretch.setVisibility(view.GONE);
             undo.setVisibility(View.GONE);
             redo.setVisibility(View.GONE);
@@ -519,3 +556,4 @@ public class CameraActivity extends AppCompatActivity {
         }
     }
 }
+

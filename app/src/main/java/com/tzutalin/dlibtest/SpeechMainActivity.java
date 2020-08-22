@@ -3,6 +3,8 @@ package com.tzutalin.dlibtest;
 import android.Manifest;
 import android.app.Activity;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
@@ -10,6 +12,7 @@ import android.os.Message;
 import android.support.v4.app.ActivityCompat;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.view.View;
 import com.naver.speech.clientapi.SpeechRecognitionResult;
@@ -31,6 +34,11 @@ public class SpeechMainActivity extends Activity {
     private String mResult;
     private AudioWriterPCM writer;
     MediaUtility mediaUtility;
+
+
+    Bitmap bitmap_mic;  // 마이크 이미지
+    ImageView mic;   // 마이크 이미지
+
     // Handle speech recognition Messages.
     private void handleMessage(Message msg) {
         switch (msg.what) {
@@ -43,8 +51,15 @@ public class SpeechMainActivity extends Activity {
                 writer.write((short[]) msg.obj);
                 break;
             case R.id.partialResult:
+
+                // 단점 '아~~' 이런 인식 안될 때는 마이크 이미지 안나옴 인식이 안되므로
+                mic.bringToFront();  // 말 할때부터 마이크 이미지 보여주기
+                mic.setImageBitmap(bitmap_mic);  // ~~
+                mic.setVisibility(View.VISIBLE);  // ~~
+
                 mResult = (String) (msg.obj);
                 txtResult.setText(mResult);
+
                 break;
             case R.id.finalResult: // 최종 인식 결과
                 SpeechRecognitionResult speechRecognitionResult = (SpeechRecognitionResult) msg.obj;
@@ -56,6 +71,9 @@ public class SpeechMainActivity extends Activity {
                 }
                 mResult = strBuf.toString();
                 txtResult.setText(mResult);
+
+                mic.setVisibility(View.GONE);     // 출력 결과 이후 마이크 이미지 없애기
+
                 break;
             case R.id.recognitionError:
                 if (writer != null) {
@@ -86,6 +104,10 @@ public class SpeechMainActivity extends Activity {
         handler = new RecognitionHandler(this);
         naverRecognizer = new NaverRecognizer(this, handler, CLIENT_ID);
         mediaUtility = MediaUtility.getInstance(this);
+
+        mic = (ImageView)findViewById(R.id.micimage);
+        bitmap_mic = BitmapFactory.decodeResource(getResources(), R.drawable.mic_48);
+
         /*
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.RECORD_AUDIO}, 1);

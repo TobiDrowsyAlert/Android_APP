@@ -31,4 +31,13 @@
         android:layout_height="wrap_content"
         android:text="무작위 사운드" />
 
+
+    <ImageView
+        android:id="@+id/micimage"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="300dp"
+        />
+
 </RelativeLayout>
