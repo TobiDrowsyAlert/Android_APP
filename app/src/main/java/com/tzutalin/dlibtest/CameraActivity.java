@@ -127,46 +127,6 @@ public class CameraActivity extends AppCompatActivity {
     // Handle speech recognition Messages.
     private void handleMessage(Message msg) {
 
-        stretch.bringToFront();
-        stretch.setImageBitmap(bitm_stretch);
-        stretch.setVisibility(View.VISIBLE);
-
-        if(flag == 0)  // 0이면 왼쪽, 1이면 오른쪽 , 2면 스트레칭 x 상태
-        {
-            undo.bringToFront();
-            undo.setImageBitmap(bitm_undo);
-            undo.setVisibility(View.VISIBLE);
-
-            MediaUtility.getInstance(this).leftRightSound(true);
-            Toast.makeText(CameraActivity.this, "왼쪽스트레칭" , Toast.LENGTH_SHORT).show();
-
-            //if(~~~)
-            // 스트레칭 수행 시 반대 쪽 수행 하도록
-            flag = 1;
-        }
-        else if(flag == 1)
-        {
-            redo.bringToFront();
-            redo.setImageBitmap(bitm_redo);
-            redo.setVisibility(View.VISIBLE);
-
-            MediaUtility.getInstance(this).leftRightSound(false);
-            Toast.makeText(CameraActivity.this, "오른쪽스트레칭" , Toast.LENGTH_SHORT).show();
-
-            //if(~~)
-            // 스트레칭 모두 수행 시 스트레칭 이미지 없애기
-            flag = 2;
-        }
-        else if(flag == 2)
-        {
-            stretch.setVisibility(View.GONE);  // 스트레칭 이미지 없애기
-            undo.setVisibility(View.GONE);    // 왼쪽 스트레칭 없애기
-            redo.setVisibility(View.GONE);  // 오른쪽
-
-            Toast.makeText(CameraActivity.this, "스트레칭 끝" , Toast.LENGTH_SHORT).show();
-
-            flag = 3;
-        }
         switch (msg.what) {
             case R.id.clientReady: // 음성인식 준비 가능
                 //동작 확인용 인터페이스 추가 필요
@@ -199,9 +159,11 @@ public class CameraActivity extends AppCompatActivity {
                     else if(alertDialog == null){
                         if(!MediaUtility.getInstance(this).isMeaningCorrect(result, select)){
                             // 졸음 단계 상승 + 틀림을 음성으로 알려줌
+                            MediaUtility.getInstance(this).startSound(MediaUtility.INT_CORRECT_REPLY);
                         }
                         else{
                             // 졸음 단계 상승 X + 맞았음을 알려줌
+                            MediaUtility.getInstance(this).startSound(MediaUtility.INT_INCORRECT_REPLY);
                         }
                     }
                 }

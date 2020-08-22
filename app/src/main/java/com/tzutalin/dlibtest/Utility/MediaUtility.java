@@ -14,6 +14,9 @@ import java.util.Map;
 import java.util.Vector;
 
 public class MediaUtility {
+    public final static int INT_WARNING_REPLY = 0;
+    public final static int INT_CORRECT_REPLY = 8;
+    public final static int INT_INCORRECT_REPLY = 9;
     private static MediaUtility mediaUtility = new MediaUtility();
     private static Context mContext;
     int no;
@@ -34,7 +37,7 @@ public class MediaUtility {
         soundVector.add(R.raw.sound4);
         soundVector.add(R.raw.sound5);
         soundVector.add(R.raw.sound6);
-        soundVector.add(R.raw.sound7);  // 취약시간입니다. 조심해주세요.
+        soundVector.add(R.raw.sound7);  // 취약시간입니다. 주의해주세요.
         soundVector.add(R.raw.replay);  // 다시시도해주세요.   num 8
         soundVector.add(R.raw.leftsound);  // 왼쪽으로 스트레칭해주세요  num 9
         soundVector.add(R.raw.rightsound);  // 오른쪽으로 스트레칭해주세요  num 10
@@ -93,8 +96,8 @@ public class MediaUtility {
         }
     }
 
-    public void warningSound(){
-        mediaPlayer = MediaPlayer.create(mContext, soundVector.get(0));
+    public void startSound(int i){
+        mediaPlayer = MediaPlayer.create(mContext, soundVector.get(i));
 
         if(!mediaPlayer.isPlaying()){
             mediaPlayer.start();
@@ -110,6 +113,8 @@ public class MediaUtility {
             mediaPlayer.release();
         }
     }
+
+
 
     public Boolean isMeaningCorrect(String str, int select){
         int cnt = 0;

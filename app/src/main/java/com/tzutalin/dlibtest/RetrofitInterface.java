@@ -4,7 +4,8 @@ import com.tzutalin.dlibtest.domain.RequestAnalyzeSleepDTO;
         import com.tzutalin.dlibtest.domain.RequestFeedbackDTO;
         import com.tzutalin.dlibtest.domain.RequestRegisterDTO;
         import com.tzutalin.dlibtest.domain.ResponseLandmarkDTO;
-        import com.tzutalin.dlibtest.user.domain.ResponseLoginDTO;
+import com.tzutalin.dlibtest.domain.StrechDataDTO;
+import com.tzutalin.dlibtest.user.domain.ResponseLoginDTO;
         import com.tzutalin.dlibtest.user.domain.RequestLoginDTO;
         import com.tzutalin.dlibtest.user.model.UserDTO;
 
@@ -39,4 +40,6 @@ public interface RetrofitInterface {
     @POST("/user/logout")
     Call<ResponseLoginDTO> logout(@Body UserDTO userDTO);
 
+    @POST("/user/strectch")
+    Call<ResponseLoginDTO> strectch(@Body StrechDataDTO strechDataDTO);
 }
