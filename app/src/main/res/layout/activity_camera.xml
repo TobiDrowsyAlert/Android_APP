@@ -62,6 +62,17 @@
         android:text="테스트" />
 
     <Button
+        android:id="@+id/btn_testSpeech"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/roundrectangle_r2"
+        android:onClick="OnclickTest"
+        android:text="테스트" />
+
+    <Button
         android:id="@+id/btnTimerStart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -120,7 +120,7 @@ public class menuEvent extends AppCompatActivity {
             }
         });
 
-        MediaUtility.getInstance(this).warningSound();
+        MediaUtility.getInstance(this).startSound(MediaUtility.INT_WARNING_REPLY);
     }
 
     @Override

@@ -116,9 +116,10 @@ public class CameraActivity extends AppCompatActivity {
     static TextView textViewWeakTime;
     static TextView textViewStage;
 
-    int select;
+    static int select = 0;
 
     Button btn;
+    Button btn_testSpeech;
 
 
 
@@ -126,9 +127,11 @@ public class CameraActivity extends AppCompatActivity {
 
     // Handle speech recognition Messages.
     private void handleMessage(Message msg) {
+
         switch (msg.what) {
             case R.id.clientReady: // 음성인식 준비 가능
                 //동작 확인용 인터페이스 추가 필요
+                mic.setVisibility(View.VISIBLE);
                 writer = new AudioWriterPCM(Environment.getExternalStorageDirectory().getAbsolutePath() + "/NaverSpeechTest");
                 writer.open("Test");
                 break;
@@ -136,11 +139,11 @@ public class CameraActivity extends AppCompatActivity {
                 writer.write((short[]) msg.obj);
                 break;
             case R.id.partialResult:
-
                 mResult = (String) (msg.obj);
                 // 실패 시 원인 설명 필요
                 break;
-            case R.id.finalResult: // 최종 인식 결과
+            case R.id.finalResult: // 최종 인식
+                Boolean isCorrect = false;
                 SpeechRecognitionResult speechRecognitionResult = (SpeechRecognitionResult) msg.obj;
                 List<String> results = speechRecognitionResult.getResults();
                 StringBuilder strBuf = new StringBuilder();
@@ -156,17 +159,20 @@ public class CameraActivity extends AppCompatActivity {
                         alertDialog.getButton(DialogInterface.BUTTON_NEGATIVE).callOnClick();
                     }
                     else if(alertDialog == null){
-                        if(!MediaUtility.getInstance(this).isMeaningCorrect(result, select)){
-                            // 졸음 단계 상승 + 틀림을 음성으로 알려줌
-                        }
-                        else{
-                            // 졸음 단계 상승 X + 맞았음을 알려줌
-                        }
+                        if(MediaUtility.getInstance(this).isMeaningCorrect(result, select))
+                            isCorrect = true;
                     }
                 }
+
+                if(isCorrect && alertDialog == null)
+                    MediaUtility.getInstance(this).startSound(MediaUtility.INT_CORRECT_REPLY);
+                else
+                    MediaUtility.getInstance(this).startSound(MediaUtility.INT_INCORRECT_REPLY);
+
                 mResult = strBuf.toString();
                 // 결과값 텍스트로 보여주기
                 //txtResult.setText(mResult);
+                mic.setVisibility(View.GONE);
                 break;
             case R.id.recognitionError:
                 if (writer != null) {
@@ -213,6 +219,7 @@ public class CameraActivity extends AppCompatActivity {
         redo = (ImageView)findViewById(R.id.redo_R);
 
         btnSpeech = (Button)findViewById(R.id.btnSpeech);
+        btn_testSpeech = (Button)findViewById(R.id.btn_testSpeech);
         bitm = BitmapFactory.decodeResource(getResources(), R.drawable.stopimage);
 
         bitm_mic = BitmapFactory.decodeResource(getResources(), R.drawable.mic_48);
@@ -243,6 +250,13 @@ public class CameraActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startSpeech();
+            }
+        });
+
+        btn_testSpeech.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                testing();
             }
         });
 
@@ -369,6 +383,11 @@ public class CameraActivity extends AppCompatActivity {
 
     public static int getCurrentColor(){
         return currentColor;
+    }
+
+    public void testing(){
+        //int random = (int) (Math.random() * 1);
+        MediaUtility.getInstance(this).startSound(MediaUtility.INT_START);
     }
 
     public void OnclickTest(View view)
@@ -515,6 +534,17 @@ public class CameraActivity extends AppCompatActivity {
     static public void startSpeech(){
         if(!naverRecognizer.getSpeechRecognizer().isRunning()) {
             naverRecognizer.recognize();
+            // 실행 중 동작 아이콘 추가 부분
+        } else {
+            Log.d(TAG, "stop and wait Final Result");
+            naverRecognizer.getSpeechRecognizer().stop();
+        }
+    }
+
+    public static void startSpeech(int select){
+        if(!naverRecognizer.getSpeechRecognizer().isRunning()) {
+            naverRecognizer.recognize();
+            CameraActivity.select = select;
             // 실행 중 동작 아이콘 추가 부분
         } else {
             Log.d(TAG, "stop and wait Final Result");
