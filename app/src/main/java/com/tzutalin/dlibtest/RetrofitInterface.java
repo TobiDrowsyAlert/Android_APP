@@ -41,5 +41,5 @@ public interface RetrofitInterface {
     Call<ResponseLoginDTO> logout(@Body UserDTO userDTO);
 
     @POST("/user/strectch")
-    Call<ResponseLoginDTO> strectch(@Body StrechDataDTO strechDataDTO);
+    Call<StrechDataDTO> strectch(@Body RequestAnalyzeSleepDTO landmarks);
 }
