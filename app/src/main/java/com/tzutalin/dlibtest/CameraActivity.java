@@ -98,16 +98,75 @@ public class CameraActivity extends AppCompatActivity {
     static View v;
 
     Bitmap bitm;
+
+    Bitmap bitm_mic;
+    Bitmap bitm_stretch;
+    Bitmap bitm_undo;
+    Bitmap bitm_redo;
+
     ImageView i;
+
+    ImageView mic;  // 마이크 이미지
+    ImageView stretch;  //스트레칭 이미지
+    ImageView undo; // 왼쪽아래 이미지
+    ImageView redo; //
+
+
 
     static TextView textViewWeakTime;
     static TextView textViewStage;
 
     int select;
+
     Button btn;
+
+
+
+    int flag = 1;  // 0이면 왼쪽, 1이면 오른쪽 , 2면 스트레칭 x 상태
 
     // Handle speech recognition Messages.
     private void handleMessage(Message msg) {
+
+        stretch.bringToFront();
+        stretch.setImageBitmap(bitm_stretch);
+        stretch.setVisibility(View.VISIBLE);
+
+        if(flag == 0)  // 0이면 왼쪽, 1이면 오른쪽 , 2면 스트레칭 x 상태
+        {
+            undo.bringToFront();
+            undo.setImageBitmap(bitm_undo);
+            undo.setVisibility(View.VISIBLE);
+
+            MediaUtility.getInstance(this).leftRightSound(true);
+            Toast.makeText(CameraActivity.this, "왼쪽스트레칭" , Toast.LENGTH_SHORT).show();
+
+            //if(~~~)
+            // 스트레칭 수행 시 반대 쪽 수행 하도록
+            flag = 1;
+        }
+        else if(flag == 1)
+        {
+            redo.bringToFront();
+            redo.setImageBitmap(bitm_redo);
+            redo.setVisibility(View.VISIBLE);
+
+            MediaUtility.getInstance(this).leftRightSound(false);
+            Toast.makeText(CameraActivity.this, "오른쪽스트레칭" , Toast.LENGTH_SHORT).show();
+
+            //if(~~)
+            // 스트레칭 모두 수행 시 스트레칭 이미지 없애기
+            flag = 2;
+        }
+        else if(flag == 2)
+        {
+            stretch.setVisibility(View.GONE);  // 스트레칭 이미지 없애기
+            undo.setVisibility(View.GONE);    // 왼쪽 스트레칭 없애기
+            redo.setVisibility(View.GONE);  // 오른쪽
+
+            Toast.makeText(CameraActivity.this, "스트레칭 끝" , Toast.LENGTH_SHORT).show();
+
+            flag = 3;
+        }
         switch (msg.what) {
             case R.id.clientReady: // 음성인식 준비 가능
                 //동작 확인용 인터페이스 추가 필요
@@ -118,6 +177,7 @@ public class CameraActivity extends AppCompatActivity {
                 writer.write((short[]) msg.obj);
                 break;
             case R.id.partialResult:
+
                 mResult = (String) (msg.obj);
                 // 실패 시 원인 설명 필요
                 break;
@@ -183,16 +243,27 @@ public class CameraActivity extends AppCompatActivity {
         instanceContext = this;
         UiHandler = new Handler(Looper.getMainLooper());
 
-        textViewWeakTime = findViewById(R.id.textViewIsWeakTime);
-        textViewStage = findViewById(R.id.textViewStage);
+        textViewWeakTime = (TextView)findViewById(R.id.textViewIsWeakTime);
+        textViewStage = (TextView)findViewById(R.id.textViewStage);
 
-        i = findViewById(R.id.ttt);
-        btnSpeech = findViewById(R.id.btnSpeech);
+        i = (ImageView)findViewById(R.id.ttt);
+
+        mic = (ImageView)findViewById(R.id.mic_image);
+        stretch = (ImageView)findViewById(R.id.stretchImage);
+        undo = (ImageView)findViewById(R.id.undo_L);
+        redo = (ImageView)findViewById(R.id.redo_R);
+
+        btnSpeech = (Button)findViewById(R.id.btnSpeech);
         bitm = BitmapFactory.decodeResource(getResources(), R.drawable.stopimage);
+
+        bitm_mic = BitmapFactory.decodeResource(getResources(), R.drawable.mic_48);
+        bitm_stretch = BitmapFactory.decodeResource(getResources(), R.drawable.roll2);
+        bitm_undo = BitmapFactory.decodeResource(getResources(), R.drawable.lll);
+        bitm_redo = BitmapFactory.decodeResource(getResources(), R.drawable.rrr);
 
         alertUtility = new AlertUtility(this);
 
-        v = findViewById(R.id.view1);
+        v = (View)findViewById(R.id.view1);
 
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -341,7 +412,36 @@ public class CameraActivity extends AppCompatActivity {
         return currentColor;
     }
 
+    public void OnclickTest(View view)
+    {
 
+        if(isActivateNetwork == true)
+        {
+            isActivateNetwork = false;
+
+            stretch.bringToFront();
+            stretch.setImageBitmap(bitm_stretch);
+            stretch.setVisibility(view.VISIBLE);
+
+            undo.bringToFront();
+            undo.setImageBitmap(bitm_undo);
+            undo.setVisibility(View.VISIBLE);
+
+            redo.bringToFront();
+            redo.setImageBitmap(bitm_redo);
+            redo.setVisibility(View.VISIBLE);
+
+        }
+        else
+        {
+            isActivateNetwork = true;
+
+            stretch.setVisibility(view.GONE);
+            undo.setVisibility(View.GONE);
+            redo.setVisibility(View.GONE);
+        }
+
+    }
 
     public void OnclickHandler(View view) {
 
@@ -376,24 +476,24 @@ public class CameraActivity extends AppCompatActivity {
     }
 
     static public void onClickStartCount(View view){
-        timerHandler.sendEmptyMessage(TimerHandler.MESSAGE_TIMER_START);
+        timerHandler.sendEmptyMessage(timerHandler.MESSAGE_TIMER_START);
         Toast.makeText(CameraActivity.getContext(),"카운트 실행", Toast.LENGTH_SHORT).show();
     }
     static public void onClickStopCount(View view){
-        timerHandler.sendEmptyMessage(TimerHandler.MESSAGE_TIMER_STOP);
+        timerHandler.sendEmptyMessage(timerHandler.MESSAGE_TIMER_STOP);
         Toast.makeText(CameraActivity.getContext(),"카운트 중지", Toast.LENGTH_SHORT).show();
     }
 
     static public void countHandlerStart(){
-        countHandler.sendEmptyMessage(TimerHandler.MESSAGE_TIMER_START);
+        countHandler.sendEmptyMessage(timerHandler.MESSAGE_TIMER_START);
     }
 
     static public void countHandlerStop(){
-        countHandler.sendEmptyMessage(TimerHandler.MESSAGE_TIMER_STOP);
+        countHandler.sendEmptyMessage(timerHandler.MESSAGE_TIMER_STOP);
     }
 
     static public void countHandlerPause(){
-        countHandler.sendEmptyMessage(TimerHandler.MESSAGE_TIMER_PAUSE);
+        countHandler.sendEmptyMessage(timerHandler.MESSAGE_TIMER_PAUSE);
     }
 
 
@@ -464,3 +564,4 @@ public class CameraActivity extends AppCompatActivity {
         }
     }
 }
+

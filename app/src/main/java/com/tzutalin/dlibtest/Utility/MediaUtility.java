@@ -34,6 +34,10 @@ public class MediaUtility {
         soundVector.add(R.raw.sound4);
         soundVector.add(R.raw.sound5);
         soundVector.add(R.raw.sound6);
+        soundVector.add(R.raw.sound7);  // 취약시간입니다. 조심해주세요.
+        soundVector.add(R.raw.replay);  // 다시시도해주세요.   num 8
+        soundVector.add(R.raw.leftsound);  // 왼쪽으로 스트레칭해주세요  num 9
+        soundVector.add(R.raw.rightsound);  // 오른쪽으로 스트레칭해주세요  num 10
     }
 
     public static MediaUtility getInstance(Context context){
@@ -62,6 +66,31 @@ public class MediaUtility {
             mediaPlayer.release();
         }
         return random;
+    }
+
+
+    public void leftRightSound(Boolean direction){
+        if(direction)  // true 면 왼쪽으로 스트레칭해주세요
+        {
+            mediaPlayer = MediaPlayer.create(mContext, soundVector.get(9));
+        }
+        else {  // false 면 오른쪽으로 스트레칭해주세요
+            mediaPlayer = MediaPlayer.create(mContext, soundVector.get(10));
+        }
+
+        if(!mediaPlayer.isPlaying()){
+            mediaPlayer.start();
+            mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                @Override
+                public void onCompletion(MediaPlayer mediaPlayer) {
+                    mediaPlayer.stop();
+                    mediaPlayer.release();
+                }
+            });
+        } else {
+            mediaPlayer.stop();
+            mediaPlayer.release();
+        }
     }
 
     public void warningSound(){
