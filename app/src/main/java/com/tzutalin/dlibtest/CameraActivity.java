@@ -52,6 +52,7 @@ import android.widget.Toast;
 
 import com.naver.speech.clientapi.SpeechRecognitionResult;
 import com.tzutalin.dlibtest.Utility.AlertUtility;
+import com.tzutalin.dlibtest.Utility.AppState;
 import com.tzutalin.dlibtest.Utility.MediaUtility;
 import com.tzutalin.dlibtest.Utility.SleepStepManager;
 import com.tzutalin.dlibtest.Utility.TimerHandler;
@@ -72,10 +73,19 @@ import retrofit2.Response;
  * Created by darrenl on 2016/5/20.
  */
 public class CameraActivity extends AppCompatActivity {
+    public final static int INT_LEFT_DRAW = 0;
+    public final static int INT_RIGHT_DRAW = 1;
+    public final static int INT_FINISH_DRAW = 2;
+    public final static int INT_CYCLE_END = 3;
+
+
     private static final String TAG = MainActivity.class.getSimpleName();
     private static int OVERLAY_PERMISSION_REQ_CODE = 1;
     static Context instanceContext;
     static public Boolean isActivateNetwork = true;
+    private static ImageView stretch;
+    private static Bitmap bitm_stretch;
+    static Bitmap bitm_mic;
     RetrofitConnection retrofitConnection;
     SleepStepManager sleepStepManager;
     static TimerHandler timerHandler;
@@ -97,19 +107,15 @@ public class CameraActivity extends AppCompatActivity {
 
     static View v;
 
-    Bitmap bitm;
-
-    Bitmap bitm_mic;
-    Bitmap bitm_stretch;
-    Bitmap bitm_undo;
-    Bitmap bitm_redo;
+    static Bitmap bitm;
+    static Bitmap bitm_undo;
+    static Bitmap bitm_redo;
 
     ImageView i;
 
-    ImageView mic;  // 마이크 이미지
-    ImageView stretch;  //스트레칭 이미지
-    ImageView undo; // 왼쪽아래 이미지
-    ImageView redo; //
+    static ImageView mic;  // 마이크 이미지
+    static ImageView undo; // 왼쪽아래 이미지
+    static ImageView redo; //
 
 
 
@@ -123,7 +129,7 @@ public class CameraActivity extends AppCompatActivity {
 
 
 
-    int flag = 1;  // 0이면 왼쪽, 1이면 오른쪽 , 2면 스트레칭 x 상태
+    static int flag = 1;  // 0이면 왼쪽, 1이면 오른쪽 , 2면 스트레칭 x 상태
 
     // Handle speech recognition Messages.
     private void handleMessage(Message msg) {
@@ -390,8 +396,79 @@ public class CameraActivity extends AppCompatActivity {
         MediaUtility.getInstance(this).startSound(MediaUtility.INT_START);
     }
 
+    static public void leftRightSound(int flag){
+        if(flag == INT_LEFT_DRAW)
+        {
+            MediaUtility.getInstance(CameraActivity.getContext()).leftRightSound(true);
+        }
+        else if(flag == INT_RIGHT_DRAW)
+        {
+            MediaUtility.getInstance(CameraActivity.getContext()).leftRightSound(false);
+        }
+        else if(flag == INT_FINISH_DRAW)
+        {
+
+        }
+        else if(flag == INT_CYCLE_END){
+            MediaUtility.getInstance(CameraActivity.getContext()).leftRightSound(false);
+        }
+    }
+    static public void leftRightUI(int flag){
+        redo.setImageBitmap(bitm_redo);
+        undo.setImageBitmap(bitm_undo);
+
+        if(flag == INT_LEFT_DRAW)
+        {
+            undo.setVisibility(View.GONE);
+            Toast.makeText(CameraActivity.getContext(), "왼쪽스트레칭" , Toast.LENGTH_SHORT).show();
+        }
+        else if(flag == INT_RIGHT_DRAW)
+        {
+            redo.setVisibility(View.GONE);
+            Toast.makeText(CameraActivity.getContext(), "오른쪽스트레칭" , Toast.LENGTH_SHORT).show();
+        }
+        else if(flag == INT_FINISH_DRAW)
+        {
+            stretch.setVisibility(View.GONE);  // 스트레칭 이미지 없애기
+            undo.setVisibility(View.GONE);    // 왼쪽 스트레칭 없애기
+            redo.setVisibility(View.GONE);  // 오른쪽
+
+            Toast.makeText(CameraActivity.getContext(), "스트레칭 끝" , Toast.LENGTH_SHORT).show();
+            AppState.getInstance().setIsStrecthing(false);
+        }
+        else if(flag == INT_CYCLE_END){
+            undo.bringToFront();
+            redo.bringToFront();
+            redo.setVisibility(View.VISIBLE);
+            undo.setVisibility(View.VISIBLE);
+        }
+    }
+
     public void OnclickTest(View view)
     {
+        if(!AppState.getInstance().getIsStrecthing()) {
+            redo.setImageBitmap(bitm_redo);
+            undo.setImageBitmap(bitm_undo);
+            stretch.bringToFront();
+            undo.bringToFront();
+            redo.bringToFront();
+            redo.setVisibility(View.VISIBLE);
+            undo.setVisibility(View.VISIBLE);
+            stretch.setImageBitmap(bitm_stretch);
+            stretch.setVisibility(View.VISIBLE);
+
+            AppState.getInstance().setIsStrecthing(true);
+            Toast.makeText(CameraActivity.getContext(), "스트레칭 시작" , Toast.LENGTH_SHORT).show();
+        }
+        else{
+            AppState.getInstance().setIsStrecthing(false);
+            Toast.makeText(CameraActivity.getContext(), "스트레칭 종료" , Toast.LENGTH_SHORT).show();
+            stretch.setVisibility(View.GONE);  // 스트레칭 이미지 없애기
+            undo.setVisibility(View.GONE);    // 왼쪽 스트레칭 없애기
+            redo.setVisibility(View.GONE);  // 오른쪽
+        }
+
+/*
 
         if(isActivateNetwork == true)
         {
@@ -443,6 +520,7 @@ public class CameraActivity extends AppCompatActivity {
             else
                 flag =1;
         }
+*/
 
     }
 

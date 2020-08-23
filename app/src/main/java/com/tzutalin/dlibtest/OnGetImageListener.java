@@ -42,9 +42,11 @@ import com.tzutalin.dlib.Constants;
 import com.tzutalin.dlib.FaceDet;
 import com.tzutalin.dlib.VisionDetRet;
 import com.tzutalin.dlibtest.Utility.AlertUtility;
+import com.tzutalin.dlibtest.Utility.AppState;
 import com.tzutalin.dlibtest.domain.FaceLandmark;
 import com.tzutalin.dlibtest.domain.FaceRect;
 import com.tzutalin.dlibtest.domain.RequestAnalyzeSleepDTO;
+import com.tzutalin.dlibtest.domain.StrechDataDTO;
 import com.tzutalin.dlibtest.user.model.User;
 
 
@@ -314,7 +316,11 @@ public class OnGetImageListener implements OnImageAvailableListener {
                                         true, faceLandmark.getLandmark(), 50, true);
                                 requestAnalyzeDTO.setUserId(user.getUserId());
 
-                                alertUtility.requestSleepAnalyze(requestAnalyzeDTO);
+                                if(AppState.getInstance().getIsStrecthing()){
+                                    alertUtility.requestStreching(requestAnalyzeDTO);
+                                }else{
+                                    alertUtility.requestSleepAnalyze(requestAnalyzeDTO);
+                                }
 
                             }
 
@@ -334,7 +340,11 @@ public class OnGetImageListener implements OnImageAvailableListener {
                                 else {
                                     requestAnalyzeDTO.setRequestAnalyzeSleepDTO(null,false,null,0,true);
                                     requestAnalyzeDTO.setUserId(user.getUserId());
-                                    alertUtility.requestSleepAnalyze(requestAnalyzeDTO);
+                                    if(AppState.getInstance().getIsStrecthing()){
+                                        alertUtility.requestStreching(requestAnalyzeDTO);
+                                    }else{
+                                        alertUtility.requestSleepAnalyze(requestAnalyzeDTO);
+                                    }
                                 }
                             }
                         }

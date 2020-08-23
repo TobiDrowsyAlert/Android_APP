@@ -140,7 +140,6 @@ public class RetrofitConnection {
     }
 
     public void requestLogout(){
-
         Call<ResponseLoginDTO> call = this.getServer().logout(User.getInstance().getUserDTO());
         call.enqueue(new Callback<ResponseLoginDTO>() {
             @Override
@@ -155,7 +154,6 @@ public class RetrofitConnection {
 
             }
         });
-
     }
 
 
