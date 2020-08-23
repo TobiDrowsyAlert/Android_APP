@@ -128,8 +128,9 @@ public class MediaUtility {
         str = str.replaceAll(" ", "");
         String answer = soundName[select];
         Log.e("isMeaningCorrect", "select : " + select);
+
         for(int i = 0; i < str.length() - 1; i++){
-            if(answer.charAt(i) == str.charAt(i)){
+            if(answer.contains(String.valueOf(str.charAt(i)))){
                 cnt++;
             }
         }

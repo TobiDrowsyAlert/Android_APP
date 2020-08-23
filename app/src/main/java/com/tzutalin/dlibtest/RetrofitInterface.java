@@ -40,6 +40,7 @@ public interface RetrofitInterface {
     @POST("/user/logout")
     Call<ResponseLoginDTO> logout(@Body UserDTO userDTO);
 
-    @POST("/user/strectch")
+    @POST("/api/stretch")
     Call<StrechDataDTO> strectch(@Body RequestAnalyzeSleepDTO landmarks);
+
 }

@@ -18,6 +18,7 @@ import com.tzutalin.dlibtest.domain.RequestFeedbackDTO;
 import com.tzutalin.dlibtest.domain.RequestFeedbackDTO;
 import com.tzutalin.dlibtest.domain.ResponseLandmarkDTO;
 import com.tzutalin.dlibtest.domain.SleepCode;
+import com.tzutalin.dlibtest.domain.StrechDataDTO;
 import com.tzutalin.dlibtest.user.model.User;
 
 import retrofit2.Call;
@@ -54,6 +55,12 @@ public class AlertUtility {
     Float stepThreeAlarmTime;
 
     String TAG = "AlertUtility";
+
+    int cnt = 0;
+    Boolean left_sound_using = false;
+    Boolean right_sound_using = false;
+    Boolean left_stretch_success = false;
+    Boolean right_stretch_success = false;
 
     int time = 3000;
 
@@ -227,6 +234,56 @@ public class AlertUtility {
         });
     }
 
+    public void requestStreching(RequestAnalyzeSleepDTO requestDTO){
+        Call<StrechDataDTO> call = retrofitConnection.getServer().strectch(requestDTO);
+        call.enqueue(new Callback<StrechDataDTO>() {
+            @Override
+            public void onResponse(Call<StrechDataDTO> call, Response<StrechDataDTO> response) {
+                if(response.isSuccessful()){
+                    StrechDataDTO strechData = response.body();
+                    Log.e("RetrofitTest", response.toString());
+                    Log.e("RetrofitTest", response.body().toString());
+
+                    if(strechData.getEnd() && strechData.getCount() == 3){
+                        CameraActivity.leftRightUI(CameraActivity.INT_FINISH_DRAW);
+                        AppState.getInstance().setIsStrecthing(false);
+                    }
+                    else if(strechData.getStart()){
+                        CameraActivity.leftRightUI(CameraActivity.INT_CYCLE_END);
+                        left_sound_using = false;
+                        right_sound_using = false;
+                        left_stretch_success = false;
+                        right_stretch_success = false;
+                    }
+                    else if(!left_sound_using){
+                        CameraActivity.leftRightSound(CameraActivity.INT_LEFT_DRAW);
+                        left_sound_using = true;
+                    }
+                    else if(!right_sound_using && strechData.getLeft()){
+                        CameraActivity.leftRightSound(CameraActivity.INT_RIGHT_DRAW);
+                        right_sound_using = true;
+                    }
+                    else if(strechData.getLeft() && !left_stretch_success){
+                        CameraActivity.leftRightUI(CameraActivity.INT_LEFT_DRAW);
+                        left_stretch_success = true;
+                    }
+                    else if(strechData.getRight() && !right_stretch_success){
+                        CameraActivity.leftRightUI(CameraActivity.INT_RIGHT_DRAW);
+                        right_stretch_success = true;
+                    }
+
+                }
+                else{
+                    Log.e("RetrofitTest", response.message() + " : " + response.toString());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<StrechDataDTO> call, Throwable t) {
+                Log.e("RetrofitTest", "No one in camera + Network Error");
+            }
+        });
+    }
 
 
 }
